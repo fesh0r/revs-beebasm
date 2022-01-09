@@ -3,8 +3,8 @@ from trace6502 import *
 import acorn
 
 
-load(0x1200, "4-reference-binaries/Revs.bin", "0a0da117451375a1df0eab317892725b")
-set_output_filename("3-assembled-output/Revs.bin")
+load(0x1200, "Revs.bin", "0a0da117451375a1df0eab317892725b")
+set_output_filename("Revs-out.bin")
 
 acorn.bbc()
 
@@ -15,7 +15,6 @@ label(0x7000, "movedFrom1500To7000")
 # Code from &1300-&14FF that ends up at &0B00-&0CFF
 move(0x0b00, 0x1300, 0x14ff - 0x1300 + 1)
 label(0x0b00, "movedFrom1300To0b00")
-
 
 # Code from &120E-&12FFthat ends up at &790E-&79FF
 move(0x790e, 0x120e, 0xff - 0xe + 1)
