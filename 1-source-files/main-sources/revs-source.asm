@@ -44,10005 +44,2670 @@ CODE% = &0B00           \ The address of the main game code
 \ ******************************************************************************
 
 ORG CODE%
+l0d00 = &0d00
+l120e = &120e
+l1300 = &1300
+l1500 = &1500
+l16dc = &16dc
+l5300 = &5300
+l5a80 = &5a80
+l64d0 = &64d0
+l6700 = &6700
+l70db = &70db
+l7725 = &7725
+l7a00 = &7a00
 
-osword_envelope = &08
-osbyte_inkey = &81
-osbyte_flush_buffer = &15
-osbyte_read_adc_or_get_buffer_status = &80
-osbyte_set_cursor_editing = &04
-osbyte_read_write_adc_conversion_type = &BE
-osbyte_write_video_ula_control = &9A
-osword_read_char = &0A
-osbyte_select_input_stream = &02
-osbyte_acknowledge_escape = &7E
-osbyte_read_write_escape_break_effect = &C8
-osbyte_tape = &8C
+    org &1200
 
-L0000 = &0000
-L0001 = &0001
-L0002 = &0002
-L0003 = &0003
-L0004 = &0004
-L0005 = &0005
-L0006 = &0006
-L0007 = &0007
-L0008 = &0008
-L0009 = &0009
-L000A = &000A
-L000B = &000B
-L000C = &000C
-L000D = &000D
-L000E = &000E
-L000F = &000F
-L0010 = &0010
-L0011 = &0011
-L0012 = &0012
-L0013 = &0013
-L0014 = &0014
-L0015 = &0015
-L0016 = &0016
-L0017 = &0017
-L0018 = &0018
-L0019 = &0019
-L001A = &001A
-L001B = &001B
-L001C = &001C
-L001D = &001D
-L001E = &001E
-L001F = &001F
-L0020 = &0020
-L0021 = &0021
-L0022 = &0022
-L0023 = &0023
-L0024 = &0024
-L0025 = &0025
-L0026 = &0026
-L0027 = &0027
-L0028 = &0028
-L0029 = &0029
-L002A = &002A
-L002B = &002B
-L002C = &002C
-L002D = &002D
-L002E = &002E
-L002F = &002F
-L0030 = &0030
-L0031 = &0031
-L0032 = &0032
-L0033 = &0033
-L0034 = &0034
-L0035 = &0035
-L0036 = &0036
-L0037 = &0037
-L0038 = &0038
-L0039 = &0039
-L003A = &003A
-L003B = &003B
-L003C = &003C
-L003D = &003D
-L003E = &003E
-L003F = &003F
-L0040 = &0040
-L0041 = &0041
-L0042 = &0042
-L0043 = &0043
-L0044 = &0044
-L0045 = &0045
-L0046 = &0046
-L0047 = &0047
-L0048 = &0048
-L0049 = &0049
-L004A = &004A
-L004B = &004B
-L004C = &004C
-L004D = &004D
-L004E = &004E
-L004F = &004F
-L0050 = &0050
-L0051 = &0051
-L0052 = &0052
-L0053 = &0053
-L0054 = &0054
-L0055 = &0055
-L0056 = &0056
-L0057 = &0057
-L0058 = &0058
-L0059 = &0059
-L005A = &005A
-L005B = &005B
-L005C = &005C
-L005D = &005D
-L005E = &005E
-L005F = &005F
-L0060 = &0060
-L0061 = &0061
-L0062 = &0062
-L0063 = &0063
-L0064 = &0064
-L0065 = &0065
-L0066 = &0066
-L0067 = &0067
-L0068 = &0068
-L0069 = &0069
-L006A = &006A
-L006B = &006B
-L006C = &006C
-L006D = &006D
-L006E = &006E
-L006F = &006F
-P = &0070
-Q = &0071
-R = &0072
-S = &0073
-L0074 = &0074
-L0075 = &0075
-L0076 = &0076
-L0077 = &0077
-L0078 = &0078
-L0079 = &0079
-L007A = &007A
-L007B = &007B
-L007C = &007C
-L007D = &007D
-L007E = &007E
-L007F = &007F
-L0080 = &0080
-L0081 = &0081
-L0082 = &0082
-L0083 = &0083
-L0084 = &0084
-L0085 = &0085
-L0086 = &0086
-L0087 = &0087
-L0088 = &0088
-L008A = &008A
-L008B = &008B
-L008C = &008C
-L008D = &008D
-L008E = &008E
-L008F = &008F
-L0100 = &0100
-L0101 = &0101
-L0114 = &0114
-L0128 = &0128
-L013B = &013B
-L013C = &013C
-L014F = &014F
-L0150 = &0150
-L0164 = &0164
-L0178 = &0178
-L018C = &018C
-L01A4 = &01A4
-irq1v = &0204
-L0380 = &0380
-L0397 = &0397
-L0398 = &0398
-L03AF = &03AF
-L03B0 = &03B0
-L03C8 = &03C8
-L0400 = &0400
-L0450 = &0450
-L04A0 = &04A0
-L04B4 = &04B4
-L04C8 = &04C8
-L04DC = &04DC
-L04F0 = &04F0
-L0504 = &0504
-L0554 = &0554
-L05A4 = &05A4
-L05F4 = &05F4
-L05F5 = &05F5
-L05F6 = &05F6
-L05F7 = &05F7
-L05F8 = &05F8
-L05FE = &05FE
-L0600 = &0600
-L0650 = &0650
-L068A = &068A
-L06A0 = &06A0
-L06B4 = &06B4
-L06B8 = &06B8
-L06CC = &06CC
-L06D0 = &06D0
-L06E4 = &06E4
-L06E8 = &06E8
-L06FF = &06FF
-L0700 = &0700
-L0701 = &0701
-L0702 = &0702
-L0780 = &0780
-L07A8 = &07A8
-L07D0 = &07D0
-L0880 = &0880
-L0897 = &0897
-L0898 = &0898
-L08AC = &08AC
-L08D0 = &08D0
-L08E8 = &08E8
-L0900 = &0900
-L0901 = &0901
-L0902 = &0902
-L0978 = &0978
-L0979 = &0979
-L097A = &097A
-L09FA = &09FA
-L09FD = &09FD
-L09FE = &09FE
-L0A00 = &0A00
-L0A01 = &0A01
-L0A02 = &0A02
-L0A78 = &0A78
-L0A79 = &0A79
-L0A7A = &0A7A
-L0AFA = &0AFA
-L0AFD = &0AFD
-L0AFE = &0AFE
-L5E40 = &5E40
-L5E41 = &5E41
-L5E50 = &5E50
-L5E8F = &5E8F
-L5E90 = &5E90
-L5E91 = &5E91
-L5EA0 = &5EA0
-L5EB8 = &5EB8
-L5EDF = &5EDF
-L5EE0 = &5EE0
-L5EE1 = &5EE1
-L5EF8 = &5EF8
-L5F00 = &5F00
-L5F20 = &5F20
-L5F21 = &5F21
-L5F38 = &5F38
-L5F39 = &5F39
-L5F3A = &5F3A
-L5F3B = &5F3B
-L5F3C = &5F3C
-L5F3D = &5F3D
-L5F3E = &5F3E
-L5F3F = &5F3F
-L5F40 = &5F40
-L5F48 = &5F48
-L5F60 = &5F60
-L5FB0 = &5FB0
-L713D = &713D
-L7205 = &7205
-L77DB = &77DB
-L77DC = &77DC
-L77E3 = &77E3
-L77E4 = &77E4
-trackChecksum = &7800
-L7B00 = &7B00
-L7B4A = &7B4A
-L7B9C = &7B9C
-L7BE2 = &7BE2
-L7C79 = &7C79
-L7E85 = &7E85
-L7FC5 = &7FC5
-crtc_horz_total = &FE00
-crtc_horz_displayed = &FE01
-video_ula_palette = &FE21
-system_via_t1c_h = &FE45
-system_via_t1l_l = &FE46
-system_via_t1l_h = &FE47
-system_via_acr = &FE4B
-system_via_ifr = &FE4D
-system_via_ier = &FE4E
-user_via_t1c_l = &FE64
-user_via_t1c_h = &FE65
-user_via_t1l_l = &FE66
-user_via_t1l_h = &FE67
-user_via_t2c_l = &FE68
-user_via_acr = &FE6B
-user_via_ier = &FE6E
-osrdch = &FFE0
-oswrch = &FFEE
-osword = &FFF1
-osbyte = &FFF4
-LFFFC = &FFFC
-
-    ORG &0B00
-
-.soundEnvelopes
 .pydis_start
-L0B02 = soundEnvelopes+2
-L0B1C = soundEnvelopes+28
-L0B24 = soundEnvelopes+36
-L0B2C = soundEnvelopes+44
-L0B44 = soundEnvelopes+68
-L0B46 = soundEnvelopes+70
-L0B47 = soundEnvelopes+71
-    EQUB &10, &10, &10, &10, &10, &10, &10, &10
-    EQUB &10, &10, &10, &10, &10, &10, &10, &10
-    EQUB &10, 0  , &F6, &FF, 3  , 0  , &FF, 0  
-    EQUB &11, 0  , &F6, &FF, &BB, 0  , &FF, 0  
-    EQUB &12, 0  , &F6, &FF, &28, 0  , &FF, 0  
-    EQUB &13, 0  , 1  , 0  , &82, 0  , &FF, 0  
-    EQUB &10, 0  , &F6, &FF, 6  , 0  , 4  , 0  
-    EQUB 1  , 1  , 2  , &FE, &FA, 4  , 1  , 1  
-    EQUB &0A, 0  , 0  , 0  , &48, 0  , &FF, &AC
-    EQUB &FE, 5  
-; overlapping: LDY L05FE
-.sub_C0B4A
-    STX L0B46
-    ASL A
-    ASL A
-    ASL A
-    CLC
-    ADC #&10
-    TAX
-    TYA
-    STA L0B02,X
-    LDA soundEnvelopes,X
-    AND #3
-    TAY
-    LDA #7
-    STA L62BD,Y
-    BNE C0B6E
-.sub_C0B65
-    STX L0B46
-    CLC
-    ADC #&38 ; '8'
-    TAX
-    LDA #osword_envelope
-.C0B6E
-    LDY #&0B
-    JSR osword
-    LDX L0B46
-    RTS
-
-.sub_C0B77
-    LDX #1
-.loop_C0B79
-    LDA L5F3D,X
-    ASL A
-    ASL A
-    STA L0075
-    LDA L0BA0,X
-    JSR sub_C0C00
-    CLC
-    ADC #&5A ; 'Z'
-    STA L62A8,X
-    DEX
-    BPL loop_C0B79
-    LDA L5F3E
-    ASL A
-    ADC L5F3E
-    ADC L5F3D
-    LSR A
-    ADC #&3C ; '<'
-    STA L62F1
-    RTS
-
-.L0BA0
-    EQUB &CD, &CD
-.sub_C0BA2
-    LDA #0
-    STA L5EE0,Y
-    LDA L5E40,Y
-    SEC
-    SBC L62D2
-    STA L5E40,Y
-    LDA L5E90,Y
-    SBC L62E2
-    STA L5E90,Y
-    LDA L5F20,Y
-    SEC
-    SBC L004E
-    STA L5F20,Y
-    CMP L001F
-    BCC C0BCB
-    STA L001F
-    STY L0051
-.C0BCB
-    RTS
-
-.sub_C0BCC
-    LDA L0900,Y
-    CLC
-    ADC L0074
-    STA L0900,X
-    LDA L0A00,Y
-    ADC L0083
-    STA L0A00,X
-    LDA L0901,Y
-    CLC
-    ADC L0075
-    STA L0901,X
-    LDA L0A01,Y
-    ADC L0084
-    STA L0A01,X
-    LDA L0902,Y
-    CLC
-    ADC L0076
-    STA L0902,X
-    LDA L0A02,Y
-    ADC L0085
-    STA L0A02,X
-    RTS
-
-.sub_C0C00
-    STA L0074
-.sub_C0C02
-    LDA #0
-    LSR L0074
-    BCC C0C0B
-    CLC
-    ADC L0075
-.C0C0B
-    ROR A
-    ROR L0074
-    BCC C0C13
-    CLC
-    ADC L0075
-.C0C13
-    ROR A
-    ROR L0074
-    BCC C0C1B
-    CLC
-    ADC L0075
-.C0C1B
-    ROR A
-    ROR L0074
-    BCC C0C23
-    CLC
-    ADC L0075
-.C0C23
-    ROR A
-    ROR L0074
-    BCC C0C2B
-    CLC
-    ADC L0075
-.C0C2B
-    ROR A
-    ROR L0074
-    BCC C0C33
-    CLC
-    ADC L0075
-.C0C33
-    ROR A
-    ROR L0074
-    BCC C0C3B
-    CLC
-    ADC L0075
-.C0C3B
-    ROR A
-    ROR L0074
-    BCC C0C43
-    CLC
-    ADC L0075
-.C0C43
-    ROR A
-    ROR L0074
-    RTS
-
-.sub_C0C47
-    ASL L0074
-    ROL A
-    BCS C0C50
-    CMP L0076
-    BCC C0C53
-.C0C50
-    SBC L0076
-    SEC
-.C0C53
-    ROL L0074
-    ROL A
-    BCS C0C5C
-    CMP L0076
-    BCC C0C5F
-.C0C5C
-    SBC L0076
-    SEC
-.C0C5F
-    ROL L0074
-    ROL A
-    BCS C0C68
-    CMP L0076
-    BCC C0C6B
-.C0C68
-    SBC L0076
-    SEC
-.C0C6B
-    ROL L0074
-    ROL A
-    BCS C0C74
-    CMP L0076
-    BCC C0C77
-.C0C74
-    SBC L0076
-    SEC
-.C0C77
-    ROL L0074
-    ROL A
-    BCS C0C80
-    CMP L0076
-    BCC C0C83
-.C0C80
-    SBC L0076
-    SEC
-.C0C83
-    ROL L0074
-    ROL A
-    BCS C0C8C
-    CMP L0076
-    BCC C0C8F
-.C0C8C
-    SBC L0076
-    SEC
-.C0C8F
-    ROL L0074
-    ROL A
-    BCS C0C98
-    CMP L0076
-    BCC C0C9B
-.C0C98
-    SBC L0076
-    SEC
-.C0C9B
-    ROL L0074
-    ROL A
-    BCS C0CA2
-    CMP L0076
-.C0CA2
-    ROL L0074
-    RTS
-
-.C0CA5
-    LDA L007E
-    CMP #&67 ; 'g'
-    BCS C0CC2
-    LDA L0078
-    LSR L0079
-    ROR A
-    LSR L0079
-    ROR A
-    LSR L0079
-    ROR A
-    CLC
-    ADC L007A
-    STA L007C
-    LDA L0079
-    ADC L007B
-    STA L007D
-    RTS
-
-.C0CC2
-    LSR L0079
-    ROR L0078
-    LDA L007B
-    STA L0074
-    LDA L007A
-    LSR L0074
-    ROR A
-    LSR L0074
-    ROR A
-    LSR L0074
-    ROR A
-    STA L0075
-    LDA L0078
-    CLC
-    ADC L007A
-    STA L007C
-    LDA L0079
-    ADC L007B
-    STA L007D
-    LDA L007C
-    SEC
-    SBC L0075
-    STA L007C
-    LDA L007D
-    SBC L0074
-    STA L007D
-    RTS
-
-    EQUB &F1, &0C, &E5, &74, &8D, &F6, &0C, &60
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , &40
-.sub_C0D01
-    STA L007B
-    STX L0074
-    JSR sub_C0DB3
-    STA L0078
-    LDA L0075
-    STA L0079
-    LDX #1
-    STX L0042
-    LDX #0
-    BIT L007B
-    BVC C0D1B
-    INX
-    DEC L0042
-.C0D1B
-    CMP #&7A ; 'z'
-    BCC C0D27
-    BCS C0D4F
-    LDA L0078
-    CMP #&F0
-    BCS C0D4F
-.C0D27
-    LDA #&AB
-    JSR sub_C0C00
-    JSR sub_C0C00
-    STA L0076
-    JSR sub_C0DBF
-    LDA L0078
-    SEC
-    SBC L0074
-    STA L0074
-    LDA L0079
-    SBC L0075
-    ASL L0074
-    ROL A
-    STA L62A3,X
-    LDA L0074
-    AND #&FE
-    STA L62A0,X
-    JMP C0D7F
-
-.C0D4F
-    LDA #0
-    SEC
-    SBC L0078
-    STA L0074
-    LDA #&C9
-    SBC L0079
-    STA L0075
-    STA L0076
-    JSR sub_C0DBF
-    ASL L0074
-    ROL L0075
-    LDA #0
-    SEC
-    SBC L0074
-    AND #&FE
-    STA L62A0,X
-    LDA #0
-    SBC L0075
-    BCC C0D7C
-    LDA #&FE
-    STA L62A0,X
-    LDA #&FF
-.C0D7C
-    STA L62A3,X
-.C0D7F
-    CPX L0042
-    BEQ C0D97
-    LDX L0042
-    LDA #0
-    SEC
-    SBC L0078
-    STA L0078
-    LDA #&C9
-    SBC L0079
-    STA L0079
-    STA L0075
-    JMP C0D1B
-
-.C0D97
-    LDA L007B
-    BPL C0DA3
-    LDA #1
-    ORA L62A0
-    STA L62A0
-.C0DA3
-    LDA L007B
-    ASL A
-    EOR L007B
-    BPL C0DB2
-    LDA #1
-    ORA L62A1
-    STA L62A1
-.C0DB2
-    RTS
-
-.sub_C0DB3
-    ASL L0074
-    ROL A
-    ASL L0074
-    ROL A
-    STA L0076
-    LDA #&C9
-    STA L0075
-.sub_C0DBF
-    JSR sub_C0C02
-    STA L0077
-    LDA L0076
-    JSR sub_C0C00
-    STA L0075
-    LDA L0077
-    CLC
-    ADC L0074
-    STA L0074
-    BCC C0DD6
-    INC L0075
-.C0DD6
-    RTS
-
-.sub_C0DD7
-    LDA L0081
-    BPL C0DEE
-    LDA #0
-    SEC
-    SBC L0080
-    STA L0080
-    LDA #0
-    SBC L0081
-    STA L0081
-    LDA L0079
-    EOR #&80
-    STA L0079
-.C0DEE
-    LDA L0082
-    AND #1
-    BEQ C0DFA
-    LDA L0079
-    EOR #&80
-    STA L0079
-.C0DFA
-    LDA L0081
-    STA L0075
-    LDA L0082
-    JSR sub_C0C00
-    STA L0077
-    LDA L0074
-    CLC
-    ADC #&80
-    STA L0076
-    BCC C0E10
-    INC L0077
-.C0E10
-    LDA L0083
-    JSR sub_C0C00
-    STA L0078
-    LDA L0074
-    CLC
-    ADC L0077
-    STA L0077
-    BCC C0E22
-    INC L0078
-.C0E22
-    LDA L0080
-    STA L0075
-    LDA L0083
-    JSR sub_C0C00
-    STA L0075
-    LDA L0074
-    CLC
-    ADC L0076
-    LDA L0075
-    ADC L0077
-    STA L0074
-    BCC C0E3C
-    INC L0078
-.C0E3C
-    LDA L0078
-    BIT L0079
-.sub_C0E40
-    BPL C0E4F
-.sub_C0E42
-    STA L0075
-.sub_C0E44
-    LDA #0
-    SEC
-    SBC L0074
-    STA L0074
-    LDA #0
-    SBC L0075
-.C0E4F
-    RTS
-
-.sub_C0E50
-    LDA #osbyte_inkey
-    LDY #&FF
-    JSR osbyte
-    CPX #&FF
-    RTS
-
-.sub_C0E5A
-    PHA
-    LDA L62BD,X
-    BEQ C0E72
-    LDA #0
-    STA L62BD,X
-    TXA
-    ORA #4
-    TAX
-    LDA #osbyte_flush_buffer
-    JSR osbyte
-    TXA
-    AND #&FB
-    TAX
-.C0E72
-    PLA
-    RTS
-
-.sub_C0E74
-    LDA L62A6
-    ORA L62A7
-    BPL C0E92
-    LDA user_via_t2c_l
-    CMP #&3F ; '?'
-    BCS C0E92
-    AND #3
-    CLC
-    ADC #&82
-    STA L0B2C
-    LDA #3
-    LDY #1
-    JSR sub_C0B4A
-.C0E92
-    LDX L0060
-    CPX L005F
-    BEQ C0EE0
-    BCC C0E9D
-    DEX
-    BCS C0E9E
-.C0E9D
-    INX
-.C0E9E
-    STX L0060
-    CPX #&1C
-    BCC C0EE1
-    TXA
-    SEC
-    SBC #&5C ; '\'
-    BCS C0EB8
-    PHA
-    LDA #0
-    JSR L0B47
-    PLA
-    CLC
-    ADC #&BB
-    LDY #0
-    BEQ C0EC0
-.C0EB8
-    LDX #0
-    JSR sub_C0E5A
-    LDY L05FE
-.C0EC0
-    STA L0B1C
-    LDA #1
-    JSR sub_C0B4A
-    LDY L05FE
-    BEQ C0EDB
-    LDA L0060
-    SEC
-    SBC #&40 ; '@'
-    BCS C0ED8
-    LDY #0
-    BEQ C0EDB
-.C0ED8
-    STA L0B24
-.C0EDB
-    LDA #2
-    JSR sub_C0B4A
-.C0EE0
-    RTS
-
-.C0EE1
-    JSR sub_C43F6
-    RTS
-
-.sub_C0EE5
-    STY L0074
-    LDX #&FF
-    JSR sub_C0E50
-    BNE C0F63
-    LDY L0074
-.loop_C0EF0
-    STY L0074
-    LDX L3DE2,Y
-    JSR sub_C0E50
-    BEQ C0F01
-    LDY L0074
-    DEY
-    BPL loop_C0EF0
-    BMI C0F11
-.C0F01
-    LDY L0074
-    LDA L39D4,Y
-    AND #&0F
-    TAX
-    LDA L39D4,Y
-    AND #&F0
-    STA L05F4,X
-.C0F11
-    LDA L05F7
-    BEQ C0F2C
-    BPL C0F25
-    JSR sub_C43F6
-.loop_C0F1B
-    JSR sub_C66B6
-    LDX #&A6
-    JSR sub_C0E50
-    BNE loop_C0F1B
-.C0F25
-    INC L0060
-    LDA #0
-    STA L05F7
-.C0F2C
-    LDY L05FE
-    LDA L006A
-    AND #1
-    BNE C0F5E
-    LDA L05F6
-    BEQ C0F63
-    BPL C0F43
-    INY
-    BEQ C0F48
-    BMI C0F48
-    BPL C0F5E
-.C0F43
-    DEY
-    CPY #&F1
-    BCC C0F5E
-.C0F48
-    STY L05FE
-    TYA
-    EOR #&FF
-    CLC
-    ADC #1
-    ASL A
-    ASL A
-    ASL A
-    STA L0B44
-    LDA #0
-    JSR sub_C0B65
-    INC L0060
-.C0F5E
-    LDA #0
-    STA L05F6
-.C0F63
-    RTS
-
-.sub_C0F64
-    STA L0078
-    SED
-.C0F67
-    LDX #0
-    STX L0076
-    STX L0100
-    INX
-.C0F6F
-    STX L0077
-    LDY L013C,X
-    TXA
-    STA L0100,X
-    LDA L013B,X
-    TAX
-    SEC
-    BIT L0078
-    BVS C0FBA
-    BMI C0FD4
-    LDA L06A0,Y
-    SBC L06A0,X
-    STA L0075
-    LDA L06B8,Y
-    SBC L06B8,X
-    STA L0079
-    LDA L06D0,Y
-    SBC L06D0,X
-    BCC C0FEC
-.C0F9B
-    ORA L0075
-    ORA L0079
-    BNE C0FAA
-    LDX L0077
-    DEX
-    LDA L0100,X
-    STA L0101,X
-.C0FAA
-    LDX L0077
-    INX
-    CPX #&14
-    BCC C0F6F
-    LDA L0076
-    BNE C0F67
-    CLD
-    JSR sub_C63A2
-    RTS
-
-.C0FBA
-    LDA L3864,X
-    SBC L3864,Y
-    STA L0075
-    LDA L39E4,X
-    SBC L39E4,Y
-    STA L0079
-    LDA L04F0,X
-    SBC L04F0,Y
-    BCC C0FEC
-    BCS C0F9B
-.C0FD4
-    LDA L0898,Y
-    SBC L0898,X
-    STA L0075
-    LDA L08AC,Y
-    SBC L08AC,X
-    STA L0079
-    LDA L04DC,Y
-    SBC L04DC,X
-    BCS C0FAA
-.C0FEC
-    STX L0074
-    LDX L0077
-    TYA
-    STA L013B,X
-    LDA L0074
-    STA L013C,X
-    DEC L0076
-    JMP C0FAA
-
-.sub_C0FFE
-    LDA L006C
-    BPL C1032
-    BIT L0066
-    BPL C102A
-    LDA #0
-    STA L0066
-    STA L0078
-    LDX L006F
-    LDA L04B4,X
-    CMP #1
-    EOR #&FF
-    ADC L006E
-    PHP
-    JSR sub_C65C8
-    LDX #&0C
-    LDY #&21 ; '!'
-    JSR sub_C37D0
-    PLP
-    BPL C102A
-    LDX #&35 ; '5'
-    JSR sub_C17FC
-.C102A
-    LDA L000F
-    BNE C109A
-    JSR sub_C1B84
-    RTS
-
-.C1032
-    LDX #1
-    JSR sub_C17C3
-    BIT L0066
-    BVS C1056
-    BPL C106F
-    LSR L0066
-    LDA #&21 ; '!'
-    CLC
-    ADC L62EF
-    STA L62EF
-    BEQ C104F
-    LDA #&26 ; '&'
-    JSR sub_C502F
-.C104F
-    LDX #1
-    JSR sub_C5011
-    BEQ C106F
-.C1056
-    LDA L62EF
-    BEQ C106A
-    DEC L62EF
-    BNE C106F
-    JSR sub_C501D
-    LDA #2
-    JSR sub_C3D50
-    BEQ C106F
-.C106A
-    BCC C106F
-    JSR sub_C502D
-.C106F
-    LDA L5F3B
-    BMI C109A
-    CMP L06E4
-    BCC C1089
-    BNE C109A
-    BIT L0065
-    BVS C109A
-    LDA #&40 ; '@'
-    STA L0065
-    LDX #&29 ; ')'
-    JSR sub_C4D74
-    RTS
-
-.C1089
-    LDA L0065
-    BMI C109A
-    LDA #&C0
-    STA L0065
-    LDA #&3C ; '<'
-    STA L000F
-    LDX #&2A ; '*'
-    JSR sub_C4D74
-.C109A
-    RTS
-
-.sub_C109B
-    STA L0076
-    SEC
-    ROR L62F8
-.loop_C10A1
-    LDX #&13
-.loop_C10A3
-    JSR sub_C147C
-    DEX
-    BPL loop_C10A3
-    LDA L08D0
-    ORA L08E8
-    BNE loop_C10A1
-    LDA #&FF
-    STA L0078
-    BNE C10CF
-.C10B7
-    LDA L0076
-    STA L0077
-.loop_C10BB
-    TXA
-    PHA
-    LDA L013C,X
-    TAX
-    JSR sub_C14C3
-    PLA
-    TAX
-    DEC L0077
-    BPL loop_C10BB
-    INX
-    CPX #&14
-    BCC C10B7
-.C10CF
-    INC L0078
-    LDX L0078
-    CPX #&14
-    BCC C10B7
-.C10D7
-    LDX #&17
-    JSR sub_C147C
-    LDY #&17
-    LDX L006F
-    SEC
-    JSR sub_C27AB
-    BCS C10D7
-    CMP #&20 ; ' '
-    BNE C10D7
-    LDX #&17
-    LDA #&31 ; '1'
-    STA L0076
-    STA L0042
-.loop_C10F2
-    JSR sub_C14C3
-    DEC L0076
-    BNE loop_C10F2
-.loop_C10F9
-    INC L0042
-    JSR sub_C14C3
-    BCC loop_C10F9
-    LDA #&50 ; 'P'
-    LDY #&13
-.loop_C1104
-    LDX L013C,Y
-    EOR #&FF
-    STA L0178,X
-    DEY
-    BPL loop_C1104
-    LDA #0
-    STA L0024
-.loop_C1113
-    JSR sub_C12F7
-    DEC L0042
-    BNE loop_C1113
-    LSR L62F8
-    RTS
-
-.sub_C111E
-    LDA L0011
-    CMP #2
-    BCC C1162
-    LDA L005E
-    JSR sub_C3450
-    CMP #&60 ; '`'
-    BCS C1138
-    LDA #&14
-    BIT L62E2
-    JSR sub_C3450
-    JMP C1C0B
-
-.C1138
-    DEC L62F6
-    INC L001F
-    JSR sub_C3D5C
-    JSR sub_C43F6
-    LDA #4
-    JSR L0B47
-    LDA #0
-    LDX #&1E
-.loop_C114C
-    STA L62D0,X
-    DEX
-    BPL loop_C114C
-    STA L0061
-    STA L0026
-    STA L0060
-    STA L005F
-    LDA #&7F
-    STA L002D
-    LDA #&1F
-    STA L0009
-.C1162
-    RTS
-
-.sub_C1163
-    LDA #0
-    STA L0000
-    STA L006D
-    JSR sub_C261F
-    LDX L006F
-    JSR sub_C11BE
-.C1171
-    JSR sub_C5052
-    LDY #0
-    JSR sub_C0EE5
-    LDA L05F4
-    BMI C11AA
-    JSR sub_C27ED
-    JSR sub_C2692
-    JSR sub_C63A2
-    LDX #&13
-    LDA L006C
-    BMI C1199
-    CPX L006F
-    BNE C11AA
-    LDA L62DF
-    CMP #&0E
-    BCC C1171
-    RTS
-
-.C1199
-    LDA L018C,X
-    AND #&40 ; '@'
-    BNE C11A7
-    LDA L006E
-    CMP L04B4,X
-    BCS C1171
-.C11A7
-    DEX
-    BPL C1199
-.C11AA
-    RTS
-
-.sub_C11AB
-    CPX #&14
-    BCS C11CD
-    LDA L0178,X
-    AND #&7F
-    ORA #&45 ; 'E'
-    STA L0114,X
-    LDA #&91
-    STA L0100,X
-.sub_C11BE
-    LDA L006E
-    CMP L04B4,X
-    LDA #&C0
-    STA L018C,X
-    BCC C11CD
-    STA L04DC,X
-.C11CD
-    RTS
-
-.sub_C11CE
-    LDX L006F
-    STX L0045
-    STX L0042
-    LDY L0022
-    JSR C2937
-    LDX #2
-.loop_C11DB
-    LDA L09FD,X
-    STA L6280,X
-    LDA L0AFD,X
-    STA L6283,X
-    DEX
-    BPL loop_C11DB
-    LDA L0022
-    CLC
-    ADC #3
-    CMP #&78 ; 'x'
-    BCC C11F5
-    LDA #0
-.C11F5
-    TAY
-    LDX L0045
-    JSR C2937
-    LDA L0380,X
-    STA L000A
-.C1200
-    LDA L0398,X
-    EOR L0025
-    STA L000B
-    RTS
-
-.sub_C1208
-    LDA L5901,Y
-    STA L0900,X
-    LDA L5902,Y
-    STA L0901,X
-    LDA L5903,Y
-    STA L0902,X
-    LDA L5301,Y
-    STA L0A00,X
-    LDA L5302,Y
-    STA L0A01,X
-    LDA L5303,Y
-    STA L0A02,X
-    RTS
-
-.sub_C122D
-    JSR sub_C1208
-    LDA L5904,Y
-    STA L0978,X
-    LDA L5906,Y
-    STA L097A,X
-    LDA L5304,Y
-    STA L0A78,X
-    LDA L5306,Y
-    STA L0A7A,X
-    LDA L5905,Y
-    STA L0002
-.sub_C124D
-    LDA L0901,X
-    STA L0979,X
-    LDA L0A01,X
-    STA L0A79,X
-    RTS
-
-.sub_C125A
-    LDA L0024
-    SEC
-    SBC #&60 ; '`'
-    BPL C1264
-    CLC
-    ADC #&78 ; 'x'
-.C1264
-    STA L0022
-    RTS
-
-.sub_C1267
-    LDX L0024
-    LDY #6
-    STY L62F5
-    LDA L0062
-    BEQ C1274
-    STY L0006
-.C1274
-    LDA L0025
-    BMI C1284
-    LDY L06FF
-    JSR sub_C122D
-    LDA L5300,Y
-    JMP C128E
-
-.C1284
-    LDY L0021
-    JSR sub_C122D
-    JSR sub_C13E0
-    LDA #2
-.C128E
-    AND #7
-    STA L0007
-    LDY L06FF
-    LDA L5900,Y
-    STA L0001
-    LDA #0
-    STA L0702,X
-    RTS
-
-.sub_C12A0
-    LDX #&2C ; ','
-.loop_C12A2
-    LDA L5E40,X
-    STA L5E41,X
-    LDA L5E90,X
-    STA L5E91,X
-    LDA L5F20,X
-    STA L5F21,X
-    CPX #&28 ; '('
-    BNE C12BA
-    LDX #5
-.C12BA
-    DEX
-    BPL loop_C12A2
-    LDA #6
-    SEC
-    SBC L0007
-    STA L0005
-    JSR sub_C12C8
-    RTS
-
-.sub_C12C8
-    LDX L0006
-    INX
-    CPX #6
-
-    BCC C12D1
-    LDX #6
-.C12D1
-    CPX L0005
-    BCS C12D7
-    LDX L0005
-.C12D7
-    STX L0006
-    LDX L0008
-    INX
-.sub_C12DC
-    INX
-    CPX L0006
-    BCS C12E3
-    STX L0006
-.C12E3
-    DEX
-    CPX L0005
-    BCS C12EA
-    LDX #5
-.C12EA
-    CPX #6
-    BCC C12F0
-    LDX #5
-.C12F0
-    STX L0008
-    RTS
-
-.sub_C12F3
-    CLC
-    JSR sub_C1433
-.sub_C12F7
-    LDA L0024
-    STA L0023
-    CLC
-    ADC #3
-    CMP #&78 ; 'x'
-    BCC C1304
-    LDA #0
-.C1304
-    STA L0024
-    LDX #&17
-    LDA L0025
-    BMI C1326
-    LDA L59FA
-    LSR A
-    AND #&F8
-    CMP L06E8,X
-    BNE C131B
-    LDA #1
-    STA L0030
-.C131B
-    JSR sub_C147C
-    BCC C1333
-    JSR sub_C1267
-    JMP C13CC
-
-.C1326
-    LDA L06FF
-    STA L0021
-    JSR sub_C14C3
-    BCC C1333
-    JSR sub_C1267
-.C1333
-    LDY L0002
-    JSR sub_C1442
-    LDX L0024
-    LDA L0001
-    LSR A
-    PHP
-    LDA L0001
-    BCS C134F
-    LDY L0897
-    CPY #1
-    BCC C134D
-    CPY #&0A
-    BCC C134F
-.C134D
-    AND #&F9
-.C134F
-    STA L0077
-    LDY L06FF
-    LDA L5907,Y
-    PLP
-    BCC C1365
-    LSR A
-    TAY
-    LDA L0077
-    CPY L0897
-    BEQ C137C
-    BNE C1378
-.C1365
-    SEC
-    SBC L0897
-    TAY
-    LDA L0077
-    CPY #7
-    BEQ C137C
-    CPY #&0E
-    BEQ C137A
-    CPY #&15
-    BEQ C137A
-.C1378
-    AND #&E7
-.C137A
-    AND #&DF
-.C137C
-    AND L0001
-    STA L0702,X
-    LDY L0023
-    JSR sub_C0BCC
-    JSR sub_C124D
-    LDY L0002
-    LDA #0
-    STA L0083
-    STA L0085
-    LDA L5700,Y
-    BPL C1398
-    DEC L0083
-.C1398
-    ASL A
-    ROL L0083
-    ASL A
-    ROL L0083
-    CLC
-    ADC L0900,X
-    STA L0978,X
-    LDA L0083
-    ADC L0A00,X
-    STA L0A78,X
-    LDA L5800,Y
-    BPL C13B4
-    DEC L0085
-.C13B4
-    ASL A
-    ROL L0085
-    ASL A
-    ROL L0085
-    CLC
-    ADC L0902,X
-    STA L097A,X
-    LDA L0085
-    ADC L0A02,X
-    STA L0A7A,X
-    JSR sub_C13DA
-.C13CC
-    LDX L0024
-    LDA L0002
-    STA L0700,X
-    JSR sub_C125A
-    JSR sub_C150E
-    RTS
-
-.sub_C13DA
-    LDA L0001
-    AND #1
-    BEQ C13FA
-.sub_C13E0
-    LDA L0025
-    BMI C13F0
-    LDY L0002
-    INY
-    CPY L59FB
-    BNE C13F8
-    LDY #0
-    BEQ C13F8
-.C13F0
-    LDY L0002
-    BNE C13F7
-    LDY L59FB
-.C13F7
-    DEY
-.C13F8
-    STY L0002
-.C13FA
-    RTS
-
-.sub_C13FB
-    LDA #6
-    STA L0006
-    LDX #&40 ; '@'
-    STX L001A
-    JSR sub_C1420
-    LDA #0
-    STA L001A
-    RTS
-
-.sub_C140B
-    SEC
-    JSR sub_C1433
-    LDX #&28 ; '('
-    STX L0062
-    JSR sub_C1420
-    LDX #&27 ; '''
-    JSR sub_C1420
-    LDA #0
-    STA L0062
-    RTS
-
-.sub_C1420
-    LDA L0025
-    EOR #&80
-    STA L0025
-    JSR sub_C13DA
-    STX L0042
-.loop_C142B
-    JSR sub_C12F7
-    DEC L0042
-    BNE loop_C142B
-    RTS
-
-.sub_C1433
-    LDX L006F
-    ROR A
-    EOR L0025
-    BMI C143E
-    JSR sub_C147C
-    RTS
-
-.C143E
-    JSR sub_C14C3
-    RTS
-
-.sub_C1442
-    LDA #0
-    STA L0083
-    STA L0084
-    STA L0085
-    LDA L5400,Y
-    STA L0074
-    BPL C1453
-    DEC L0083
-.C1453
-    LDA L5500,Y
-    STA L0075
-    BPL C145C
-    DEC L0084
-.C145C
-    LDA L5600,Y
-    STA L0076
-    BPL C1465
-    DEC L0085
-.C1465
-    LDA L0025
-    BEQ C147B
-    LDX #2
-.loop_C146B
-    LDA #0
-    SEC
-    SBC L0074,X
-    STA L0074,X
-    LDA #0
-    SBC L0083,X
-    STA L0083,X
-    DEX
-    BPL loop_C146B
-.C147B
-    RTS
-
-.sub_C147C
-    LDY L06E8,X
-    LDA L0880,X
-    CLC
-    ADC #1
-    CMP L5907,Y
-    PHP
-    BCC C149B
-    TYA
-    CLC
-    ADC #8
-    CMP L59FA
-    BCC C1496
-    LDA #0
-.C1496
-    STA L06E8,X
-    LDA #0
-.C149B
-    STA L0880,X
-    INC L08D0,X
-    BNE C14A6
-    INC L08E8,X
-.C14A6
-    LDA L08D0,X
-    CMP L59FC
-    BNE C14C1
-    LDA L08E8,X
-    CMP L59FD
-    BNE C14C1
-    LDA #0
-    STA L08D0,X
-    STA L08E8,X
-    JSR sub_C4F77
-.C14C1
-    PLP
-    RTS
-
-.sub_C14C3
-    LDY L06E8,X
-    LDA L0880,X
-    CLC
-    BNE C14DD
-    TYA
-    BNE C14D2
-    LDA L59FA
-.C14D2
-    SEC
-    SBC #8
-    STA L06E8,X
-    TAY
-    LDA L5907,Y
-    SEC
-.C14DD
-    PHP
-    SEC
-    SBC #1
-    STA L0880,X
-.C14E4
-    LDA L08D0,X
-    BNE C1509
-    DEC L08E8,X
-    BPL C1509
-    LDA L59FC
-    STA L08D0,X
-    LDA L59FD
-    STA L08E8,X
-    CPX L006F
-    BNE C14E4
-    LDA L04B4,X
-    BEQ C14E4
-    DEC L04B4,X
-    JMP C14E4
-
-.C1509
-    DEC L08D0,X
-    PLP
-    RTS
-
-.sub_C150E
-    LDY L06FF
-    TYA
-    LSR A
-    LSR A
-    LSR A
-    TAX
-    LDA L0017
-    BNE C1557
-    LDA L0001
-    LSR A
-    BCS C152E
-    LDA L0897
-    CMP L5305,Y
-    BCS C1532
-.C1527
-    LDA L5FB0,X
-    ORA #&40 ; '@'
-    BNE C1573
-.C152E
-    LDA L0020
-    BMI C1538
-.C1532
-    TYA
-    CLC
-    ADC #8
-    TAY
-    INX
-.C1538
-    LDA L5900,Y
-    AND #1
-    BEQ C1527
-    LDA L5305,Y
-    STA L0017
-    BEQ C1527
-    LDA L5307,Y
-    STA L0020
-    AND #&7F
-    STA L0018
-    LDA L5FB0,X
-    STA L0016
-    JMP C1573
-
-.C1557
-    DEC L0017
-    LDA L0017
-    LSR A
-    LSR A
-    LSR A
-    STA L0074
-    LDA L0017
-    SEC
-    SBC L0018
-    BCS C156D
-    ADC L0074
-    LDA #0
-    BCS C1573
-.C156D
-    LDA L0016
-    BCS C1573
-    EOR #&80
-.C1573
-    LDY L0024
-    STA L0701,Y
-    RTS
-
-.sub_C1579
-    LDA #0
-    STA L0076
-    STA L0074
-    STA L0058
-    LDX #&9D
-    JSR sub_C0E50
-    PHP
-    BIT L05F5
-    BPL C15B3
-    LDX #1
-    JSR sub_C503F
-    STA L0075
-    JSR sub_C0C00
-    PLP
-    BEQ C159F
-    LSR A
-    ROR L0074
-    LSR A
-    ROR L0074
-.C159F
-    STA L0075
-    LDA L0074
-    AND #&FE
-    STA L0074
-    TXA
-    ORA L0074
-    STA L0074
-    LDA L0075
-    JMP C1EE9
-
-    EQUB &EA, &EA
-.C15B3
-    LDX #&A9
-    JSR sub_C0E50
-    BNE C15BE
-    LDA #2
-    STA L0076
-.C15BE
-    LDX #&A8
-    JSR sub_C0E50
-    BNE C15C7
-    INC L0076
-.C15C7
-    LDA #3
-    STA L0075
-    PLP
-    BEQ C15DF
-    LDA #0
-    LDX #2
-    CPX L62A5
-    BCC C15D9
-    LDA #1
-.C15D9
-    STA L0075
-    LDA #&80
-    STA L0074
-.C15DF
-    LDA L0076
-    BEQ C15F4
-    CMP #3
-    BEQ C163B
-    EOR L62A2
-    AND #1
-    BEQ C160F
-    JSR sub_C0E44
-    JMP C160D
-
-.C15F4
-    LDA L62DA
-    AND #&F0
-    STA L0074
-    LDA L62EA
-    JSR sub_C0E40
-    LSR A
-    ROR L0074
-    LSR A
-    ROR L0074
-    CMP L62A5
-    JSR sub_C1F9B
-.C160D
-    STA L0075
-.C160F
-    JMP C1EFA
-
-.C1612
-    SEC
-    SBC L0074
-    STA L0074
-    LDA L62A5
-    SBC L0075
-    CMP #&C8
-    BCC C162D
-    JSR sub_C0E42
-    STA L0075
-    LDA L0074
-    EOR #1
-    STA L0074
-    LDA L0075
-.C162D
-    CMP #&91
-    BCC C1633
-    LDA #&91
-.C1633
-    STA L62A5
-    LDA L0074
-    STA L62A2
-.C163B
-    LDA L000F
-    BNE C1678
-    BIT L05F5
-    BPL C165E
-    LDX #2
-    JSR sub_C503F
-    BCC C1678
-    STA L0074
-    LSR L0074
-    ASL A
-    ADC L0074
-    BCS C1658
-    CMP #&FA
-    BCC C1681
-.C1658
-    CPX #0
-    BEQ C1674
-    BNE C1667
-.C165E
-    LDX #&AE
-    JSR sub_C0E50
-    BNE C166B
-    LDX #1
-.C1667
-    LDA #&FF
-    BNE C1681
-.C166B
-    LDX #&BE
-    JSR sub_C0E50
-    BNE C1678
-    LDX #0
-.C1674
-    LDA #&FA
-    BNE C1681
-.C1678
-    LDX #&80
-    LDA L003C
-    LSR A
-    LSR A
-    CLC
-    ADC #5
-.C1681
-    STX L003E
-    STA L003F
-    BIT L05F5
-    BPL C16A3
-    LDX #0
-    LDA #osbyte_read_adc_or_get_buffer_status
-    JSR osbyte
-    TXA
-    AND #1
-    BEQ C16B1
-    LDY L003E
-    DEY
-    BNE C16B7
-    LDA L003F
-    CMP #&C8
-    BCS C16BB
-    BCC C16B7
-.C16A3
-    LDX #&9F
-    JSR sub_C0E50
-    BEQ C16B7
-    LDX #&EF
-    JSR sub_C0E50
-    BEQ C16BB
-.C16B1
-    LDA #0
-    STA L0019
-    BEQ C16DB
-.C16B7
-    LDA #&FF
-    BNE C16BD
-.C16BB
-    LDA #1
-.C16BD
-    DEC L0058
-    LDX L0019
-    BNE C16DB
-    STA L0019
-    CLC
-    ADC L0040
-    CMP #&FF
-    BEQ C16D4
-    CMP #7
-    BNE C16D6
-    LDA #6
-    BNE C16D6
-.C16D4
-    LDA #0
-.C16D6
-    STA L0040
-    JSR sub_C42D0
-.C16DB
-    RTS
-
-.sub_C16DC
-    JSR sub_C4DDD
-    LDA #0
-    STA L0064
-    JSR sub_C18EA
-    JSR L7BE2
-    BIT L05F4
-    BVS C16F9
-.C16EE
-    LDX #0
-    JSR sub_C5011
-.C16F3
-    JSR sub_C1805
-.C16F6
-    JSR sub_C11CE
-.C16F9
-    LDA #0
-    STA L05F4
-    JSR sub_C0B77
-.C1701
-    JSR sub_C5052
-    JSR L7B4A
-    JSR sub_C1579
-    JSR sub_C46A1
-    JSR sub_C24F6
-    JSR sub_C4626
-    JSR sub_C24B9
-    JSR sub_C0FFE
-    JSR sub_C0E74
-    JSR sub_C66B6
-    JSR sub_C1A20
-    JSR sub_C0E74
-    JSR sub_C18BC
-    JSR sub_C4CA4
-    LDX #&17
-    JSR sub_C2AD1
-    JSR sub_C1B12
-    JSR sub_C2637
-    JSR sub_C1E15
-    JSR L7B00
-    JSR sub_C0E74
-    JSR sub_C4F44
-    JSR sub_C1BB9
-    JSR sub_C111E
-    JSR L7BE2
-    LDA L4F43
-    BPL C1753
-    INC L4F43
-.C1753
-    LDA L62F6
-    BEQ C178F
-    INC L62F6
-    LDA #&9C
-    STA L62F7
-.loop_C1760
-    LDA L62F7
-    BMI loop_C1760
-.loop_C1765
-    LDA L5F3B
-    BMI C16EE
-    LDA L006C
-    BPL C16F3
-    LDA L5F3A
-    BEQ C16F6
-.C1773
-    JSR sub_C43F6
-    LDA L5F3B
-    BMI loop_C1765
-    LDX #&30 ; '0'
-    JSR sub_C17FC
-    JSR sub_C1163
-    LDA L05F4
-    BMI C17BA
-    LDA #&20 ; ' '
-    STA L05F4
-    BNE C17BA
-.C178F
-    LDY #&0B
-    JSR sub_C0EE5
-    LDA L05F4
-    BEQ C17A8
-    BPL C1773
-    AND #&40 ; '@'
-    BEQ C17BA
-    LDA L0000
-    BEQ C17BA
-    LDA #0
-    STA L05F4
-.C17A8
-    LDX L000F
-    BEQ C17B1
-    DEX
-    BEQ C1773
-    STX L000F
-.C17B1
-    JSR sub_C0E74
-    JSR sub_C513A
-    JMP C1701
-
-.C17BA
-    LDA #&80
-    JSR sub_C18EA
-    JSR sub_C4F23
-    RTS
-
-.sub_C17C3
-    SED
-    LDA #9
-    LDY L0046
-    CPY L5A19
-    BNE C17CF
-    LDA #&18
-.C17CF
-    CLC
-    ADC L06B4,X
-    STA L06B4,X
-    PHP
-    LDA L06CC,X
-    ADC #0
-    CMP #&60 ; '`'
-    BCC C17E2
-    LDA #0
-.C17E2
-    STA L06CC,X
-    LDA L06E4,X
-    ADC #0
-    STA L06E4,X
-    BPL C17F9
-    JSR sub_C5011
-    LDY L006F
-    LDA #&80
-    STA L04DC,Y
-.C17F9
-    PLP
-    CLD
-    RTS
-
-.sub_C17FC
-    JSR sub_C4D70
-    LDX #&2D ; '-'
-    JSR sub_C4D74
-    RTS
-
-.sub_C1805
-    LDA #0
-    LDX #&68 ; 'h'
-.loop_C1809
-    STA L0000,X
-    DEX
-    BPL loop_C1809
-    LDX #&7F
-.loop_C1810
-    STA L6280,X
-    DEX
-    BPL loop_C1810
-    JSR sub_C0B65
-    LDX #&17
-    STX L62F9
-.loop_C181E
-    LDA L59FF
-    STA L08E8,X
-    LDA L59FE
-    STA L08D0,X
-    LDA #0
-    STA L06E8,X
-    STA L0880,X
-    DEX
-    BPL loop_C181E
-    JSR sub_C63A2
-    LDA #1
-    BIT L006C
-    BMI C184C
-    LDX L5A17
-    LDY L0003
-    JSR sub_C267F
-    JSR sub_C63A2
-    LDA L5A18
-.C184C
-    JSR sub_C109B
-    LDX #&13
-.C1851
-    LDA #&80
-    STA L018C,X
-    STA L04DC,X
-    LDA #0
-    STA L04B4,X
-    STA L0114,X
-    STA L0164,X
-    STA L0150,X
-    STA L0100,X
-    STA C3850,X
-    LDA #&FF
-    STA L01A4,X
-    DEX
-    BPL C1851
-    LDA #1
-    STA L0040
-    STA L0030
-    LDX #7
-    STX L0009
-    DEX
-    STX L0006
-    STX L0008
-    DEX
-.loop_C1885
-    STA L6293,X
-    DEX
-    BPL loop_C1885
-    JSR sub_C42D0
-    LDA L006C
-    BMI C18A5
-    LDX #&28 ; '('
-    JSR sub_C17FC
-    LDX #1
-    JSR sub_C5011
-    JSR sub_C501D
-    LDA #&DF
-    STA L62EF
-    RTS
-
-.C18A5
-    STA L0066
-    STA L62FE
-    LDX #&2B ; '+'
-    JSR sub_C4D74
-    LDX #&2C ; ','
-    JSR sub_C4D70
-    LDA L0003
-    JSR sub_C65C8
-    STA L002F
-    RTS
-
-.sub_C18BC
-    LDX L0051
-    LDY L001F
-    LDA L5EB8,X
-    CLC
-    ADC #&14
-    BPL C18D4
-    LDA L5E90,X
-    CLC
-    ADC #&14
-    BMI C18D4
-    LDA #&20 ; ' '
-    BNE C18D6
-.C18D4
-    LDA #&23 ; '#'
-.C18D6
-    STA L5F60,Y
-    LDA #&21 ; '!'
-    LDY #&4F ; 'O'
-.loop_C18DD
-    LDX L5F60,Y
-    BEQ C18E3
-    TXA
-.C18E3
-    STA L5F60,Y
-    DEY
-    BPL loop_C18DD
-    RTS
-
-.sub_C18EA
-    STA L0074
-    LDX #3
-.loop_C18EE
-    LDA L192F,X
-    STA P,X
-    DEX
-    BPL loop_C18EE
-    LDX #0
-.C18F8
-    LDY #&4F ; 'O'
-    LDA #0
-    STA L0076
-.loop_C18FE
-    BIT L0074
-    BMI C1906
-    LDA (P),Y
-    STA (R),Y
-.C1906
-    LDA (R),Y
-    STA (P),Y
-    INC L0076
-    DEY
-    TYA
-    CMP L3900,X
-    BNE loop_C18FE
-    LDA R
-    SEC
-    SBC L0076
-    STA R
-    BCS C191E
-    DEC S
-.C191E
-    LDA P
-    CLC
-    ADC #&80
-    STA P
-    BCC C1929
-    INC Q
-.C1929
-    INX
-    CPX #&29 ; ')'
-    BNE C18F8
-    RTS
-
-.L192F
-    EQUB 0  , &30, &B0, &7F
-.sub_C1933
-    LDA L5E90,X
-    CLC
-    ADC #&14
-    CMP #&28 ; '('
-    ROR L0076
-    RTS
-
-.sub_C193E
-    STA L1970
-    STY L004B
-    DEY
-    STY L0075
-    JSR sub_C1933
-    LDY L001F
-    JMP C1977
-
-.C194E
-    LDA L0076
-    BPL C1955
-    JSR sub_C1933
-.C1955
-    LDA L5F20,X
-    CMP #&50 ; 'P'
-    BCS C1980
-    BIT L0076
-    BPL C1965
-    CMP L5F21,X
-    BEQ C19A5
-.C1965
-    CMP L007F
-    BCS C19A5
-.C1969
-    STA L0082
-    TXA
-    JMP C1973
-
-.loop_C196F
-L1970 = loop_C196F+1
-    STA L0400,Y
-    DEY
-.C1973
-    CPY L0082
-    BNE loop_C196F
-.C1977
-    STY L007F
-.C1979
-    INX
-    BMI C1996
-    CPX L0075
-    BCC C194E
-.C1980
-    LDA L5F20,X
-    BMI C198E
-    CMP L007F
-    BCC C198E
-    LDA L007F
-    STA L5F20,X
-.C198E
-    TXA
-    ORA #&80
-    TAX
-    LDA #0
-    BEQ C1969
-.C1996
-    LDX L0050
-.loop_C1998
-    LDA L5EE0,X
-    BPL C19A2
-    INX
-    CPX L0075
-    BCC loop_C1998
-.C19A2
-    STX L0050
-    RTS
-
-.C19A5
-    LDA #&80
-    ORA L5EE0,X
-    STA L5EE0,X
-    BMI C1979
-.sub_C19AF
-    STY L0027
-    STA L004C
-    CMP L004B
-    BCS C1A1F
-    CLC
-    ADC L30FC,Y
-    STA L004F
-    LDA L2B1E,Y
-    STA L2F50
-    STA L2F92
-    LDA L2B22,Y
-    STA L2F4F
-    STA L2F91
-    LDX L004F
-    LDY L004C
-    SEC
-    JSR sub_C2B26
-.C19D7
-    INX
-    INY
-    CPY L004B
-    BCS C1A1F
-    LDA L5EE0,Y
-    BMI C19D7
-    LDA L004C
-    CMP L0050
-    BCC C19F8
-    BNE C19FD
-    LDA L5EDF,Y
-    AND #3
-    BNE C1A10
-    STY L0050
-    SEC
-    LDA L0027
-    BEQ C1A15
-.C19F8
-    LDA L008C
-    CLC
-    BCC C1A15
-.C19FD
-    LDA L5EDF,Y
-    AND #3
-    BNE C1A10
-    LDA L0027
-    CMP #1
-    BEQ C1A15
-    CMP #2
-    BEQ C1A15
-    LDA #0
-.C1A10
-    ASL A
-    ASL A
-    CLC
-    ADC L0032
-.C1A15
-    JSR sub_C2B26
-    STY L004C
-    STX L004F
-    JMP C19D7
-
-.C1A1F
-    RTS
-
-.sub_C1A20
-    LDA #&80
-    STA P
-    LDA L0051
-    CLC
-    ADC #&28 ; '('
-    TAX
-    CMP #&31 ; '1'
-    BCS C1A30
-    LDA #&31 ; '1'
-.C1A30
-    STA L0050
-    LDA #0
-    STA R
-    STA L008E
-    LDY L0012
-    JSR sub_C193E
-    LDY #0
-    STY L0032
-    LDA L0050
-    JSR sub_C19AF
-    LDA #8
-    STA L0032
-    LDY #0
-    STY L008C
-    INY
-    LDA L0051
-    CLC
-    ADC #&28 ; '('
-    JSR sub_C19AF
-    LDA L0050
-    LDX #4
-    JSR sub_C1A98
-    STY L002C
-    LDA L0051
-    TAX
-    CMP #9
-    BCS C1A69
-    LDA #9
-.C1A69
-    STA L0050
-    LDX L0051
-    LDA #&50 ; 'P'
-    LDY L0015
-    JSR sub_C193E
-    LDA #&1C
-    STA L008C
-    LDA #&10
-    STA L0032
-    LDY #2
-    LDA L0051
-    JSR sub_C19AF
-    LDA #&1C
-    STA L0032
-    LDY #3
-    LDA L0050
-    JSR sub_C19AF
-    LDA L0050
-    LDX #&14
-    JSR sub_C1A98
-    STY L0029
-    RTS
-
-.sub_C1A98
-    STX L0088
-    STA L0075
-    DEC L004B
-    LDA L62F2
-    CMP #&28 ; '('
-    BCC C1B05
-    BCS C1B0B
-.C1AA7
-    LDY L5F20,X
-    CPY #&50 ; 'P'
-    BCS C1B03
-    LDA L5EE0,X
-    BMI C1B03
-    LDA L0088
-    CMP #&14
-    BEQ C1AC4
-    LDA L5EA0,X
-    STA L0077
-    LDA L5E90,X
-    JMP C1ACC
-
-.C1AC4
-    LDA L5E90,X
-    STA L0077
-    LDA L5EA0,X
-.C1ACC
-    CLC
-    ADC #&14
-    BMI C1B03
-    LDA L0077
-    CLC
-    ADC #&14
-    BPL C1B03
-.loop_C1AD8
-    LDA L5EE1,X
-    BPL C1AE4
-    INX
-    INC L0075
-    CPX L004B
-    BCC loop_C1AD8
-.C1AE4
-    LDA L5F60,Y
-    STA L0074
-    LDA L5F60,Y
-    BEQ C1AF9
-    AND #&1C
-    CMP L0088
-    BEQ C1AF9
-    ROR A
-    EOR L0074
-    BMI C1B03
-.C1AF9
-    LDA L5EE0,X
-    AND #3
-    ORA L0088
-    STA L5F60,Y
-.C1B03
-    INC L0075
-.C1B05
-    LDX L0075
-    CPX L004B
-    BCC C1AA7
-.C1B0B
-    LDX L0050
-    LDY L5F20,X
-    INY
-    RTS
-
-.sub_C1B12
-    LDY #0
-.C1B14
-    CPY L0057
-    BEQ C1B7F
-    LDX L62B4,Y
-    STY L0056
-    LDA L6299,Y
-    AND #&20 ; ' '
-    BEQ C1B29
-    LDA #&0F
-    STA L38FE
-.C1B29
-    LDA L62BA,Y
-    STA L0075
-    LDA L62B7,Y
-    ASL A
-    ROL L0075
-    STA L0074
-    CLC
-    ADC L5E40,X
-    STA L0076
-    LDA L5E90,X
-    ADC L0075
-    CMP #&18
-    BCC C1B49
-    CMP #&E8
-    BCC C1B74
-.C1B49
-    ASL L0076
-    ROL A
-    ASL L0076
-    ROL A
-    CLC
-    ADC #&50 ; 'P'
-    STA L0035
-    LDA L5F20,X
-    STA L0036
-    LDY #2
-.loop_C1B5B
-    ASL L0074
-    ROL L0075
-    DEY
-    BNE loop_C1B5B
-    LDA L0075
-    BPL C1B6B
-    EOR #&FF
-    CLC
-    ADC #1
-.C1B6B
-    STA L002A
-    LDA #6
-    STA L0037
-    JSR sub_C1FB4
-.C1B74
-    LDA #&F0
-    STA L38FE
-    LDY L0056
-    INY
-    JMP C1B14
-
-.C1B7F
-    LDA #0
-    STA L0057
-    RTS
-
-.sub_C1B84
-    LDA L002F
-    BEQ C1BA2
-    SED
-    CLC
-    ADC L0031
-    STA L0031
-    CLD
-    BEQ C1BA2
-    CMP #&21 ; '!'
-    BCS C1BA2
-    LDX #0
-    STX L002F
-    STX L0078
-    LDX #&0A
-    LDY #&18
-    JSR sub_C37D0
-.C1BA2
-    BIT L62FE
-    BPL C1BB5
-    LDY L004D
-    LDA #&18
-    JSR sub_C6673
-    LDY L005B
-    LDA #&21 ; '!'
-    JSR sub_C6673
-.C1BB5
-    LSR L62FE
-    RTS
-
-.sub_C1BB9
-    LDA L0068
-    BEQ C1C1B
-    LDA #0
-    STA L0068
-    SEC
-    ROR L0076
-    LDA #&25 ; '%'
-    SEC
-    SBC L0041
-    BCS C1BCD
-    LDA #5
-.C1BCD
-    ASL A
-    STA L0075
-    LDX L0067
-    LDY L006F
-    CMP #&28 ; '('
-    BCC C1BDF
-    LDA L006C
-    BPL C1BDF
-    JSR sub_C11AB
-.C1BDF
-    LDA L0398,X
-    SEC
-    SBC L000B
-    ASL A
-    ASL A
-    PHP
-    LDA L0150,Y
-    CPX #&14
-    BCS C1BFE
-    CMP L0150,X
-    BCS C1BF9
-    LDA L0150,X
-    BNE C1BFE
-.C1BF9
-    ADC #&0B
-    STA L0150,X
-.C1BFE
-    JSR sub_C0C00
-    CMP #&10
-    BCC C1C07
-    LDA #&10
-.C1C07
-    PLP
-    JSR sub_C0E40
-.C1C0B
-    STA L62E2
-    LDA #&80
-    STA L62A6
-    STA L62A7
-    LDA #4
-    JSR L0B47
-.C1C1B
-    RTS
-
-.sub_C1C1C
-    STY L007B
-    LDX L0079
-    STX L0078
-    AND #3
-    TAX
-    LDA L628F,X
-    STA L0079
-    LDA L0085
-    STA L007C
-    LDA L0084
-    AND #&0C
-    LSR A
-    LSR A
-    TAX
-    LDA L628F,X
-    STA L0076
-    LDA #0
-    STA P
-    CPY #1
-    BNE C1C5A
-    LDA L007E
-    BPL C1C4D
-    SEC
-    ROR A
-    ADC #0
-    JMP C1C4E
-
-.C1C4D
-    LSR A
-.C1C4E
-    CLC
-    ADC L0035
-    STA L007E
-    LSR A
-    LSR A
-    STA L0085
-    JMP C1C66
-
-.C1C5A
-    LDA L008D
-    STA L0085
-    LDA L008F
-    STA L007E
-    CPY #0
-    BNE C1C7B
-.C1C66
-    LDA L0083
-    BPL C1C71
-    SEC
-    ROR A
-    ADC #0
-    JMP C1C72
-
-.C1C71
-    LSR A
-.C1C72
-    CLC
-    ADC L0035
-    STA L008F
-    LSR A
-    LSR A
-    STA L008D
-.C1C7B
-    LDA L0085
-    CMP #&14
-    ROL L0074
-    LSR A
-    ROR P
-    CLC
-    ADC #&30 ; '0'
-    STA Q
-    LDX L0085
-    CPX #&28 ; '('
-    BCC C1C92
-    JMP C1D94
-
-.C1C92
-    LDA L0047
-    CMP L3900,X
-    BCS C1C9C
-    LDA L3900,X
-.C1C9C
-    STA L0082
-    CMP L007F
-    BCC C1CAA
-    CPY #1
-    BNE C1CA7
-    RTS
-
-.C1CA7
-    JMP C1D7C
-
-.C1CAA
-    LDA L0084
-    AND #&10
-    BEQ C1CC3
-    TYA
-    BEQ C1CC3
-    EOR L0074
-    AND #1
-    BEQ C1CC3
-    LDA L0084
-    AND #3
-    TAX
-    LDA L628F,X
-    STA L0076
-.C1CC3
-    LDA L007E
-    AND #3
-    TAX
-    LDA L3FE8,X
-    EOR #&FF
-    AND L0076
-    STA L0076
-    CPY #1
-    BCS C1D15
-    LDA L337C,X
-    AND L0078
-    STA L0074
-    LDA L0079
-    AND L33FC,X
-    ORA L0074
-    AND L3FE8,X
-    ORA L0076
-    STA L007A
-    LDA L0048
-    BEQ C1CFD
-    LDA #0
-    STA L0048
-    LDA L008C
-    STA L007D
-    EOR #&FF
-    AND L007A
-    JMP C1D25
-
-.C1CFD
-    LDX L0085
-    CPX L008D
-    BNE C1D0A
-    LDA L007A
-    STA L0079
-    JMP C1D7C
-
-.C1D0A
-    LDA L007A
-    BNE C1D10
-    LDA #&55 ; 'U'
-.C1D10
-    LDY L007F
-    JMP C1DE8
-
-.C1D15
-    BNE C1D34
-    LDA L337C,X
-    STA L007D
-    EOR #&FF
-    AND L0079
-    AND L3FE8,X
-    ORA L0076
-.C1D25
-    LDX L0085
-    CPX L008D
-    BNE C1D44
-    STA L0079
-    LDA L007D
-    STA L008C
-    ROR L0048
-    RTS
-
-.C1D34
-    LDA L008C
-    ORA L39D0,X
-    STA L007D
-    EOR #&FF
-    AND L0078
-    AND L3FE8,X
-    ORA L0076
-.C1D44
-    STA L007A
-    LDA #0
-    STA L008C
-    LDY L007F
-    JMP C1D6B
-
-.loop_C1D4F
-    LDA (P),Y
-    BEQ C1D5D
-    CMP #&55 ; 'U'
-    BNE C1D60
-    LDA L007A
-    BNE C1D68
-    BEQ C1D66
-.C1D5D
-    JSR sub_C1E9E
-.C1D60
-    AND L007D
-    ORA L007A
-    BNE C1D68
-.C1D66
-    LDA #&55 ; 'U'
-.C1D68
-    STA (P),Y
-    DEY
-.C1D6B
-    CPY L0082
-    BNE loop_C1D4F
-    LDX L007B
-    CPX #1
-    BEQ C1D93
-    INC L0085
-    JSR sub_C1DAF
-    DEC L0085
-.C1D7C
-    LDA L007C
-    CMP #&28 ; '('
-    BCC C1D86
-    LDA #&FF
-    STA L007C
-.C1D86
-    LDA L0085
-    CLC
-    SBC L007C
-    BEQ C1D93
-    BMI C1D93
-    TAX
-    JSR sub_C1E38
-.C1D93
-    RTS
-
-.C1D94
-    LDY L007B
-    CPY #1
-    BEQ C1D93
-    LDA L007C
-    CMP #&28 ; '('
-    BCS C1D93
-    LDA #&28 ; '('
-    STA L0085
-    BNE C1D86
-.sub_C1DA6
-    STX L1DDE
-    STY L1DD5
-    STA L1DDC
-.sub_C1DAF
-    LDA L0085
-    CMP #&28 ; '('
-    BCS C1DE4
-    CLC
-    ADC #&60 ; '`'
-    LSR A
-    STA Q
-    LDA #0
-    ROR A
-    STA P
-    LDY L007F
-    JMP C1DE0
-
-    EQUB &C9, &55, &D0, 2  , &A9, 0  , &91, &72, &88, &C4, &82, &F0
-    EQUB &12
-.loop_C1DD2
-    LDA (P),Y
-.sub_C1DD4
-L1DD5 = sub_C1DD4+1
-    BNE C1DDF
-    JSR sub_C1E9E
-    BNE C1DDD
-.sub_C1DDB
-L1DDC = sub_C1DDB+1
-    LDA #&55 ; 'U'
-.C1DDD
-L1DDE = C1DDD+1
-    STA (P),Y
-.C1DDF
-    DEY
-.C1DE0
-    CPY L0082
-    BNE loop_C1DD2
-.C1DE4
-    RTS
-
-.loop_C1DE5
-    STA (P),Y
-    DEY
-.C1DE8
-    CPY L0082
-    BNE loop_C1DE5
-    JMP C1D7C
-
-.sub_C1DEF
-    STA L0042
-.C1DF1
-    STX L0085
-    STY L007F
-    LDA L3900,X
-    STA L0082
-    LDX #&72 ; 'r'
-    LDY #&EF
-    LDA #0
-    JSR sub_C1DA6
-    LDX #&70 ; 'p'
-    LDY #9
-    LDA #&55 ; 'U'
-    INC L0085
-    JSR sub_C1DA6
-    LDX L0085
-    CPX L0042
-    BNE C1DF1
-    RTS
-
-.sub_C1E15
-    LDA #5
-    STA S
-    LDA #4
-    STA R
-    LDY #&1B
-    LDX #3
-    LDA #6
-    JSR sub_C1DEF
-    LDA #&44 ; 'D'
-    STA S
-    LDA #0
-    STA R
-    LDY #&2B ; '+'
-    LDX #&1A
-    LDA #&22 ; '"'
-    JSR sub_C1DEF
-    RTS
-
-.sub_C1E38
-    LDA L0078
-    BNE C1E3E
-    LDA #&55 ; 'U'
-.C1E3E
-    STA L0076
-    LDA #&7F
-    SEC
-    SBC L007F
-    STA L0074
-    ADC L0047
-    STA L0086
-    LDA L0085
-    STA L0075
-    CLC
-    ADC #&5F ; '_'
-    LSR A
-    STA Q
-    STA S
-    LDA #0
-    ROR A
-    SEC
-    SBC L0074
-    STA P
-    EOR #&80
-    STA R
-    BPL C1E67
-    DEC S
-.C1E67
-    BCS C1E6D
-.C1E69
-    DEC Q
-    DEC S
-.C1E6D
-    LDY L0075
-    LDA L3F4F,Y
-    DEY
-    DEY
-    STY L0075
-    CMP L0047
-    BCC C1E84
-    ADC L0074
-    TAY
-    BPL C1E86
-    CPX #2
-    BCS C1E93
-    RTS
-
-.C1E84
-    LDY L0086
-.C1E86
-    LDA L0076
-    CPX #2
-    BCC C1E98
-.loop_C1E8C
-    STA (P),Y
-    STA (R),Y
-    INY
-    BPL loop_C1E8C
-.C1E93
-    DEX
-    DEX
-    BNE C1E69
-    RTS
-
-.C1E98
-    STA (P),Y
-    INY
-    BPL C1E98
-    RTS
-
-.sub_C1E9E
-    CPY L001F
-    BCC C1EA8
-    BEQ C1EA8
-    LDA L38FD
-    RTS
-
-.C1EA8
-    LDA L0085
-    CMP L0554,Y
-    BCS C1EC7
-    CMP L0600,Y
-    BCS C1ED5
-    CMP L0650,Y
-    BCS C1EC3
-    CMP L05A4,Y
-    BCS C1ECB
-    LDA L5F60,Y
-    BCC C1EE2
-.C1EC3
-    LDA L38FC
-    RTS
-
-.C1EC7
-    LDA L38FF
-    RTS
-
-.C1ECB
-    CPY L002C
-    BCS C1EC7
-    LDA L0400,Y
-    JMP C1EDC
-
-.C1ED5
-    CPY L0029
-    BCS C1EC7
-    LDA L0450,Y
-.C1EDC
-    AND #&7F
-    TAX
-    LDA L5EDF,X
-.C1EE2
-    AND #3
-    TAX
-    LDA L38FC,X
-    RTS
-
-.C1EE9
-    JSR sub_C63C5
-    BNE C1EF1
-.loop_C1EEE
-    JMP C162D
-
-.C1EF1
-    BCS loop_C1EEE
-    CMP #5
-    BCS C1F08
-    JMP C15F4
-
-.C1EFA
-    JSR sub_C63C5
-    BEQ C1F05
-    BCS C1F05
-    LDA L0076
-    BNE C1F11
-.C1F05
-    JMP C1F95
-
-.C1F08
-    LDA L0074
-    EOR #1
-    LSR A
-    LDA #3
-    SBC #0
-.C1F11
-    LDX #&32 ; '2'
-    CMP #2
-    BEQ C1F19
-    LDX #&0A
-.C1F19
-    LDA L62A2
-    STA L0076
-    LSR A
-    LDA L62A5
-    BCC C1F30
-    LDA #0
-    SEC
-    SBC L0076
-    STA L0076
-    LDA #0
-    SBC L62A5
-.C1F30
-    CLC
-    ADC #1
-    CPX #&32 ; '2'
-    BNE C1F39
-    SBC #2
-.C1F39
-    STA L0077
-    LDA L5E40,X
-    SEC
-    SBC L0076
-    STA L0074
-    LDA L5E90,X
-    SBC L0077
-    PHP
-    JSR sub_C0E40
-    STA L0076
-    LDY L0022
-    LDA #&3C ; '<'
-    SEC
-    SBC L0063
-    BPL C1F59
-    LDA #0
-.C1F59
-    ASL A
-    ADC #&20 ; ' '
-    STA L0075
-    LDA L0701,Y
-    AND #&7F
-    CMP #&40 ; '@'
-    BCC C1F69
-    LDA #2
-.C1F69
-    CMP #8
-    BCC C1F6F
-    LDA #7
-.C1F6F
-    ASL A
-    ASL A
-    ASL A
-    ASL A
-    CMP L0075
-    BCC C1F79
-    STA L0075
-.C1F79
-    JSR sub_C0DBF
-    LDA L0075
-    PLP
-    JSR sub_C0E40
-    STA L0075
-    LDA L0074
-    AND #&FE
-    STA L0074
-    LDA L62A2
-    LSR A
-    BCS C1F95
-    JSR sub_C0E44
-    STA L0075
-.C1F95
-    LDA L62A2
-    JMP C1612
-
-.sub_C1F9B
-    BCC C1FA7
-    LDA L62A2
-    AND #&FE
-    STA L0074
-    LDA L62A5
-.C1FA7
-    RTS
-
-.sub_C1FA8
-    BCC C1FAF
-    LDA L0880,X
-    CMP #3
-.C1FAF
-    ROR L62FB
-    RTS
-
-    EQUB &EA
-.sub_C1FB4
-    STX L0074
-    LDX #3
-.loop_C1FB8
-    LDA L38FC,X
-    STA L628F,X
-    DEX
-    BPL loop_C1FB8
-    LDA #&F0
-    STA L38FE
-    LDA L0074
-    CMP #&17
-    BEQ C1FDE
-    CMP #&14
-    BCC C1FD5
-    LDX L004D
-    LDA L013C,X
-.C1FD5
-    AND #3
-    TAX
-    LDA L38FC,X
-    STA L6290
-.C1FDE
-    LDX #0
-    STX L002B
-    LDA L002A
-    CMP L62FC
-    BCS C1FEB
-    LDX L001F
-.C1FEB
-    STX L62FD
-    CMP #&40 ; '@'
-    BCS C1FFA
-    ASL A
-    ASL A
-    STA L002A
-    LDA #2
-    STA L002B
-.C1FFA
-    LDX L0037
-    CPX #&0A
-    BCC C2002
-    LDX #9
-.C2002
-    STX L62F3
-    LDA L3CDD,X
-    STA L0081
-    LDA L3CDE,X
-    STA L008A
-    LDA L3CD0,X
-    STA L008E
-    JSR sub_C202A
-    BCS C2029
-    JSR sub_C209A
-    LDX L0037
-    LDA L62F3
-    CMP #9
-    BNE C2029
-    LDA L0025
-    BPL C2002
-.C2029
-    RTS
-
-.sub_C202A
-    LDA L002A
-    STA L5FFA
-    LSR A
-    STA L5FFB
-    LSR A
-    STA L5FFC
-    LSR A
-    STA L5FFD
-    LSR A
-    STA L5FFE
-    LSR A
-    STA L5FFF
-    LDY L0081
-    LDX #0
-    STX L0077
-.C2049
-    LDA L4480,Y
-    BPL C2072
-    AND #7
-    TAX
-    LDA L5FF8,X
-    STA L0074
-    LDA L4480,Y
-    STA L0075
-    LSR A
-    LSR A
-    LSR A
-    AND #7
-    TAX
-    LDA L5FF8,X
-    CLC
-    ADC L0074
-    BIT L0075
-    BVC C2076
-    CLC
-    ADC L5FFB
-    JMP C2076
-
-.C2072
-    TAX
-    LDA L5FF8,X
-.C2076
-    LDX L002B
-    BEQ C2080
-.loop_C207A
-    LSR A
-    DEX
-    BNE loop_C207A
-    ADC #0
-.C2080
-    LDX L0077
-    STA L5EF8,X
-    EOR #&FF
-    BPL C2098
-    CLC
-    ADC #1
-    STA L5F00,X
-    INC L0077
-    INY
-    CPY L008A
-    BNE C2049
-    CLC
-    RTS
-
-.C2098
-    SEC
-    RTS
-
-.sub_C209A
-    LDY L008E
-.C209C
-    LDA L38FC
-    STA L0079
-    LDA #0
-    STA L0048
-    STA L008C
-    LDX L3550,Y
-    LDA L5EF8,X
-    CLC
-    ADC L0036
-    BMI C210C
-    CMP #&50 ; 'P'
-    BCC C20B8
-    LDA #&4F ; 'O'
-.C20B8
-    STA L007F
-    LDX L35D0,Y
-    LDA L5EF8,X
-    CLC
-    ADC L0036
-    BMI C20CA
-    CMP L62FD
-    BCS C20CF
-.C20CA
-    LDA L62FD
-    NOP
-    NOP
-.C20CF
-    CMP L007F
-    BCS C210C
-    STA L0047
-    LDX L3650,Y
-    LDA L5EF8,X
-    STA L007E
-    LDX L36D0,Y
-    LDA L5EF8,X
-    STA L0083
-    LDA L3750,Y
-    STA L0084
-    STY L001B
-    LDY #1
-    JSR sub_C1C1C
-.C20F1
-    BIT L0084
-    BMI C2117
-    LDA #0
-    LDY #2
-    JSR sub_C1C1C
-    BIT L0084
-    BVS C2106
-    LDY L001B
-.loop_C2102
-    INY
-    JMP C209C
-
-.C2106
-    RTS
-
-.loop_C2107
-    AND #&40 ; '@'
-    BNE C2106
-    INY
-.C210C
-    LDA L3750,Y
-    BMI loop_C2107
-    AND #&40 ; '@'
-    BNE C2106
-    BEQ loop_C2102
-.C2117
-    LDY L001B
-    INY
-    STY L001B
-    LDX L3650,Y
-    LDA L5EF8,X
-    STA L0083
-    LDA L36D0,Y
-    STA L0084
-    LDY #0
-    JSR sub_C1C1C
-    LDY L001B
-    LDX L3550,Y
-    LDA L5EF8,X
-    STA L0083
-    LDA L3750,Y
-    STA L0084
-    LDY #0
-    JSR sub_C1C1C
-    JMP C20F1
-
-.sub_C2145
-    LDY #0
-.sub_C2147
-    LDA L0900,X
-    SEC
-    SBC L6280,Y
-    STA L0080
-    LDA L0A00,X
-    SBC L6283,Y
-    STA L0086
-    BPL C2165
-    LDA #0
-    SEC
-    SBC L0080
-    STA L0080
-    LDA #0
-    SBC L0086
-.C2165
-    STA L0083
-    LDA L0902,X
-    SEC
-    SBC L6282,Y
-    STA L0082
-    LDA L0A02,X
-    SBC L6285,Y
-    STA L0088
-    BPL C2185
-    LDA #0
-    SEC
-    SBC L0082
-    STA L0082
-    LDA #0
-    SBC L0088
-.C2185
-    STA L0085
-    CMP L0083
-    BCC C2193
-    BNE C21A6
-    LDA L0082
-    CMP L0080
-    BCS C21A6
-.C2193
-    LDA L0085
-    STA L0079
-    LDA L0082
-    STA L0078
-    LDA L0080
-    STA L007A
-    LDA L0083
-    STA L007B
-    JMP C21C1
-
-.C21A6
-    PHP
-    LDA L0083
-    STA L0079
-    LDA L0080
-    STA L0078
-    LDA L0082
-    STA L007A
-    LDA L0085
-    STA L007B
-    PLP
-    BEQ C220D
-    JMP C2239
-
-.loop_C21BD
-    ASL L0082
-    ROL L0085
-.C21C1
-    ASL L0080
-    ROL A
-    BCC loop_C21BD
-    ROR A
-    STA L0076
-    LDA L0082
-    STA L0074
-    LDA L0085
-    CMP L0076
-    BEQ C220D
-    JSR sub_C0C47
-    LDA #0
-    STA L008A
-    LDY L0074
-    LDA L6100,Y
-    STA L007E
-    LSR A
-    ROR L008A
-    LSR A
-    ROR L008A
-    LSR A
-    ROR L008A
-    STA L008B
-    LDA L0086
-    EOR L0088
-    BMI C21FF
-    LDA #0
-    SEC
-    SBC L008A
-    STA L008A
-    LDA #0
-    SBC L008B
-    STA L008B
-.C21FF
-    LDA #&40 ; '@'
-    BIT L0086
-    BPL C2207
-    LDA #&C0
-.C2207
-    CLC
-    ADC L008B
-    STA L008B
-    RTS
-
-.C220D
-    LDA #&FF
-    STA L007E
-    LDA #0
-    STA L008A
-    BIT L0086
-    BPL C2227
-    BIT L0088
-    BPL C2222
-    LDA #&A0
-    STA L008B
-    RTS
-
-.C2222
-    LDA #&E0
-    STA L008B
-    RTS
-
-.C2227
-    BIT L0088
-    BPL C2230
-    LDA #&60 ; '`'
-    STA L008B
-    RTS
-
-.C2230
-    LDA #&20 ; ' '
-    STA L008B
-    RTS
-
-.loop_C2235
-    ASL L0080
-    ROL L0083
-.C2239
-    ASL L0082
-    ROL A
-    BCC loop_C2235
-    ROR A
-    STA L0076
-    LDA L0080
-    STA L0074
-    LDA L0083
-    CMP L0076
-    BEQ C220D
-    JSR sub_C0C47
-    LDA #0
-    STA L008A
-    LDY L0074
-    LDA L6100,Y
-    STA L007E
-    LSR A
-    ROR L008A
-    LSR A
-    ROR L008A
-    LSR A
-    ROR L008A
-    STA L008B
-    LDA L0086
-    EOR L0088
-    BPL C2277
-    LDA #0
-    SEC
-    SBC L008A
-    STA L008A
-    LDA #0
-    SBC L008B
-    STA L008B
-.C2277
-    LDA #0
-    BIT L0088
-    BPL C227F
-    LDA #&80
-.C227F
-    CLC
-    ADC L008B
-    STA L008B
-    RTS
-
-.sub_C2285
-    LDY #0
-.sub_C2287
-    LDA L0901,X
-    SEC
-    SBC L6281,Y
-    STA L0081
-    LDA L0A01,X
-    SBC L6284,Y
-    STA L0087
-    BPL C22A5
-    LDA #0
-    SEC
-    SBC L0081
-    STA L0081
-    LDA #0
-    SBC L0087
-.C22A5
-    LSR A
-    ROR L0081
-    LSR A
-    ROR L0081
-    LSR A
-    ROR L0081
-    STA L0084
-    CMP L007D
-    BCC C22BE
-    BNE C22BC
-    LDA L0081
-    CMP L007C
-    BCC C22BE
-.C22BC
-    SEC
-    RTS
-
-.C22BE
-    LDY #0
-    LDA L007D
-    JMP C22CA
-
-.loop_C22C5
-    ASL L0081
-    ROL L0084
-    INY
-.C22CA
-    ASL L007C
-    ROL A
-    BCC loop_C22C5
-    ROR A
-    STA L0076
-    STY L002B
-    TAY
-    LDA L6180,Y
-    STA L002A
-    LDA L0081
-    STA L0074
-    LDA L0084
-    JSR sub_C0C47
-    LDA L0074
-    CMP #&80
-    BCS C22FE
-    BIT L0087
-    BPL C22F5
-    LDA #&3C ; '<'
-    SEC
-    SBC L0074
-    JMP C22F8
-
-.C22F5
-    CLC
-    ADC #&3C ; '<'
-.C22F8
-    SEC
-    SBC L000D
-    STA L008D
-    CLC
-.C22FE
-    RTS
-
-.sub_C22FF
-    LDA L62F5
-    BEQ C230C
-    JSR sub_C12A0
-    LDA #0
-    STA L62F5
-.C230C
-    LDY L0005
-    CPY #6
-    BEQ C22FE
-    LDY L0006
-    CPY #6
-    BEQ C2330
-.loop_C2318
-    CPY L0008
-    BEQ C232B
-    STY L0074
-    TYA
-    CLC
-    ADC #&28 ; '('
-    TAY
-    JSR sub_C0BA2
-    LDY L0074
-    JSR sub_C0BA2
-.C232B
-    INY
-    CPY #6
-    BCC loop_C2318
-.C2330
-    LDA #6
-    SEC
-    SBC L0008
-    ASL A
-    ASL A
-    ASL A
-    BIT L0025
-    BPL C234F
-    STA L0074
-    LDA L06FF
-    CLC
-    ADC #8
-    SEC
-    SBC L0074
-    BCS C235B
-    ADC L59FA
-    JMP C235B
-
-.C234F
-    CLC
-    ADC L06FF
-    CMP L59FA
-    BCC C235B
-    SBC L59FA
-.C235B
-    TAY
-    STY L0004
-    LDX L0008
-.C2360
-    STX L0042
-    LDX #&FD
-    JSR sub_C1208
-    JSR sub_C2145
-    LDY L0042
-    BIT L0025
-    BPL C2374
-    TYA
-    EOR #&28 ; '('
-    TAY
-.C2374
-    JSR sub_C23C0
-    LDX L0042
-    CPX #&28 ; '('
-    BCS C239A
-    LDX #&FD
-    JSR sub_C2285
-    LDX L0042
-    LDA L008D
-    STA L5F20,X
-    STA L5F48,X
-    CMP L001F
-    BCC C239A
-    BNE C2396
-    CPX L0051
-    BCC C239A
-.C2396
-    STA L001F
-    STX L0051
-.C239A
-    TXA
-    CLC
-    ADC #&28 ; '('
-    CMP #&3C ; '<'
-    BCS C23AC
-    TAX
-    LDA L0004
-    CLC
-    ADC #3
-    TAY
-    JMP C2360
-
-.C23AC
-    LDX L0008
-    DEX
-    JSR sub_C12DC
-    LDA #7
-    CMP L0052
-    BCS C23BA
-    STA L001F
-.C23BA
-    RTS
-
-.sub_C23BB
-    JSR sub_C2145
-    LDY L0012
-.sub_C23C0
-    LDA L008A
-    SEC
-    SBC L000A
-    STA L5E40,Y
-    LDA L008B
-    SBC L000B
-    STA L5E90,Y
-    JMP C0CA5
-
-.sub_C23D2
-    STA L0012
-    LDA #0
-    STA L0042
-.C23D8
-    JSR sub_C23BB
-    CMP L0011
-    BCC C23E7
-    BNE C23FC
-    LDA L0010
-    CMP L007C
-    BCC C23FC
-.C23E7
-    LDA L007D
-    STA L0011
-    LDA L007C
-    STA L0010
-    LDA L0042
-    STA L0013
-    LDY L0012
-    STY L005C
-    LDA L5E90,Y
-    STA L005E
-.C23FC
-    JSR sub_C2285
-    BCS C2403
-    BPL C246A
-.C2403
-    LDA L0042
-    BNE C2408
-    RTS
-
-.C2408
-    LDA #0
-    STA L0075
-    LDY L0014
-    STX L0077
-.C2410
-    LDA L0900,X
-    SEC
-    SBC L0900,Y
-    STA L0074
-    LDA L0A00,X
-    SBC L0A00,Y
-    CLC
-    BPL C2423
-    SEC
-.C2423
-    PHP
-    ROR A
-    ROR L0074
-    PLP
-    ROR A
-    ROR L0074
-    STA L0076
-    LDX L0075
-    LDA L0900,Y
-    CLC
-    ADC L0074
-    STA L09FA,X
-    LDA L0A00,Y
-    ADC L0076
-    STA L0AFA,X
-    INX
-    CPX #3
-    BEQ C2450
-    STX L0075
-    LDX L0077
-    INY
-    INX
-    STX L0077
-    JMP C2410
-
-.C2450
-    LDX #&FA
-    JSR sub_C23BB
-    JSR sub_C2285
-    BCS C2469
-    LDX L0014
-    LDA L0057
-    STA L0056
-    JSR sub_C2565
-    LDA L0056
-    STA L0057
-    INC L0012
-.C2469
-    RTS
-
-.C246A
-    JSR sub_C2565
-    LDA L0042
-    CMP L0013
-    BEQ C2490
-    BCC C2490
-    LDY L0012
-    LDA L5E90,Y
-    BPL C247E
-    EOR #&FF
-.C247E
-    CMP #&14
-    BCC C2490
-    LDA L5E8F,Y
-    BPL C2489
-    EOR #&FF
-.C2489
-    CMP #&14
-    BCS C24B8
-    JMP C2403
-
-.C2490
-    STX L0014
-    INC L0012
-    INC L0042
-    LDY L0042
-    CPY #&12
-    BCS C24B8
-    LDA L3DD0,Y
-    STA L0074
-    TXA
-    SEC
-    SBC L000E
-    CMP L0074
-    BCS C24B0
-    TXA
-    CLC
-    ADC #&78 ; 'x'
-    JMP C24B1
-
-.C24B0
-    TXA
-.C24B1
-    SEC
-    SBC L0074
-    TAX
-    JMP C23D8
-
-.C24B8
-    RTS
-
-.sub_C24B9
-    LDA L0044
-    SEC
-    SBC L62E2
-    BPL C24C3
-    EOR #&FF
-.C24C3
-    ASL A
-    CMP #&80
-    EOR L0025
-    BPL C24D6
-    BCC C24CE
-    EOR #&7F
-.C24CE
-    CMP #&FC
-    BCS C24D6
-    JSR sub_C13FB
-    RTS
-
-.C24D6
-    LDA L0013
-    CMP #&0C
-    BEQ C24E1
-    BCS C24E9
-    JSR sub_C12F3
-.C24E1
-    BIT L0043
-    BPL C24F5
-    JSR sub_C12F3
-    RTS
-
-.C24E9
-    CMP #&0E
-    BCC C24F5
-    BEQ C24F2
-    JSR sub_C140B
-.C24F2
-    JSR sub_C140B
-.C24F5
-    RTS
-
-.sub_C24F6
-    LDA #0
-    STA L001F
-    JSR sub_C22FF
-    LDA #&FF
-    STA L0011
-    LDA #&0D
-    STA L0013
-    LDA #0
-    JSR sub_C254A
-    LDA #6
-    JSR sub_C23D2
-    LDA L0012
-    STA L0015
-    LDA #&80
-    JSR sub_C254A
-    LDA #&2E ; '.'
-    JSR sub_C23D2
-    LDA L0051
-    CMP #&28 ; '('
-    BCC C2528
-    SEC
-    SBC #&28 ; '('
-    STA L0051
-.C2528
-    TAY
-    STY L0052
-    LDA L001F
-    CMP #&4F ; 'O'
-    BCC C2535
-    LDA #&4E ; 'N'
-    STA L001F
-.C2535
-    STA L5F20,Y
-    STA L5F48,Y
-    LDA L5E90,Y
-    SEC
-    SBC L5EB8,Y
-    JSR sub_C3450
-    LSR A
-    STA L62FC
-    RTS
-
-.sub_C254A
-    LDX L0024
-    EOR L0025
-    BPL C255A
-    TXA
-    CLC
-    ADC #&78 ; 'x'
-    TAX
-    LDA #&78 ; 'x'
-    SEC
-    BNE C255D
-.C255A
-    LDA #0
-    CLC
-.C255D
-    STA L000E
-    LDA #0
-    ROL A
-    STA L0049
-    RTS
-
-.sub_C2565
-    LDY L0049
-    CPX #&78 ; 'x'
-    BCS C2570
-    LDA L0702,X
-    BCC C2573
-.C2570
-    LDA L068A,X
-.C2573
-    AND L306C,Y
-    STA L0077
-    AND #7
-    TAY
-    LDA L306E,Y
-    STA L0076
-    LDA L0042
-    CMP #3
-    BCS C2589
-    JMP C25FD
-
-.C2589
-    LDA L002B
-    SEC
-    SBC L3076,Y
-    TAY
-    LDA #0
-    STA L0075
-    LDA L002A
-    DEY
-    BEQ C25A9
-    BPL C25A3
-.loop_C259B
-    LSR L0075
-    ROR A
-    INY
-    BNE loop_C259B
-    BEQ C25A9
-.C25A3
-    ASL A
-    ROL L0075
-    DEY
-    BNE C25A3
-.C25A9
-    STA L0074
-    LDA L0049
-    LSR A
-    ROR A
-    EOR L0025
-    BPL C25C0
-    LDA #0
-    SEC
-    SBC L0074
-    STA L0074
-    LDA #0
-    SBC L0075
-    STA L0075
-.C25C0
-    LDY L0012
-    LDA L5E40,Y
-    CLC
-    ADC L0074
-    STA L5E50,Y
-    LDA L5E90,Y
-    ADC L0075
-    STA L5EA0,Y
-    LDA L0077
-    AND #&18
-    BEQ C25FD
-    LDY L0057
-    CPY #3
-    BCS C25FD
-    LDA L0012
-    STA L62B4,Y
-    LDA L0077
-    STA L6299,Y
-    AND #1
-    BEQ C25F1
-    LSR L0075
-    ROR L0074
-.C25F1
-    LDA L0074
-    STA L62B7,Y
-    LDA L0075
-    STA L62BA,Y
-    INC L0057
-.C25FD
-    TXA
-    AND #1
-    BEQ C2606
-    LDA #2
-    BNE C2608
-.C2606
-    LDA L0076
-.C2608
-    LDY L0012
-    STA L5EE0,Y
-    LDA L008D
-    STA L5F20,Y
-    CMP #&50 ; 'P'
-    BCS C261E
-    CMP L001F
-    BCC C261E
-    STA L001F
-    STY L0051
-.C261E
-    RTS
-
-.sub_C261F
-    LDX #&16
-.loop_C2621
-    LDA L018C,X
-    ORA #&80
-    STA L018C,X
-    DEX
-    BPL loop_C2621
-    RTS
-
-.loop_C262D
-    LDX #6
-.C262F
-    DEC L0074
-    BNE C262F
-    DEX
-    BNE C262F
-    RTS
-
-.sub_C2637
-    LDA L5F3B
-    BMI loop_C262D
-    LDX L005B
-    LDY L013C,X
-    LDA L018C,Y
-    AND #&7F
-    STA L018C,Y
-    JSR sub_C27ED
-    JSR sub_C2692
-    JSR sub_C261F
-    JSR sub_C63A2
-    LDX L0003
-    LDY #5
-.loop_C2659
-    BIT L0025
-    BPL C2663
-    JSR sub_C5084
-    JMP C2666
-
-.C2663
-    JSR sub_C507E
-.C2666
-    STY L62F4
-    STX L001D
-    JSR sub_C28F2
-    LDX L001D
-    LDY L62F4
-    DEY
-    BPL loop_C2659
-    JSR sub_C66DF
-    LDX L005B
-    JSR sub_C28F2
-    RTS
-
-.sub_C267F
-    LDA L013C,X
-    STA L0074
-    LDA L013C,Y
-    STA L013C,X
-    TAX
-    LDA L0074
-    STA L013C,Y
-    TAY
-    RTS
-
-.sub_C2692
-    LDX L0003
-.C2694
-    STX L0077
-    LDA L013C,X
-    STA L0074
-    JSR sub_C507E
-    LDA L013C,X
-    STX L0078
-    TAY
-    LDX L0074
-    LDA #0
-    STA L007F
-    STA L0114,X
-    JSR sub_C27A4
-    BCS C26E6
-    BPL C26E9
-    CMP #&F6
-    BCC C26E6
-    LDX L0077
-    LDY L0078
-    JSR sub_C267F
-    SEC
-    ROR L62FE
-    CPY L006F
-    BNE C26CB
-    LDA #&99
-    BNE C26D1
-.C26CB
-    CPX L006F
-    BNE C26E6
-    LDA #1
-.C26D1
-    STA L0074
-    LDA L04B4,Y
-    ROL L0079
-    SBC L04B4,X
-    BNE C26E6
-    SED
-    CLC
-    LDA L0074
-    ADC L002F
-    STA L002F
-    CLD
-.C26E6
-    JMP C278C
-
-.C26E9
-    CMP #5
-    BCS C26E6
-    LDA C3850,X
-    CLC
-    SBC C3850,Y
-    LDA L0150,X
-    SBC L0150,Y
-    ROR L0076
-    BPL C26E6
-    LSR A
-    CMP #&1E
-    BCC C2705
-    LDA #&1E
-.C2705
-    CMP #4
-    BCS C270B
-    LDA #4
-.C270B
-    STA L0083
-    LDA L0074
-    CMP #4
-    LDA L0100,Y
-    AND #&40 ; '@'
-    BEQ C2729
-    BCS C271C
-    ORA #&80
-.C271C
-    STA L007F
-    LDA L0178,X
-    CMP L0178,Y
-    ROR L0074
-    JMP C277D
-
-.C2729
-    BCS C2742
-    LDA #&40 ; '@'
-    STA L007F
-    LDA L0178,Y
-    CMP L0178,X
-    ROR L0074
-    AND #&FF
-    JSR sub_C3450
-    CMP #&3C ; '<'
-    BCC C2744
-    BCS C2749
-.C2742
-    LSR L0076
-.C2744
-    LDA L0178,Y
-    STA L0074
-.C2749
-    LDA L018C,X
-    BPL C275E
-    LDA user_via_t2c_l
-    AND #&1F
-    BNE C278C
-    LDA L0076
-    AND #&80
-    ORA L007F
-    JMP C278A
-
-.C275E
-    LDA L0178,Y
-    SEC
-    SBC L0178,X
-    BCS C2769
-    EOR #&FF
-.C2769
-    CMP #&64 ; 'd'
-    BCS C278C
-    CMP #&50 ; 'P'
-    BCS C2786
-    CMP #&3C ; '<'
-    BCS C277D
-    LDA L0076
-    AND #&80
-    ORA L007F
-    STA L007F
-.C277D
-    LDA L0074
-    AND #&80
-    ORA L0083
-    STA L0114,X
-.C2786
-    LDA L007F
-    ORA #&10
-.C278A
-    STA L007F
-.C278C
-    LDA L0100,X
-    LSR A
-    LDA L007F
-    BCS C2797
-    STA L0100,X
-.C2797
-    LDX L0077
-    JSR sub_C5084
-    CPX L0003
-    BEQ C27A3
-    JMP C2694
-
-.C27A3
-    RTS
-
-.sub_C27A4
-    LDA L0164,Y
-    SEC
-    SBC L0164,X
-.sub_C27AB
-    LDA L08D0,Y
-    SBC L08D0,X
-    STA L0074
-    LDA L08E8,Y
-    SBC L08E8,X
-    PHP
-    BPL C27BF
-    JSR sub_C0E40
-.C27BF
-    STA L0075
-    SEC
-    BEQ C27D8
-    PLA
-    EOR #&80
-    PHP
-    LDA L59FC
-    SEC
-    SBC L0074
-    STA L0074
-    LDA L59FD
-    SBC L0075
-    BNE C27EA
-    CLC
-.C27D8
-    ROR L0079
-    LDA L0074
-    CMP #&80
-    BCS C27EA
-    PLP
-    JSR sub_C3450
-    STA L0074
-    LDA L0074
-    CLC
-    RTS
-
-.C27EA
-    PLP
-    SEC
-.loop_C27EC
-    RTS
-
-.sub_C27ED
-    LDA L006D
-    BMI loop_C27EC
-    LDX #&14
-    JMP C28E7
-
-.C27F6
-    LDA L0100,X
-    BMI C285B
-    LDY L06E8,X
-    LDA L5900,Y
-    BPL C280D
-    LDA L0150,X
-    CMP L01A4,X
-    BCS C287F
-    BCC C282F
-.C280D
-    LSR A
-    BCS C282F
-    LDA L5307,Y
-    STA L01A4,X
-    CLC
-    SBC L0150,X
-    BCS C282F
-    LSR A
-    LSR A
-    ORA #&C0
-    STA L0074
-    LDA L0880,X
-    SEC
-    SBC L5305,Y
-    BCS C287F
-    CMP L0074
-    BCS C285B
-.C282F
-    LDA L0150,X
-    CMP #&3C ; '<'
-    BCS C2838
-    LDA #&16
-.C2838
-    STA L0074
-    LDA L0100,X
-    AND #&40 ; '@'
-    BEQ C2843
-    LDA #5
-.C2843
-    CLC
-    ADC L0128,X
-    BIT L006C
-    BPL C284E
-    SBC L5A1A
-.C284E
-    LDY #0
-    SEC
-    SBC L0074
-    BCS C2856
-    DEY
-.C2856
-    STY L0075
-    JMP C2861
-
-.C285B
-    LDA #&FF
-    STA L0075
-    LDA #0
-.C2861
-    ASL A
-    ROL L0075
-    ASL A
-    ROL L0075
-    CLC
-    ADC C3850,X
-    STA C3850,X
-    LDA L0075
-    ADC L0150,X
-    CMP #&BE
-    BCC C287C
-    LDA #0
-    STA C3850,X
-.C287C
-    STA L0150,X
-.C287F
-    LDA #1
-    STA L0076
-.loop_C2883
-    LDA L0150,X
-    CLC
-    ADC L0164,X
-    STA L0164,X
-    BCC C2892
-    JSR sub_C147C
-.C2892
-    DEC L0076
-    BPL loop_C2883
-    LDA L018C,X
-    ASL A
-    BCS C28E7
-    BMI C28CE
-    LDA L0114,X
-    AND #&40 ; '@'
-    BEQ C28CE
-    LDA L0178,X
-    EOR L0114,X
-    BPL C28CE
-    LDA L0178,X
-    BPL C28C1
-    CMP #&EC
-    BCC C28BB
-    DEC L0178,X
-    BCS C28E7
-.C28BB
-    CMP #&E2
-    BCC C28CE
-    BCS C28E7
-.C28C1
-    CMP #&14
-    BCS C28CA
-    INC L0178,X
-    BCC C28E7
-.C28CA
-    CMP #&1E
-    BCC C28E7
-.C28CE
-    LDA L0114,X
-    AND #&BF
-    CLC
-    BPL C28DF
-    EOR #&7F
-    ADC L0178,X
-    BCS C28E4
-    BCC C28E7
-.C28DF
-    ADC L0178,X
-    BCS C28E7
-.C28E4
-    STA L0178,X
-.C28E7
-    DEX
-    BMI C28F1
-    CPX L006F
-    BEQ C28E7
-    JMP C27F6
-
-.C28F1
-    RTS
-
-.sub_C28F2
-    LDA L013C,X
-    STA L0045
-    STA L0042
-    TAX
-    LDY #&17
-    SEC
-    JSR sub_C27AB
-    BCS C2911
-    EOR L0025
-    BMI C2911
-    LDA L0074
-    JSR sub_C3450
-    STA L0074
-    CMP #&28 ; '('
-    BCC C2914
-.C2911
-    JMP C2AA6
-
-.C2914
-    ASL A
-    CLC
-    ADC L0074
-    EOR #&FF
-    SEC
-    ADC L0024
-    BPL C2922
-    CLC
-    ADC #&78 ; 'x'
-.C2922
-    TAY
-    LDA L0100,X
-    AND #&10
-    BNE C2937
-    LDA L0150,X
-    CMP #&32 ; '2'
-    BCC C2937
-    LDA L0701,Y
-    STA L0114,X
-.C2937
-    LDA L0700,Y
-    STA L000C
-    STY L0074
-    TAY
-    LDA L0164,X
-    STA L0084
-    LDA L0178,X
-    STA L0085
-    LDA L5400,Y
-    STA L0086
-    LDA L5500,Y
-    STA L0087
-    LDA L5600,Y
-    STA L0088
-    LDX #0
-    LDA L0084
-    STA L0075
-    LDY L0074
-.C2960
-    LDA #0
-    STA L0076
-    LDA L0086,X
-    BPL C297B
-    EOR #&FF
-    CLC
-    ADC #1
-    JSR sub_C0C00
-    EOR #&FF
-    CLC
-    ADC #1
-    BCS C297E
-    DEC L0076
-    BCC C297E
-.C297B
-    JSR sub_C0C00
-.C297E
-    CLC
-    ADC L0900,Y
-    STA L09FD,X
-    LDA L0A00,Y
-    PHP
-    CPX #1
-    BNE C298F
-    AND #&1F
-.C298F
-    PLP
-    ADC L0076
-    STA L0AFD,X
-    INY
-    INX
-    CPX #3
-    BNE C2960
-    LDY L000C
-    LDA L5700,Y
-    STA L0086
-    LDA L5800,Y
-    STA L0088
-    LDX #0
-    LDA L0085
-    STA L0075
-.C29AD
-    LDA #0
-    STA L0076
-    LDA L0086,X
-    BPL C29C8
-    EOR #&FF
-    CLC
-    ADC #1
-    JSR sub_C0C00
-    EOR #&FF
-    CLC
-    ADC #1
-    BCS C29CB
-    DEC L0076
-    BCC C29CB
-.C29C8
-    JSR sub_C0C00
-.C29CB
-    ASL A
-    ROL L0076
-    ASL A
-    ROL L0076
-    CLC
-    ADC L09FD,X
-    STA L09FD,X
-    LDA L0AFD,X
-    ADC L0076
-    STA L0AFD,X
-    INX
-    INX
-    CPX #4
-    BNE C29AD
-    LDA L09FE
-    CLC
-    ADC #&90
-    STA L09FE
-    BCC C29F4
-    INC L0AFE
-.C29F4
-    LDA #4
-    JSR sub_C2A5D
-    LDX L0045
-    LDA L0055
-    CMP #3
-    BCS C2A50
-    LDA L001D
-    CMP L004D
-    BNE C2A4D
-    LDA L018C,X
-    BMI C2A0F
-    DEC L018C,X
-.C2A0F
-    LDY L000C
-    JSR sub_C1442
-    JSR sub_C2B0E
-    LDY #&FD
-    LDX #&FA
-    JSR sub_C0BCC
-    JSR sub_C2B0E
-    LDX #&F4
-    JSR sub_C0BCC
-    JSR sub_C2B0E
-    LDX #&FD
-    JSR sub_C0BCC
-    LDA #&14
-    STA L0042
-    LDA #2
-    JSR sub_C2A5D
-    LDA #&15
-    STA L0042
-    LDA #1
-    LDX #&F4
-    JSR sub_C2A5F
-    LDA #&16
-    STA L0042
-    LDA #0
-    LDX #&FA
-    JSR sub_C2A5F
-.C2A4D
-    LDX L0045
-    RTS
-
-.C2A50
-    CMP #5
-    BCC C2A4D
-    LDA L018C,X
-    BMI C2A4D
-    INC L018C,X
-    RTS
-
-.sub_C2A5D
-    LDX #&FD
-.sub_C2A5F
-    STA L0037
-    JSR sub_C2145
-    LDY L0042
-    LDA L008A
-    STA L0380,Y
-    LDA L008B
-    STA L0398,Y
-    JSR sub_C2AB1
-    JSR sub_C2285
-.sub_C2A76
-    LDY L0042
-    BCS C2AA6
-    SEC
-    SBC #1
-    BMI C2AA6
-    STA L03B0,Y
-    LDA L002B
-    SEC
-    SBC #9
-    TAX
-    LDA L002A
-    DEX
-    BEQ C2A99
-    BPL C2A95
-.loop_C2A8F
-    LSR A
-    INX
-    BNE loop_C2A8F
-    BEQ C2A99
-.C2A95
-    ASL A
-    DEX
-    BNE C2A95
-.C2A99
-    STA L03C8,Y
-    LDA L018C,Y
-    AND #&70 ; 'p'
-    ORA L0037
-    JMP C2AAD
-
-.C2AA6
-    LDY L0042
-    LDA L018C,Y
-    ORA #&80
-.C2AAD
-    STA L018C,Y
-    RTS
-
-.sub_C2AB1
-    LDY #&25 ; '%'
-.sub_C2AB3
-    JSR C0CA5
-    LDA L007D
-    STA L0055
-    BNE C2ACA
-    CPY L007C
-    BCC C2ACA
-    DEC L0068
-    LDA L007C
-    STA L0041
-    LDA L0042
-    STA L0067
-.C2ACA
-    RTS
-
-.sub_C2ACB
-    STX L0045
-    LDA L013C,X
-    TAX
-.sub_C2AD1
-    LDA L018C,X
-    BMI C2B0B
-    AND #&0F
-    STA L0037
-    LDA L0380,X
-    SEC
-    SBC L000A
-    STA L0074
-    LDA L0398,X
-    SBC L000B
-    BPL C2AEF
-    CMP #&E0
-    BCC C2B0B
-    BCS C2AF3
-.C2AEF
-    CMP #&20 ; ' '
-    BCS C2B0B
-.C2AF3
-    ASL L0074
-    ROL A
-    ASL L0074
-    ROL A
-    CLC
-    ADC #&50 ; 'P'
-    STA L0035
-    LDA L03B0,X
-    STA L0036
-    LDA L03C8,X
-    STA L002A
-    JSR sub_C1FB4
-.C2B0B
-    LDX L0045
-    RTS
-
-.sub_C2B0E
-    LDX #2
-.loop_C2B10
-    LDA L0083,X
-    CLC
-    BPL C2B16
-    SEC
-.C2B16
-    ROR L0083,X
-    ROR L0074,X
-    DEX
-    BPL loop_C2B10
-    RTS
-
-.L2B1E
-    EQUB 5, 6, 6, 5
-.L2B22
-    EQUB &A4, &50, 0  , &54
-.sub_C2B26
-    PHP
-    STA L0054
-    LDA #0
-    STA L001E
-    LDA L5F20,Y
-    SEC
-    SBC #1
-    CMP #&4E ; 'N'
-    BCS C2B40
-    LDA L5E90,X
-    BPL C2B3E
-    EOR #&FF
-.C2B3E
-    CMP #&14
-.C2B40
-    ROR L0088
-    LDA L5E90,X
-    STA L0077
-    LDA L5E40,X
-    ASL A
-    ROL L0077
-    ASL A
-    ROL L0077
-    LDA L0077
-    CLC
-    ADC #&80
-    STA L0077
-    LDA L5F20,Y
-    STA L0082
-    STX L0045
-    STY L001B
-    PLP
-    BCS C2BCA
-    BIT L0088
-    BVC C2B7B
-    BMI C2BCA
-    LDX L007E
-    LDY L007F
-    LDA L0077
-    STA L007E
-    LDA L0082
-    STA L007F
-    STX L0077
-    STY L0082
-    DEC L001E
-.C2B7B
-    LDA L0082
-    SEC
-    SBC L007F
-    STA L0087
-    BPL C2B89
-    LDA #0
-    SEC
-    SBC L0087
-.C2B89
-    STA L0084
-    LDA L0088
-    AND #&C0
-    BEQ C2BCD
-    LDY L0045
-    LDX L004F
-    LDA L5E40,Y
-    SEC
-    SBC L5E40,X
-    STA L0074
-    LDA L5E90,Y
-    SBC L5E90,X
-    STA L0086
-    JSR sub_C0E40
-    CMP #&40 ; '@'
-    BCS C2BB9
-    ASL L0074
-    ROL A
-    CMP #&40 ; '@'
-    BCS C2BBB
-    ASL L0074
-    ROL A
-    BPL C2BBD
-.C2BB9
-    LSR L0084
-.C2BBB
-    LSR L0084
-.C2BBD
-    STA L0083
-    LDA L0086
-    EOR L001E
-    STA L0086
-    LDA L0083
-    JMP C2BDB
-
-.C2BCA
-    JMP C2CFC
-
-.C2BCD
-    LDA L007E
-    SEC
-    SBC L0077
-    ROR L0086
-    BMI C2BDB
-    EOR #&FF
-    CLC
-    ADC #1
-.C2BDB
-    STA L0083
-    BNE C2BE3
-    ORA L0084
-    BEQ C2BCA
-.C2BE3
-    LDA L0088
-    AND #&C0
-    BEQ C2BED
-    LDA L0086
-    AND #&80
-.C2BED
-    STA L0053
-    LDA L0087
-    BNE C2BF9
-    LDA L001E
-    EOR #&FF
-    STA L0087
-.C2BF9
-    BPL C2BFF
-    LDA #&88
-    BNE C2C01
-.C2BFF
-    LDA #&C8
-.C2C01
-    STA C2F60
-    STA C2FA2
-    LDA #&EA
-    STA C2F47
-    STA C2F89
-    LDY L0054
-    LDX #0
-.loop_C2C13
-    LDA L5FD0,Y
-    STA L628F,X
-    AND L33FC,X
-    STA L629C,X
-    INY
-    INX
-    CPX #4
-    BNE loop_C2C13
-    LDA L0027
-    ASL A
-    ASL A
-    ASL A
-    STA L0074
-    LDA L628F
-    LSR A
-    LSR A
-    LSR A
-    AND #3
-    ORA L0074
-    ORA #&40 ; '@'
-    STA L0034
-    LDA L628F
-    BNE C2C44
-    LDA #&55 ; 'U'
-    STA L628F
-.C2C44
-    STA L008B
-    LDA L6292
-    LSR A
-    AND #1
-    BIT L6292
-    BPL C2C53
-    ORA #2
-.C2C53
-    ORA #&80
-    ORA L0074
-    STA L0033
-    LDA L001B
-    CLC
-    ADC #1
-    CMP L004B
-    BEQ C2C68
-    LDA L0082
-    CMP #&50 ; 'P'
-    BCC C2C70
-.C2C68
-    LDA #0
-    BIT L0087
-    BMI C2C70
-    LDA #&4F ; 'O'
-.C2C70
-    STA L0082
-    LDA L007E
-    SEC
-    SBC #&30 ; '0'
-    STA L0075
-    LSR A
-    LSR A
-    STA L0085
-    CMP #&28 ; '('
-    BCS C2CE6
-    LSR A
-    CLC
-    ADC #&30 ; '0'
-    STA Q
-    STA S
-    CLC
-    ADC #1
-    STA L008F
-    LDA L0075
-    AND #7
-    TAX
-    LDY L007F
-    LDA L0083
-    CMP L0084
-    BCC C2CEF
-    LDA L628F
-    CMP #&FF
-    BEQ C2CB4
-    LDA L0033
-    AND #3
-    CMP #3
-    BEQ C2CB4
-    LDA #&60 ; '`'
-    STA C2FD7
-    STA C2FC0
-    BNE C2CDF
-.C2CB4
-    LDA #&E0
-    STA C2FD7
-    STA C2FC0
-    LDA L0027
-    CMP #2
-    ROR A
-    EOR L0086
-    BPL C2CDF
-    LDA C2F60
-    STA C2F47
-    STA C2F89
-    LDA #&EA
-    STA C2F60
-    STA C2FA2
-    LDA L0087
-    BPL C2CDE
-    INY
-    JMP C2CDF
-
-.C2CDE
-    DEY
-.C2CDF
-    LDA L0086
-    BPL C2CE9
-    JSR sub_C2D9A
-.C2CE6
-    JMP C2CFC
-
-.C2CE9
-    JSR sub_C2D17
-    JMP C2CFC
-
-.C2CEF
-    LDA L0086
-    BPL C2CF9
-    JSR sub_C2E99
-    JMP C2CFC
-
-.C2CF9
-    JSR sub_C2E20
-.C2CFC
-    LDA L001E
-    BMI C2D08
-    LDA L0077
-    STA L007E
-    LDA L0082
-    STA L007F
-.C2D08
-    LDX L0045
-    LDY L001B
-    RTS
-
-    EQUB &A5, &53, &F0, &EB, &20, &12, &2F, &4C, &FC, &2C
-.sub_C2D17
-    LDA L3E50,X
-    STA L2D28
-    LDX #&80
-    LDA L0083
-    EOR #&FF
-    CLC
-    ADC #1
-    CLC
-.sub_C2D27
-L2D28 = sub_C2D27+1
-    BCC C2D29
-.C2D29
-    LDX #&80
-    ADC L0084
-    BCC C2D36
-    SBC L0083
-    LDX #0
-    JSR sub_C2F45
-.C2D36
-    ADC L0084
-    BCC C2D41
-    SBC L0083
-    LDX #1
-    JSR sub_C2F45
-.C2D41
-    ADC L0084
-    BCC C2D4C
-    SBC L0083
-    LDX #2
-    JSR sub_C2F45
-.C2D4C
-    ADC L0084
-    BCC C2D57
-    SBC L0083
-    LDX #3
-    JSR sub_C2F45
-.C2D57
-    JSR C2FD7
-    INC L0085
-    ADC L0084
-    BCC C2D67
-    SBC L0083
-    LDX #0
-    JSR sub_C2F87
-.C2D67
-    ADC L0084
-    BCC C2D72
-    SBC L0083
-    LDX #1
-    JSR sub_C2F87
-.C2D72
-    ADC L0084
-    BCC C2D7D
-    SBC L0083
-    LDX #2
-    JSR sub_C2F87
-.C2D7D
-    ADC L0084
-    BCC C2D88
-    SBC L0083
-    LDX #3
-    JSR sub_C2F87
-.C2D88
-    JSR C2FC0
-    INC S
-    INC Q
-    INC L008F
-    INC L0085
-    LDX S
-    CPX #&44 ; 'D'
-    BNE C2D29
-    RTS
-
-.sub_C2D9A
-    LDA L40D0,X
-    STA L2DAB
-    LDX #&80
-    LDA L0083
-    EOR #&FF
-    CLC
-    ADC #1
-    CLC
-.sub_C2DAA
-L2DAB = sub_C2DAA+1
-    BCC C2DAC
-.C2DAC
-    LDX #&80
-    ADC L0084
-    BCC C2DB9
-    SBC L0083
-    LDX #3
-    JSR sub_C2F87
-.C2DB9
-    ADC L0084
-    BCC C2DC4
-    SBC L0083
-    LDX #2
-    JSR sub_C2F87
-.C2DC4
-    ADC L0084
-    BCC C2DCF
-    SBC L0083
-    LDX #1
-    JSR sub_C2F87
-.C2DCF
-    ADC L0084
-    BCC C2DDA
-    SBC L0083
-    LDX #0
-    JSR sub_C2F87
-.C2DDA
-    JSR C2FC0
-    DEC L0085
-    ADC L0084
-    BCC C2DEA
-    SBC L0083
-    LDX #3
-    JSR sub_C2F45
-.C2DEA
-    ADC L0084
-    BCC C2DF5
-    SBC L0083
-    LDX #2
-    JSR sub_C2F45
-.C2DF5
-    ADC L0084
-    BCC C2E00
-    SBC L0083
-    LDX #1
-    JSR sub_C2F45
-.C2E00
-    ADC L0084
-    BCC C2E0B
-    SBC L0083
-    LDX #0
-    JSR sub_C2F45
-.C2E0B
-    JSR C2FD7
-    DEC S
-    DEC Q
-    DEC L008F
-    DEC L0085
-    LDX S
-    CPX #&2F ; '/'
-    CLC
-    BNE C2DAC
-    JMP C2F12
-
-.sub_C2E20
-    LDA L3ED0,X
-    STA L2E2F
-    LDA L0084
-    EOR #&FF
-    CLC
-    ADC #1
-    CLC
-.sub_C2E2E
-L2E2F = sub_C2E2E+1
-    BCC C2E30
-.C2E30
-    LDX #0
-    JSR sub_C2F45
-    ADC L0083
-    BCC C2E30
-    SBC L0084
-.loop_C2E3B
-    LDX #1
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2E3B
-    SBC L0084
-.loop_C2E46
-    LDX #2
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2E46
-    SBC L0084
-.loop_C2E51
-    LDX #3
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2E51
-    SBC L0084
-    INC L0085
-.loop_C2E5E
-    LDX #0
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2E5E
-    SBC L0084
-.loop_C2E69
-    LDX #1
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2E69
-    SBC L0084
-.loop_C2E74
-    LDX #2
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2E74
-    SBC L0084
-.loop_C2E7F
-    LDX #3
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2E7F
-    SBC L0084
-    INC S
-    INC Q
-    INC L008F
-    INC L0085
-    LDX S
-    CPX #&44 ; 'D'
-    BNE C2E30
-    RTS
-
-.sub_C2E99
-    LDA L3ED8,X
-    STA L2EA8
-    LDA L0084
-    EOR #&FF
-    CLC
-    ADC #1
-    CLC
-.sub_C2EA7
-L2EA8 = sub_C2EA7+1
-    BCC C2EA9
-.C2EA9
-    LDX #3
-    JSR sub_C2F87
-    ADC L0083
-    BCC C2EA9
-    SBC L0084
-.loop_C2EB4
-    LDX #2
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2EB4
-    SBC L0084
-.loop_C2EBF
-    LDX #1
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2EBF
-    SBC L0084
-.loop_C2ECA
-    LDX #0
-    JSR sub_C2F87
-    ADC L0083
-    BCC loop_C2ECA
-    SBC L0084
-    DEC L0085
-.loop_C2ED7
-    LDX #3
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2ED7
-    SBC L0084
-.loop_C2EE2
-    LDX #2
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2EE2
-    SBC L0084
-.loop_C2EED
-    LDX #1
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2EED
-    SBC L0084
-.loop_C2EF8
-    LDX #0
-    JSR sub_C2F45
-    ADC L0083
-    BCC loop_C2EF8
-    SBC L0084
-    DEC S
-    DEC Q
-    DEC L008F
-    DEC L0085
-    LDX S
-    CPX #&2F ; '/'
-    CLC
-    BNE C2EA9
-.C2F12
-    LDA C2F47
-    STA C2F18
-.C2F18
-    NOP
-.C2F19
-    LDA L001E
-    BMI C2F22
-    LDA L0034
-    JMP C2F2A
-
-.C2F22
-    DEY
-    LDA L5F60,Y
-    BNE C2F44
-    LDA L0033
-.C2F2A
-    CPY #&50 ; 'P'
-    BCS C2F44
-    LDX L62F2
-    CPX #&28 ; '('
-    BCC C2F41
-    STA L0074
-    AND #3
-    CMP #3
-    LDA L0074
-    BCS C2F41
-    AND #&FC
-.C2F41
-    STA L5F60,Y
-.C2F44
-    RTS
-
-.sub_C2F45
-    STA L008A
-.C2F47
-    NOP
-    CPY L0082
-    BEQ C2F7E
-    LDA L0085
-.sub_C2F4E
-L2F4F = sub_C2F4E+1
-L2F50 = sub_C2F4E+2
-    STA L7000,Y
-    LDA (R),Y
-    BNE C2F63
-    LDA L628F,X
-.C2F58
-    STA (R),Y
-    LDA L008B
-    STA (P),Y
-.loop_C2F5E
-    LDA L008A
-.C2F60
-    INY
-    CLC
-    RTS
-
-.C2F63
-    CPY #&2C ; ','
-    BCS C2F6C
-    JSR sub_C2FEE
-    BCC loop_C2F5E
-.C2F6C
-    CMP #&55 ; 'U'
-    BNE C2F72
-    LDA #0
-.C2F72
-    AND L337C,X
-    ORA L629C,X
-    BNE C2F58
-    LDA #&55 ; 'U'
-    BNE C2F58
-.C2F7E
-    TSX
-    INX
-    INX
-    TXS
-    LDA L0053
-    BNE C2F19
-    RTS
-
-.sub_C2F87
-    STA L008A
-.C2F89
-    NOP
-    CPY L0082
-    BEQ C2F7E
-    LDA L0085
-.sub_C2F90
-L2F91 = sub_C2F90+1
-L2F92 = sub_C2F90+2
-    STA L7000,Y
-    LDA (P),Y
-    BNE C2FA5
-    LDA L628F,X
-.C2F9A
-    STA (P),Y
-    LDA L008B
-    STA (L008E),Y
-.loop_C2FA0
-    LDA L008A
-.C2FA2
-    INY
-    CLC
-    RTS
-
-.C2FA5
-    CPY #&2C ; ','
-    BCS C2FAE
-    JSR sub_C2FEE
-    BCC loop_C2FA0
-.C2FAE
-    CMP #&55 ; 'U'
-    BNE C2FB4
-    LDA #0
-.C2FB4
-    AND L337C,X
-    ORA L629C,X
-    BNE C2F9A
-    LDA #&55 ; 'U'
-    BNE C2F9A
-.C2FC0
-    CPX #&80
-    BNE C2FD3
-    CPY #&2C ; ','
-    BCS C2FCD
-    JSR sub_C2FEE
-    BCC C2FD3
-.C2FCD
-    TAX
-    LDA #&FF
-    STA (P),Y
-    TXA
-.C2FD3
-    LDX #&80
-    CLC
-    RTS
-
-.C2FD7
-    CPX #&80
-    BNE C2FEA
-    CPY #&2C ; ','
-    BCS C2FE4
-    JSR sub_C2FEE
-    BCC C2FEA
-.C2FE4
-    TAX
-    LDA #&FF
-    STA (R),Y
-    TXA
-.C2FEA
-    LDX #&80
-    CLC
-    RTS
-
-.sub_C2FEE
-    STA L0074
-    STX L0075
-    LDX L0085
-    TYA
-    CMP L3900,X
-    BNE C2FFB
-    CLC
-.C2FFB
-    LDA L0074
-    LDX L0075
-    RTS
-
-    EQUB &FE, &1F, &0A, &0C, &83
-    EQUS "STANDARD OF"
-    EQUB &D7, &1F, &0E, &0E, &FF, &FC, &A3, &FC, &A3, &FC, &A1, &FF
-    EQUB &A8, &A9, &F0, &C4, &82, &B0, &0C, &C4, &7F, &90, 8  , &AE
-    EQUB &68, &FE, &3D, 0  , &20, &25, &61, &91, &70, &88, &10, &14
-    EQUB &98, &29, 7  , &C9, 7  , &90, &0D, &A5, &70, &38, &E9, &38
-    EQUB &85, &70, &A5, &71, &E9, 1  , &85, &71, &C4, &77, &B0, &D1
-    EQUB &A4, &78, &60, &FF, 0  , 0  , 0  , 0  , 6  , 6  , 6  , 6  
-    EQUB 6  , 6  , 6  , 3  , 3  , 3  , 3  , 3  , 1  , 1  , 1  , 0  
-    EQUB 0  , 0  , 5  , 4  , 3  , 2  , 1  
-    EQUB 0
-.L306C
-    EQUB &2D, &33
-.L306E
-    EQUB 0, 0, 1, 1, 1, 1, 1, 1
-.L3076
-    EQUB 5  , 5  , 3  , 4  , 3  , 4  , 4  , 4  , &38, &38, &97, &97
-    EQUB &97, &97, &A8, &A8, &A8, &A8, &A8, &A8, &A8, &A8, &A8, &A8
-    EQUB &A8, &A8, &A8, &A8, &A8, &A8, &A8, &A8, &B9, &B9, &B9, &B9
-    EQUB &B9, &B9, &33, &A8, &20, 0  , &7E, &84, &75, &BC, &50, &30
-    EQUB &39, &F9, &36, &19, &F9, &35, &A4, &75, &91, &72, &E0, 3  
-    EQUB &F0, 3  , &4C, &18, &7F, &4C, &BF, &7B, &85, &82, &84, &78
-    EQUB &B9, &9E, &3B, &85, &71, &B9, &26, &3B, &85, &70, &B9, &FA
-    EQUB &3E, &85, &77, &B9, &FA, &40, &28, &8D, &7C, &7C, &7C, &7C
-    EQUB &7C, &6B, &6B, &6B, &6B, &6B, &5A, &5A, &5A, &5A, &49, &49
-    EQUB &49, &49, &38, &38, &38, &38, &27, &27, &27, &27, &16, &16
-    EQUB &16, &16, &16, &16, &16, &16, &16, &16, &16, 5  , 5  , 5  
-    EQUB 5  , 5  
-.L30FC
-    EQUB &10, 0  , 0  , &10
-.L3100
-    EQUB &1C, &1C, &1C, &1C, &1C, &1B, &1B, &1B, &1B, &1A, &1A, &1A
-    EQUB &19, &19, &18, &18, &17, &16, &15, &14, &14, &14, &81, &81
-    EQUB &81, &81, &81, &81, &79, &35, &A8, &20, 0  , &7C, &3D, &D0
-    EQUB &38, &1D, &50, &33, &91, &70, &BC, &80, &30, &CC, &7D, &7F
-    EQUB &F0, &10, &A9, &91, &8D, &0F, &7E, &8C, &88, &7F, &8C, &7D
-    EQUB &7F, &A9, &60, &8D, 0  , &7E, &BC, &D0, &30, &8C, &9B, &7F
-    EQUB &BD, 0  , &44, &3D, &50, &39, &1D, &D0, &42, &64, &75, &75
-    EQUB &75, &75, &75, &86, &86, &86, &86, &86, &97, &97, &97, &97
-    EQUB &A8, &A8, &A8, &A8, &B9, &B9, &B9, &B9, &CA, &CA, &CA, &CA
-    EQUB &DB, &DB, &DB, &DB, &DB, &DB, &DB, &DB, &DB, &DB, &DB, &EC
-    EQUB &EC, &EC, &EC, &EC, &28, &28, 0  , 0  , &81, &81, &81, &81
-    EQUB &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &81, &81, &81, &81, &24, &7F, &A9, &60, &8D, 0  
-    EQUB &7C, &A4, &70, &C8, &98, &29, 7  , &D0, &14, &98, &18, &69
-    EQUB &38, &85, &70, &85, &72, &A5, &71, &69, 1  , &85, &71, &69
-    EQUB 1  , &85, &73, &90, 4  , &84, &70, &84, &72, &A9, &F1, &38
-    EQUB &FD, &80, &30, &8D, &68, &7F, &BC, &50, &30, &BD, 4  , 5  
-    EQUB &39, &79, &36, &19
-.C31D0
-    LDX #3
-.loop_C31D2
-    CPY L001F
-    BCC C31DB
-    LDA L3D7C,X
-    BNE C31DE
-.C31DB
-    LDA L3D78,X
-.C31DE
-    STA (P),Y
-    STA L0504,Y
-    STA L4400,Y
-    DEX
-    BPL C31EB
-    LDX #3
-.C31EB
-    DEY
-    CPY L0075
-    BNE loop_C31D2
-    INC L0074
-    LDA P
-    EOR #&80
-    STA P
-    BMI C31FC
-    INC Q
-.C31FC
-    JMP C3D68
-
-    EQUB 0  , &20, &35, &FF, &81, &80, &43, &F0, 8  , &A9, 0  , &9D
-    EQUB &80, &43, &B9, 0  , &60, &A0, &38, &91, &72, &E0, &2C, &F0
-    EQUB &25, &CA, &A4, &70, &C8, &98, &29, 7  , &F0, 7  , &84, &70
-    EQUB &84, &72, &4C, &F7, &7B, &98, &18, &69, &38, &85, &70, &85
-    EQUB &72, &A5, &71, &69, 1  , &85, &71, &69, 1  , &85, &73, &4C
-    EQUB &F7, &7B, &60, &CA, &BC, &50, &31, &CC, &24, &7F, &F0, &10
-    EQUB &A9, &91, &8D, &0F, &7C, &8C, &2F, &7F, &8C
-.sub_C3250
-    STY S
-    STA R
-    LDY #0
-.loop_C3256
-    LDA (R),Y
-    JSR sub_C5092
-    INY
-    CPY #&0C
-    BNE loop_C3256
-    RTS
-
-.sub_C3261
-    LDX #&FF
-    JSR sub_C0E50
-    BNE C327B
-    LDX #&86
-    JSR sub_C0E50
-    BNE C327B
-    BIT L001C
-    BMI C327D
-.sub_C3273
-    LDX L006B
-    TXS
-    ROR L001C
-    JMP C63E0
-
-.C327B
-    LSR L001C
-.C327D
-    RTS
-
-    EQUB 0  , 0  , &31, &30, &FF, &41, &B9, 0  , &60, &A0, &10, &91
-    EQUB &72, &BC, &80, &41, &F0, 8  , &A9, 0  , &9D, &80, &41, &B9
-    EQUB 0  , &60, &A0, &18, &91, &72, &BC, 0  , &42, &F0, 8  , &A9
-    EQUB 0  , &9D, 0  , &42, &B9, 0  , &60, &A0, &20, &91, &72, &BC
-    EQUB &80, &42, &F0, 8  , &A9, 0  , &9D, &80, &42, &B9, 0  , &60
-    EQUB &A0, &28, &91, &72, &BC, 0  , &43, &F0, 8  , &A9, 0  , &9D
-    EQUB 0  , &43, &B9, 0  , &60, &A0, &30, &91, &72, &BC
-.sub_C32D0
-    LDA L0074
-    CMP #&20 ; ' '
-    BNE C32D8
-    LDA #&30 ; '0'
-.C32D8
-    SEC
-    SBC #&30 ; '0'
-    CMP #&0A
-    BCS C32FB
-    STA L0074
-    LDX L0075
-    CPX #&20 ; ' '
-    CLC
-    BEQ C32FB
-    ASL A
-    ASL A
-    ADC L0074
-    ASL A
-    STA L0074
-    TXA
-    SEC
-    SBC #&30 ; '0'
-    CMP #&0A
-    BCS C32FB
-    ADC L0074
-    CMP #&29 ; ')'
-.C32FB
-    RTS
-
-.L32FC
-    EQUB &66, &67, &5F, &5E, &32, &30, &FF, &BC, 0  , &3F, &F0, 8  
-    EQUB &A9, 0  , &9D, 0  , &3F, &B9, 0  , &60, &A0, &F0, &91, &70
-    EQUB &BC, &80, &3F, &F0, 8  , &A9, 0  , &9D, &80, &3F, &B9, 0  
-    EQUB &60, &A0, &F8, &91, &70, &BC, 0  , &40, &F0, 8  , &A9, 0  
-    EQUB &9D, 0  , &40, &B9, 0  , &60, &A0, 0  , &91, &72, &BC, &80
-    EQUB &40, &F0, 8  , &A9, 0  , &9D, &80, &40, &B9, 0  , &60, &A0
-    EQUB 8  , &91, &72, &BC, 0  , &41, &F0, 8  , &A9, 0  , &9D, 0  
-    EQUB 0  , 0  , &F0, &70, &30, &10, 0  , &70, &70, &30, &10, 0  
-    EQUB &70, &30, &10, 0  , &70, &30, &10, 0  , &70, &30, &10, 0  
-    EQUB &70, &30, &10, 0  , &70, &40, &30, &20, &30, &10, &10, &10
-    EQUB 0  , 0  , 0  , &40, &70, &40, &30, &30
-.L337C
-    EQUB 0  , &88, &CC, &EE, &81, &81, &81, &81, &81, &81, &81, &60
-    EQUB &A0, &C8, &91, &70, &BC, 0  , &3D, &F0, 8  , &A9, 0  , &9D
-    EQUB 0  , &3D, &B9, 0  , &60, &A0, &D0, &91, &70, &BC, &80, &3D
-    EQUB &F0, 8  , &A9, 0  , &9D, &80, &3D, &B9, 0  , &60, &A0, &D8
-    EQUB &91, &70, &BC, 0  , &3E, &F0, 8  , &A9, 0  , &9D, 0  , &3E
-    EQUB &B9, 0  , &60, &A0, &E0, &91, &70, &BC, &80, &3E, &F0, 8  
-    EQUB &A9, 0  , &9D, &80, &3E, &B9, 0  , &60, &A0, &E8, &91, &70
-    EQUB 0  , 0  , &F0, &E0, &C0, &80, 0  , &E0, &E0, &C0, &80, 0  
-    EQUB &E0, &C0, &80, 0  , &E0, &C0, &80, 0  , &E0, &C0, &80, 0  
-    EQUB &E0, &C0, &80, 0  , &E0, &20, &C0, &40, &C0, &80, &80, &80
-    EQUB 0  , 0  , 0  , &20, &E0, &20, &C0, &C0
-.L33FC
-    EQUB &FF, &77, &33, &11
-    EQUS "ENTER "
-    EQUB &FF, &81, &81, &81, &81, &81, &60, &A0, &A8, &91, &70, &BC
-    EQUB 0  , &3B, &F0, 8  , &A9, 0  , &9D, 0  , &3B, &B9, 0  , &60
-    EQUB &A0, &B0, &91, &70, &BC, &80, &3B, &F0, 8  , &A9, 0  , &9D
-    EQUB &80, &3B, &B9, 0  , &60, &A0, &B8, &91, &70, &BC, 0  , &3C
-    EQUB &F0, 8  , &A9, 0  , &9D, 0  , &3C, &B9, 0  , &60, &A0, &C0
-    EQUB &91, &70, &BC, &80, &3C, &F0, 8  , &A9, 0  , &9D, &80, &3C
-    EQUB &B9, 0  
-.sub_C3450
-    BPL C3457
-    EOR #&FF
-    CLC
-    ADC #1
-.C3457
-    RTS
-
-    EQUB 7  , &17, &47, &57, &23, &33, &63, &73, &80, &90, &C0, &D0
-    EQUB &A5, &B5, &E5, &F5, 3  , &13, &23, &33, &43, &53, &63, &73
-    EQUB &84, &94, &A4, &B4, &C4, &D4, &E4, &F4, &26, &36, &66, &76
-    EQUB &A1, &B1, &E1, &F1, &1F, &0D, &12
-    EQUS "front"
-    EQUB &A2, &85, &D8, &FF, &81, &81, &81, &81, &70, &BC, 0  , &39
-    EQUB &F0, 8  , &A9, 0  , &9D, 0  , &39, &B9, 0  , &60, &A0, &90
-    EQUB &91, &70, &BC, &80, &39, &F0, 8  , &A9, 0  , &9D, &80, &39
-    EQUB &B9, 0  , &60, &A0, &98, &91, &70, &BC, 0  , &3A, &F0, 8  
-    EQUB &A9, 0  , &9D, 0  , &3A, &B9, 0  , &60, &A0, &A0, &91, &70
-    EQUB &BC, &80, &3A, &F0, 8  , &A9, 0  , &9D, &80, &3A, &B9, 0  
-.sub_C34D0
-    LDA #0
-.sub_C34D2
-    STA L0078
-    LDX #&1E
-    JSR sub_C4D7E
-.loop_C34D9
-    LDX #&9D
-    JSR sub_C0E50
-    BEQ loop_C34D9
-.C34E0
-    LDX #&9D
-    JSR sub_C0E50
-    BEQ C34F7
-    JSR sub_C3261
-    BIT L0078
-    BPL C34E0
-    LDX #&B6
-    JSR sub_C0E50
-    BNE C34E0
-    LSR L0078
-.C34F7
-    RTS
-
-.L34F8
-    EQUB &80, &40, &20, &10, 0  , 0  , 0  , 0  
-    EQUS "Amateur"
-    EQUB &FF
-    EQUS " POINTS"
-    EQUB &FF, &81, &81, &81, &81, &D0, &38, &1D, &50, &33, &91, &70
-    EQUB &BD, 0  , &44, &3D, &50, &39, &1D, &D0, &33, &A8, &20, 0  
-    EQUB &7E, &E0, &1C, &D0, &C5, &4C, &18, &7F, &BC, 0  , &38, &F0
-    EQUB 8  , &A9, 0  , &9D, 0  , &38, &B9, 0  , &60, &A0, &80, &91
-    EQUB &70, &BC, &80, &38, &F0, 8  , &A9, 0  , &9D, &80, &38, &B9
-    EQUB 0  , &60, &A0, &88, &91
-.L3550
-    EQUB &0F, &0F, &0E, &0E, &0D, 5  , 6  , &0F, 4  , &0E, 0  , &0D
-    EQUB &0F, &0F, 2  , 3  , 4  , 9  , 6  , &0F, &0E, 0  , &0D, 7  
-    EQUB 4  , &0A, 0  , 1  , &0C, &0C, 2  , 1  , 1  , &0A, 3  , 4  
-    EQUB 0  , 1  , 3  , 1  , 3  , 0  , &80, &C0, &40, &60, &E0, &20
-    EQUB &20, &20, &9C
-.L3583
-    EQUB &86, &9D
-.L3585
-    EQUB &84, &FF
-    EQUS "ACCUMULATED"
-    EQUB &FB, &FF, &81, &81, &81, &81, 8  , &A9, 0  , &9D, &80, &37
-    EQUB &B9, 0  , &60, &A0, &78, &91, &70, &4C, &56, &7D, &A9, &60
-    EQUB &8D, &EE, &7E, &CA, &BC, &50, &31, &CC, &24, &7D, &F0, &16
-    EQUB &A9, &91, &8D, &0F, &7C, &8C, &2F, &7D, &8C, &24, &7D, &A9
-    EQUB &60, &8D, 0  , &7C, &BC, &D0, &30, &8C, &4D, &7D, &20, &F3
-    EQUB &7E, &3D
-.L35D0
-    EQUB &0E, &0E, &0B, &0B, &0B, 6  , &0F, &0D, 5  , &0D, 7  , &0B
-    EQUB &0E, &0E, 3  , 4  , 9  , 8  , &0F, &0D, &0D, 7  , 9  , &0D
-    EQUB 6  , 9  , 2  , &0C, &0A, &0A, 8  , 2  , &0A, 8  , 4  , &0A
-    EQUB 3  , 3  , &0A, 3  , &0A, 0  , &10, &30, &20, &60, &70, &40
-    EQUS "FORMULA 3  CHAMPIONSHIP"
-    EQUB &FF, &81, &81, &81, &81, &F0, 8  , &A9, 0  , &9D, 0  , &36
-    EQUB &B9, 0  , &60, &A0, &60, &91, &70, &BC, &80, &36, &F0, 8  
-    EQUB &A9, 0  , &9D, &80, &36, &B9, 0  , &60, &A0, &68, &91, &70
-    EQUB &BC, 0  , &37, &F0, 8  , &A9, 0  , &9D, 0  , &37, &B9, 0  
-    EQUB &60, &A0, &70, &91, &70, &BC, &80, &37, &F0
-.L3650
-    EQUB 9  , 2  , 8  , 4  , &0A, &0D, &0B, 9  , &0E, 8  , 4  , 8  
-    EQUB 9  , 2  , 8  , 8  , &0D, &0D, &0C, &0B, 8  , 2  , 8  , &0F
-    EQUB &0A, 8  , 9  , 8  , 9  , 3  , &0B, &0B, 8  , &0B, 8  , 8  
-    EQUB 1  , 8  , 8  , 9  , 1  , &FF, &77, &33, &33, &11, &11, &11
-    EQUB &AB
-    EQUS "YOUR TIME IS UP!"
-    EQUB &AB, &FF
-    EQUS "PRESS "
-    EQUB &FF, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &A0, &48, &91, &70, &BC, 0  , &35, &F0, 8  , &A9
-    EQUB 0  , &9D, 0  , &35, &B9, 0  , &60, &A0, &50, &91, &70, &BC
-    EQUB &80, &35, &F0, 8  , &A9, 0  , &9D, &80, &35, &B9, 0  , &60
-    EQUB &A0, &58, &91, &70, &BC, 0  , &36
-.L36D0
-    EQUB &0A, 1  , &0C, 0  , 2  , 5  , 3  , 1  , 6  , &0C, 9  , 0  
-    EQUB &0A, 1  , 0  , 0  , 5  , 5  , 4  , 3  , &0A, 9  , 0  , 7  
-    EQUB 2  , 0  , 1  , 0  , &0B, 1  , 3  , 1  , 0  , 3  , 0  , 9  
-    EQUB 0  , 1  , 9  , 0  , 0  , &FF, &EE, &CC, &CC, &88, &88, &88
-    EQUB &FE, &EB, &A7, &D3
-    EQUS "NAME OF"
-    EQUB &D4, &1F, &0C, &11, &83
-    EQUS "____________"
-    EQUB &1F, 9  , &10, &85, &D8, &FF, &1F, 2  , &0A, &86, &FF, &81
-    EQUB &81, &81, &81, &81, 0  , &60, &A0, &38, &91, &70, &BC, 0  
-    EQUB &34, &F0, 8  , &A9, 0  , &9D, 0  , &34, &B9, 0  , &60, &A0
-    EQUB &40, &91, &70, &BC, &80, &34, &F0, 8  , &A9, 0  , &9D, &80
-    EQUB &34, &B9, 0  , &60
-.L3750
-    EQUB &0A, &0A, 8  , 8  , &45, 8  , 8  , 9  , &4A, &88, 8  , 8  
-    EQUB &0A, &4A, 2  , 0  , 2  , &4A, 8  , 5  , &88, 8  , 8  , 2  
-    EQUB &42, &48, &52, 8  , &11, &51, 0  , &48, &0A, &52, 0  , 0  
-    EQUB &40, 0  , &40, 0  , &40
-.L3779
-    EQUS "RN12345Position"
-    EQUB &A8
-    EQUS "In front:"
-    EQUB &AD, &FF
-    EQUS "Laps to go"
-    EQUB &A8
-    EQUS "Behind:"
-    EQUB &B2, &FF, &C6, &FF, &81, &81, &32, &B9, 0  , &60, &A0, &28
-    EQUB &91, &70, &BC, 0  , &33, &F0, 8  , &A9, 0  , &9D, 0  , &33
-    EQUB &B9, 0  , &60, &A0, &30, &91, &70, &BC, &80, &33, &F0, 8  
-    EQUB &A9, 0  , &9D, &80, &33, &B9
-.sub_C37D0
-    STX L62CC
-    STY L62CD
-.sub_C37D6
-    PHA
-    LSR A
-    LSR A
-    LSR A
-    LSR A
-    BNE C37E5
-    LDA #&1F
-    BIT L0078
-    BMI C37E5
-    LDA #&F0
-.C37E5
-    CLC
-    ADC #&30 ; '0'
-    JSR sub_C5092
-    ASL L0078
-    PLA
-    ASL L0078
-    BCS C37FE
-    AND #&0F
-    BNE C37F8
-    LDA #&1F
-.C37F8
-    CLC
-    ADC #&30 ; '0'
-    JSR sub_C5092
-.C37FE
-    RTS
-
-    EQUB &FF, &FE, &EC, &DA, &D5, &ED, &DB, &D5, &EE, &DC, &D5, &EB
-    EQUB &D2
-    EQUS "DURATION OF QUALIFYING LAPS"
-    EQUB &FF
-    EQUS " ] "
-    EQUB &FF, &9D, &80, &31, &B9, 0  , &60, &A0, &18, &91, &70, &BC
-    EQUB 0  , &32, &F0, 8  , &A9, 0  , &9D, 0  , &32, &B9, 0  , &60
-    EQUB &A0, &20, &91, &70, &BC, &80, &32, &F0, 8  , &A9, 0  , &9D
-    EQUB &80
-.C3850
-    LDA #osbyte_set_cursor_editing
-    LDY #0
-    LDX #1
-    JSR osbyte
-    JSR sub_C4F39
-    LDX #9
-    LDA #0
-    STA L0069
-.loop_C3862
-L3864 = loop_C3862+2
-    STA L05F4,X
-    DEX
-    BPL loop_C3862
-    LDA #&F6
-    STA L05FE
-    TSX
-    STX L006B
-    JSR sub_C5A22
-    LDA #osbyte_read_write_adc_conversion_type
-    LDY #0
-.sub_C3877
-L3878 = sub_C3877+1
-    LDX #&20 ; ' '
-    JSR osbyte
-    JMP C63E0
-
-    EQUB &FF, &EC
-    EQUS "PRACTICE"
-    EQUB &ED
-    EQUS "COMPETITION"
-    EQUB &FF, &FF, &AD
-    EQUS "PLEASE"
-    EQUB &A2
-    EQUS "WAIT"
-    EQUB &AD, &FF, &1F, 9  , 2  , &FF, &81, &81, &81, &A9, 0  , &9D
-    EQUB &80, &30, &B9, 0  , &60, &A0, 8  , &91, &70, &BC, 0  , &31
-    EQUB &F0, 8  , &A9, 0  , &9D, 0  , &31, &B9, 0  , &60, &A0, &10
-    EQUB &91, &70, &BC, &80, &31, &F0, 8  , &A9, 0  , &FF, &FF, &88
-    EQUB &88, &CC, &EE, &FF, &88, &88, &CC, &EE, &FF, &88, &CC, &EE
-    EQUB &FF, &88, &CC, &EE, &FF, &88, &CC, &EE, &FF, &88, &CC, &EE
-    EQUB &FF, &88, &88, &CC, &CC, &CC, &EE, &EE, &EE, &FF, &FF, &FF
-    EQUB &88, &88, &88, &CC, &CC
-.L38FC
-    EQUB 0
-.L38FD
-    EQUB &0F
-.L38FE
-    EQUB &F0
-.L38FF
-    EQUB &FF
-.L3900
-    EQUB &1B, &1B, &1B, &15, 3  , 2  , 2  , 6  , &0B, &0F, &13, &17
-    EQUB &1B
-    EQUS "&++++++++++++&"
-    EQUB &1B, &17, &13, &0F, &0B, 6  , 2  , 2  , 3  , &15, &1B, &1B
-    EQUB &1B, &1B, &FF, &81, &81, &F3, &7E, &4C, &13, &7D, &BD, &60
-    EQUB &5F, &29, 3  , &A8, &B9, &FC, &38, &BC, 0  , &30, &F0, 8  
-    EQUB &A9, 0  , &9D, 0  , &30, &B9, 0  , &60, &A0, 0  , &91, &70
-    EQUB &BC, &80, &30, &F0, 8  , &FF, &FF, &11, &11, &33, &77, &FF
-    EQUB &11, &11, &33, &77, &FF, &11, &33, &77, &FF, &11, &33, &77
-    EQUB &FF, &11, &33, &77, &FF, &11, &33, &77, &FF, &11, &11, &33
-    EQUB &33, &33, &77, &77, &77, &FF, &FF, &FF, &11, &11, &11, &33
-    EQUB &33
-.L397C
-    EQUB &75, &75, &75, &75
-.L3980
-    EQUB &35, &35, &35, &35, &35, &35, &35, &35, &34, &34, &34, &34
-    EQUB &34, &34, &33, &33, &33, &32, &32, &32, &31, &31, &30, &30
-    EQUB &2F, &2F, &2E, &2E, &2D, &2D, &2C, &2C, &2B, &2A, &29, &28
-    EQUB &27, &26, &A2, &9C, 8  , 8  , &E7, &FF, &8D, &DA, &7B, &A9
-    EQUB &91, &8D, &0F, &7C, &8D, &0F, &7C, &8D, &0F, &7E, &A9, &E0
-    EQUB &8D, &EE, &7E, &60, &A9, 0  , &85, &70, &85, &72, &A2, &67
-    EQUB &86, &71, &E8, &86, &73, &A2, &4F, &20
-.L39D0
-    EQUB &77, &33, &11, 0  
-.L39D4
-    EQUB &80, 1  , &C1, &81, &C2, &42, &C0, &83, &43, &20, 4  , &84
-.L39E0
-    EQUB &9D, &CF, &CE, &EE
-.L39E4
-    EQUB &DD, &EE, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-.L39F8
-    EQUB &77, &BB, &DD, &EE, &77, &BB, &DD, &EE, &1F, 5  , &18, &86
-    EQUB &D9
-    EQUS "SPACE BAR TO CONTINUE"
-    EQUB &FF, &45, &FF
-    EQUS "GRID POSITIONS"
-    EQUB &FF, &B8, 6  , &20, &D6, &37, 6  , &78, &B0, &0B, &A9, &2E
-    EQUB &20, &92, &50, &BD, &A0, 6  , &20, &D6, &37, &60, &AD, &24
-    EQUB &7D, &8D, &D4, &7B, &AD, &24, &7F, &8D, &D7, &7B, &AD, &7D
-    EQUB &7F
-.sub_C3A50
-    LDY #1
-.loop_C3A52
-    LDA L3A71,Y
-    STA L0074
-    LDX L3A6F,Y
-    LDA #&97
-    STA L7C79,X
-    LDA #&E2
-.loop_C3A61
-    INX
-    STA L7C79,X
-    LDA #&E6
-    CPX L0074
-    BNE loop_C3A61
-    DEY
-    BPL loop_C3A52
-    RTS
-
-.L3A6F
-    EQUB 0  , &78
-.L3A71
-    EQUB &23, &9B, &AF
-    EQUS "FINISHED"
-    EQUB &AF, &FF, 0  , 0  , &A6
-    EQUS "Less than one minute to go"
-    EQUB &A6, &FF, &1F, 5  , &14, &84, &9D, &86, &33, &A2, &9C, &A5
-    EQUB &83, &FF, &81, &81, &81, &A9, &F0, &A2, 9  , &9D, &C0, &42
-    EQUB &CA, &10, &FA, &68, &A2, 5  , &9D, &C2, &42, &45, &74, &CA
-    EQUB &10, &F8, &60, &85, &78, &BD, &D0, 6  , &20, &D6, &37, &A9
-    EQUB &3A, &20, &92, &50, &BD
-.L3AD0
-    EQUB 0  , 0  , &1D, &87, &15, &80, &80, &80, 0  , 7  , &80, 0  
-    EQUB &88, &91, &97, &9D, &28, &93, 0  , &80, 0  , &80, 0  , 0  
-    EQUB 0  , &80, 0  , 0  , 0  , 0  , 0  , &80, &A6, &E0, &13, &22
-    EQUB &8A, 0  , &9D, &80, &80, &80, &80, &80, &94, &A8, &F3, 0  
-    EQUB &97, &A5, &7A, 8  , &F5, &73
-.L3B06
-    EQUB &58, &59, &5A, &5B, &5D, &5E, &5F, &60, &62, &63, &64, &65
-    EQUB &67, &68, &69, &6A, &6C, &6D, &6E, &6F, &71, &72, &73, &74
-    EQUB &76, &77, &78, &79, &7B, &7C, &7D, &7E, &40, &48, &18, &30
-    EQUB &70, &78, &D0, &1D, &E0, &A0, &F0, &0D, &CA, &10, &12, &E0
-    EQUB &C0, &B0, &EF, &A9, &A5, &A0, &77, &D0, &0C, &A5, &6A, &29
-    EQUB &3F, &D0, &F4, &A2, &28, &A9, &F2, &A0, 5  , &86, &6D, &48
-    EQUB &84, &74
-.L3B50
-    EQUB &36, &42, &3A, &35, &30, &43, &3C, &3F, &35, &3E, &3E, &34
-    EQUB &3E, &3C, &3C, &3C, &38, &36, &32, &32, &33, &3D, &38, &37
-    EQUB &3C, &34, &30, &3D, &43, &3E, &3A, &35, &39, &40, &3D, &37
-    EQUB &43, &3F, &3A, &38, &42, &3A, &36, &37, &37, &37, &3B, 0  
-    EQUB &38, &38, &3C, &35, &42, &3A
-.L3B86
-    EQUB &E8, &88, &C8, &E8, &CA, &C8, &88, &CA
-.L3B8E
-    EQUB &88, &E8, &E8, &C8, &C8, &CA, &CA, &88, &18, &EA, &EA, &18
-    EQUB &18, &EA, &EA, &18, &75, &75, &74, &75, &76, &76, &12, &11
-    EQUB &10, &0E, &0D, &0C, &81, &81, &A5, &84, &99, &93, &62, &20
-    EQUB &B6, &7F, &88, &10, &E5, &60, &A5, &6C, &10, &4D, &A6, &6D
-    EQUB &F0, &49, &10, &10, &E0, &80, &D0, &0C, &24, &61, &10, 2  
-    EQUB &A2, &F0, &A0, 0  , &A9, &80
-.L3BD0
-    EQUB 4  , 7  , 9  , 7  , 0  , &0B, 7  
-.L3BD7
-    EQUB 3, 0, 0, 0, 4, 4, 0
-.L3BDE
-    EQUB &AA, &AF, &B3, &AF, &A2, &B8, &AF
-.L3BE5
-    EQUB &81, &81, &85, &84, &A3, &83, &85
-.L3BEC
-    EQUB &83, &83, &87, &87, &7F, &84, &87, &16, 7  , &17, 0  , &0A
-    EQUB &20, 0  , 0  , 0  , 0  , 0  , 0  , &FF, &EB, &D2
-    EQUS "WING SETTINGS"
-    EQUB &D8
-    EQUS "range 0 to 40"
-    EQUB &1F, &0E, &10
-    EQUS "rear"
-    EQUB &A2, &85, &D8, &FF, &81, &81, &81, &81, &E5, &74, &85, &7F
-    EQUB &BD, &98, 3  , &38, &E5, &0B, &38, &E9, 4  , &4A, &4A, &4A
-    EQUB &85, &76, &A0, 5  , &A5, &76, &D9, &A4, &3B, &F0, 9  , &B9
-    EQUB &93, &62, &F0, &0C, &A9, 0  , &F0, 2  
-.sub_C3C50
-    LDX #5
-    JSR sub_C41D0
-    LDX #&18
-    JSR sub_C4D7E
-    JSR C3EE0
-    STA L5F3E
-    LDX #&19
-    JSR sub_C4D7E
-    JSR C3EE0
-    STA L5F3D
-    JSR sub_C34D0
-    RTS
-
-.sub_C3C6F
-    LDA L5F3A
-    CLC
-    ADC #7
-    TAX
-    JSR sub_C4D7E
-    RTS
-
-    EQUB &1F, &18, 2  
-.L3C7D
-    EQUB &DA, &D6, &FF, &A2
-    EQUS "BEST LAP TIMES"
-    EQUB &A2, &FF
-    EQUS " mins"
-    EQUB &FF
-    EQUS " laps"
-    EQUB &FF
-    EQUS " RACE"
-    EQUB &FF
-    EQUS "ins"
-    EQUB &FF, &81, &81, &81, &81, &81, &44, &88, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &70, &30, &A4, &5B, &BE, &3C, 1  , &BD, &8C, 1  
-    EQUB &30, &20, &BD, &C8, 3  , &4A, &4A, &4A, &85, &74, &18, &69
-    EQUB &B6, &85, &84, &A9, &B6, &38
-.L3CD0
-    EQUB 0  , 5  , 9  , &0E, &12, &19, &1A, &1B, &1E, &20, &22, &25
-    EQUB &27
-.L3CDD
-    EQUB 0
-.L3CDE
-    EQUB 8  , &10, &18, &1E, &26, &29, &2C, &31, &35, &39, &3E, &42
-    EQUB &46
-.sub_C3CEB
-    TXA
-    LSR A
-    LSR A
-    CLC
-    ADC #&40 ; '@'
-    TAY
-    TXA
-    AND #3
-    ASL A
-    ASL A
-    STA L0074
-    ASL A
-    CLC
-    ADC L0074
-    ADC #&50 ; 'P'
-    RTS
-
-    EQUB &FE, &EC, &D3
-    EQUS "ANOTHER"
-    EQUB &D4, &ED
-    EQUS "START"
-    EQUB &D7, &FF, &8D
-.L3D14
-    EQUB &81, &9D
-.L3D16
-    EQUB &83
-.L3D17
-    EQUB &C8, &A2, &9C, &FF, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &81, &81, &0E, &0E, &0E, 0  , &80, &E0, &74, &77
-    EQUB &77, &77, &77, 0  , &10, &70, &E2, &EE, &EE, &EE, &EE, &91
-    EQUB &AA, 0  , &11, 0  , &33, &22, &11, &22, &44, &99, &22, &88
-    EQUB &EE, &33, &44, &70, &30, &10, &10, &88, 0  
-.sub_C3D50
-    STA L0074
-.loop_C3D52
-    LDA #&20 ; ' '
-    JSR sub_C5092
-    DEC L0074
-    BNE loop_C3D52
-.loop_C3D5B
-    RTS
-
-.sub_C3D5C
-    LDA #0
-    STA L0000
-    STA L0074
-    STA P
-    LDA #&30 ; '0'
-    STA Q
-.C3D68
-    LDX L0074
-    CPX #&28 ; '('
-    BEQ loop_C3D5B
-    LDA L3900,X
-    STA L0075
-    LDY #&46 ; 'F'
-    JMP C31D0
-
-.L3D78
-    EQUB &AA, &77, &AA, &DD
-.L3D7C
-    EQUB &0A, 7  , &0A, &0D, &FE, &EC, &CF, &ED, &D0, &EE, &D1, &EB
-    EQUB &A4, &D2
-    EQUS "THE CLASS OF"
-    EQUB &D7, &FF, &81, &81, &81, &81, &88, &88
-    EQUB &44, &44, &44, &44, &44, 4  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 8  , 0  , 0  , 5  , 5  , 5  , 5  , 5  , &12, &12, &12
-    EQUB &12, 3  , 1  , &41, 1  , 5  , 7  , 7  , 3  , &83, &83, &83
-    EQUB &83, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &1C, &1D, &0C
-    EQUB &0E, &0E
-.L3DD0
-    EQUB 0  , &27, &12, 9  , 3  , 3  , 3  , 3  , 3  , 3  , 3  , 3  
-    EQUB 3  , 3  , 3  , 3  , 3  , 3  
-.L3DE2
-    EQUB &86, &8E, &8D, &8D, &EB, &8B, &DF, &96, &A6, &E9, &8C, &8A
-    EQUB &CE, &EE
-.L3DF0
-    EQUB 4  , 9  , &19, 0  
-.L3DF4
-    EQUB 5  , &0A, &14
-.L3DF7
-    EQUB 9  , 6  , 4  , 3  , 2  , 1  , 1  , 0  , 0  , &FE, &EB, &A5
-    EQUB &82, &D4, &D8, &FF
-    EQUS "Professional"
-    EQUB &FF, &81, &81, &81, &81, 0  , &10, &80, 0  , 0  , 7  , &0F
-    EQUB 0  , 0  , 0  , 1  , 3  , &1E, &3C, &68, &16, &16, &3C, &68
-    EQUB &F0, &80, &F0, 0  , &F0, &10, &F0, &10, &E1, &21, &E1, &21
-    EQUB 8  , 8  , 8  , 9  , 8  , 1  , &40, 1  , 6  , 0  , 0  , 8  
-    EQUB 8  , 8  , 8  , 8  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB &88
-.L3E50
-    EQUB 8  , &13, &1E, &29, &39, &44, &4F, &5A, 2  , &0D, &18, &23
-    EQUB &33, &3E, &49, &54
-.sub_C3E60
-    TYA
-    AND #1
-    CLC
-    ADC L0042
-    TAX
-    LDA L3E74,X
-    STA L3585
-    LDA L3E76,X
-    STA L3583
-    RTS
-
-.L3E74
-    EQUB &84, &85
-.L3E76
-    EQUB &86, &87, &81, &84, &83, &82, &83, &84, &81, &87
-    EQUS "SELECT "
-    EQUB &FF
-    EQUS " DRIVER"
-    EQUB &FF, &81, &81, &81, &81, &44, &44, &22, 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 9  , &0A, &0A, &0A, 9  
-    EQUB 1  , 1  , 1  , 1  , 9  , 8  , &28, 0  , &F0, &80, &F0, &80
-    EQUB &78, &48, &78, &48, &86, &86, &C3, &61, &F0, &10, &F0, 0  
-    EQUB 0  , 0  , 0  , 8  , &0C, &87, &C3, &61, 0  , 0  , 0  , &10
-    EQUB 0  , 0  , &0E, &0F, 0  
-.L3ED0
-    EQUB 0  , &0B, &16, &21, &2E, &39, &44, &4F
-.L3ED8
-    EQUB &4F, &44, &39, &2E, &21, &16, &0B, 0  
-.C3EE0
-    LDA #&74 ; 't'
-    LDY #0
-    LDX #2
-    JSR sub_C6300
-    JSR sub_C32D0
-    BCC C3EF9
-.loop_C3EEE
-    DEY
-    BMI C3EE0
-    LDA #&7F
-    JSR oswrch
-    JMP loop_C3EEE
-
-.C3EF9
-    RTS
-
-    EQUB &AA, &AC, &B0, &B0, &AC, &AA, &1F, 5  , &12, &84, &9D, &86
-    EQUB &32, &A2, &9C, &A5, &83, &FF, &81, &81, &81, &81, &FF, &44
-    EQUB &FF, &AA, &FF, &11, &FF, &11, &FF, &BB, &77, &CF, &47, &CF
-    EQUB &8F, &8F, &8F, &8F, &8F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0F, &0A, &0E, &0E, &0C, &1C, &1C, &1C, &1C, &84, &84, &84
-    EQUB &84, &0C, 8  , &28, 8  , 0  , 0  , 0  , 4  , &0A, &0A, &0A
-    EQUB 4  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &44, &44, &44
-    EQUB &44
-.L3F4F
-    EQUB &44, &1B, &1B, &1B, &15, 3  , 2  , 2  , 2  , 6  , &0B, &0F
-    EQUB &13, &17, &1B
-    EQUS "&+++++++++++&"
-    EQUB &1B, &17, &13, &0F, &0B, 6  , 2  , 2  , 2  , 3  , &15, &1B
-    EQUB &1B, &1B, &20, &20, &20, &42, &65, &68, &69
-    EQUS "Novice"
-    EQUB &FF, &81, &81, &81, &81, &81, &40, &40, &62, &40, &51, &62
-    EQUB &80, &70, &30, &30, &10, &98, 0  , &44, &88, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &70, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E0, &C0, &E0, &C0, &80
-    EQUB &80, &11, 0  , &22, &11, &44, &22, &99, &44, &11, &77, &CC
-    EQUB &22, &88, &66, &33, &99, &22, &CC, &77, &AA, &88, &FF, &11
-    EQUB &77, &AA, &88, &EA, &EA, &C8, &EA, &88, &C8, &EA, &C8, &EA
-    EQUB &EA, &88, &EA, &C8, &88, &EA
-.L3FE0
-    EQUB 0  , &40, &80, &C0, 0  , &40, &80, &C0
-.L3FE8
-    EQUB &77, &BB, &DD, &EE, &77, &BB, &DD, &EE, 0  , &40, &80, &C0
-    EQUB 0  , &40, &80, &C0, 0  , &40, &80, &C0, 0  , &40, &80, &C0
-    EQUB &81, &81, &81, &81, &81, &81, &81, 7  , 1  , 1  , 0  , &88
-    EQUB &88, &88, &88, 0  , 0  , 0  , 0  , 4  , 5  , 5  , 5  , 1  
-    EQUB 1  , 0  , &20, 8  , 4  , 4  , 4  , &49, &48, &68, &2C, &24
-    EQUB &24, &34, &16, &0F, &0B, 7  , &0F, &0F, 7  , 7  , 7  , &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0F, &3A, &6C, &28, &6C, &6C
-    EQUB &2C, &2C, &1C, &77, &66, &66, &77, &66, &66, &66, 0  , &CC
-    EQUB &66, &66, &CC, &CC, &66, &66, 0  , &80
-    EQUS "Max ThrottleJohnny TurboDavey RocketGloria Sla"
-    EQUS "p "
-    EQUB &81, &81, &81, &40, 0  , 8  , &0C, &0C, 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 2  , 2  , 2  , 2  , 2  
-    EQUB 0  , 0  , 0  , &0C, 4  , &0C, 8  , &0C, 5  , 5  , 5  , 5  
-    EQUB 5  , 0  , 0  , &10, 0  , 0  , 0  , &20, 0  , 1  , 3  , 3  
-    EQUB &16, &34, &3C, &2C, &78, &48, &F0, &90, &C3, &43, &C2, &86
-    EQUB &84, &84, &84, &1C, 0  , 0  , 0  , 0  , 6  , 4  , 6  , 2  
-    EQUB 2  , 2  , 2  , 2  , 0  , 0  , 0  , 0  
-.L40D0
-    EQUB &5A, &4F, &44, &39, &29, &1E, &13, 8  , &54, &49, &3E, &33
-    EQUB &23, &18, &0D, 2  , &0C, &1F
-.L40E2
-    EQUB 4
-.L40E3
-    EQUB 3  , &EA
-.L40E5
-    EQUB &AA, &EA, &1F, &24, 2  , &FF
-.sub_C40EB
-    LDA #0
-    STA L06A0,X
-    STA L06B8,X
-    LDA #&10
-    STA L06D0,X
-    RTS
-
-    EQUB &77, &C2, &C0, &BC, &BC, &C0, &C2, &81, &81, &81, &0F, &0F
-    EQUB &0F, &0D, &0E, &0F, &0F, &0E, &0E, &0E, &29, &21, &61, &43
-    EQUB &42, &42, &C2, &86, 8  , 8  , 0  , &41, 0  , 1  , 1  , 1  
-    EQUB 1  , 0  , 0  , 8  , 8  , 8  , 0  , 8  , &0C, 8  , 8  , 0  
-    EQUB &88, &88, &88, &88, &0E, &0A, &0E, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , &14, &0A, &0E, &0A, 4  , &3C, &2C, &34, &16
-    EQUB &12, &12, &12, 3  , &86, &C2, &C3, &43, &E1, &21, &F0, &90
-    EQUB 0  , 0  , 0  
-    EQUS "Hugh JengineDesmond DashPercy Veer  Gary Clipp"
-    EQUS "er"
-    EQUB &81, &81, &81, &81, &E0, &F0, &F0, &F0, &F0, &F0, 0  , 0  
-    EQUB 0  , 0  , &80, &C0, &E0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E0, &E0, &C0
-    EQUB &C0, &80, &91, 0  , &22, &11, 0  , &22, 0  , &55, &22, &99
-    EQUB &44, &22, &99, 0  , &11, &77, &CC, &11, &EE, &33, &55, &22
-    EQUB &77, &99, &22, &EE, &55, &DD, &45, &AB, &45, &67, &AB, &CF
-    EQUB &47, &8B, &0F, &0F, &0F, &0F, &0F, &0F
-.sub_C41D0
-    LDA L3BD0,X
-    STA L40E2
-    LDA L3BD7,X
-    STA L40E3
-    LDA L3BDE,X
-    STA L40E5
-    LDA L3BE5,X
-    STA L3D14
-    LDA L3BEC,X
-    STA L3D16
-    TXA
-    CLC
-    ADC #&C8
-    STA L3D17
-    LDX #&21 ; '!'
-    JSR sub_C4D7E
-    RTS
-
-    EQUB &79, &7B, &7C, &7D, &7E, &A5, &FB, &A6, &FF, &81, &81, &81
-    EQUB &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &81, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &1F
-    EQUB &4A, &0E, &0F, &0F, &0F, &0F, &0F, 0  , &AA, &44, &33, &CC
-    EQUB &AA, &66, &DC, &44, 0  , &22, &11, &FC, &E0, &80, 0  , 0  
-    EQUB 0  , &44, &11, &C0, &70, &10, 0  , &F0, &70, &30, &30, &10
-    EQUB &10, 0  , &80, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &70, &C0
-    EQUB &C0
-    EQUS "Willy SwerveSid Spoiler Billy BumperSlim Chanc"
-    EQUS "e Lap Time"
-    EQUB &A3, &3A, &A9
-    EQUS "Best Time"
-    EQUB &A8, &FF, &81, &81, &81, &81, &81, &81, &F0, &90, &E1, &21
-    EQUB &F0, &61, &C3, &87, &86, &0C, &18, 0  , &0F, &0C, 8  , 0  
-    EQUB 0  , 0  , 0  , 6  , &0F, 0  , 0  , 0  , 0  , 0  , 7  , 5  
-    EQUB &1E, 7  , 3  , 1  , &40, 0  , 0  , 0  , &F0, &C0, &78, &2C
-    EQUB &3C, &16, 3  , 1  , 7  , 0  , &83, 3  , &82, 1  , &C1, &81
-.sub_C42D0
-    LDA #&22 ; '"'
-    STA L62CC
-    STA L0077
-    LDA #&D7
-    STA L62CD
-    LDX L0040
-    LDA L3779,X
-    JSR sub_C508C
-    LDX #&FF
-    STX L0077
-    JSR sub_C508C
-    RTS
-
-.sub_C42EC
-    LDX #&13
-.loop_C42EE
-    JSR sub_C40EB
-    DEX
-    BPL loop_C42EE
-    RTS
-
-    EQUB &85, &52, &83, &45, &86, &56, &82, &53, &FF, &75, &75, &FE
-    EQUB &EB, &A6, &D2
-    EQUS "NUMBER OF LAPS"
-    EQUB &EC, &DA, &D6, &ED, &DB, &D6, &EE, &DC, &D6, &FF, 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 1  , 1  
-    EQUB 1  , 1  , 0  , 0  , 0  , 0  , 5  , 5  , 5  , 2  , 0  , 0  
-    EQUB 0  , 0  , 1  , 1  , 1  , 1  , 3  , &92, &12, &12, &F0, &80
-    EQUB &F0, &80
-    EQUS "Harry Fume  Dan DipstickWilma Cargo Miles Behi"
-    EQUS "ndTHE  PITS"
-    EQUB &FF, &1F, 4  , &0E, &88, &86, &D9, &1F, 5  , &10, &84, &9D
-    EQUB &86, &31, &A2, &9C, &A5, &83, &FF, &20, 0  , 1  , 1  , &0F
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , &0F, 3  , 1  , 0  , &20
-    EQUB 0  , 8  , 8  , &F0, &68, &3C, &1E, &16, 3  , 1  , 0  , &F0
-    EQUB &10, &F0, &10, &F0, &90, &78, &48, 8  , 8  , 8  , 8  , &0C
-    EQUB &94, &84, &84, 0  , 6  , 2  , 6  , 4  , 6  , 0  , 0  
-.sub_C43D0
-    LDA #2
-    JSR sub_C3D50
-    LDA #&20 ; ' '
-    STA L0078
-    LDA L39E4,X
-    BNE C43E7
-    LDA #2
-    JSR sub_C3D50
-    LSR L0078
-    BNE C43EA
-.C43E7
-    JSR sub_C37D6
-.C43EA
-    LDA L3864,X
-    JSR sub_C37D6
-    LDA #1
-    JSR sub_C3D50
-    RTS
-
-.sub_C43F6
-    LDX #3
-.loop_C43F8
-    JSR sub_C0E5A
-    DEX
-    BPL loop_C43F8
-    RTS
-
-    EQUB 0
-.L4400
-    EQUB &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81
-    EQUB &81, &81, &81, &81, &22, 0  , &44, &88, &33, &22, &CC, &33
-    EQUB 0  , &55, &22, &CC, &33, &55, &66, &33, &8F, &25, 7  , &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0E, 0  , &1C, &0C, &14, 8  , &38, &18, &F0, &30, &E1, &43
-    EQUB &C3, &86, &0C, 8  , &87, &0E, &0C, 8  
-    EQUS "Roland SlideRick Shaw   Peter Out   Dummy Driv"
-    EQUS "er"
-.L4480
-    EQUB &9C, &EE, &9E, &9F, 3  , 4  , &AF, 5  , &9D, &A5, &A7, 4  
-    EQUB &AE, &AF, 6  , 7  , &E6, &9C, &9E, &9F, 3  , &AF, &B7, 6  
-    EQUB 3  , &A6, &AE, 5  , &B7, 7  , &E6, &9F, 3  , &A5, &AE, &AF
-    EQUB &B7, 7  , &E6, &9F, &B7, 3  , &A6, 7  , &E5, &9D, &9E, 3  
-    EQUB 4  , &9E, 3  , &B7, 6  , 3  , &A5, &A6, &B7, &A6, &A7, &AE
-    EQUB 5  , 7  , &A6, 4  , &AE, &AF, &A6, 4  , &AE, &AF
-.sub_C44C6
-    LDA L5A14,X
-    STA L5F40
-    STA L0075
-    LDA L59FA
-    LSR A
-    LSR A
-    LSR A
-    TAY
-.loop_C44D5
-    LDA L59D0,Y
-    LSR A
-    PHP
-    LSR A
-    BCS C44E0
-    JSR sub_C0C00
-.C44E0
-    ASL A
-    PLP
-    ROR A
-    STA L5FB0,Y
-    DEY
-    BPL loop_C44D5
-    RTS
-
-.sub_C44EA
-    LDA L002D
-    BEQ C44F5
-    DEC L0028
-    DEC L0028
-    JMP C452D
-
-.C44F5
-    STA L0028
-    STA L0026
-    LDY L62F0
-    LDA L0040
-    BEQ C4510
-    LDA L003E
-    BMI C4510
-    BEQ C450C
-    LDA L003D
-    BNE C4516
-    BEQ C4510
-.C450C
-    LDA L0063
-    BNE C4521
-.C4510
-    TYA
-    BEQ C452D
-    BPL C4521
-    INY
-.C4516
-    INY
-    BMI C452A
-    CPY #4
-    BCC C452A
-    LDY #3
-    BCS C452A
-.C4521
-    DEY
-    BPL C452A
-    CPY #&FB
-    BCS C452A
-    LDY #&FB
-.C452A
-    STY L62F0
-.C452D
-    LDX L0022
-    LDY L0700,X
-    LDA L000D
-    STA L0076
-    LDA L5400,Y
-    EOR L5600,Y
-    PHP
-    LDA L5600,Y
-    PHP
-    JSR sub_C3450
-    CMP #&3C ; '<'
-    PHP
-    BCC C454F
-    LDA L5400,Y
-    JSR sub_C3450
-.C454F
-    STA L0074
-    LSR A
-    CLC
-    ADC L0074
-    LSR A
-    LSR A
-    PLP
-    BCS C455C
-    EOR #&3F ; '?'
-.C455C
-    PLP
-    BPL C4561
-    EOR #&80
-.C4561
-    PLP
-    JSR sub_C3450
-    SEC
-    SBC L000B
-    STA L0044
-    BPL C456E
-    EOR #&FF
-.C456E
-    CMP #&40 ; '@'
-    BCC C4574
-    EOR #&7F
-.C4574
-    STA L62F2
-    EOR #&3F ; '?'
-    STA L0074
-    LSR A
-    CLC
-    ADC L0074
-    JSR sub_C4610
-    CLC
-    ADC L005D
-    CLC
-    ADC L62F0
-    CLC
-    ADC L0028
-    CLC
-    ADC L000D
-    CLC
-    BPL C4593
-    SEC
-.C4593
-    ROR A
-    STA L000D
-    SEC
-    SBC L0076
-    STA L004E
-    LDA #0
-    STA L0077
-    LDA L0026
-    SEC
-    SBC #4
-    BVC C45A8
-    LDA #&C8
-.C45A8
-    STA L0026
-    CLC
-    ADC L002D
-    BEQ C45B3
-    BVS C45C7
-    BPL C45C9
-.C45B3
-    LDA L0026
-    JSR sub_C3450
-    CMP #5
-    BCC C45C3
-    JSR sub_C4DCB
-    LDA #1
-    BNE C45C9
-.C45C3
-    LDA #0
-    BEQ C45C9
-.C45C7
-    LDA #&7F
-.C45C9
-    STA L002D
-    ASL A
-    ROL L0077
-    ASL A
-    ROL L0077
-    STA L0076
-    LDX L006F
-    LDA L0164,X
-    JSR sub_C4610
-    BPL C45DF
-    DEC L0077
-.C45DF
-    LDY L0022
-    CLC
-    ADC L0901,Y
-    PHP
-    CLC
-    ADC #&AC
-    PHP
-    CLC
-    ADC L0076
-    STA L6281
-    LDA L0A01,Y
-    ADC L0077
-    PLP
-    ADC #0
-    PLP
-    ADC #0
-    STA L6284
-    LDA L0063
-    STA L0075
-    LDA #&21 ; '!'
-    JSR sub_C0C00
-    ASL L0075
-    CLC
-    ADC L0075
-    STA L0150,X
-    RTS
-
-.sub_C4610
-    STA L0075
-    LDA L5500,Y
-    EOR L0025
-    PHP
-    LDA L5500,Y
-    JSR sub_C3450
-    JSR sub_C0C00
-    PLP
-    JSR sub_C3450
-    RTS
-
-.sub_C4626
-    LDA L005E
-    SEC
-    SBC L0044
-    JSR sub_C3450
-    CMP #&40 ; '@'
-    ROR L0043
-    BPL C4639
-    EOR #&7F
-    CLC
-    ADC #1
-.C4639
-    PHA
-    LDY #&BA
-    JSR sub_C4676
-    LDX L005C
-    CPX #&28 ; '('
-    BCC C4647
-    EOR #&FF
-.C4647
-    LDX L006F
-    BIT L0025
-    JSR sub_C3450
-    PHA
-    SBC L0178,X
-    BCS C4656
-    EOR #&FF
-.C4656
-    CMP #&16
-    JSR sub_C1FA8
-    PLA
-    STA L0178,X
-    PLA
-    EOR #&FF
-    CLC
-    ADC #&41 ; 'A'
-    LDY #&88
-    JSR sub_C4676
-    ASL A
-    ASL A
-    BIT L0043
-    BMI C4672
-    EOR #&FF
-.C4672
-    STA L0164,X
-    RTS
-
-.sub_C4676
-    JSR sub_C4687
-    STA L0075
-    TYA
-    JSR sub_C0C00
-    STA L0075
-    LDA L0010
-    JSR sub_C0C00
-    RTS
-
-.sub_C4687
-    CMP #&1A
-    BCC C4699
-    CMP #&2E ; '.'
-    BCC C4693
-    CLC
-    ADC #&BE
-    RTS
-
-.C4693
-    ASL A
-    ASL A
-    CLC
-    ADC #&34 ; '4'
-    RTS
-
-.C4699
-    STA L0074
-    ASL A
-    CLC
-    ADC L0074
-    ASL A
-    RTS
-
-.sub_C46A1
-    LDA L000B
-    LDX L000A
-    JSR sub_C0D01
-    JSR sub_C48B9
-    LDA L62D8
-    STA L0038
-    LDA L62E8
-    STA L0039
-    LDA L62D9
-    STA L0074
-    LDA L62E9
-    JSR sub_C0E40
-    STA L0063
-    LDA L0074
-    STA L002E
-    LDY L0063
-    BNE C46CD
-    AND #&F0
-    TAY
-.C46CD
-    STY L0000
-    JSR sub_C4729
-    JSR sub_C4BCF
-    JSR sub_C49CE
-    LDX #1
-    JSR sub_C4779
-    LDA L0038
-    STA L62D8
-    LDA L0039
-    STA L62E8
-    LDA L62D8
-    CLC
-    ADC L003A
-    STA L62D8
-    LDA L62E8
-    ADC L003B
-    STA L62E8
-    JSR sub_C47A5
-    LDX #0
-    JSR sub_C4779
-    JSR sub_C47C5
-    JSR sub_C47F9
-    LDA L002D
-    CMP #2
-    BCC C4719
-    LDX #2
-    LDA #0
-.loop_C4710
-    STA L62D5,X
-    STA L62E5,X
-    DEX
-    BPL loop_C4710
-.C4719
-    JSR sub_C4C65
-    JSR sub_C48C1
-    JSR sub_C4937
-    JSR sub_C48EF
-    JSR sub_C44EA
-    RTS
-
-.sub_C4729
-    LDA L62D2
-    STA L0074
-    LDY #&58 ; 'X'
-    LDA L62E2
-    JSR sub_C4753
-    STA L0075
-    LDA L62D8
-    SEC
-    SBC L0074
-    STA L62D8
-    LDA L62E8
-    SBC L0075
-    STA L62E8
-    JSR sub_C4765
-    STA L003B
-    LDA L0074
-    STA L003A
-    RTS
-
-.sub_C4753
-    PHP
-    JSR sub_C0E40
-    STA L0076
-    STY L0075
-    JSR sub_C0DBF
-    LDA L0075
-    PLP
-    JSR sub_C0E40
-    RTS
-
-.sub_C4765
-    LDA L0075
-    CLC
-    BPL C476B
-    SEC
-.C476B
-    ROR A
-    PHA
-    LDA L0074
-    ROR A
-    CLC
-    ADC L0074
-    STA L0074
-    PLA
-    ADC L0075
-    RTS
-
-.sub_C4779
-    LDA L002D
-    CMP #2
-    BCS C478F
-    JSR sub_C4A91
-    LDA L62A6,X
-    AND #&C0
-    BNE C4795
-    LDA L006A
-    AND #2
-    BNE C4794
-.C478F
-    LDX #3
-    JSR sub_C0E5A
-.C4794
-    RTS
-
-.C4795
-    JSR sub_C4AF7
-    LDA L62C0
-    BNE C47A4
-    LDY #1
-    LDA #3
-    JSR sub_C0B4A
-.C47A4
-    RTS
-
-.sub_C47A5
-    LDX #2
-    LDY #9
-    LDA #&80
-    STA L0079
-    LDA #&0E
-    JSR sub_C4874
-    LDX #2
-    LDY #8
-    LDA #&40 ; '@'
-    STA L0079
-    LDA #9
-    JSR sub_C4874
-    LDX #8
-    JSR sub_C47E5
-    RTS
-
-.sub_C47C5
-    LDX #2
-    LDY #&0C
-    LDA #0
-    STA L0079
-    LDA #&0E
-    JSR sub_C4874
-    LDX #2
-    LDY #&0A
-    LDA #&C0
-    STA L0079
-    LDA #&0C
-    JSR sub_C4874
-    LDX #&0A
-    JSR sub_C47E5
-    RTS
-
-.sub_C47E5
-    LDA L62D0,X
-    CLC
-    ADC L62DE
-    STA L62D0,X
-    LDA L62E0,X
-    ADC L62EE
-    STA L62E0,X
-    RTS
-
-.sub_C47F9
-    LDY #&4E ; 'N'
-    LDA L62DA
-    SEC
-    SBC L62DB
-    STA L0074
-    LDA L62EA
-    SBC L62EB
-    JSR sub_C4753
-    STA L62E5
-    LDA L0074
-    STA L62D5
-    LDY #1
-.loop_C4817
-    LDX #3
-.loop_C4819
-    LDA L62EA,X
-    CLC
-    BPL C4820
-    SEC
-.C4820
-    ROR L62EA,X
-    ROR L62DA,X
-    DEX
-    BPL loop_C4819
-    DEY
-    BPL loop_C4817
-    LDX #2
-    LDA #1
-    STA L0078
-.C4832
-    LDA L62DB,X
-    STA L0074
-    LDA L62EB,X
-    STA L0075
-    JSR sub_C4765
-    STA L0075
-    LDA L0074
-    CLC
-    ADC L62DA,X
-    STA L0074
-    LDY #&CD
-    LDA L0075
-    ADC L62EA,X
-    JSR sub_C4753
-    ASL L0074
-    ROL A
-    LDY L0078
-    STA L62E6,Y
-    LDA L0074
-    STA L62D6,Y
-    DEC L0078
-    DEX
-    DEX
-    BPL C4832
-    LDA L62E7
-    STA L62FF
-    RTS
-
-.sub_C486D
-    LDY L007F
-    STA L0079
-    JMP C4876
-
-.sub_C4874
-    STA L007C
-.C4876
-    LDA L62D0,Y
-    STA L0080
-    LDA L62E0,Y
-    STA L0081
-    LDA L62A0,X
-    STA L0082
-    LDA L62A3,X
-    STA L0083
-    JSR sub_C0DD7
-    STA L0075
-    LDY L007C
-    BIT L0079
-    BVS C48A7
-    LDA L0074
-    STA L62D0,Y
-    LDA L0075
-    STA L62E0,Y
-    RTS
-
-.sub_C48A0
-    BMI C48A7
-    JSR sub_C0E44
-    STA L0075
-.C48A7
-    LDA L62D0,Y
-    CLC
-    ADC L0074
-    STA L62D0,Y
-    LDA L62E0,Y
-    ADC L0075
-    STA L62E0,Y
-    RTS
-
-.sub_C48B9
-    LDY #0
-    LDA #8
-    LDX #&C0
-    BNE C48C7
-.sub_C48C1
-    LDY #6
-    LDA #3
-    LDX #&40 ; '@'
-.C48C7
-    STY L007F
-    STA L007C
-    STX L0088
-    LDX #1
-    LDA #0
-    JSR sub_C486D
-    DEX
-    INC L007F
-    LDA L0088
-    JSR sub_C486D
-    INX
-    INC L007C
-    LDA #0
-    JSR sub_C486D
-    DEX
-    DEC L007F
-    LDA L0088
-    EOR #&80
-    JSR sub_C486D
-    RTS
-
-.sub_C48EF
-    LDX #1
-    LDY #2
-.C48F3
-    LDA #0
-    STA L0076
-    LDA L62D0,X
-    STA L0074
-    LDA L62E0,X
-    BPL C4903
-    DEC L0076
-.C4903
-    ASL L0074
-    ROL A
-    ROL L0076
-    STA L0075
-    LDA L62B1,Y
-    ADC L0074
-    STA L62B1,Y
-    LDA L6280,Y
-    ADC L0075
-    STA L6280,Y
-    LDA L6283,Y
-    ADC L0076
-    STA L6283,Y
-    DEY
-    DEY
-    DEX
-    BPL C48F3
-    LDA L000A
-    CLC
-    ADC L62D2
-    STA L000A
-    LDA L000B
-    ADC L62E2
-    STA L000B
-    RTS
-
-.sub_C4937
-    LDX #2
-.C4939
-    LDA #0
-    STA L0076
-    LDA L62D3,X
-    STA L0074
-    LDA L62E3,X
-    BPL C4949
-    DEC L0076
-.C4949
-    LDY #3
-    CPX #2
-    BNE C4951
-    LDY #5
-.C4951
-    ASL L0074
-    ROL A
-    ROL L0076
-    DEY
-    BNE C4951
-    STA L0075
-    LDA L62AE,X
-    CLC
-    ADC L0074
-    STA L62AE,X
-    LDA L62D0,X
-    ADC L0075
-    STA L62D0,X
-    LDA L62E0,X
-    ADC L0076
-    STA L62E0,X
-    DEX
-    BPL C4939
-    RTS
-
-.C4978
-    LDX #&DC
-    JSR sub_C0E50
-    BEQ C498C
-    LDY L0040
-    DEY
-    BEQ C4988
-    LDA L0063
-    BNE C4993
-.C4988
-    LDA #0
-    BEQ C49C5
-.C498C
-    LDA user_via_t2c_l
-    AND L0009
-    BNE C49BB
-.C4993
-    LDX #7
-    STX L0009
-    LDX #&FF
-    STX L0061
-    BMI C49BB
-.C499D
-    STA L0059
-.C499F
-    LDA L003C
-    LDX L003E
-    DEX
-    BNE C49B0
-    ADC #7
-    CMP L003F
-    BCS C49B0
-    CMP #&8C
-    BCC C49C5
-.C49B0
-    CMP #&2A ; '*'
-    BCC C49B9
-    SEC
-    SBC #&0C
-    BCS C49BB
-.C49B9
-    LDA #&28 ; '('
-.C49BB
-    STA L0074
-    LDA user_via_t2c_l
-    AND #7
-    CLC
-    ADC L0074
-.C49C5
-    STA L003C
-    STA L005A
-.C49C9
-    LDA #0
-    JMP C4A87
-
-.sub_C49CE
-    LDA L0061
-    BEQ C4978
-    LDA L002D
-    BNE C499F
-    LDA L0058
-    BMI C499D
-    LDY L0040
-    DEY
-    BEQ C499F
-    LDA L002E
-    STA L0074
-    LDA L0063
-    ASL L0074
-    ROL A
-    PHP
-    BMI C49EE
-    ASL L0074
-    ROL A
-.C49EE
-    STA L0075
-    LDX L0040
-    LDA L5A06,X
-    JSR sub_C0C00
-    ASL L0074
-    ROL A
-    PLP
-    BPL C4A01
-    ASL L0074
-    ROL A
-.C4A01
-    BIT L0059
-    BPL C4A37
-    LDY L003E
-    DEY
-    BNE C4A26
-    LDY L0063
-    CPY #&16
-    BCS C4A26
-    LDY L006D
-    BPL C4A22
-    CPY #&A0
-    BNE C4A26
-    PHA
-    LDA L006A
-    AND #&3F ; '?'
-    CMP #&35 ; '5'
-    PLA
-    BCC C4A26
-.C4A22
-    CMP L005A
-    BCC C4A2C
-.C4A26
-    LDY #0
-    STY L0059
-    BEQ C4A37
-.C4A2C
-    LDA L005A
-    CMP #&6C ; 'l'
-    BCC C4A37
-    SEC
-    SBC #2
-    STA L005A
-.C4A37
-    STA L003C
-    CMP #&AA
-    BCC C4A3F
-    LDA #&AA
-.C4A3F
-    CMP #3
-    BCS C4A48
-    INC L0061
-    JMP C49C9
-
-.C4A48
-    SEC
-    SBC #&42 ; 'B'
-    BMI C4A51
-    CMP #&11
-    BCS C4A58
-.C4A51
-    ASL A
-    CLC
-    ADC #&98
-    JMP C4A7F
-
-.C4A58
-    SEC
-    SBC #&11
-    CMP #4
-    BCS C4A66
-    EOR #&FF
-    CLC
-    ADC #&BB
-    BCS C4A7F
-.C4A66
-    SEC
-    SBC #4
-    CMP #5
-    BCS C4A76
-    ASL A
-    ASL A
-    EOR #&FF
-    CLC
-    ADC #&B7
-    BCS C4A7F
-.C4A76
-    SEC
-    SBC #5
-    ASL A
-    EOR #&FF
-    CLC
-    ADC #&A3
-.C4A7F
-    STA L0075
-    LDA L5A0D,X
-    JSR sub_C0C00
-.C4A87
-    STA L003D
-    LDA L003C
-    CLC
-    ADC #&19
-    STA L005F
-    RTS
-
-.sub_C4A91
-    LDA L62D8
-    STA L0074
-    ORA L62E8
-    PHP
-    LDA L62E8
-    JSR sub_C0E42
-    LDY #5
-.loop_C4AA2
-    ASL L0074
-    ROL A
-    DEY
-    BNE loop_C4AA2
-    STA L62EA,X
-    PLP
-    BEQ C4AB4
-    EOR L62E8
-    SEC
-    BPL C4AF3
-.C4AB4
-    LDA L0074
-    STA L62DA,X
-    JSR sub_C4B88
-    BCC C4ACF
-    LDA #0
-    STA L62DC
-    STA L62EC
-    LDA L62EA
-    JSR sub_C3450
-    JMP C4AED
-
-.C4ACF
-    JSR sub_C4B42
-    LDA L62EC,X
-    JSR sub_C3450
-    STA L0074
-    LDA L62EA,X
-    JSR sub_C3450
-    CMP L0074
-    BCC C4AE9
-    LSR L0074
-    JMP C4AEA
-
-.C4AE9
-    LSR A
-.C4AEA
-    CLC
-    ADC L0074
-.C4AED
-    CMP L62AA,X
-    BNE C4AF3
-    CLC
-.C4AF3
-    ROR L62A6,X
-    RTS
-
-.sub_C4AF7
-    LDA #0
-    STA L62EC,X
-    STA L62DC,X
-    LDY #8
-    JSR sub_C4B61
-    LDA L62E8
-    EOR #&80
-    STA L0079
-    LDA #0
-    STA L0074
-    LDA L62AC,X
-    STX L0078
-    JSR sub_C4B47
-    JSR sub_C4B88
-    BCS C4B41
-    CMP L62AC,X
-    BCC C4B3E
-    LDA #0
-    STA L0074
-    LDA L62AC,X
-    JSR sub_C4B42
-    LDY L003E
-    DEY
-    BNE C4B41
-    CPX #0
-    BEQ C4B41
-    LDA #0
-    STA L62EA,X
-    STA L62DA,X
-    BEQ C4B41
-.C4B3E
-    JSR sub_C4B42
-.C4B41
-    RTS
-
-.sub_C4B42
-    LDY L003E
-    DEY
-    BEQ C4B51
-.sub_C4B47
-    CMP L008F
-    BCC C4B51
-    LDA L008E
-    STA L0074
-    LDA L008F
-.C4B51
-    BIT L0079
-    JSR sub_C0E40
-    LDY L0078
-    STA L62EA,Y
-    LDA L0074
-    STA L62DA,Y
-    RTS
-
-.sub_C4B61
-    LDA L62D0,Y
-    STA L008E
-    LDA L62E0,Y
-    BPL C4B77
-    LDA #0
-    SEC
-    SBC L008E
-    STA L008E
-    LDA #0
-    SBC L62E0,Y
-.C4B77
-    LDY #5
-.loop_C4B79
-    ASL L008E
-    ROL A
-    BMI C4B84
-    DEY
-    BNE loop_C4B79
-.loop_C4B81
-    STA L008F
-    RTS
-
-.C4B84
-    LDA #&7F
-    BNE loop_C4B81
-.sub_C4B88
-    TXA
-    CLC
-    ADC #2
-    STA L0078
-    LDY L003E
-    DEY
-    BEQ C4BAF
-    LDY #9
-    JSR sub_C4B61
-    LDA L62E9
-    EOR #&80
-    STA L0079
-    LDA L62AA,X
-    CPX #1
-    BEQ C4BBC
-    LSR A
-    CLC
-    ADC L62AA,X
-    LSR A
-    JMP C4BBC
-
-.C4BAF
-    CPX #1
-    BNE C4BCD
-    LDA L0040
-    SEC
-    SBC #1
-    STA L0079
-    LDA L003D
-.C4BBC
-    STA L0075
-    LDA L003F
-    JSR sub_C0C00
-    LDY L003E
-    DEY
-    BNE C4BCB
-    LSR A
-    ROR L0074
-.C4BCB
-    CLC
-    RTS
-
-.C4BCD
-    SEC
-    RTS
-
-.sub_C4BCF
-    LDA #0
-    LDY L003E
-    BNE C4BE1
-    LDA L62FF
-    PHP
-    LSR A
-    LSR A
-    LSR A
-    PLP
-    BPL C4BE1
-    ORA #&E0
-.C4BE1
-    STA L0079
-    EOR #&FF
-    CLC
-    ADC #1
-    STA L0078
-    LDA L0063
-    STA L0075
-    LDX #0
-    LDA L713D
-    AND L7205
-    STA L0077
-    LDA L713D
-    CMP #&FF
-    BEQ C4C06
-    LDA L7205
-    CMP #&FF
-    BNE C4C24
-.C4C06
-    LDA user_via_t2c_l
-    JSR sub_C0C00
-    AND #7
-    TAX
-    BNE C4C12
-    INX
-.C4C12
-    LDA L005D
-    BNE C4C24
-    LDA L005D
-    ORA L002D
-    BNE C4C24
-    BIT L62FB
-    BPL C4C24
-    JSR sub_C4DC9
-.C4C24
-    STX L005D
-    LDX #1
-.C4C28
-    LDA L0063
-    CMP #&35 ; '5'
-    BCC C4C30
-    LDA #&35 ; '5'
-.C4C30
-    STA L0075
-    LDA L62A8,X
-    JSR sub_C0C00
-    BIT L62E9
-    JSR sub_C3450
-    CLC
-    ADC L4C61,X
-    LDY #&F3
-    STY L0075
-    LDY L0077
-    CPY #&FF
-    BNE C4C51
-    LDA L4C63,X
-    LDY #&FF
-.C4C51
-    CLC
-    ADC L0078,X
-    STA L62AA,X
-    JSR sub_C0C00
-    STA L62AC,X
-    DEX
-    BPL C4C28
-    RTS
-
-.L4C61
-    EQUB &35, &35
-.L4C63
-    EQUB &19, &1A
-.sub_C4C65
-    LDA L0039
-    JSR sub_C3450
-    STA L0075
-    CMP L0063
-    BCS C4C72
-    LDA L0063
-.C4C72
-    LDY L005D
-    BEQ C4C77
-    ASL A
-.C4C77
-    STA L0077
-    JSR sub_C0C00
-    STA L0075
-    LDY #6
-    LDA L0039
-    JSR sub_C48A0
-    LDA L0063
-    STA L0075
-    LDA L62F1
-    JSR sub_C0C00
-    CLC
-    ADC #8
-    STA L0076
-    LDA L0077
-    STA L0075
-    JSR sub_C0DBF
-    LDY #7
-    LDA L62E9
-    JSR sub_C48A0
-    RTS
-
-.sub_C4CA4
-    LDX L006F
-    LDY L06E8,X
-    LDA L5300,Y
-    LSR A
-    LSR A
-    LSR A
-    LSR A
-    STA L0045
-    CMP L62F9
-    BNE C4CBB
-    ADC #0
-    AND #&0F
-.C4CBB
-    TAX
-    LDY #2
-    STY L0077
-    LDA L53E0,X
-    JSR sub_C4D21
-    LDY #4
-    LDA L53F0,X
-    JSR sub_C4D21
-    LDY #2
-    LDA L53D0,X
-    JSR sub_C4D21
-    LDA L59EA,X
-    AND #7
-    CLC
-    ADC #7
-    STA L0037
-    LDA L59EA,X
-    AND #&F8
-    TAY
-    LDX #&FD
-    JSR sub_C1208
-    LDY #6
-    JSR sub_C2147
-    LDA L008A
-    STA L0397
-    LDA L008B
-    STA L03AF
-    SEC
-    SBC L000B
-    JSR sub_C3450
-    CMP #&40 ; '@'
-    BCC C4D09
-    LDY L0045
-    STY L62F9
-.C4D09
-    LDY #&25 ; '%'
-    CMP #&6E ; 'n'
-    BCC C4D11
-    LDY #&50 ; 'P'
-.C4D11
-    LDA #&17
-    STA L0042
-    JSR sub_C2AB3
-    LDY #6
-    JSR sub_C2287
-    JSR sub_C2A76
-    RTS
-
-.sub_C4D21
-    PHA
-    LDA #0
-    STA L0074
-    STA L0076
-    PLA
-    BPL C4D2D
-    DEC L0076
-.C4D2D
-    LSR L0076
-    ROR A
-    ROR L0074
-    DEY
-    BNE C4D2D
-    STA L0075
-    LDY L0077
-    DEC L0077
-    LDA L6280,Y
-    SEC
-    SBC L0074
-    STA L6286,Y
-    LDA L6283,Y
-    SBC L0075
-    STA L6289,Y
-    RTS
-
-.sub_C4D4D
-    STX L004A
-    STX L5F3A
-    JSR sub_C44C6
-.loop_C4D55
-    TXA
-    STA L013C,X
-    LSR A
-    NOP
-    STA L04A0,X
-    JSR sub_C635D
-    LDA #0
-    STA L3864,X
-    STA L39E4,X
-    STA L04F0,X
-    TXA
-    BNE loop_C4D55
-    RTS
-
-.sub_C4D70
-    LDA #&21 ; '!'
-    BNE C4D76
-.sub_C4D74
-    LDA #&18
-.C4D76
-    STA L62CD
-    LDA #1
-    STA L62CC
-.sub_C4D7E
-    LDY #0
-.C4D80
-    LDA L3B50,X
-    STA S
-    LDA L3AD0,X
-    STA R
-.C4D8A
-    LDA (R),Y
-    CMP #&FF
-    BEQ C4DC8
-    CMP #&C8
-    BCC C4DB6
-    SEC
-    SBC #&C8
-    STA L0074
-    TXA
-    PHA
-    TYA
-    PHA
-    LDX L0074
-    CPX #&36 ; '6'
-    BNE C4DAB
-    LDX #0
-    JSR sub_C41D0
-    JMP C4DAE
-
-.C4DAB
-    JSR sub_C4D7E
-.C4DAE
-    PLA
-    TAY
-    PLA
-    TAX
-    INY
-    JMP C4D80
-
-.C4DB6
-    CMP #&A0
-    BCC C4DC1
-    SBC #&A0
-    JSR sub_C3D50
-    BEQ C4DC4
-.C4DC1
-    JSR sub_C5092
-.C4DC4
-    INY
-    JMP C4D8A
-
-.C4DC8
-    RTS
-
-.sub_C4DC9
-    LDA L0063
-.sub_C4DCB
-    LSR A
-    STA L0026
-    LSR A
-    STA L0028
-    INC L002D
-    SEC
-    ROR L62D2
-    LDA #4
-    JSR L0B47
-    RTS
-
-.sub_C4DDD
-    SEI
-    LDX #&0D
-.loop_C4DE0
-    STX crtc_horz_total
-    LDA L4F0F,X
-    STA crtc_horz_displayed
-    DEX
-    BPL loop_C4DE0
-    DEX
-    STX L4F43
-    CLI
-    LDA #osbyte_write_video_ula_control
-    LDX #&C4
-    JSR osbyte
-    CLC
-    LDA #7
-.loop_C4DFB
-    STA video_ula_palette
-    ADC #&10
-    BCC loop_C4DFB
-    SEI
-    LDA irq1v
-    STA L4F1D
-    LDA irq1v+1
-    STA L4F1E
-    LDA #2
-.loop_C4E11
-    BIT system_via_ifr
-    BEQ loop_C4E11
-    LDA #&40 ; '@'
-    STA user_via_acr
-    ORA system_via_acr
-    STA system_via_acr
-    LDA #&C0
-    STA user_via_ier
-    STA system_via_ier
-    LDA #&D4
-    STA user_via_t1c_l
-    LDA #&11
-    STA user_via_t1c_h
-    LDA #1
-    STA system_via_t1l_l
-    LDA #&3D ; '='
-    STA system_via_t1c_h
-    LDA #&1E
-    STA system_via_t1l_l
-    STA user_via_t1l_l
-    LDA #&4E ; 'N'
-    STA system_via_t1l_h
-    STA user_via_t1l_h
-    LDA #&4E ; 'N'
-    STA irq1v+1
-    LDA #&5C ; '\'
-    STA irq1v
-    CLI
-    RTS
-
-    EQUB &6C, &1D, &4F, &AD, &6D, &FE, &29, &40, &F0, &F6, &8D, &6D
-    EQUB &FE, &8A, &48, &D8, &AD, &43, &4F, &F0, &0E, &30, &22, &C9
-    EQUB 2  , &90, &27, &F0, &4D, &C9, 3  , &F0, &5C, &B0, &6B, &A9
-    EQUB &88, &8D, &20, &FE, &A2, &0F, &BD, &68, &34, &8D, &21, &FE
-    EQUB &CA, &10, &F7, &A9, &C4, &A2, &0F, &D0, &6F, &C9, &FF, &D0
-    EQUB &74, &EE, &43, &4F, &F0, &F1, &A9, &C4, &8D, &20, &FE, &18
-    EQUB &A9, 3  , &8D, &21, &FE, &69, &10, &90, &F9, &A9, &3C, &38
-    EQUB &ED, &1F, &4F, &8D, &21, &4F, &A9, &15, &ED, &20, &4F, &8D
-    EQUB &22, &4F, &AD, &1F, &4F, &AE, &20, &4F, &B0, &3E, &A2, &0F
-    EQUB &BD, &58, &34, &8D, &21, &FE, &CA, &10, &F7, &AD, &21, &4F
-    EQUB &AE, &22, &4F, &D0, &2B, &A2, 3  , &BD, &78, &34, &8D, &21
-    EQUB &FE, &CA, &10, &F7, &A9, 0  , &A2, &1E, &D0, &1A, &A2, 3  
-    EQUB &BD, &7C, &34, &8D, &21, &FE, &CA, &10, &F7, &8E, &43, &4F
-    EQUB &20, &A4, &52, &A9, &FF, &8D, &69, &FE, &A9, &16, &A2, &0B
-    EQUB &8E, &67, &FE, &8D, &66, &FE, &EE, &43, &4F, &68, &AA, &A5
-    EQUB &FC, &40
-.L4F0F
-    EQUB &3F, &28, &31, &24, &26, 0  , &1A, &20, 1  , 7  , &67, 8  
-    EQUB &0B, &50
-.L4F1D
-    EQUB 0
-.L4F1E
-    EQUB 0
-.L4F1F
-    EQUB &D8
-.L4F20
-    EQUB 4  , &64, &10
-.sub_C4F23
-    SEI
-    LDA L4F1D
-    STA irq1v
-    LDA L4F1E
-    STA irq1v+1
-    LDA #&40 ; '@'
-    STA user_via_ier
-    CLI
-    JSR sub_C43F6
-.sub_C4F39
-    LDA #&80
-    STA L0064
-    LDX #&2E ; '.'
-    JSR sub_C4D7E
-    RTS
-
-.L4F43
-    EQUB 0
-.sub_C4F44
-    LDA #&3C ; '<'
-    SEC
-    SBC L001F
-    BPL C4F54
-    CMP #&F5
-    BCS C4F5B
-    LDA #&F5
-    SEC
-    BCS C4F5B
-.C4F54
-    CMP #&12
-    BCC C4F5B
-    LDA #&12
-    CLC
-.C4F5B
-    PHP
-    STA L0075
-    LDA #0
-    ROR L0075
-    ROR A
-    PLP
-    ROR L0075
-    ROR A
-    SEI
-    CLC
-    ADC #&D8
-    STA L4F1F
-    LDA #4
-    ADC L0075
-    STA L4F20
-    CLI
-    RTS
-
-.sub_C4F77
-    BIT L62F8
-    BMI C4F90
-    CPX #&14
-    BCS C4F90
-    LDA L018C,X
-    ASL A
-    BMI C4F90
-    CPX L006F
-    BNE C4F95
-    DEC L0030
-    BEQ C4F91
-    INC L0030
-.C4F90
-    RTS
-
-.C4F91
-    LDA #&80
-    STA L0066
-.C4F95
-    LDA L04B4,X
-    BMI C4F9D
-    INC L04B4,X
-.C4F9D
-    BIT L006C
-    BPL C4FA8
-    CMP L006E
-    BCC C4FB7
-    BEQ C4FAF
-    RTS
-
-.C4FA8
-    CPX L006F
-    BEQ C4FB7
-    BCC C4FB7
-    RTS
-
-.C4FAF
-    CPX L006F
-    BNE C4FB7
-    LDA #&50 ; 'P'
-    STA L000F
-.C4FB7
-    SED
-    SEC
-    LDA L06B4
-    SBC L0898,X
-    STA L0074
-    LDA L06CC
-    SBC L08AC,X
-    BCS C4FCC
-    ADC #&60 ; '`'
-    CLC
-.C4FCC
-    STA L0075
-    LDA L06E4
-    SBC L04DC,X
-    STA L0079
-    BCC C4FFB
-    SEC
-    LDA L0074
-    SBC L06A0,X
-    LDA L0075
-    SBC L06B8,X
-    LDA L0079
-    SBC L06D0,X
-    BCS C4FFB
-    LDA L0074
-    AND #&F0
-    STA L06A0,X
-    LDA L0075
-    STA L06B8,X
-    LDA L0079
-    STA L06D0,X
-.C4FFB
-    LDA L06B4
-    STA L0898,X
-    LDA L06CC
-    STA L08AC,X
-    LDA L06E4
-    STA L04DC,X
-    CLD
-    RTS
-
-    EQUB &EA, &EA
-.sub_C5011
-    LDA #0
-    STA L06B4,X
-    STA L06CC,X
-    STA L06E4,X
-    RTS
-
-.sub_C501D
-    LDX #&20 ; ' '
-    STX L62CC
-    INX
-    STX L62CD
-    LDX L006F
-    LDA #&26 ; '&'
-    JSR L7B9C
-.sub_C502D
-    LDA #&28 ; '('
-.sub_C502F
-    LDX #&0A
-    STX L62CC
-    LDX #&21 ; '!'
-    STX L62CD
-    LDX #&15
-    JSR L7B9C
-    RTS
-
-.sub_C503F
-    LDA #osbyte_read_adc_or_get_buffer_status
-    JSR osbyte
-    TYA
-    LDX #1
-    CLC
-    ADC #&80
-    BPL C504F
-    EOR #&FF
-    DEX
-.C504F
-    CMP #&0A
-    RTS
-
-.sub_C5052
-    LDX L0046
-    BNE C505C
-    LDX L5A19
-    INX
-    BEQ C505F
-.C505C
-    DEX
-    STX L0046
-.C505F
-    LDA L006D
-    BMI C5068
-    LDX #0
-    JSR sub_C17C3
-.C5068
-    INC L006A
-    BNE C506F
-    INC L62DF
-.C506F
-    LDA L06CC
-    BEQ C507A
-    LDA L006A
-    AND #&1F
-    BNE C507D
-.C507A
-    JSR sub_C635D
-.C507D
-    RTS
-
-.sub_C507E
-    DEX
-    BPL C5083
-    LDX #&13
-.C5083
-    RTS
-
-.sub_C5084
-    INX
-    CPX #&14
-    BCC C508B
-    LDX #0
-.C508B
-    RTS
-
-.sub_C508C
-    STA L62C3
-    JMP C509D
-
-.sub_C5092
-    BIT L0064
-    BMI C50F6
-    STA L62C3
-    LDA #0
-    STA L0077
-.C509D
-    TXA
-    PHA
-    TYA
-    PHA
-    LDY #>(L62C3)
-    LDX #<(L62C3)
-    LDA #osword_read_char
-    JSR osword
-    LDA L0077
-    BEQ C50C6
-    LDX #8
-.loop_C50B0
-    LDA L62C3,X
-    BIT L0077
-    BMI C50BC
-    AND #&F0
-    JMP C50C0
-
-.C50BC
-    ASL A
-    ASL A
-    ASL A
-    ASL A
-.C50C0
-    STA L62C3,X
-    DEX
-    BNE loop_C50B0
-.C50C6
-    LDY L62CD
-    LDA L62CC
-    JSR sub_C50FA
-    LDX #8
-.loop_C50D1
-    LDA L62C3,X
-    STA (P),Y
-    DEY
-    BPL C50E8
-    LDA P
-    SEC
-    SBC #&40 ; '@'
-    STA P
-    LDA Q
-    SBC #1
-    STA Q
-    LDY #7
-.C50E8
-    DEX
-    BNE loop_C50D1
-    INC L62CC
-    PLA
-    TAY
-    PLA
-    TAX
-    LDA L62C3
-    RTS
-
-.C50F6
-    JSR oswrch
-    RTS
-
-.sub_C50FA
-    ASL A
-    ASL A
-.sub_C50FC
-    STA P
-    LDA #0
-    ASL P
-    ROL A
-    STA Q
-    TYA
-    LSR A
-    LSR A
-    LSR A
-    TAX
-    LDA L3FE0,X
-    CLC
-    ADC P
-    STA P
-    LDA L3B06,X
-    ADC Q
-    STA Q
-    TYA
-    AND #7
-    TAY
-    RTS
-
-.sub_C511E
-    LDX L0069
-    BEQ C5139
-    DEX
-.loop_C5123
-    LDA L07A8,X
-    STA P
-    LDA L07D0,X
-    STA Q
-    LDA L0780,X
-    LDY #0
-    STA (P),Y
-    DEX
-    BPL loop_C5123
-    STY L0069
-.C5139
-    RTS
-
-.sub_C513A
-    JSR sub_C511E
-    JSR sub_C51A8
-    LDA L62A2
-    STA L0074
-    LSR A
-    PHP
-    LDA #2
-    BCS C514D
-    LDA #5
-.C514D
-    STA L0076
-    LDA L62A5
-    ASL L0074
-    ROL A
-    BCS C515F
-    CMP #&26 ; '&'
-    BCC C5170
-    CMP #&3D ; '='
-    BCC C5161
-.C515F
-    LDA #&3C ; '<'
-.C5161
-    EOR #&FF
-    ADC #&4C ; 'L'
-    TAY
-    STY L0074
-    LDX L3980,Y
-    STX L0083
-    JMP C517E
-
-.C5170
-    TAX
-    STX L0074
-    LDA L0076
-    EOR #1
-    STA L0076
-    LDA L3980,X
-    STA L0083
-.C517E
-    ASL A
-    CLC
-    ADC #4
-    EOR #&FF
-    TAY
-    TXA
-    PLP
-    BCC C518B
-    EOR #&FF
-.C518B
-    CLC
-    ADC #&50 ; 'P'
-    STA L0077
-    AND #&FC
-    JSR sub_C50FC
-    LDA L0077
-    ASL A
-    AND #7
-    STA L0077
-    LDA #4
-    STA L0079
-    LDA #6
-    STA L0075
-    JSR sub_C5204
-    RTS
-
-.sub_C51A8
-    LDA #0
-    STA L0079
-    LDA L003C
-    CMP #&1E
-    BCS C51B4
-    LDA #&1E
-.C51B4
-    STA L0074
-    LSR A
-    CLC
-    ADC L0074
-    ROR A
-    SEC
-    SBC #&4C ; 'L'
-    BCS C51C2
-    ADC #&98
-.C51C2
-    LDX #&FF
-    SEC
-.loop_C51C5
-    INX
-    SBC #&26 ; '&'
-    BCS loop_C51C5
-    ADC #&26 ; '&'
-    CMP #&13
-    BCC C51D8
-    SBC #&13
-    EOR #&FF
-    CLC
-    ADC #&14
-    SEC
-.C51D8
-    TAY
-    STY L0074
-    TXA
-    AND #3
-    TAX
-    TXA
-    ROL A
-    STA L0076
-    AND #&FC
-    BEQ C51E9
-    LDA #7
-.C51E9
-    STA L0077
-    LDA L3100,Y
-    STA L0083
-    STA L0075
-    LDA L32FC,X
-    AND #&F8
-    STA P
-    LDA L32FC,X
-    AND #7
-    TAY
-    LDA L397C,X
-    STA Q
-.sub_C5204
-    LDX L0076
-    LDA L3B86,X
-    STA C5220
-    LDA L3B8E,X
-    STA C529B
-    LDX L0077
-    LDA #0
-    SEC
-    SBC L0083
-    CLC
-.C521A
-    ADC L0074
-    BCC C5221
-    SBC L0083
-.C5220
-    INY
-.C5221
-    STA L008A
-    TXA
-    LSR A
-    AND #3
-    ORA L0079
-    STA L0076
-    TXA
-    BPL C523D
-    LDX #7
-    LDA P
-    SEC
-    SBC #8
-    STA P
-    BCS C524E
-    DEC Q
-    BCS C524E
-.C523D
-    CMP #8
-    BCC C524E
-    LDX #0
-    LDA P
-    CLC
-    ADC #8
-    STA P
-    BCC C524E
-    INC Q
-.C524E
-    STX L0077
-    LDX L0069
-    TYA
-    BPL C5267
-    LDA P
-    SEC
-    SBC #&40 ; '@'
-    STA P
-    LDA Q
-    SBC #1
-    STA Q
-    LDY #7
-    TYA
-    BNE C527B
-.C5267
-    CMP #8
-    BCC C527B
-    LDA P
-    CLC
-    ADC #&40 ; '@'
-    STA P
-    LDA Q
-    ADC #1
-    STA Q
-    LDY #0
-    TYA
-.C527B
-    ORA P
-    STA L07A8,X
-    LDA Q
-    STA L07D0,X
-    LDA (P),Y
-    STA L0780,X
-    INC L0069
-    LDX L0076
-    AND L3FE8,X
-    ORA L34F8,X
-    STA (P),Y
-    LDX L0077
-    LDA L008A
-    CLC
-.C529B
-    INX
-    DEC L0075
-    BMI C52A3
-    JMP C521A
-
-.C52A3
-    RTS
-
-    EQUB &EE, &F7, &62, &A5, &63, &18, &69, &30, &6D, &FA, &62, &8D
-    EQUB &FA, &62, &90, &41, &A5, 0  , &F0, &3D, &A2, 4  , &BD, &C0
-    EQUB &6F, &5D, &F6, &52, &9D, &C0, &6F, &BD, &F8, &70, &5D, &FB
-    EQUB &52, &9D, &F8, &70, &E0, 3  , &B0, &12, &BD, &85, &6E, &49
-    EQUB &F0, &9D, &85, &6E, &BD, &BD, &6F, &49, &F0, &9D, &BD, &6F
-    EQUB &D0, &10, &BD, &8A, &6E, &49, &C0, &9D, &8A, &6E, &BD, &B2
-    EQUB &6F, &49, &30, &9D, &B2, &6F, &CA, &10, &C5, &60, &F0, &F0
-    EQUB &C0, &C0, &80, &F0, &F0, &30, &30, &10
-.L5300
-L5301 = L5300+1
-L5302 = L5300+2
-L5303 = L5300+3
-L5304 = L5300+4
-L5305 = L5300+5
-L5306 = L5300+6
-L5307 = L5300+7
-L53D0 = L5300+208
-L53E0 = L5300+224
-L53F0 = L5300+240
-L5400 = L5300+256
-L5500 = L5300+512
-L5600 = L5300+768
-L5700 = L5300+1024
-L5800 = L5300+1280
-L5900 = L5300+1536
-L5901 = L5300+1537
-L5902 = L5300+1538
-L5903 = L5300+1539
-L5904 = L5300+1540
-L5905 = L5300+1541
-L5906 = L5300+1542
-L5907 = L5300+1543
-    EQUB 0  , 0  , 0  , &10, &10, &20, &60, &70, &C0, &80, &80, 0  
-    EQUB 0  , 0  , 0  , &C0, &60, &10, &10, 0  , 0  , &30, &10, 0  
-    EQUB 0  , 0  , &80, &80, &40, &40, &20, &90, &90, &40, &40, &20
-    EQUB &20, 0  , &80, &80, &80, 0  , 8  , &0F, &0F, &20, &60, &40
-    EQUB &40, &80, &80, &80, &0C, 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &80, &40, &40
-    EQUB &40, &40, &40, &20, &20, 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , &10, &30, 0  , 0  , &10, &30, &70, &F0, &F0
-    EQUB &F0, &70, &F0, &F0, &F0, &F0, &E0, &C0, &C0, &F0, &E0, &C0
-    EQUB &80, 1  , 3  , 3  , &16, &52, 7  , &2D, &0F, &87, &4B, &0F
-    EQUB &0F, &0F, &0F, &87, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, &0B, &0A, &0F, &0E, 7  , 4  , 8  , 0  , &30
-    EQUB 0  , &0A, 0  , &30, 0  , &F0, 0  , &F0, 0  , &70, 0  , &F0
-    EQUB 0  , &F0, &10, &F0, &30, &F0, &30, &E1, &43, &86, &86, &0C
-    EQUB &0C, &87, &0C, 8  , 0  , 0  , 0  , &80, 0  , 0  , 0  , &10
-    EQUB &80, 0  , 1  , 1  , 1  , 0  , 0  , &80, &10, 0  , 0  , 0  
-    EQUB &0C, &1E, 3  , 1  , 0  , 0  , 0  , &10, 0  , &F0, &C0, &78
-    EQUB &2C, &16, &16, 3  , 3  , &E0, 0  , &F0, 0  , &F0, &80, &F0
-    EQUB &C0, 5  , 0  , &C0, 0  , &F0, 0  , &F0, 0  , &0F, 7  , &0E
-    EQUB 2  , 1  , 0  , &C0, 0  , &0F, &0F, &0F, &0F, &0F, &0F, &0D
-    EQUB 5  , &0F, &0F, &1E, &0F, &0F, &0F, &0F, &0F, &A4, &0E, &4B
-    EQUB &0F, &1E, &2D, &0F, &0F, &F0, &70, &30, &10, 8  , &0C, &0C
-    EQUB &86, &E0, &F0, &F0, &F0, &F0, &70, &30, &30, 0  , 0  , &80
-    EQUB &C0, &E0, &F0, &F0, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &80
-    EQUB &C0, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &10, &20, &20, &20, &20, &20, &40
-    EQUB &40, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &40, &60, &20, &20, &10, &10, &10
-    EQUB 3  , 0  , &10, &10, &10, 0  , 1  , &0F, &0F, 1  , &E0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &0F, 3  , &C1, &E0, &F0, &F0, &F0
-    EQUB &F0, 0  , &0C, &0E, 7  , &83, &C1, &E1, &E0, 0  , 0  , 0  
-    EQUB 0  , &0F, &0F, &0F, &0F, &20, &20, &20, &20, &20, &0F, &0F
-    EQUB &0F, 0  , 0  , 0  , 0  , 0  , 0  , &0F, &0F, 0  , 0  , 0  
-    EQUB &10, &30, &70, &78, &F0, &70, &70, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &E0, &E0, &C0, &80, 0  , 0  , &80, 0  , 0  
-    EQUB 1  , 1  , 3  , 3  , 7  , 7  , &3C, &0F, &4B, &0F, &4B, &87
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0C
-    EQUB &0B, &0E, &0C, 4  , &0C, &0E, 8  , &10, 0  , &70, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &E1, &21, &C3, &43, &C2, &86, &84
-    EQUB &84, 8  , 0  , &40, 0  , 0  , 0  , 0  , 0  , 0  , 6  , 4  
-    EQUB 6  , 2  , 6  , 0  , 0  , 1  , 1  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 4  , &0C, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 3  , 1  
-    EQUB 1  , 1  , 1  , 0  , 0  , 1  , 0  , &20, 0  , 0  , 0  , 0  
-    EQUB 0  , &78, &48, &3C, &2C, &34, &16, &12, &12, &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , 7  , 1  , &80, 0  , &E0, 0  , &F0, 0  , &0F, &0F, 3  
-    EQUB &0D, 7  , 3  , 2  , 3  , &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0F, &0E, &C3, &0F, &2D, &0F, &2D, &1E, &0F, &10, 0  , 0  
-    EQUB 8  , 8  , &0C, &0C, &0E, &F0, &F0, &70, &70, &30, &10, 0  
-    EQUB 0  , &E0, &E0, &F0, &F0, &F0, &F0, &F0, &F0, 0  , 0  , 0  
-    EQUB &80, &C0, &E0, &E1, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &0F
-    EQUB &0F, &40, &40, &40, &40, &40, &0F, &0F, &0F, 0  , 0  , 0  
-    EQUB 0  , &0F, &0F, &0F, &0F, 0  , 3  , 7  , &0E, &1C, &38, &78
-    EQUB &70, &0F, &0C, &38, &70, &F0, &F0, &F0, &F0, 8  , &70, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &0F, 7  , &87, &87, &83, &C3, &C3
-    EQUB &C3, &0F, &0F, &0F, &0F, &0F, &1E, &1E, &3C, &1E, &3C, &3C
-    EQUB &78, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E0, &E0
-    EQUB &C0, &E0, &C0, &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 1  , 1  , 1  , 3  , &25, &16, &0F, &4B, &0F, &C3, &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0E, &0E, &0D, &0E, &0F
-    EQUB &0C, &0E, 8  , &14, 8  , &10, 8  , &70, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, &10, &F0, &10, &F0, &30, &E1
-    EQUB &21, &94, &0C, 8  , 8  , 8  , 8  , 8  , 0  , 0  , 4  , 4  
-    EQUB 7  , 2  , 2  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 2  , 5  , 7  , 5  , 2  , 0  , &92, 3  , 1  
-    EQUB 1  , 1  , 1  , 1  , 0  , &F0, &80, &F0, &80, &F0, &C0, &78
-    EQUB &48, &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &80, 1  , &E0, 0  , &F0, 0  , &F0
-    EQUB 0  , &0B, 7  , &0F, 3  , 7  , 1  , &82, 1  , &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, 7  , 7  , &4A, &86, &0F, &2D, &0F, &3C, &0F
-    EQUB &0F, 0  , 0  , 0  , 0  , 8  , 8  , 8  , &0C, &70, &30, &10
-    EQUB &10, 0  , 0  , 0  , 0  , &F0, &F0, &F0, &F0, &F0, &70, &70
-    EQUB &30, &87, &C3, &C3, &E1, &F0, &F0, &F0, &F0, &0F, &0F, &0F
-    EQUB &0F, &0F, &87, &87, &C3, &0F, &0E, &1E, &1E, &1C, &3C, &3C
-    EQUB &3C, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E1, &E0
-    EQUB &C0, &87, &87, &84, &1C, &38, &30, &70, &F0, &78, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E0, &E0, &C0, &C0
-    EQUB &80, &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &22
-    EQUB 0  , 0  , 0  , &22, 0  , &12, &8B, 7  , &AD, &0F, &4B, &0F
-    EQUB &2D, &0F, &0F, &87, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0E
-    EQUB &0F, 8  , &0E, 8  , &0C, &30, 0  , &70, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &E1, &21, &E1, &21, &E1, &21, &E1, &21, &40, 0  , 0  
-    EQUB 0  , 0  , 1  , &40, &41, 0  , 0  , 0  , 0  , 0  , 8  , 8  
-    EQUB 8  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , &10, &10, 0  , 0  , 0  , 0  , 0  , 0  , &80
-    EQUB &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 3  , 2  , 3  , &20, 0  , 0  , 0  , 0  , 8  , &28
-    EQUB &28, &78, &48, &78, &48, &78, &48, &78, &48, &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &C0, 0  , &E0
-    EQUB 0  , &F0, 0  , &F0, 0  , &0F, &0F, 7  , &0F, 1  , 7  , 1  
-    EQUB 3  , &0F, &0F, &1E, &0F, &0F, &0F, &0F, &0F, &84, &1D, &0E
-    EQUB &5B, &0F, &2D, &0F, &4B, 0  , 0  , &44, 0  , 0  , 0  , &44
-    EQUB 0  , &10, &10, 0  , 0  , 0  , 0  , 0  , 0  , &F0, &F0, &F0
-    EQUB &70, &70, &30, &30, &10, &E1, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &1E, &1E, &12, &83, &C1, &C0, &E0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &78, &70, &30, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &E0, 0  , 0  , 0  , 0  , &F0, &E0, &C0, 0  , 0  , 0  , 0  
-    EQUB &10, &80, &10, &30, &30, &70, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &E0, &E0, &C0, &80, &80
-    EQUB 0  , 0  , 0  , 0  , &22, &88, 0  , &11, 0  , 0  , &11, &88
-    EQUB &44, &88, &22, &11, &44, &89, 1  , &89, 3  , 3  , &47, &9A
-    EQUB 7  , &87, &0F, &0F, &C3, &0F, &0F, &0F, &0F, &0F, &0E, &0D
-    EQUB &0F, &0F, &0D, &0E, &0C, &18, 0  , &38, 0  , &70, 0  , &70
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, &61, &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, &0F, &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB &3C, &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &E1, &21, &E1
-    EQUB &21, &E1, &21, &E1, &21, 0  , 1  , 0  , 0  , 0  , &40, 0  
-    EQUB 8  , 8  , 8  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 1  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 2  , 8  , 8  , 0  , 0  , 0  , &20, 0  , 1  , &78, &48, &78
-    EQUB &48, &78, &48, &78, &48, &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, &C3, &F0, 0  , &F0
-    EQUB 0  , &F0, 0  , &F0, &0F, &F0, 0  , &F0, 0  , &F0, 0  , &F0
-    EQUB &68, &81, 0  , &C1, 0  , &E0, 0  , &E0, 0  , &0F, 7  , &0B
-    EQUB &0F, &0F, &0B, 7  , 3  , &1E, &0F, &0F, &3C, &0F, &0F, &0F
-    EQUB &0F, &19, 8  , &19, &0C, &0C, &2E, &95, &0E, 0  , &88, &11
-    EQUB &22, &11, &44, &88, &22, 0  , 0  , 0  , &44, &11, 0  , &88
-    EQUB 0  , &F0, &F0, &70, &70, &30, &10, &10, 0  , &F0, &F0, &F0
-    EQUB &F0
-    EQUB &F0, &F0, &F0, &F0, &10, &80, &C0, &C0, &E0, &F0, &F0, &F0
-    EQUB &F0, &70, &30, 0  , 0  , 0  , 0  , &80, &F0, &F0, &F0, &70
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &30, &70, &F0
-    EQUS "00p"
-    EQUB &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0, &F0
-    EQUB &E0, &F0, &E0, &C0, &C0, &80, &80, 0  , 0  , 0  , 0  , &22
-    EQUB &88, &22, &22, 0  , &44, 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-.L59D0
-    EQUB 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-    EQUB 0, 0, 0, 0, 0
-.L59EA
-    EQUB 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-.L59FA
-    EQUB 0
-.L59FB
-    EQUB 0
-.L59FC
-    EQUB 0
-.L59FD
-    EQUB 0
-.L59FE
-    EQUB 0
-.L59FF
-    EQUB 0
-.L5A00
-    EQUB 0, 0, 0
-.L5A03
-    EQUB 0, 0, 0
-.L5A06
-    EQUB 0, 0, 0, 0, 0, 0, 0
-.L5A0D
-    EQUB 0, 0, 0, 0, 0, 0, 0
-.L5A14
-    EQUB 0, 0, 0
-.L5A17
-    EQUB 0
-.L5A18
-    EQUB 0
-.L5A19
-    EQUB 0
-.L5A1A
-    EQUB 0, 0, 0, 0, 0, 0, 0, 0
-.sub_C5A22
-    BRK
-    EQUB 0, 0
-.sub_C5A25
-    LDA #0
-    STA L3878,X
-    STA L39F8,X
-    STA L0075
-    LDY L013C,X
-    CPX #6
-    BNE C5A39
-    LDY L013C
-.C5A39
-    LDA L5F38
-    SEC
-    SBC #1
-    BEQ C5A5A
-    CPY L006F
-    BEQ C5A4D
-    CPY L5F39
-    BCS C5A5A
-    ASL A
-    BNE C5A5F
-.C5A4D
-    STA L0075
-    LDA L5F38
-    JSR sub_C0C00
-    STA L0075
-    JMP C5A61
-
-.C5A5A
-    LDA L5F38
-    BNE C5A5F
-.C5A5F
-    STA L0074
-.C5A61
-    SED
-.C5A62
-    LDA L3DF7,X
-    CLC
-    ADC L3878,X
-    STA L3878,X
-    LDA L39F8,X
-    ADC #0
-    STA L39F8,X
-    DEC L0074
-    BNE C5A62
-    DEC L0075
-    BPL C5A62
-    JSR sub_C6698
-    RTS
-
-
-    ORG &5FD0
-
-.L5FD0
-    EQUB 0  , &88, &CC, &EE, &0F, &8F, &CF, &EF, &F0, &F8, &FC, &FE
-    EQUB 0  , 8  , &0C, &0E, 0  , &80, &C0, &E0, &0F, 7  , 3  , 1  
-    EQUB &F0, &70, &30, &10, &FF, &77, &33, &11, &FF, &7F, &3F, &1F
-    EQUB &FF, &F7, &F3, &F1
-.L5FF8
-    EQUB 3  , &60
-.L5FFA
-    EQUB &30
-.L5FFB
-    EQUB &18
-.L5FFC
-    EQUB &0C
-.L5FFD
-    EQUB 6
-.L5FFE
-    EQUB 3
-.L5FFF
-    EQUB 1  , 0  , 1  , 2  , 3  , 4  , 5  , 6  , 7  , 8  , 9  , &0A
-    EQUB &0B, &0C, &0D, &0E, &0F, &10, &11, &12, &13, &14, &15, &16
-    EQUB &17, &18, &19, &1A, &1B, &1C, &1D, &1E, &1F, &20, &21, &22
-    EQUB &23, &24, &25, &26, &27, &28, &29, &2A, &2B, &2C, &2D, &2E
-    EQUB &2F, &30, &31, &32, &33, &34, &35, &36, &37, &38, &39, &3A
-    EQUB &3B, &3C, &3D, &3E, &3F, &40, &41, &42, &43, &44, &45, &46
-    EQUB &47, &48, &49, &4A, &4B, &4C, &4D, &4E, &4F, &50, &51, &52
-    EQUB &53, &54, 0  , &56, &57, &58, &59, &5A, &5B, &5C, &5D, &5E
-    EQUB &5F, &60, &61, &62, &63, &64, &65, &66, &67, &68, &69, &6A
-    EQUB &6B, &6C, &6D, &6E, &6F, &70, &71, &72, &73, &74, &75, &76
-    EQUB &77, &78, &79, &7A, &7B, &7C, &7D, &7E, &7F, &80, &81, &82
-    EQUB &83, &84, &85, &86, &87, &88, &89, &8A, &8B, &8C, &8D, &8E
-    EQUB &8F, &90, &91, &92, &93, &94, &95, &96, &97, &98, &99, &9A
-    EQUB &9B, &9C, &9D, &9E, &9F, &A0, &A1, &A2, &A3, &A4, &A5, &A6
-    EQUB &A7, &A8, &A9, &AA, &AB, &AC, &AD, &AE, &AF, &B0, &B1, &B2
-    EQUB &B3, &B4, &B5, &B6, &B7, &B8, &B9, &BA, &BB, &BC, &BD, &BE
-    EQUB &BF, &C0, &C1, &C2, &C3, &C4, &C5, &C6, &C7, &C8, &C9, &CA
-    EQUB &CB, &CC, &CD, &CE, &CF, &D0, &D1, &D2, &D3, &D4, &D5, &D6
-    EQUB &D7, &D8, &D9, &DA, &DB, &DC, &DD, &DE, &DF, &E0, &E1, &E2
-    EQUB &E3, &E4, &E5, &E6, &E7, &E8, &E9, &EA, &EB, &EC, &ED, &EE
-    EQUB &EF, &F0, &F1, &F2, &F3, &F4, &F5, &F6, &F7, &F8, &F9, &FA
-    EQUB &FB, &FC, &FD, &FE, &FF
-.L6100
-    EQUB 0  , 1  , 3  , 4  , 5  , 6  , 8  , 9  , &0A, &0B, &0D, &0E
-    EQUB &0F, &11, &12, &13, &14, &16, &17, &18, &19, &1B, &1C, &1D
-    EQUB &1E, &20, &21, &22, &24, &25, &26, &27, &29, &2A, &2B, &2C
-    EQUB &2E, &2F, &30, &31, &33, &34, &35, &36, &37, &39, &3A, &3B
-    EQUB &3C, &3E, &3F, &40, &41, &43, &44, &45, &46, &47, &49, &4A
-    EQUB &4B, &4C, &4D, &4F, &50, &51, &52, &53, &55, &56, &57, &58
-    EQUB &59, &5B, &5C, &5D, &5E, &5F, &60, &62, &63, &64, &65, &66
-    EQUB &67, &68, &6A, &6B, &6C, &6D, &6E, &6F, &70, &72, &73, &74
-    EQUB &75, &76, &77, &78, &79, &7A, &7C, &7D, &7E, &7F, &80, &81
-    EQUB &82, &83, &84, &85, &86, &87, &89, &8A, &8B, &8C, &8D, &8E
-    EQUB &8F, &90, &91, &92, &93, &94, &95, &96
-.L6180
-    EQUB &97, &98, &99, &9A, &9B, &9C, &9D, &9E, &9F, &A0, &A1, &A2
-    EQUB &A3, &A4, &A5, &A6, &A7, &A8, &A9, &AA, &AB, &AC, &AD, &AE
-    EQUB &AF, &B0, &B1, &B1, &B2, &B3, &B4, &B5, &B6, &B7, &B8, &B9
-    EQUB &BA, &BB, &BC, &BC, &BD, &BE, &BF, &C0, &C1, &C2, &C3, &C3
-    EQUB &C4, &C5, &C6, &C7, &C8, &C9, &C9, &CA, &CB, &CC, &CD, &CE
-    EQUB &CE, &CF, &D0, &D1, &D2, &D3, &D3, &D4, &D5, &D6, &D7, &D7
-    EQUB &D8, &D9, &DA, &DB, &DB, &DC, &DD, &DE, &DE, &DF, &E0, &E1
-    EQUB &E1, &E2, &E3, &E4, &E4, &E5, &E6, &E7, &E7, &E8, &E9, &EA
-    EQUB &EA, &EB, &EC, &EC, &ED, &EE, &EF, &EF, &F0, &F1, &F1, &F2
-    EQUB &F3, &F3, &F4, &F5, &F5, &F6, &F7, &F8, &F8, &F9, &FA, &FA
-    EQUB &FB, &FB, &FC, &FD, &FD, &FE, &FF, &FF, &FF, &FE, &FC, &FA
-    EQUB &F8, &F6, &F5, &F3, &F1, &EF, &ED, &EC, &EA, &E8, &E7, &E5
-    EQUB &E4, &E2, &E0, &DF, &DD, &DC, &DA, &D9, &D8, &D6, &D5, &D3
-    EQUB &D2, &D1, &CF, &CE, &CD, &CC, &CA, &C9, &C8, &C7, &C5, &C4
-    EQUB &C3, &C2, &C1, &C0, &BF, &BD, &BC, &BB, &BA, &B9, &B8, &B7
-    EQUB &B6, &B5, &B4, &B3, &B2, &B1, &B0, &AF, &AE, &AD, &AC, &AC
-    EQUB &AB, &AA, &A9, &A8, &A7, &A6, &A5, &A5, &A4, &A3, &A2, &A1
-    EQUB &A1, &A0, &9F, &9E, &9E, &9D, &9C, &9B, &9B, &9A, &99, &98
-    EQUB &98, &97, &96, &96, &95, &94, &94, &93, &92, &92, &91, &90
-    EQUB &90, &8F, &8E, &8E, &8D, &8D, &8C, &8B, &8B, &8A, &8A, &89
-    EQUB &89, &88, &87, &87, &86, &86, &85, &85, &84, &84, &83, &83
-    EQUB &82, &82, &81, &81
-.L6280
-    EQUB 0
-.L6281
-    EQUB 0
-.L6282
-    EQUB 0
-.L6283
-    EQUB 0
-.L6284
-    EQUB 0
-.L6285
-    EQUB 0
-.L6286
-    EQUB 0, 0, 0
-.L6289
-    EQUB 0, 0, 0, 0, 0, 0
-.L628F
-    EQUB 0
-.L6290
-    EQUB 0, 0
-.L6292
-    EQUB 0
-.L6293
-    EQUB 0, 0, 0, 0, 0, 0
-.L6299
-    EQUB 0, 0, 0
-.L629C
-    EQUB 0, 0, 0, 0
-.L62A0
-    EQUB 0
-.L62A1
-    EQUB 0
-.L62A2
-    EQUB 0
-.L62A3
-    EQUB 0, 0
-.L62A5
-    EQUB 0
-.L62A6
-    EQUB 0
-.L62A7
-    EQUB 0
-.L62A8
-    EQUB 0, 0
-.L62AA
-    EQUB 0, 0
-.L62AC
-    EQUB 0, 0
-.L62AE
-    EQUB 0, 0, 0
-.L62B1
-    EQUB 0, 0, 0
-.L62B4
-    EQUB 0, 0, 0
-.L62B7
-    EQUB 0, 0, 0
-.L62BA
-    EQUB 0, 0, 0
-.L62BD
-    EQUB 0, 0, 0
-.L62C0
-    EQUB 0, 0, 0
-.L62C3
-    EQUB 0, 0, 0, 0, 0, 0, 0, 0, 0
-.L62CC
-    EQUB 0
-.L62CD
-    EQUB 0, 0, 0
-.L62D0
-    EQUB 0, 0
-.L62D2
-    EQUB 0
-.L62D3
-    EQUB 0, 0
-.L62D5
-    EQUB 0
-.L62D6
-    EQUB 0, 0
-.L62D8
-    EQUB 0
-.L62D9
-    EQUB 0
-.L62DA
-    EQUB 0
-.L62DB
-    EQUB 0
-.L62DC
-    EQUB 0, 0
-.L62DE
-    EQUB 0
-.L62DF
-    EQUB 0
-.L62E0
-    EQUB 0, 0
-.L62E2
-    EQUB 0
-.L62E3
-    EQUB 0, 0
-.L62E5
-    EQUB 0
-.L62E6
-    EQUB 0
-.L62E7
-    EQUB 0
-.L62E8
-    EQUB 0
-.L62E9
-    EQUB 0
-.L62EA
-    EQUB 0
-.L62EB
-    EQUB 0
-.L62EC
-    EQUB 0, 0
-.L62EE
-    EQUB 0
-.L62EF
-    EQUB 0
-.L62F0
-    EQUB 0
-.L62F1
-    EQUB 0
-.L62F2
-    EQUB 0
-.L62F3
-    EQUB 0
-.L62F4
-    EQUB 0
-.L62F5
-    EQUB 0
-.L62F6
-    EQUB 0
-.L62F7
-    EQUB 0
-.L62F8
-    EQUB 0
-.L62F9
-    EQUB 0, 0
-.L62FB
-    EQUB 0
-.L62FC
-    EQUB 0
-.L62FD
-    EQUB 0
-.L62FE
-    EQUB 0
-.L62FF
-    EQUB 0
-.sub_C6300
-    STA P
-    STY Q
-    STX L0077
-    LDA #osbyte_select_input_stream
-    LDX #0
-    JSR osbyte
-    LDA #osbyte_flush_buffer
-    LDX #0
-    JSR osbyte
-.loop_C6314
-    LDY #0
-.C6316
-    JSR osrdch
-    BCS C6345
-    CMP #&0D
-    BEQ C6352
-    CMP #&20 ; ' '
-    BCC C6316
-    BNE C6329
-    CPY #0
-    BEQ C6316
-.C6329
-    CMP #&7F
-    BCC C6334
-    BNE C6316
-    DEY
-    BPL C633F
-    BMI loop_C6314
-.C6334
-    CPY L0077
-    BNE C633C
-    LDA #7
-    BNE C633F
-.C633C
-    STA (P),Y
-    INY
-.C633F
-    JSR oswrch
-    JMP C6316
-
-.C6345
-    TYA
-    PHA
-    LDA #osbyte_acknowledge_escape
-    JSR osbyte
-    PLA
-    TAY
-    JMP C6316
-
-.loop_C6351
-    INY
-.C6352
-    CPY L0077
-    BNE C6357
-    RTS
-
-.C6357
-    LDA #&20 ; ' '
-    STA (P),Y
-    BNE loop_C6351
-.sub_C635D
-    LDX L004A
-    LDA user_via_t2c_l
-    PHP
-    AND #&7F
-    LDY #&10
-.loop_C6367
-    CMP #4
-    BCC C637B
-    SBC #4
-    DEY
-    BNE loop_C6367
-    LDY #9
-.loop_C6372
-    CMP #7
-    BCC C637B
-    SBC #7
-    DEY
-    BNE loop_C6372
-.C637B
-    PLP
-    JSR sub_C3450
-    ASL A
-    SEC
-    SBC L04A0,X
-    STA L0074
-    LDY L5F3A
-    DEY
-    BEQ C6395
-    BPL C6392
-    ASL A
-    JMP C6395
-
-.C6392
-    ROL L0074
-    ROR A
-.C6395
-    CLC
-    ADC L5F40
-    STA L0128,X
-    JSR sub_C507E
-    STX L004A
-    RTS
-
-.sub_C63A2
-    LDA L006F
-    LDX #&13
-.loop_C63A6
-    CMP L013C,X
-    BEQ C63AE
-    DEX
-    BPL loop_C63A6
-.C63AE
-    STX L0003
-    JSR sub_C5084
-    STX L005B
-    LDX L0003
-    JSR sub_C507E
-    STX L004D
-    RTS
-
-.C63BD
-    JMP C3850
-
-    EQUB &EA, &EA, &EA, &EA, &EA
-.sub_C63C5
-    PHA
-    LDA L05F8
-    STA L77E3
-    LSR A
-    STA L77E4
-    LSR A
-    STA L77DC
-    LSR A
-    STA L77DB
-    LDA L0025
-    ROL A
-    PLA
-    LDX L05F8
-    RTS
-
-.C63E0
-    LDX #0
-    STX L05F4
-    JSR sub_C4D4D
-    LDX #4
-    JSR sub_C41D0
-    JSR sub_C3A50
-    LDX #&27 ; '''
-    JSR sub_C4D7E
-    LDX #2
-    JSR sub_C6571
-    CPX #1
-    BCS C640A
-    STX L006F
-    DEX
-    STX L5F3B
-    JSR sub_C42EC
-    JSR sub_C655A
-.C640A
-    LDA #0
-    STA L5F3C
-    LDX #&15
-    JSR sub_C4D7E
-    LDX #3
-    JSR sub_C6571
-    STX L5F3A
-    JSR sub_C44C6
-.C641F
-    LDX #&16
-    JSR sub_C4D7E
-    LDX #3
-    JSR sub_C6571
-    LDA L3DF0,X
-    STA L5F3B
-    JSR sub_C42EC
-    LDA #&14
-    STA L006F
-.C6436
-    DEC L006F
-    LDX L006F
-    JSR sub_C40EB
-    LDA L5F3C
-    BEQ C6457
-    JSR sub_C6687
-    JSR sub_C655A
-    LDA L006F
-    CMP L5F39
-    BNE C6436
-    LDA #0
-    JSR sub_C0F64
-    JMP C64B3
-
-.C6457
-    LDX #&17
-    JSR sub_C4D7E
-    JSR sub_C66D4
-    JSR sub_C655A
-    LDX L006F
-    BEQ C6474
-    LDX #&1B
-    JSR sub_C4D7E
-    LDX #2
-    JSR sub_C6571
-    CPX #0
-    BEQ C6436
-.C6474
-    LDA L006F
-    STA L5F39
-    LDA #0
-    JSR sub_C0F64
-    LDX #0
-.loop_C6480
-    LDY L014F
-    CPY L5F39
-    BCC C64A2
-    LDA L06B8,Y
-    SEC
-    SBC L5A00,X
-    LDA L06D0,Y
-    SBC L5A03,X
-    BCS C649A
-    INX
-    BNE loop_C6480
-.C649A
-    CPX L5F3A
-    BCS C64A2
-    STX L5F3A
-.C64A2
-    LDX L5F3A
-    JSR sub_C44C6
-    LDX #&1A
-    JSR sub_C4D7E
-    JSR sub_C3C6F
-    JSR sub_C34D0
-.C64B3
-    LDX #2
-    LDA #0
-    JSR sub_C65D3
-    LDY #&13
-.loop_C64BC
-    LDA L013C,Y
-    STA L04C8,Y
-    CMP L5F39
-    BCC C64CF
-    TAX
-    LDA L0100,Y
-    LSR A
-    STA L04A0,X
-.C64CF
-    DEY
-    BPL loop_C64BC
-    LDA L5F3C
-    BNE C64F2
-    LDX #&1C
-    JSR sub_C4D7E
-    LDA #&14
-    SEC
-    SBC L5F39
-    STA L5F38
-    LDX #3
-    JSR sub_C6571
-    LDA L3DF4,X
-    STA L006E
-    STX L5F3F
-.C64F2
-    LDA #&14
-    STA L006F
-.C64F6
-    DEC L006F
-    JSR sub_C6687
-    LDX #&13
-.loop_C64FD
-    LDA L04C8,X
-    STA L013C,X
-    DEX
-    BPL loop_C64FD
-    JSR sub_C42EC
-    LDA #&80
-    JSR sub_C655C
-    LDA #&80
-    JSR sub_C0F64
-    LDX #5
-.loop_C6515
-    JSR sub_C5A25
-    DEX
-    BPL loop_C6515
-    LDA #0
-    JSR sub_C0F64
-    LDX #6
-    JSR sub_C5A25
-.C6525
-    LDA #&80
-    JSR sub_C0F64
-    LDX #1
-    LDA #4
-    JSR sub_C65D3
-    LDA #0
-    JSR sub_C0F64
-    LDX #6
-    LDA #0
-    JSR sub_C65D3
-    LDA #&40 ; '@'
-    JSR sub_C0F64
-    LDX #3
-    STX L5F3C
-    LDA #&88
-    JSR sub_C65D3
-    BIT L0078
-    BPL C6525
-    LDA L006F
-    CMP L5F39
-    BNE C64F6
-    JMP C641F
-
-.sub_C655A
-    LDA #&28 ; '('
-.sub_C655C
-    STA L006C
-    STA L006D
-.loop_C6560
-    JSR sub_C3C50
-    JSR sub_C16DC
-    BIT L05F4
-    BVS loop_C6560
-    BPL C6570
-    JSR sub_C3273
-.C6570
-    RTS
-
-.sub_C6571
-    LDY #0
-    STY L0077
-    STX L0075
-.C6577
-    JSR sub_C3261
-    LDY L0075
-.loop_C657C
-    STY L0076
-    LDX L39E0,Y
-    JSR sub_C0E50
-    BEQ C658D
-    LDY L0076
-    DEY
-    BPL loop_C657C
-    BMI C6577
-.C658D
-    LDY L0076
-    BNE C659E
-    LDA L0077
-    BEQ C6577
-    LDA #&98
-    STA L7FC5
-    LDX L0078
-    DEX
-    RTS
-
-.C659E
-    STY L0078
-    LDA L0077
-    BNE C65AB
-    LDX #&1E
-    STX L0077
-    JSR sub_C4D7E
-.C65AB
-    LDX #0
-    LDY #1
-.C65AF
-    LDA #&84
-    CPY L0078
-    BNE C65B7
-    LDA #&81
-.C65B7
-    STA L7E85,X
-    TXA
-    CLC
-    ADC #&50 ; 'P'
-    TAX
-    INY
-    CPY L0075
-    BCC C65AF
-    BEQ C65AF
-    BNE C6577
-.sub_C65C8
-    CMP #&0A
-    BCC C65CE
-    ADC #5
-.C65CE
-    SED
-    ADC #1
-    CLD
-    RTS
-
-.sub_C65D3
-    PHA
-    AND #&0F
-    STA L0042
-    JSR sub_C41D0
-    LDY #0
-.C65DD
-    STY L001B
-    LDA #0
-    STA L0078
-    JSR sub_C3E60
-    LDX #&20 ; ' '
-    JSR sub_C4D7E
-    LDY L001B
-    LDA L0100,Y
-    BIT L006C
-    BMI C65F5
-    TYA
-.C65F5
-    JSR sub_C65C8
-    JSR sub_C37D6
-    LDX #&1F
-    JSR sub_C4D7E
-    LDY L001B
-    JSR sub_C667B
-    LDX #&1F
-    JSR sub_C4D7E
-    LDX L0045
-    PLA
-    PHA
-    BNE C6618
-    LDA #&26 ; '&'
-    JSR L7B9C
-    JMP C6643
-
-.C6618
-    BMI C662B
-    LDA L001B
-    CLC
-    ADC #&14
-    CMP #&1A
-    TAX
-    BCC C6640
-    LDA #7
-    JSR sub_C3D50
-    BEQ C6643
-.C662B
-    LDA #&28 ; '('
-    STA L0078
-    LDA L04F0,X
-    BEQ C6640
-    JSR sub_C37D6
-    LDA L39E4,X
-    JSR C43E7
-    JMP C6643
-
-.C6640
-    JSR sub_C43D0
-.C6643
-    LDY L001B
-    INY
-    CPY #&14
-    BNE C65DD
-    LDA #3
-    JSR sub_C3D50
-    LDA #&9C
-    JSR oswrch
-    LDA L006C
-    BPL C666E
-    LDX #&31 ; '1'
-    JSR sub_C4D7E
-    JSR sub_C3C6F
-    LDA L5F3F
-    CLC
-    ADC #&DA
-    STA L3C7D
-    LDX #&32 ; '2'
-    JSR sub_C4D7E
-.C666E
-    PLA
-    JSR sub_C34D2
-    RTS
-
-.sub_C6673
-    STA L62CD
-    LDA #&1B
-    STA L62CC
-.sub_C667B
-    LDX L013C,Y
-    STX L0045
-    JSR sub_C3CEB
-    JSR sub_C3250
-    RTS
-
-.sub_C6687
-    LDX #&1D
-    JSR sub_C4D7E
-    LDX L006F
-    JSR sub_C3CEB
-    JSR sub_C3250
-    JSR sub_C34D0
-    RTS
-
-.sub_C6698
-    SED
-    LDA L3864,Y
-    CLC
-    ADC L3878,X
-    STA L3864,Y
-    LDA L39E4,Y
-    ADC L39F8,X
-    STA L39E4,Y
-    LDA L04F0,Y
-    ADC #0
-    STA L04F0,Y
-    CLD
-    RTS
-
-.sub_C66B6
-    LDX L001F
-    LDA #&80
-.loop_C66BA
-    STA L05A4,X
-    STA L0650,X
-    STA L0600,X
-    STA L0554,X
-    DEX
-    BPL loop_C66BA
-    LDX #&4F ; 'O'
-    LDA #0
-.loop_C66CD
-    STA L5F60,X
-    DEX
-    BPL loop_C66CD
-    RTS
-
-.sub_C66D4
-    LDX L006F
-    JSR sub_C3CEB
-    LDX #&0C
-    JSR sub_C6300
-    RTS
-
-.sub_C66DF
-    LDX L0003
-    BPL C66E6
-.loop_C66E3
-    JSR sub_C2ACB
-.C66E6
-    JSR sub_C5084
-    CPX L004D
-    BNE loop_C66E3
-    LDX #&16
-.loop_C66EF
-    STX L0045
-    JSR sub_C2AD1
-    DEX
-    CPX #&14
-    BCS loop_C66EF
-    LDX L004D
-    JSR sub_C2ACB
-    RTS
-
-    EQUB 0
-
-    ORG &6C00
-
-.L6C00
-L7000 = L6C00+1024
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &30, &30, &40, 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &F0, &F0, 0  , 0  , 0  , 0  , 0  , 0  , &C0, &C0, &20
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &10, &10, &10, &70, &40, &F0, &80, &F0, 0  , &F0, 0  
-    EQUB &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  
-    EQUB &F0, 0  , &E1, &16, &F0, 0  , &F0, 0  , &C3, &2D, &5A, &C3
-    EQUB &F0, 0  , &F0, 7  , &78, &A5, &87, &1E, &F0, 0  , &0F, &B4
-    EQUB &D2, &0F, &2D, &0F, &F0, 7  , &78, &F0, &4B, &1E, &4B, &0F
-    EQUB &F0, &0E, &E1, &F0, &2D, &87, &2D, &0F, &F0, 0  , &0F, &D2
-    EQUB &B4, &0F, &4B, &0F, &F0, 0  , &F0, &0E, &E1, &5A, &1E, &87
-    EQUB &F0, 0  , &F0, 0  , &3C, &4B, &A5, &3C, &F0, 0  , &F0, 0  
-    EQUB &F0, 0  , &78, &86, &F0, 0  , &F0, 0  , &F0, 0  , &F0, 0  
-    EQUB &E0, &20, &F0, &10, &F0, 0  , &F0, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &80, &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &A0, &50, &B0
-    EQUB 0  , 0  , 0  , 0  , 0  , &D0, &A0, &40, 0  , 0  , 0  , 0  
-    EQUB 0  , &F0, &10, 0  , 0  , 0  , 0  , 0  , 0  , 0  , &80, &C0
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , &10, &30, &30, &20, &30, &40, &70, &C0, &F0, &80
-    EQUB &F0, 0  , &F0, 0  , &E1, 3  , &96, &0F, &F0, 1  , &87, &3C
-    EQUB &4B, &C3, &87, &4B, &2D, &69, &87, &1E, &0F, &87, &0F, &0F
-    EQUB &87, &4B, &0F, &0F, &0F, &0F, &0F, &0F, &87, &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0E, 1  , &0F, &0F, &0F, &0F
-    EQUB &0F, &0F, 7  , 8  , &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &1E, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &1E, &2D, &0F, &0F
-    EQUB &0F, &0F, &0F, &0F, &4B, &69, &1E, &87, &0F, &1E, &0F, &0F
-    EQUB &F0, 8  , &1E, &C3, &2D, &3C, &1E, &2D, &F0, 0  , &F0, 0  
-    EQUB &78, &0C, &96, &0F, &C0, &40, &C0, &20, &E0, &30, &F0, &10
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , &80, &C0, 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &30
-    EQUB 0  , 0  , 0  , 0  , 0  , &F0, &80, 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , &B0, &50, &20, 0  , 0  , 0  , 0  , 0  , &50, &A0, &D0
-    EQUB &20, &40, &90, &90, &20, &20, &40, &40, &C0, &80, 0  , 0  
-    EQUB 0  , &10, &10, &20, 0  , 0  , &30, &60, &80, &80, 0  , 0  
-    EQUB &40, &60, &E0, &30, &10, &10, 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , &10, &30, 0  , 0  , &10, &30
-    EQUB &70, &F0, &F0, &F0, &70, &F0, &F0, &F0, &F0, &E0, &A1, 3  
-    EQUB &E1, &81, &C3, &16, &0F, &2D, &87, &2D, &2D, &5A, &0F, &0F
-    EQUB &87, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, 5  , &0C, &0F, &0F, &0F, 7  
-    EQUB &0A, 2  , 4  , 0  , &0F, 6  , 6  , 8  , 4  , 0  , &F0, 0  
-    EQUB 5  , &0D, 9  , 0  , &70, &30, &E1, &C3, &0D, 2  , 0  , 0  
-    EQUB &F0, &87, &0F, &0E, &0B, 4  , 0  , 0  , &F0, &1E, &0F, 7  
-    EQUB &0A, &0B, 9  , 0  , &E0, &C0, &78, &3C, &0F, 6  , 6  , 1  
-    EQUB 2  , 0  , &F0, 0  , &0F, &0F, &0F, &0E, 5  , 4  , 2  , 0  
-    EQUB &0F, &0F, &0F, &0F, &0F, &0F, &0A, 3  , &0F, &0F, &0F, &0F
-    EQUB &0F, &0F, &0F, &0F, &4B, &A5, &0F, &0F, &1E, &0F, &0F, &0F
-    EQUB &78, &18, &3C, &86, &0F, &4B, &1E, &4B, &E0, &F0, &F0, &F0
-    EQUB &F0, &70, &58, &0C, 0  , 0  , &80, &C0, &E0, &F0, &F0, &F0
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , &80, &C0, 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0  , 0  , 0  , 0  , 0  , 0  
-    EQUB 0
-
-    ORG &7900
-
-; Move block from &1200-&12FF to &7900-&79FF and jump to &790E
-.Entry
-    LDY #0
-.entr1
-    LDA C1200,Y
-    STA Entry,Y
-    INY
-    BNE entr1
-    JMP SwapCode
-
-; Disable the ESCAPE key and clear memory if the BREAK key is pressed
-.SwapCode
-    LDA #osbyte_read_write_escape_break_effect
-    LDX #3
-    LDY #0
-    JSR osbyte
-; *TAPE
-    LDA #osbyte_tape
-    LDX #0
-    JSR osbyte
-; Set (Q P) = &5300 = trackData, destintion address for track data
-    LDA #0
-    STA P
-    LDA #&53 ; 'S'
-    STA Q
-; Set (S R) = &70DB, source address of track data
-    LDA #&DB
-    STA R
-    LDA #&70 ; 'p'
-    STA S
-; Swap memory between &70DB-&7724 to &5300-&5949 and decrement
-; checksum bytes in &7800-&7803
-    LDY #0
-; Swap Y-th byte of (Q P) and (S R)
-.swap1
-    LDA (R),Y
-    PHA
-    LDA (P),Y
-    STA (R),Y
-    PLA
-    STA (P),Y
-; Decrement the relevant checksum byte at &7800-&7803
-    AND #3
-    TAX
-    DEC trackChecksum,X
-; Increment loop counter
-    INY
-; Increment high bytes to move on to next page
-    BNE swap2
-    INC Q
-    INC S
-; If we have not yet reached &7725, jump back to swap1 to keep going
-.swap2
-    CPY #&25 ; '%'
-    BNE swap1
-    LDA S
-    CMP #&77 ; 'w'
-    BNE swap1
-; Now check that all three checksum bytes in &7800-&7803 are zero
-    LDX #3
-.swap3
-    LDA trackChecksum,X
-; If a checksum byte is non-zero, jump to swap4 to reset the machine
-    BNE swap4
-    DEX
-; Loop back to check the next checksum byte
-    BPL swap3
-; All checksum bytes are zero, so jump to swap4 to keep going
-    BMI MoveCode
-; Reset the machine
-.swap4
-    JMP (LFFFC)
-
-; Move block (blockStartHi blockStartLo) - (blockEndHi blockEndLo)-1
-; to (blockToHi blockToLo)
-;   * Move &1500-&15DA to &7000-&70DA
-;   * Move &1300-&14FF to &0B00-&0CFF
-;   * Move &5A80-&645B to &0D00-&16DB
-;   * Move &64D0-&6BFF to &5FD0-&63FF
-;   * Zero &5A80-&5E3F
-.MoveCode
-    LDX #4
-    LDY #0
-.move1
-    LDA blockStartLo,X
-    STA P
-    LDA blockStartHi,X
-    STA Q
-    LDA blockToLo,X
-    STA R
-    LDA blockToHi,X
-    STA S
-.move2
-L7979 = move2+1
-    LDA (P),Y
-    STA (R),Y
-    INC P
-    BNE move3
-    INC Q
-.move3
-    INC R
-    BNE move4
-    INC S
-.move4
-    LDA P
-    CMP blockEndLo,X
-    BNE move2
-    LDA Q
-    CMP blockEndHi,X
-    BNE move2
-    DEX
-    BMI move5
-    BNE move1
-; We get here when X = 0
-; Modify the instruction at move2 to LDA #0, so the last block move
-; actually zeroes the block
-    LDA ldaZero
-    STA move2
-    LDA L79AE
-    STA L7979
-; Loop back to move1 to zero the rest of the block
-    JMP move1
-
-.move5
-    JMP C63BD
-
-.ldaZero
-L79AE = ldaZero+1
-    LDA #0
-.blockStartLo
-    EQUB &80, &D0, &80, 0  , 0  
-.blockStartHi
-    EQUB &5A, &64, &5A, &13, &15
-.blockEndLo
-    EQUB &40, 0  , &5C, 0  , &DB
-.blockEndHi
-    EQUB &5E, &6C, &64, &15, &15
-.blockToLo
-    EQUB &80, &D0, 0  , 0  , 0  
-.blockToHi
-    EQUB &5A, &5F, &0D, &0B, &70
-    EQUB 9  , &B9, 2  , &50, &9D, 1  , 9  , &9D, &79, 9  , &B9, 3  
-    EQUB &50, &9D, 2  , 9  , &B9, 1  , &51, &9D, 0  , &0A, &B9, 2  
-    EQUB &51, &9D, 1  , &0A, &9D, &79, &0A, &B9, 3  , &51, &9D, 2  
-    EQUB &0A, &B9, 4  , &50, &9D, &78, 9  , &B9, 6  , &50, &9D, &7A
-    EQUB 9  , &B9, 4  
-
-    ORG &8000
-
-    EQUB &20, 0  , &63, &60, &A6, 3  , &10, 3  , &20, &CB, &2A, &20
-    EQUB &84, &50, &E4, &4D, &D0, &F6, &A2, &16, &86, &45, &20, &D1
-    EQUB &2A, &CA, &E0, &14, &B0, &F6, &A6, &4D, &20, &CB, &2A, &60
-    EQUB &20, &0E, &2B, &A2, &F4, &20, &CC, &0B, &20, &0E, &2B, &A2
-    EQUB &FD, &20, &CC, &0B, &A9, &14, &85, &42, &A9, 2  , &20, &5D
-    EQUB &2A, &A9, &15, &85, &42, &A9, 1  , &A2, &F4, &20, &5F, &2A
-    EQUB &A9, &16, &85, &42, &A9, 0  , &A2, &FA, &20, &5F, &2A, &A6
-    EQUB &45, &60, &C9, 5  , &90, &F9, &BD, &8C, 1  , &30, &F4, &FE
-    EQUB &8C, 1  , &60, &A2, &FD, &85, &37, &20, &45, &21, &A4, &42
-    EQUB &A5, &8A, &99, &80, 3  , &A5, &8B, &99, &98, 3  , &20, &B1
-    EQUB &2A, &20, &85, &22, &A4, &42, &B0, &2C, &38, &E9, 1  , &30
-    EQUB &27, &99, &B0, 3  , &A5, &2B, &38, &E9, 9  , &AA, &A5, &2A
-    EQUB &CA, &F0, &0C, &10, 6  , &4A, &E8, &D0, &FC, &F0, 4  , &0A
-    EQUB &CA, &D0, &FC, &99, &C8, 3  , &B9, &8C, 1  , &29, &70, 5  
-    EQUB &37, &4C, &AD, &2A, &A4, &42, &B9, &8C, 1  , 9  , &80, &99
-    EQUB &8C, 1  , &60, &A0, &25, &20, &A5, &0C, &A5, &7D, &85, &55
-    EQUB &D0, &0E, &C4, &7C, &90, &0A, &C6, &68, &A5, &7C, &85, &41
-    EQUB &A5, &42, &85, &67, &60, &86, &45, &BD, &3C, 1  , &AA, &BD
-    EQUB &8C, 1  , &30, &35, &29, &0F, &85, &37, &BD, &80, 3  , &38
-    EQUB &E5, &0A, &85, &74, &BD, &98, 3  , &E5, &0B, &10, 6  , &C9
-    EQUB &E0, &90, &1E, &B0, 4  , &C9, &20, &B0, &18, 6  , &74, &2A
-    EQUB 6  , &74, &2A
-    EQUB &18, &69
-
-                              \ Game addr to file addr
-COPYBLOCK &5FD0, &6700, &64D0 \ 5fd0-66ff to 64d0-6bff
-COPYBLOCK &0D00, &16DC, &5A80 \ 0d00-16db to 5a80-645b
-COPYBLOCK &7000, &70DB, &1500 \ 7000-70da to 1500-15da
-COPYBLOCK &0B00, &0D00, &1300 \ 0b00-0cff to 1300-14ff
-COPYBLOCK &7900, &7A00, &1200 \ 7900-79ff to 1200-12ff
-
-COPYBLOCK &8000, &8101, &15DB \ Restore noise in 15db-16db
-
-CLEAR &645C, &64D0            \ Zeroes in 645c-64cf
+    equb &a0, 0  , &b9, 0  , &12, &99, 0  , &79, &c8, &d0, &f7, &4c   ; 1200: a0 00 b9... ...
+    equb &0e, &79                                                     ; 120c: 0e 79       .y
+
+    org &790e
+.movedFrom120eTo790e
+    equb &a9, &c8, &a2, 3  , &a0, 0  , &20, &f4, &ff, &a9, &8c, &a2   ; 120e: a9 c8 a2... ... :790e[3]
+    equb 0  , &20, &f4, &ff, &a9, 0  , &85, &70, &a9, &53, &85, &71   ; 121a: 00 20 f4... . . :791a[3]
+    equb &a9, &db, &85, &72, &a9, &70, &85, &73, &a0, 0  , &b1, &72   ; 1226: a9 db 85... ... :7926[3]
+    equb &48, &b1, &70, &91, &72, &68, &91, &70, &29, 3  , &aa, &de   ; 1232: 48 b1 70... H.p :7932[3]
+    equb 0  , &78, &c8, &d0, 4  , &e6, &71, &e6, &73, &c0, &25, &d0   ; 123e: 00 78 c8... .x. :793e[3]
+    equb &e5, &a5, &73, &c9, &77, &d0, &df, &a2, 3  , &bd, 0  , &78   ; 124a: e5 a5 73... ..s :794a[3]
+    equb &d0, 5  , &ca, &10, &f8, &30, 3  , &6c, &fc, &ff, &a2, 4     ; 1256: d0 05 ca... ... :7956[3]
+    equb &a0, 0  , &bd, &af, &79, &85, &70, &bd, &b4, &79, &85, &71   ; 1262: a0 00 bd... ... :7962[3]
+    equb &bd, &c3, &79, &85, &72, &bd, &c8, &79, &85, &73, &b1, &70   ; 126e: bd c3 79... ..y :796e[3]
+    equb &91, &72, &e6, &70, &d0, 2  , &e6, &71, &e6, &72, &d0, 2     ; 127a: 91 72 e6... .r. :797a[3]
+    equb &e6, &73, &a5, &70, &dd, &b9, &79, &d0, &e9, &a5, &71, &dd   ; 1286: e6 73 a5... .s. :7986[3]
+    equb &be, &79, &d0, &e2, &ca, &30, &11, &d0, &c9, &ad, &ad, &79   ; 1292: be 79 d0... .y. :7992[3]
+    equb &8d, &78, &79, &ad, &ae, &79, &8d                            ; 129e: 8d 78 79... .xy :799e[3]
+    equs "yyLdyL"                                                     ; 12a5: 79 79 4c... yyL :79a5[3]
+    equb &bd, &63, &a9, 0  , &80, &d0, &80, 0  , 0                    ; 12ab: bd 63 a9... .c. :79ab[3]
+    equs "ZdZ"                                                        ; 12b4: 5a 64 5a    ZdZ :79b4[3]
+    equb &13, &15, &40, 0  , &5c, 0  , &db                            ; 12b7: 13 15 40... ..@ :79b7[3]
+    equs "^ld"                                                        ; 12be: 5e 6c 64    ^ld :79be[3]
+    equb &15, &15, &80, &d0, 0  , 0  , 0  , &5a, &5f, &0d, &0b, &70   ; 12c1: 15 15 80... ... :79c1[3]
+    equb 9  , &b9, 2  , &50, &9d, 1  , 9  , &9d, &79, 9  , &b9, 3     ; 12cd: 09 b9 02... ... :79cd[3]
+    equb &50, &9d, 2  , 9  , &b9, 1  , &51, &9d, 0  , &0a, &b9, 2     ; 12d9: 50 9d 02... P.. :79d9[3]
+    equb &51, &9d, 1  , &0a, &9d, &79, &0a, &b9, 3  , &51, &9d, 2     ; 12e5: 51 9d 01... Q.. :79e5[3]
+    equb &0a, &b9, 4  , &50, &9d, &78, 9  , &b9, 6  , &50, &9d, &7a   ; 12f1: 0a b9 04... ... :79f1[3]
+    equb 9  , &b9, 4                                                  ; 12fd: 09 b9 04    ... :79fd[3]
+    org l120e + (l7a00 - movedFrom120eTo790e)
+    copyblock movedFrom120eTo790e, l7a00, l120e
+    clear movedFrom120eTo790e, l7a00
+
+
+    org &0b00
+.movedFrom1300To0b00
+    equb &10, &10, &10, &10, &10, &10, &10, &10, &10, &10, &10, &10   ; 1300: 10 10 10... ... :0b00[2]
+    equb &10, &10, &10, &10, &10, 0  , &f6, &ff, 3  , 0  , &ff, 0     ; 130c: 10 10 10... ... :0b0c[2]
+    equb &11, 0  , &f6, &ff, &bb, 0  , &ff, 0  , &12, 0  , &f6, &ff   ; 1318: 11 00 f6... ... :0b18[2]
+    equb &28, 0  , &ff, 0  , &13, 0  , 1  , 0  , &82, 0  , &ff, 0     ; 1324: 28 00 ff... (.. :0b24[2]
+    equb &10, 0  , &f6, &ff, 6  , 0  , 4  , 0  , 1  , 1  , 2  , &fe   ; 1330: 10 00 f6... ... :0b30[2]
+    equb &fa, 4  , 1  , 1  , &0a, 0  , 0  , 0  , &48, 0  , &ff, &ac   ; 133c: fa 04 01... ... :0b3c[2]
+    equb &fe, 5  , &8e, &46, &0b, &0a, &0a, &0a, &18, &69, &10, &aa   ; 1348: fe 05 8e... ... :0b48[2]
+    equb &98, &9d, 2  , &0b, &bd, 0  , &0b, &29, 3  , &a8, &a9, 7     ; 1354: 98 9d 02... ... :0b54[2]
+    equb &99, &bd, &62, &d0, 9  , &8e, &46, &0b, &18, &69, &38, &aa   ; 1360: 99 bd 62... ..b :0b60[2]
+    equb &a9, 8  , &a0, &0b, &20, &f1, &ff, &ae, &46, &0b, &60, &a2   ; 136c: a9 08 a0... ... :0b6c[2]
+    equb 1  , &bd, &3d, &5f, &0a, &0a, &85, &75, &bd, &a0, &0b, &20   ; 1378: 01 bd 3d... ..= :0b78[2]
+    equb 0  , &0c, &18, &69, &5a, &9d, &a8, &62, &ca, &10, &ea, &ad   ; 1384: 00 0c 18... ... :0b84[2]
+    equb &3e, &5f, &0a                                                ; 1390: 3e 5f 0a    >_. :0b90[2]
+    equs "m>_m=_Ji<"                                                  ; 1393: 6d 3e 5f... m>_ :0b93[2]
+    equb &8d, &f1, &62, &60, &cd, &cd, &a9, 0  , &99, &e0, &5e, &b9   ; 139c: 8d f1 62... ..b :0b9c[2]
+    equs "@^8"                                                        ; 13a8: 40 5e 38    @^8 :0ba8[2]
+    equb &ed, &d2, &62, &99, &40, &5e, &b9, &90, &5e, &ed, &e2, &62   ; 13ab: ed d2 62... ..b :0bab[2]
+    equb &99, &90, &5e, &b9                                           ; 13b7: 99 90 5e... ..^ :0bb7[2]
+    equs " _8"                                                        ; 13bb: 20 5f 38     _8 :0bbb[2]
+    equb &e5, &4e, &99, &20, &5f, &c5, &1f, &90, 4  , &85, &1f, &84   ; 13be: e5 4e 99... .N. :0bbe[2]
+    equb &51, &60, &b9, 0  , 9  , &18, &65, &74, &9d, 0  , 9  , &b9   ; 13ca: 51 60 b9... Q`. :0bca[2]
+    equb 0  , &0a, &65, &83, &9d, 0  , &0a, &b9, 1  , 9  , &18, &65   ; 13d6: 00 0a 65... ..e :0bd6[2]
+    equb &75, &9d, 1  , 9  , &b9, 1  , &0a, &65, &84, &9d, 1  , &0a   ; 13e2: 75 9d 01... u.. :0be2[2]
+    equb &b9, 2  , 9  , &18, &65, &76, &9d, 2  , 9  , &b9, 2  , &0a   ; 13ee: b9 02 09... ... :0bee[2]
+    equb &65, &85, &9d, 2  , &0a, &60, &85, &74, &a9, 0  , &46, &74   ; 13fa: 65 85 9d... e.. :0bfa[2]
+    equb &90, 3  , &18                                                ; 1406: 90 03 18    ... :0c06[2]
+    equs "eujft"                                                      ; 1409: 65 75 6a... euj :0c09[2]
+    equb &90, 3  , &18                                                ; 140e: 90 03 18    ... :0c0e[2]
+    equs "eujft"                                                      ; 1411: 65 75 6a... euj :0c11[2]
+    equb &90, 3  , &18                                                ; 1416: 90 03 18    ... :0c16[2]
+    equs "eujft"                                                      ; 1419: 65 75 6a... euj :0c19[2]
+    equb &90, 3  , &18                                                ; 141e: 90 03 18    ... :0c1e[2]
+    equs "eujft"                                                      ; 1421: 65 75 6a... euj :0c21[2]
+    equb &90, 3  , &18                                                ; 1426: 90 03 18    ... :0c26[2]
+    equs "eujft"                                                      ; 1429: 65 75 6a... euj :0c29[2]
+    equb &90, 3  , &18                                                ; 142e: 90 03 18    ... :0c2e[2]
+    equs "eujft"                                                      ; 1431: 65 75 6a... euj :0c31[2]
+    equb &90, 3  , &18                                                ; 1436: 90 03 18    ... :0c36[2]
+    equs "eujft"                                                      ; 1439: 65 75 6a... euj :0c39[2]
+    equb &90, 3  , &18                                                ; 143e: 90 03 18    ... :0c3e[2]
+    equs "eujft`"                                                     ; 1441: 65 75 6a... euj :0c41[2]
+    equb 6  , &74, &2a, &b0, 4  , &c5, &76, &90, 3  , &e5             ; 1447: 06 74 2a... .t* :0c47[2]
+    equs "v8&t*"                                                      ; 1451: 76 38 26... v8& :0c51[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 1456: b0 04 c5... ... :0c56[2]
+    equs "v8&t*"                                                      ; 145d: 76 38 26... v8& :0c5d[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 1462: b0 04 c5... ... :0c62[2]
+    equs "v8&t*"                                                      ; 1469: 76 38 26... v8& :0c69[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 146e: b0 04 c5... ... :0c6e[2]
+    equs "v8&t*"                                                      ; 1475: 76 38 26... v8& :0c75[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 147a: b0 04 c5... ... :0c7a[2]
+    equs "v8&t*"                                                      ; 1481: 76 38 26... v8& :0c81[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 1486: b0 04 c5... ... :0c86[2]
+    equs "v8&t*"                                                      ; 148d: 76 38 26... v8& :0c8d[2]
+    equb &b0, 4  , &c5, &76, &90, 3  , &e5                            ; 1492: b0 04 c5... ... :0c92[2]
+    equs "v8&t*"                                                      ; 1499: 76 38 26... v8& :0c99[2]
+    equb &b0, 2  , &c5                                                ; 149e: b0 02 c5    ... :0c9e[2]
+    equs "v&t`"                                                       ; 14a1: 76 26 74... v&t :0ca1[2]
+    equb &a5, &7e, &c9, &67, &b0, &17, &a5                            ; 14a5: a5 7e c9... .~. :0ca5[2]
+    equs "xFyjFyjFyj"                                                 ; 14ac: 78 46 79... xFy :0cac[2]
+    equb &18, &65, &7a, &85, &7c, &a5                                 ; 14b6: 18 65 7a... .ez :0cb6[2]
+    equs "ye{"                                                        ; 14bc: 79 65 7b    ye{ :0cbc[2]
+    equb &85                                                          ; 14bf: 85          .   :0cbf[2]
+    equs "}`Fyfx"                                                     ; 14c0: 7d 60 46... }`F :0cc0[2]
+    equb &a5, &7b, &85, &74, &a5                                      ; 14c6: a5 7b 85... .{. :0cc6[2]
+    equs "zFtjFtjFtj"                                                 ; 14cb: 7a 46 74... zFt :0ccb[2]
+    equb &85, &75, &a5, &78, &18, &65, &7a, &85, &7c, &a5             ; 14d5: 85 75 a5... .u. :0cd5[2]
+    equs "ye{"                                                        ; 14df: 79 65 7b    ye{ :0cdf[2]
+    equb &85, &7d, &a5, &7c, &38, &e5, &75, &85, &7c, &a5, &7d, &e5   ; 14e2: 85 7d a5... .}. :0ce2[2]
+    equb &74, &85, &7d, &60, &f1, &0c, &e5, &74, &8d, &f6, &0c, &60   ; 14ee: 74 85 7d... t.} :0cee[2]
+    equb 0  , 0  , 0  , 0  , 0  , 0                                   ; 14fa: 00 00 00... ... :0cfa[2]
+    org l1300 + (l0d00 - movedFrom1300To0b00)
+    copyblock movedFrom1300To0b00, l0d00, l1300
+    clear movedFrom1300To0b00, l0d00
+
+
+    org &7000
+.movedFrom1500To7000
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 1500: 00 00 00... ... :7000[1]
+    equb 0  , 0  , &10, &30, 0  , 0  , &10, &30, &70, &f0, &f0, &f0   ; 150c: 00 00 10... ... :700c[1]
+    equb &70, &f0, &f0, &f0, &f0, &e0, &a1, 3  , &e1, &81, &c3, &16   ; 1518: 70 f0 f0... p.. :7018[1]
+    equb &0f, &2d, &87                                                ; 1524: 0f 2d 87    .-. :7024[1]
+    equs "--Z"                                                        ; 1527: 2d 2d 5a    --Z :7027[1]
+    equb &0f, &0f, &87, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f   ; 152a: 0f 0f 87... ... :702a[1]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, 5  , &0c, &0f, &0f   ; 1536: 0f 0f 0f... ... :7036[1]
+    equb &0f, 7  , &0a, 2  , 4  , 0  , &0f, 6  , 6  , 8  , 4  , 0     ; 1542: 0f 07 0a... ... :7042[1]
+    equb &f0, 0  , 5  , &0d, 9  , 0  , &70, &30, &e1, &c3, &0d, 2     ; 154e: f0 00 05... ... :704e[1]
+    equb 0  , 0  , &f0, &87, &0f, &0e, &0b, 4  , 0  , 0  , &f0, &1e   ; 155a: 00 00 f0... ... :705a[1]
+    equb &0f, 7  , &0a, &0b, 9  , 0  , &e0, &c0, &78, &3c, &0f, 6     ; 1566: 0f 07 0a... ... :7066[1]
+    equb 6  , 1  , 2  , 0  , &f0, 0  , &0f, &0f, &0f, &0e, 5  , 4     ; 1572: 06 01 02... ... :7072[1]
+    equb 2  , 0  , &0f, &0f, &0f, &0f, &0f, &0f, &0a, 3  , &0f, &0f   ; 157e: 02 00 0f... ... :707e[1]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &4b, &a5, &0f, &0f, &1e, &0f   ; 158a: 0f 0f 0f... ... :708a[1]
+    equb &0f, &0f, &78, &18, &3c, &86, &0f, &4b, &1e, &4b, &e0, &f0   ; 1596: 0f 0f 78... ..x :7096[1]
+    equb &f0, &f0, &f0, &70, &58, &0c, 0  , 0  , &80, &c0, &e0, &f0   ; 15a2: f0 f0 f0... ... :70a2[1]
+    equb &f0, &f0, 0  , 0  , 0  , 0  , 0  , 0  , &80, &c0, 0  , 0     ; 15ae: f0 f0 00... ... :70ae[1]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 15ba: 00 00 00... ... :70ba[1]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 15c6: 00 00 00... ... :70c6[1]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0                    ; 15d2: 00 00 00... ... :70d2[1]
+    org l1500 + (l70db - movedFrom1500To7000)
+    copyblock movedFrom1500To7000, l70db, l1500
+    clear movedFrom1500To7000, l70db
+
+    equb &20, 0  , &63, &60, &a6, 3  , &10, 3  , &20, &cb, &2a, &20   ; 15db: 20 00 63...  .c
+    equb &84, &50, &e4, &4d, &d0, &f6, &a2, &16, &86, &45, &20, &d1   ; 15e7: 84 50 e4... .P.
+    equb &2a, &ca, &e0, &14, &b0, &f6, &a6, &4d, &20, &cb, &2a, &60   ; 15f3: 2a ca e0... *..
+    equb &20, &0e, &2b, &a2, &f4, &20, &cc, &0b, &20, &0e, &2b, &a2   ; 15ff: 20 0e 2b...  .+
+    equb &fd, &20, &cc, &0b, &a9, &14, &85, &42, &a9, 2  , &20, &5d   ; 160b: fd 20 cc... . .
+    equb &2a, &a9, &15, &85, &42, &a9, 1  , &a2, &f4, &20, &5f, &2a   ; 1617: 2a a9 15... *..
+    equb &a9, &16, &85, &42, &a9, 0  , &a2, &fa, &20, &5f, &2a, &a6   ; 1623: a9 16 85... ...
+    equb &45, &60, &c9, 5  , &90, &f9, &bd, &8c, 1  , &30, &f4, &fe   ; 162f: 45 60 c9... E`.
+    equb &8c, 1  , &60, &a2, &fd, &85, &37, &20, &45, &21, &a4, &42   ; 163b: 8c 01 60... ..`
+    equb &a5, &8a, &99, &80, 3  , &a5, &8b, &99, &98, 3  , &20, &b1   ; 1647: a5 8a 99... ...
+    equb &2a, &20, &85, &22, &a4, &42, &b0, &2c, &38, &e9, 1  , &30   ; 1653: 2a 20 85... * .
+    equb &27, &99, &b0, 3  , &a5, &2b, &38, &e9, 9  , &aa, &a5, &2a   ; 165f: 27 99 b0... '..
+    equb &ca, &f0, &0c, &10, 6  , &4a, &e8, &d0, &fc, &f0, 4  , &0a   ; 166b: ca f0 0c... ...
+    equb &ca, &d0, &fc, &99, &c8, 3  , &b9, &8c, 1  , &29, &70, 5     ; 1677: ca d0 fc... ...
+    equb &37, &4c, &ad, &2a, &a4, &42, &b9, &8c, 1  , 9  , &80, &99   ; 1683: 37 4c ad... 7L.
+    equb &8c, 1  , &60, &a0, &25, &20, &a5, &0c, &a5, &7d, &85, &55   ; 168f: 8c 01 60... ..`
+    equb &d0, &0e, &c4, &7c, &90, &0a, &c6, &68, &a5, &7c, &85, &41   ; 169b: d0 0e c4... ...
+    equb &a5, &42, &85, &67, &60, &86, &45, &bd, &3c, 1  , &aa, &bd   ; 16a7: a5 42 85... .B.
+    equb &8c, 1  , &30, &35, &29, &0f, &85, &37, &bd, &80, 3  , &38   ; 16b3: 8c 01 30... ..0
+    equb &e5, &0a, &85, &74, &bd, &98, 3  , &e5, &0b, &10, 6  , &c9   ; 16bf: e5 0a 85... ...
+    equb &e0, &90, &1e, &b0, 4  , &c9, &20, &b0, &18, 6  , &74, &2a   ; 16cb: e0 90 1e... ...
+    equb 6  , &74, &2a, &18, &69, &20, &dd, &4d, &a9, 0  , &85, &64   ; 16d7: 06 74 2a... .t*
+    equb &20, &ea, &18, &20, &e2, &7b, &2c, &f4, 5  , &70, &0b, &a2   ; 16e3: 20 ea 18...  ..
+    equb 0  , &20, &11, &50, &20, 5  , &18, &20, &ce, &11, &a9, 0     ; 16ef: 00 20 11... . .
+    equb &8d, &f4, 5  , &20, &77, &0b                                 ; 16fb: 8d f4 05... ...
+    equs " RP J{ y"                                                   ; 1701: 20 52 50...  RP
+    equb &15, &20, &a1, &46, &20, &f6                                 ; 1709: 15 20 a1... . .
+    equs "$ &F "                                                      ; 170f: 24 20 26... $ &
+    equb &b9, &24, &20, &fe, &0f, &20, &74, &0e, &20, &b6             ; 1714: b9 24 20... .$
+    equs "f  "                                                        ; 171e: 66 20 20    f
+    equb &1a, &20, &74, &0e, &20, &bc, &18, &20, &a4, &4c, &a2, &17   ; 1721: 1a 20 74... . t
+    equb &20, &d1, &2a, &20, &12, &1b                                 ; 172d: 20 d1 2a...  .*
+    equs " 7& "                                                       ; 1733: 20 37 26...  7&
+    equb &15, &1e, &20, 0                                             ; 1737: 15 1e 20... ..
+    equs "{ t"                                                        ; 173b: 7b 20 74    { t
+    equb &0e                                                          ; 173e: 0e          .
+    equs " DO "                                                       ; 173f: 20 44 4f...  DO
+    equb &b9, &1b, &20, &1e, &11, &20, &e2, &7b, &ad, &43, &4f, &10   ; 1743: b9 1b 20... ..
+    equb 3  , &ee, &43, &4f, &ad, &f6, &62, &f0, &37, &ee, &f6, &62   ; 174f: 03 ee 43... ..C
+    equb &a9, &9c, &8d, &f7, &62, &ad, &f7, &62, &30, &fb, &ad        ; 175b: a9 9c 8d... ...
+    equs ";_0"                                                        ; 1766: 3b 5f 30    ;_0
+    equb &84, &a5, &6c, &10, &85, &ad, &3a, &5f, &f0, &83, &20, &f6   ; 1769: 84 a5 6c... ..l
+    equb &43, &ad                                                     ; 1775: 43 ad       C.
+    equs ";_0"                                                        ; 1777: 3b 5f 30    ;_0
+    equb &ea, &a2, &30, &20, &fc, &17, &20, &63, &11, &ad, &f4, 5     ; 177a: ea a2 30... ..0
+    equb &30, &32, &a9, &20, &8d, &f4, 5  , &d0, &2b, &a0, &0b, &20   ; 1786: 30 32 a9... 02.
+    equb &e5, &0e, &ad, &f4, 5  , &f0, &0f, &10, &d8, &29, &40, &f0   ; 1792: e5 0e ad... ...
+    equb &1b, &a5, 0  , &f0, &17, &a9, 0  , &8d, &f4, 5  , &a6, &0f   ; 179e: 1b a5 00... ...
+    equb &f0, 5  , &ca, &f0, &c4, &86, &0f, &20, &74, &0e             ; 17aa: f0 05 ca... ...
+    equs " :QL"                                                       ; 17b4: 20 3a 51...  :Q
+    equb 1  , &17, &a9, &80, &20, &ea, &18                            ; 17b8: 01 17 a9... ...
+    equs " #O`"                                                       ; 17bf: 20 23 4f...  #O
+    equb &f8, &a9, 9  , &a4, &46, &cc, &19, &5a, &d0, 2  , &a9, &18   ; 17c3: f8 a9 09... ...
+    equb &18, &7d, &b4, 6  , &9d, &b4, 6  , 8  , &bd, &cc, 6  , &69   ; 17cf: 18 7d b4... .}.
+    equb 0  , &c9, &60, &90, 2  , &a9, 0  , &9d, &cc, 6  , &bd, &e4   ; 17db: 00 c9 60... ..`
+    equb 6  , &69, 0  , &9d, &e4, 6  , &10, &0a, &20, &11, &50, &a4   ; 17e7: 06 69 00... .i.
+    equb &6f, &a9, &80, &99, &dc, 4  , &28, &d8                       ; 17f3: 6f a9 80... o..
+    equs "` pM"                                                       ; 17fb: 60 20 70... ` p
+    equb &a2                                                          ; 17ff: a2          .
+    equs "- tM`"                                                      ; 1800: 2d 20 74... - t
+    equb &a9, 0  , &a2, &68, &95, 0  , &ca, &10, &fb, &a2, &7f, &9d   ; 1805: a9 00 a2... ...
+    equb &80, &62, &ca, &10, &fa, &20, &65, &0b, &a2, &17, &8e, &f9   ; 1811: 80 62 ca... .b.
+    equb &62, &ad, &ff, &59, &9d, &e8, 8  , &ad, &fe, &59, &9d, &d0   ; 181d: 62 ad ff... b..
+    equb 8  , &a9, 0  , &9d, &e8, 6  , &9d, &80, 8  , &ca, &10, &e9   ; 1829: 08 a9 00... ...
+    equb &20, &a2, &63, &a9, 1                                        ; 1835: 20 a2 63...  .c
+    equs "$l0"                                                        ; 183a: 24 6c 30    $l0
+    equb &0e, &ae, &17, &5a, &a4, 3  , &20, &7f, &26, &20, &a2, &63   ; 183d: 0e ae 17... ...
+    equb &ad, &18, &5a, &20, &9b, &10, &a2, &13, &a9, &80, &9d, &8c   ; 1849: ad 18 5a... ..Z
+    equb 1  , &9d, &dc, 4  , &a9, 0  , &9d, &b4, 4  , &9d, &14, 1     ; 1855: 01 9d dc... ...
+    equb &9d, &64, 1  , &9d, &50, 1  , &9d, 0  , 1  , &9d, &50, &38   ; 1861: 9d 64 01... .d.
+    equb &a9, &ff, &9d, &a4, 1  , &ca, &10, &dc, &a9, 1  , &85, &40   ; 186d: a9 ff 9d... ...
+    equb &85, &30, &a2, 7  , &86, 9  , &ca, &86, 6  , &86, 8  , &ca   ; 1879: 85 30 a2... .0.
+    equb &9d, &93, &62, &ca, &10, &fa, &20, &d0, &42, &a5, &6c, &30   ; 1885: 9d 93 62... ..b
+    equb &13, &a2, &28, &20, &fc, &17, &a2, 1  , &20, &11, &50, &20   ; 1891: 13 a2 28... ..(
+    equb &1d, &50, &a9, &df, &8d, &ef, &62, &60, &85, &66, &8d, &fe   ; 189d: 1d 50 a9... .P.
+    equb &62, &a2                                                     ; 18a9: 62 a2       b.
+    equs "+ tM"                                                       ; 18ab: 2b 20 74... + t
+    equb &a2                                                          ; 18af: a2          .
+    equs ", pM"                                                       ; 18b0: 2c 20 70... , p
+    equb &a5, 3  , &20, &c8, &65, &85, &2f, &60, &a6, &51, &a4, &1f   ; 18b4: a5 03 20... ..
+    equb &bd, &b8, &5e, &18, &69, &14, &10, &0c, &bd, &90, &5e, &18   ; 18c0: bd b8 5e... ..^
+    equb &69, &14, &30, 4  , &a9, &20, &d0, 2  , &a9, &23, &99, &60   ; 18cc: 69 14 30... i.0
+    equb &5f, &a9, &21, &a0, &4f, &be, &60, &5f, &f0, 1  , &8a, &99   ; 18d8: 5f a9 21... _.!
+    equb &60, &5f, &88, &10, &f4, &60, &85, &74, &a2, 3  , &bd, &2f   ; 18e4: 60 5f 88... `_.
+    equb &19, &95, &70, &ca, &10, &f8, &a2, 0  , &a0, &4f, &a9, 0     ; 18f0: 19 95 70... ..p
+    equb &85                                                          ; 18fc: 85          .
+    equs "v$t0"                                                       ; 18fd: 76 24 74... v$t
+    equb 4  , &b1, &70, &91, &72, &b1, &72, &91, &70, &e6, &76, &88   ; 1901: 04 b1 70... ..p
+    equb &98, &dd, 0  , &39, &d0, &eb, &a5, &72, &38, &e5, &76, &85   ; 190d: 98 dd 00... ...
+    equb &72, &b0, 2  , &c6, &73, &a5, &70, &18, &69, &80, &85, &70   ; 1919: 72 b0 02... r..
+    equb &90, 2  , &e6, &71, &e8, &e0, &29, &d0, &ca, &60, 0  , &30   ; 1925: 90 02 e6... ...
+    equb &b0, &7f, &bd, &90, &5e, &18, &69, &14, &c9                  ; 1931: b0 7f bd... ...
+    equs "(fv`"                                                       ; 193a: 28 66 76... (fv
+    equb &8d, &70, &19, &84, &4b, &88, &84                            ; 193e: 8d 70 19... .p.
+    equs "u 3"                                                        ; 1945: 75 20 33    u 3
+    equb &19, &a4, &1f, &4c, &77, &19, &a5, &76, &10, 3  , &20, &33   ; 1948: 19 a4 1f... ...
+    equb &19, &bd, &20, &5f, &c9, &50, &b0                            ; 1954: 19 bd 20... ..
+    equs "$$v"                                                        ; 195b: 24 24 76    $$v
+    equb &10, 5  , &dd, &21, &5f, &f0, &40, &c5, &7f, &b0, &3c, &85   ; 195e: 10 05 dd... ...
+    equb &82, &8a, &4c, &73, &19, &99, 0  , 4  , &88, &c4, &82, &d0   ; 196a: 82 8a 4c... ..L
+    equb &f8, &84, &7f, &e8, &30, &1a, &e4, &75, &90, &ce, &bd        ; 1976: f8 84 7f... ...
+    equs " _0"                                                        ; 1981: 20 5f 30     _0
+    equb 9  , &c5, &7f, &90, 5  , &a5, &7f, &9d, &20, &5f, &8a, 9     ; 1984: 09 c5 7f... ...
+    equb &80, &aa, &a9, 0  , &f0, &d3, &a6, &50, &bd, &e0, &5e, &10   ; 1990: 80 aa a9... ...
+    equb 5  , &e8, &e4, &75, &90, &f6, &86, &50, &60, &a9, &80, &1d   ; 199c: 05 e8 e4... ...
+    equb &e0, &5e, &9d, &e0, &5e, &30, &ca, &84, &27, &85, &4c, &c5   ; 19a8: e0 5e 9d... .^.
+    equb &4b, &b0, &68, &18, &79, &fc, &30, &85, &4f, &b9, &1e, &2b   ; 19b4: 4b b0 68... K.h
+    equb &8d, &50, &2f, &8d, &92, &2f, &b9, &22, &2b, &8d, &4f, &2f   ; 19c0: 8d 50 2f... .P/
+    equb &8d, &91, &2f, &a6, &4f, &a4                                 ; 19cc: 8d 91 2f... ../
+    equs "L8 &+"                                                      ; 19d2: 4c 38 20... L8
+    equb &e8, &c8, &c4, &4b, &b0, &42, &b9, &e0, &5e, &30, &f5, &a5   ; 19d7: e8 c8 c4... ...
+    equb &4c, &c5, &50, &90, &10, &d0, &13, &b9, &df, &5e, &29, 3     ; 19e3: 4c c5 50... L.P
+    equb &d0, &1f, &84, &50, &38, &a5, &27, &f0, &1d, &a5, &8c, &18   ; 19ef: d0 1f 84... ...
+    equb &90, &18, &b9, &df, &5e, &29, 3  , &d0, &0c, &a5, &27, &c9   ; 19fb: 90 18 b9... ...
+    equb 1  , &f0, &0b, &c9, 2  , &f0, 7  , &a9, 0  , &0a, &0a, &18   ; 1a07: 01 f0 0b... ...
+    equs "e2 &+"                                                      ; 1a13: 65 32 20... e2
+    equb &84, &4c, &86, &4f, &4c, &d7, &19, &60, &a9, &80, &85, &70   ; 1a18: 84 4c 86... .L.
+    equb &a5, &51, &18, &69, &28, &aa, &c9, &31, &b0, 2  , &a9, &31   ; 1a24: a5 51 18... .Q.
+    equb &85, &50, &a9, 0  , &85, &72, &85, &8e, &a4, &12, &20, &3e   ; 1a30: 85 50 a9... .P.
+    equb &19, &a0, 0  , &84, &32, &a5, &50, &20, &af, &19, &a9, 8     ; 1a3c: 19 a0 00... ...
+    equb &85, &32, &a0, 0  , &84, &8c, &c8, &a5, &51, &18             ; 1a48: 85 32 a0... .2.
+    equs "i( "                                                        ; 1a52: 69 28 20    i(
+    equb &af, &19, &a5, &50, &a2, 4  , &20, &98, &1a, &84, &2c, &a5   ; 1a55: af 19 a5... ...
+    equb &51, &aa, &c9, 9  , &b0, 2  , &a9, 9  , &85, &50, &a6, &51   ; 1a61: 51 aa c9... Q..
+    equb &a9, &50, &a4, &15, &20, &3e, &19, &a9, &1c, &85, &8c, &a9   ; 1a6d: a9 50 a4... .P.
+    equb &10, &85, &32, &a0, 2  , &a5, &51, &20, &af, &19, &a9, &1c   ; 1a79: 10 85 32... ..2
+    equb &85, &32, &a0, 3  , &a5, &50, &20, &af, &19, &a5, &50, &a2   ; 1a85: 85 32 a0... .2.
+    equb &14, &20, &98, &1a, &84, &29, &60, &86, &88, &85, &75, &c6   ; 1a91: 14 20 98... . .
+    equb &4b, &ad, &f2, &62, &c9, &28, &90, &60, &b0, &64, &bc, &20   ; 1a9d: 4b ad f2... K..
+    equb &5f, &c0, &50, &b0, &55, &bd, &e0                            ; 1aa9: 5f c0 50... _.P
+    equs "^0P"                                                        ; 1ab0: 5e 30 50    ^0P
+    equb &a5, &88, &c9, &14, &f0, &0b, &bd, &a0, &5e, &85, &77, &bd   ; 1ab3: a5 88 c9... ...
+    equb &90, &5e, &4c, &cc, &1a, &bd, &90, &5e, &85, &77, &bd, &a0   ; 1abf: 90 5e 4c... .^L
+    equb &5e, &18, &69, &14, &30, &32, &a5, &77, &18, &69, &14, &10   ; 1acb: 5e 18 69... ^.i
+    equb &2b, &bd, &e1, &5e, &10, 7  , &e8, &e6, &75, &e4, &4b, &90   ; 1ad7: 2b bd e1... +..
+    equb &f4, &b9, &60, &5f, &85, &74, &b9, &60, &5f, &f0, &0b, &29   ; 1ae3: f4 b9 60... ..`
+    equb &1c, &c5, &88, &f0, 5                                        ; 1aef: 1c c5 88... ...
+    equs "jEt0"                                                       ; 1af4: 6a 45 74... jEt
+    equb &0a, &bd, &e0, &5e, &29, 3  , 5  , &88, &99, &60, &5f, &e6   ; 1af8: 0a bd e0... ...
+    equb &75, &a6, &75, &e4, &4b, &90, &9c, &a6, &50, &bc, &20, &5f   ; 1b04: 75 a6 75... u.u
+    equb &c8, &60, &a0, 0  , &c4, &57, &f0, &67, &be, &b4, &62, &84   ; 1b10: c8 60 a0... .`.
+    equb &56, &b9, &99                                                ; 1b1c: 56 b9 99    V..
+    equs "b) "                                                        ; 1b1f: 62 29 20    b)
+    equb &f0, 5  , &a9, &0f, &8d, &fe, &38, &b9, &ba, &62, &85, &75   ; 1b22: f0 05 a9... ...
+    equb &b9, &b7, &62, &0a, &26, &75, &85, &74, &18                  ; 1b2e: b9 b7 62... ..b
+    equs "}@^"                                                        ; 1b37: 7d 40 5e    }@^
+    equb &85, &76, &bd, &90                                           ; 1b3a: 85 76 bd... .v.
+    equs "^eu"                                                        ; 1b3e: 5e 65 75    ^eu
+    equb &c9, &18, &90, 4  , &c9, &e8, &90, &2b, 6  , &76, &2a, 6     ; 1b41: c9 18 90... ...
+    equb &76, &2a, &18, &69, &50, &85, &35, &bd, &20, &5f, &85, &36   ; 1b4d: 76 2a 18... v*.
+    equb &a0, 2  , 6                                                  ; 1b59: a0 02 06    ...
+    equs "t&u"                                                        ; 1b5c: 74 26 75    t&u
+    equb &88, &d0, &f9, &a5, &75, &10, 5  , &49, &ff, &18, &69, 1     ; 1b5f: 88 d0 f9... ...
+    equb &85, &2a, &a9, 6  , &85, &37, &20, &b4, &1f, &a9, &f0, &8d   ; 1b6b: 85 2a a9... .*.
+    equb &fe, &38, &a4, &56, &c8, &4c, &14, &1b, &a9, 0  , &85, &57   ; 1b77: fe 38 a4... .8.
+    equb &60, &a5, &2f, &f0, &1a, &f8, &18, &65, &31, &85, &31, &d8   ; 1b83: 60 a5 2f... `./
+    equb &f0, &11, &c9, &21, &b0, &0d, &a2, 0  , &86, &2f, &86, &78   ; 1b8f: f0 11 c9... ...
+    equb &a2, &0a, &a0, &18, &20, &d0, &37, &2c, &fe, &62, &10, &0e   ; 1b9b: a2 0a a0... ...
+    equb &a4, &4d, &a9, &18                                           ; 1ba7: a4 4d a9... .M.
+    equs " sf"                                                        ; 1bab: 20 73 66     sf
+    equb &a4, &5b, &a9                                                ; 1bae: a4 5b a9    .[.
+    equs "! sfN"                                                      ; 1bb1: 21 20 73... ! s
+    equb &fe, &62, &60, &a5, &68, &f0, &5e, &a9, 0  , &85             ; 1bb6: fe 62 60... .b`
+    equs "h8fv"                                                       ; 1bc0: 68 38 66... h8f
+    equb &a9, &25, &38, &e5, &41, &b0, 2  , &a9, 5  , &0a, &85, &75   ; 1bc4: a9 25 38... .%8
+    equb &a6, &67, &a4, &6f, &c9, &28, &90, 7  , &a5, &6c, &10, 3     ; 1bd0: a6 67 a4... .g.
+    equb &20, &ab, &11, &bd, &98, 3  , &38, &e5, &0b, &0a, &0a, 8     ; 1bdc: 20 ab 11...  ..
+    equb &b9, &50, 1  , &e0, &14, &b0, &0f, &dd, &50, 1  , &b0, 5     ; 1be8: b9 50 01... .P.
+    equb &bd, &50, 1  , &d0, 5  , &69, &0b, &9d, &50, 1  , &20, 0     ; 1bf4: bd 50 01... .P.
+    equb &0c, &c9, &10, &90, 2  , &a9, &10                            ; 1c00: 0c c9 10... ...
+    equs "( @"                                                        ; 1c07: 28 20 40    ( @
+    equb &0e, &8d, &e2, &62, &a9, &80, &8d, &a6, &62, &8d, &a7, &62   ; 1c0a: 0e 8d e2... ...
+    equb &a9, 4  , &20, &47, &0b, &60, &84, &7b, &a6, &79, &86, &78   ; 1c16: a9 04 20... ..
+    equb &29, 3  , &aa, &bd, &8f, &62, &85, &79, &a5, &85, &85, &7c   ; 1c22: 29 03 aa... )..
+    equb &a5, &84, &29, &0c, &4a, &4a, &aa, &bd, &8f, &62, &85, &76   ; 1c2e: a5 84 29... ..)
+    equb &a9, 0  , &85, &70, &c0, 1  , &d0, &18, &a5, &7e, &10, 7     ; 1c3a: a9 00 85... ...
+    equs "8ji"                                                        ; 1c46: 38 6a 69    8ji
+    equb 0  , &4c, &4e, &1c, &4a, &18, &65, &35, &85                  ; 1c49: 00 4c 4e... .LN
+    equs "~JJ"                                                        ; 1c52: 7e 4a 4a    ~JJ
+    equb &85, &85, &4c, &66, &1c, &a5, &8d, &85, &85, &a5, &8f, &85   ; 1c55: 85 85 4c... ..L
+    equb &7e, &c0, 0  , &d0, &15, &a5, &83, &10, 7                    ; 1c61: 7e c0 00... ~..
+    equs "8ji"                                                        ; 1c6a: 38 6a 69    8ji
+    equb 0  , &4c, &72, &1c, &4a, &18, &65, &35, &85, &8f, &4a, &4a   ; 1c6d: 00 4c 72... .Lr
+    equb &85, &8d, &a5, &85, &c9, &14                                 ; 1c79: 85 8d a5... ...
+    equs "&tJfp"                                                      ; 1c7f: 26 74 4a... &tJ
+    equb &18, &69, &30, &85, &71, &a6, &85, &e0, &28, &90, 3  , &4c   ; 1c84: 18 69 30... .i0
+    equb &94, &1d, &a5, &47, &dd, 0  , &39, &b0, 3  , &bd, 0  , &39   ; 1c90: 94 1d a5... ...
+    equb &85, &82, &c5, &7f, &90, 8  , &c0, 1  , &d0, 1               ; 1c9c: 85 82 c5... ...
+    equs "`L|"                                                        ; 1ca6: 60 4c 7c    `L|
+    equb &1d, &a5, &84, &29, &10, &f0, &13, &98, &f0, &10             ; 1ca9: 1d a5 84... ...
+    equs "Et)"                                                        ; 1cb3: 45 74 29    Et)
+    equb 1  , &f0, &0a, &a5, &84, &29, 3  , &aa, &bd, &8f, &62, &85   ; 1cb6: 01 f0 0a... ...
+    equb &76, &a5, &7e, &29, 3  , &aa, &bd, &e8, &3f, &49, &ff, &25   ; 1cc2: 76 a5 7e... v.~
+    equb &76, &85, &76, &c0, 1  , &b0, &40, &bd                       ; 1cce: 76 85 76... v.v
+    equs "|3%x"                                                       ; 1cd6: 7c 33 25... |3%
+    equb &85, &74, &a5, &79, &3d, &fc, &33, 5  , &74, &3d, &e8, &3f   ; 1cda: 85 74 a5... .t.
+    equb 5  , &76, &85, &7a, &a5, &48, &f0, &0f, &a9, 0  , &85, &48   ; 1ce6: 05 76 85... .v.
+    equb &a5, &8c, &85, &7d, &49, &ff                                 ; 1cf2: a5 8c 85... ...
+    equs "%zL%"                                                       ; 1cf8: 25 7a 4c... %zL
+    equb &1d, &a6, &85, &e4, &8d, &d0, 7  , &a5, &7a, &85             ; 1cfc: 1d a6 85... ...
+    equs "yL|"                                                        ; 1d06: 79 4c 7c    yL|
+    equb &1d, &a5, &7a, &d0, 2  , &a9, &55, &a4, &7f, &4c, &e8, &1d   ; 1d09: 1d a5 7a... ..z
+    equb &d0, &1d, &bd, &7c, &33, &85, &7d, &49, &ff                  ; 1d15: d0 1d bd... ...
+    equs "%y="                                                        ; 1d1e: 25 79 3d    %y=
+    equb &e8, &3f, 5  , &76, &a6, &85, &e4, &8d, &d0, &19, &85, &79   ; 1d21: e8 3f 05... .?.
+    equb &a5, &7d, &85, &8c                                           ; 1d2d: a5 7d 85... .}.
+    equs "fH`"                                                        ; 1d31: 66 48 60    fH`
+    equb &a5, &8c, &1d, &d0, &39, &85, &7d, &49, &ff                  ; 1d34: a5 8c 1d... ...
+    equs "%x="                                                        ; 1d3d: 25 78 3d    %x=
+    equb &e8, &3f, 5  , &76, &85, &7a, &a9, 0  , &85, &8c, &a4, &7f   ; 1d40: e8 3f 05... .?.
+    equb &4c, &6b, &1d, &b1, &70, &f0, &0a, &c9, &55, &d0, 9  , &a5   ; 1d4c: 4c 6b 1d... Lk.
+    equb &7a, &d0, &0d, &f0, 9  , &20, &9e, &1e, &25, &7d, 5  , &7a   ; 1d58: 7a d0 0d... z..
+    equb &d0, 2  , &a9, &55, &91, &70, &88, &c4, &82, &d0, &e0, &a6   ; 1d64: d0 02 a9... ...
+    equb &7b, &e0, 1  , &f0, &1e, &e6, &85, &20, &af, &1d, &c6, &85   ; 1d70: 7b e0 01... {..
+    equb &a5, &7c, &c9, &28, &90, 4  , &a9, &ff, &85, &7c, &a5, &85   ; 1d7c: a5 7c c9... .|.
+    equb &18, &e5, &7c, &f0, 6  , &30, 4  , &aa, &20, &38, &1e, &60   ; 1d88: 18 e5 7c... ..|
+    equb &a4, &7b, &c0, 1  , &f0, &f9, &a5, &7c, &c9, &28, &b0, &f3   ; 1d94: a4 7b c0... .{.
+    equb &a9, &28, &85, &85, &d0, &e0, &8e, &de, &1d, &8c, &d5, &1d   ; 1da0: a9 28 85... .(.
+    equb &8d, &dc, &1d, &a5, &85, &c9, &28, &b0, &2f, &18             ; 1dac: 8d dc 1d... ...
+    equs "i`J"                                                        ; 1db6: 69 60 4a    i`J
+    equb &85, &71, &a9, 0  , &6a, &85, &70, &a4, &7f, &4c, &e0, &1d   ; 1db9: 85 71 a9... .q.
+    equb &c9, &55, &d0, 2  , &a9, 0  , &91, &72, &88, &c4, &82, &f0   ; 1dc5: c9 55 d0... .U.
+    equb &12, &b1, &70, &d0, 9  , &20, &9e, &1e, &d0, 2  , &a9, &55   ; 1dd1: 12 b1 70... ..p
+    equb &91, &70, &88, &c4, &82, &d0, &ee, &60, &91, &70, &88, &c4   ; 1ddd: 91 70 88... .p.
+    equb &82, &d0, &f9, &4c, &7c, &1d, &85, &42, &86, &85, &84, &7f   ; 1de9: 82 d0 f9... ...
+    equb &bd, 0  , &39, &85, &82, &a2, &72, &a0, &ef, &a9, 0  , &20   ; 1df5: bd 00 39... ..9
+    equb &a6, &1d, &a2, &70, &a0, 9  , &a9, &55, &e6, &85, &20, &a6   ; 1e01: a6 1d a2... ...
+    equb &1d, &a6, &85, &e4, &42, &d0, &dd, &60, &a9, 5  , &85, &73   ; 1e0d: 1d a6 85... ...
+    equb &a9, 4  , &85, &72, &a0, &1b, &a2, 3  , &a9, 6  , &20, &ef   ; 1e19: a9 04 85... ...
+    equb &1d, &a9, &44, &85, &73, &a9, 0  , &85, &72, &a0, &2b, &a2   ; 1e25: 1d a9 44... ..D
+    equb &1a, &a9, &22, &20, &ef, &1d, &60, &a5, &78, &d0, 2  , &a9   ; 1e31: 1a a9 22... .."
+    equb &55, &85, &76, &a9, &7f, &38, &e5, &7f, &85                  ; 1e3d: 55 85 76... U.v
+    equs "teG"                                                        ; 1e46: 74 65 47    teG
+    equb &85, &86, &a5, &85, &85, &75, &18                            ; 1e49: 85 86 a5... ...
+    equs "i_J"                                                        ; 1e50: 69 5f 4a    i_J
+    equb &85, &71, &85, &73, &a9, 0  , &6a, &38, &e5, &74, &85, &70   ; 1e53: 85 71 85... .q.
+    equb &49, &80, &85, &72, &10, 2  , &c6, &73, &b0, 4  , &c6, &71   ; 1e5f: 49 80 85... I..
+    equb &c6, &73, &a4, &75, &b9, &4f, &3f, &88, &88, &84, &75, &c5   ; 1e6b: c6 73 a4... .s.
+    equb &47, &90, &0a, &65, &74, &a8, &10, 7  , &e0, 2  , &b0, &10   ; 1e77: 47 90 0a... G..
+    equb &60, &a4, &86, &a5, &76, &e0, 2  , &90, &0c, &91, &70, &91   ; 1e83: 60 a4 86... `..
+    equb &72, &c8, &10, &f9, &ca, &ca, &d0, &d2, &60, &91, &70, &c8   ; 1e8f: 72 c8 10... r..
+    equb &10, &fb, &60, &c4, &1f, &90, 6  , &f0, 4  , &ad, &fd, &38   ; 1e9b: 10 fb 60... ..`
+    equb &60, &a5, &85, &d9, &54, 5  , &b0, &18, &d9, 0  , 6  , &b0   ; 1ea7: 60 a5 85... `..
+    equb &21, &d9, &50, 6  , &b0, &0a, &d9, &a4, 5  , &b0, &0d, &b9   ; 1eb3: 21 d9 50... !.P
+    equb &60, &5f, &90, &1f, &ad, &fc, &38, &60, &ad, &ff, &38, &60   ; 1ebf: 60 5f 90... `_.
+    equb &c4, &2c, &b0, &f8, &b9, 0  , 4  , &4c, &dc, &1e, &c4, &29   ; 1ecb: c4 2c b0... .,.
+    equb &b0, &ee, &b9, &50, 4  , &29, &7f, &aa, &bd, &df, &5e, &29   ; 1ed7: b0 ee b9... ...
+    equb 3  , &aa, &bd, &fc                                           ; 1ee3: 03 aa bd... ...
+    equs "8` "                                                        ; 1ee7: 38 60 20    8`
+    equb &c5, &63, &d0, 3  , &4c, &2d, &16, &b0, &fb, &c9, 5  , &b0   ; 1eea: c5 63 d0... .c.
+    equb &11, &4c, &f4, &15, &20, &c5, &63, &f0, 6  , &b0, 4  , &a5   ; 1ef6: 11 4c f4... .L.
+    equb &76, &d0, &0c, &4c, &95, &1f, &a5, &74, &49, 1  , &4a, &a9   ; 1f02: 76 d0 0c... v..
+    equb 3  , &e9, 0  , &a2, &32, &c9, 2  , &f0, 2  , &a2, &0a, &ad   ; 1f0e: 03 e9 00... ...
+    equb &a2, &62, &85, &76, &4a, &ad, &a5, &62, &90, &0c, &a9, 0     ; 1f1a: a2 62 85... .b.
+    equb &38, &e5, &76, &85, &76, &a9, 0  , &ed, &a5, &62, &18, &69   ; 1f26: 38 e5 76... 8.v
+    equb 1  , &e0, &32, &d0, 2  , &e9, 2  , &85, &77, &bd             ; 1f32: 01 e0 32... ..2
+    equs "@^8"                                                        ; 1f3c: 40 5e 38    @^8
+    equb &e5, &76, &85, &74, &bd, &90, &5e, &e5, &77, 8  , &20, &40   ; 1f3f: e5 76 85... .v.
+    equb &0e, &85, &76, &a4, &22, &a9, &3c, &38, &e5, &63, &10, 2     ; 1f4b: 0e 85 76... ..v
+    equb &a9, 0  , &0a, &69, &20, &85, &75, &b9, 1  , 7  , &29, &7f   ; 1f57: a9 00 0a... ...
+    equb &c9, &40, &90, 2  , &a9, 2  , &c9, 8  , &90, 2  , &a9, 7     ; 1f63: c9 40 90... .@.
+    equb &0a, &0a, &0a, &0a, &c5, &75, &90, 2  , &85, &75, &20, &bf   ; 1f6f: 0a 0a 0a... ...
+    equb &0d, &a5                                                     ; 1f7b: 0d a5       ..
+    equs "u( @"                                                       ; 1f7d: 75 28 20... u(
+    equb &0e, &85, &75, &a5, &74, &29, &fe, &85, &74, &ad, &a2, &62   ; 1f81: 0e 85 75... ..u
+    equb &4a, &b0, 5  , &20, &44, &0e, &85, &75, &ad, &a2, &62, &4c   ; 1f8d: 4a b0 05... J..
+    equb &12, &16, &90, &0a, &ad, &a2, &62, &29, &fe, &85, &74, &ad   ; 1f99: 12 16 90... ...
+    equb &a5, &62, &60, &90, 5  , &bd, &80, 8  , &c9, 3  , &6e, &fb   ; 1fa5: a5 62 60... .b`
+    equb &62, &60, &ea, &86, &74, &a2, 3  , &bd, &fc, &38, &9d, &8f   ; 1fb1: 62 60 ea... b`.
+    equb &62, &ca, &10, &f7, &a9, &f0, &8d, &fe, &38, &a5, &74, &c9   ; 1fbd: 62 ca 10... b..
+    equb &17, &f0, &12, &c9, &14, &90, 5  , &a6, &4d, &bd, &3c, 1     ; 1fc9: 17 f0 12... ...
+    equb &29, 3  , &aa, &bd, &fc, &38, &8d, &90, &62, &a2, 0  , &86   ; 1fd5: 29 03 aa... )..
+    equb &2b, &a5, &2a, &cd, &fc, &62, &b0, 2  , &a6, &1f, &8e, &fd   ; 1fe1: 2b a5 2a... +.*
+    equb &62, &c9, &40, &b0, 8  , &0a, &0a, &85, &2a, &a9, 2  , &85   ; 1fed: 62 c9 40... b.@
+    equb &2b, &a6, &37, &e0, &0a, &90, 2  , &a2, 9  , &8e, &f3, &62   ; 1ff9: 2b a6 37... +.7
+    equb &bd, &dd, &3c, &85, &81, &bd, &de, &3c, &85, &8a, &bd, &d0   ; 2005: bd dd 3c... ..<
+    equb &3c, &85, &8e                                                ; 2011: 3c 85 8e    <..
+    equs " * "                                                        ; 2014: 20 2a 20     *
+    equb &b0, &10, &20, &9a, &20, &a6, &37, &ad, &f3, &62, &c9, 9     ; 2017: b0 10 20... ..
+    equb &d0, 4  , &a5, &25, &10, &d9, &60, &a5, &2a, &8d, &fa, &5f   ; 2023: d0 04 a5... ...
+    equb &4a, &8d, &fb, &5f, &4a, &8d, &fc, &5f, &4a, &8d, &fd, &5f   ; 202f: 4a 8d fb... J..
+    equb &4a, &8d, &fe, &5f, &4a, &8d, &ff, &5f, &a4, &81, &a2, 0     ; 203b: 4a 8d fe... J..
+    equb &86, &77, &b9, &80, &44, &10, &24, &29, 7  , &aa, &bd, &f8   ; 2047: 86 77 b9... .w.
+    equb &5f, &85, &74, &b9, &80, &44, &85                            ; 2053: 5f 85 74... _.t
+    equs "uJJJ)"                                                      ; 205a: 75 4a 4a... uJJ
+    equb 7  , &aa, &bd, &f8, &5f, &18                                 ; 205f: 07 aa bd... ...
+    equs "et$uP"                                                      ; 2065: 65 74 24... et$
+    equb &0b, &18, &6d, &fb                                           ; 206a: 0b 18 6d... ..m
+    equs "_Lv "                                                       ; 206e: 5f 4c 76... _Lv
+    equb &aa, &bd, &f8, &5f, &a6, &2b, &f0, 6  , &4a, &ca, &d0, &fc   ; 2072: aa bd f8... ...
+    equb &69, 0  , &a6, &77, &9d, &f8, &5e, &49, &ff, &10, &0f, &18   ; 207e: 69 00 a6... i..
+    equb &69, 1  , &9d, 0  , &5f, &e6, &77, &c8, &c4, &8a, &d0, &b3   ; 208a: 69 01 9d... i..
+    equb &18                                                          ; 2096: 18          .
+    equs "`8`"                                                        ; 2097: 60 38 60    `8`
+    equb &a4, &8e, &ad, &fc, &38, &85, &79, &a9, 0  , &85, &48, &85   ; 209a: a4 8e ad... ...
+    equb &8c, &be, &50, &35, &bd, &f8, &5e, &18                       ; 20a6: 8c be 50... ..P
+    equs "e60Z"                                                       ; 20ae: 65 36 30... e60
+    equb &c9, &50, &90, 2  , &a9, &4f, &85, &7f, &be, &d0, &35, &bd   ; 20b2: c9 50 90... .P.
+    equb &f8, &5e, &18                                                ; 20be: f8 5e 18    .^.
+    equs "e60"                                                        ; 20c1: 65 36 30    e60
+    equb 5  , &cd, &fd, &62, &b0, 5  , &ad, &fd, &62, &ea, &ea, &c5   ; 20c4: 05 cd fd... ...
+    equb &7f, &b0, &39, &85, &47, &be, &50, &36, &bd, &f8, &5e, &85   ; 20d0: 7f b0 39... ..9
+    equb &7e, &be, &d0, &36, &bd, &f8, &5e, &85, &83, &b9, &50, &37   ; 20dc: 7e be d0... ~..
+    equb &85, &84, &84, &1b, &a0, 1  , &20, &1c, &1c, &24, &84, &30   ; 20e8: 85 84 84... ...
+    equb &22, &a9, 0  , &a0, 2  , &20, &1c, &1c, &24, &84, &70, 6     ; 20f4: 22 a9 00... "..
+    equb &a4, &1b, &c8, &4c, &9c                                      ; 2100: a4 1b c8... ...
+    equs " `)@"                                                       ; 2105: 20 60 29...  `)
+    equb &d0, &fb, &c8, &b9                                           ; 2109: d0 fb c8... ...
+    equs "P70"                                                        ; 210d: 50 37 30    P70
+    equb &f6, &29, &40, &d0, &f1, &f0, &eb, &a4, &1b, &c8, &84, &1b   ; 2110: f6 29 40... .)@
+    equb &be, &50, &36, &bd, &f8, &5e, &85, &83, &b9, &d0, &36, &85   ; 211c: be 50 36... .P6
+    equb &84, &a0, 0  , &20, &1c, &1c, &a4, &1b, &be, &50, &35, &bd   ; 2128: 84 a0 00... ...
+    equb &f8, &5e, &85, &83, &b9, &50, &37, &85, &84, &a0, 0  , &20   ; 2134: f8 5e 85... .^.
+    equb &1c, &1c, &4c, &f1, &20, &a0, 0  , &bd, 0  , 9  , &38, &f9   ; 2140: 1c 1c 4c... ..L
+    equb &80, &62, &85, &80, &bd, 0  , &0a, &f9, &83, &62, &85, &86   ; 214c: 80 62 85... .b.
+    equb &10, &0b, &a9, 0  , &38, &e5, &80, &85, &80, &a9, 0  , &e5   ; 2158: 10 0b a9... ...
+    equb &86, &85, &83, &bd, 2  , 9  , &38, &f9, &82, &62, &85, &82   ; 2164: 86 85 83... ...
+    equb &bd, 2  , &0a, &f9, &85, &62, &85, &88, &10, &0b, &a9, 0     ; 2170: bd 02 0a... ...
+    equb &38, &e5, &82, &85, &82, &a9, 0  , &e5, &88, &85, &85, &c5   ; 217c: 38 e5 82... 8..
+    equb &83, &90, 8  , &d0, &19, &a5, &82, &c5, &80, &b0, &13, &a5   ; 2188: 83 90 08... ...
+    equb &85, &85, &79, &a5, &82, &85, &78, &a5, &80, &85, &7a, &a5   ; 2194: 85 85 79... ..y
+    equb &83, &85, &7b, &4c, &c1, &21, 8  , &a5, &83, &85, &79, &a5   ; 21a0: 83 85 7b... ..{
+    equb &80, &85, &78, &a5, &82, &85, &7a, &a5, &85, &85, &7b, &28   ; 21ac: 80 85 78... ..x
+    equb &f0                                                          ; 21b8: f0          .
+    equs "SL9", '"'                                                   ; 21b9: 53 4c 39... SL9
+    equb 6  , &82, &26, &85, 6  , &80, &2a, &90, &f7, &6a, &85, &76   ; 21bd: 06 82 26... ..&
+    equb &a5, &82, &85, &74, &a5, &85, &c5, &76, &f0                  ; 21c9: a5 82 85... ...
+    equs ": G"                                                        ; 21d2: 3a 20 47    : G
+    equb &0c, &a9, 0  , &85, &8a, &a4, &74, &b9, 0  , &61, &85        ; 21d5: 0c a9 00... ...
+    equs "~Jf"                                                        ; 21e0: 7e 4a 66    ~Jf
+    equb &8a, &4a, &66, &8a, &4a, &66, &8a, &85, &8b, &a5, &86, &45   ; 21e3: 8a 4a 66... .Jf
+    equb &88, &30, &0d, &a9, 0  , &38, &e5, &8a, &85, &8a, &a9, 0     ; 21ef: 88 30 0d... .0.
+    equb &e5, &8b, &85, &8b, &a9, &40, &24, &86, &10, 2  , &a9, &c0   ; 21fb: e5 8b 85... ...
+    equb &18, &65, &8b, &85, &8b, &60, &a9, &ff, &85, &7e, &a9, 0     ; 2207: 18 65 8b... .e.
+    equb &85, &8a, &24, &86, &10, &0e, &24, &88, &10, 5  , &a9, &a0   ; 2213: 85 8a 24... ..$
+    equb &85, &8b, &60, &a9, &e0, &85, &8b, &60, &24, &88, &10, 5     ; 221f: 85 8b 60... ..`
+    equb &a9, &60, &85, &8b, &60, &a9, &20, &85, &8b, &60, 6  , &80   ; 222b: a9 60 85... .`.
+    equb &26, &83, 6  , &82, &2a, &90, &f7, &6a, &85, &76, &a5, &80   ; 2237: 26 83 06... &..
+    equb &85, &74, &a5, &83, &c5, &76, &f0, &c2, &20, &47, &0c, &a9   ; 2243: 85 74 a5... .t.
+    equb 0  , &85, &8a, &a4, &74, &b9, 0  , &61, &85                  ; 224f: 00 85 8a... ...
+    equs "~Jf"                                                        ; 2258: 7e 4a 66    ~Jf
+    equb &8a, &4a, &66, &8a, &4a, &66, &8a, &85, &8b, &a5, &86, &45   ; 225b: 8a 4a 66... .Jf
+    equb &88, &10, &0d, &a9, 0  , &38, &e5, &8a, &85, &8a, &a9, 0     ; 2267: 88 10 0d... ...
+    equb &e5, &8b, &85, &8b, &a9, 0  , &24, &88, &10, 2  , &a9, &80   ; 2273: e5 8b 85... ...
+    equb &18, &65, &8b, &85, &8b, &60, &a0, 0  , &bd, 1  , 9  , &38   ; 227f: 18 65 8b... .e.
+    equb &f9, &81, &62, &85, &81, &bd, 1  , &0a, &f9, &84, &62, &85   ; 228b: f9 81 62... ..b
+    equb &87, &10, &0b, &a9, 0  , &38, &e5, &81, &85, &81, &a9, 0     ; 2297: 87 10 0b... ...
+    equb &e5, &87, &4a, &66, &81, &4a, &66, &81, &4a, &66, &81, &85   ; 22a3: e5 87 4a... ..J
+    equb &84, &c5, &7d, &90, &0a, &d0, 6  , &a5, &81, &c5, &7c, &90   ; 22af: 84 c5 7d... ..}
+    equb 2  , &38, &60, &a0, 0  , &a5, &7d, &4c, &ca, &22, 6  , &81   ; 22bb: 02 38 60... .8`
+    equb &26, &84, &c8, 6  , &7c, &2a, &90, &f6, &6a, &85, &76, &84   ; 22c7: 26 84 c8... &..
+    equb &2b, &a8, &b9, &80, &61, &85, &2a, &a5, &81, &85, &74, &a5   ; 22d3: 2b a8 b9... +..
+    equb &84, &20, &47, &0c, &a5, &74, &c9, &80, &b0, &15, &24, &87   ; 22df: 84 20 47... . G
+    equb &10, 8  , &a9, &3c, &38, &e5, &74, &4c, &f8, &22, &18        ; 22eb: 10 08 a9... ...
+    equs "i<8"                                                        ; 22f6: 69 3c 38    i<8
+    equb &e5, &0d, &85, &8d, &18, &60, &ad, &f5, &62, &f0, 8  , &20   ; 22f9: e5 0d 85... ...
+    equb &a0, &12, &a9, 0  , &8d, &f5, &62, &a4, 5  , &c0, 6  , &f0   ; 2305: a0 12 a9... ...
+    equb &ec, &a4, 6  , &c0, 6  , &f0, &18, &c4, 8  , &f0, &0f, &84   ; 2311: ec a4 06... ...
+    equb &74, &98, &18, &69, &28, &a8, &20, &a2, &0b, &a4, &74, &20   ; 231d: 74 98 18... t..
+    equb &a2, &0b, &c8, &c0, 6  , &90, &e8, &a9, 6  , &38, &e5, 8     ; 2329: a2 0b c8... ...
+    equb &0a, &0a, &0a, &24, &25, &10, &13, &85, &74, &ad, &ff, 6     ; 2335: 0a 0a 0a... ...
+    equb &18, &69, 8  , &38, &e5, &74, &b0, &12, &6d, &fa             ; 2341: 18 69 08... .i.
+    equs "YL[#"                                                       ; 234b: 59 4c 5b... YL[
+    equb &18, &6d, &ff, 6  , &cd, &fa, &59, &90, 3  , &ed, &fa, &59   ; 234f: 18 6d ff... .m.
+    equb &a8, &84, 4  , &a6, 8  , &86, &42, &a2, &fd, &20, 8  , &12   ; 235b: a8 84 04... ...
+    equs " E!"                                                        ; 2367: 20 45 21     E!
+    equb &a4                                                          ; 236a: a4          .
+    equs "B$%"                                                        ; 236b: 42 24 25    B$%
+    equb &10, 4  , &98, &49, &28, &a8, &20, &c0, &23, &a6, &42, &e0   ; 236e: 10 04 98... ...
+    equb &28, &b0, &1d, &a2, &fd, &20, &85, &22, &a6, &42, &a5, &8d   ; 237a: 28 b0 1d... (..
+    equb &9d, &20, &5f, &9d, &48, &5f, &c5, &1f, &90, &0a, &d0, 4     ; 2386: 9d 20 5f... . _
+    equb &e4, &51, &90, 4  , &85, &1f, &86, &51, &8a, &18, &69, &28   ; 2392: e4 51 90... .Q.
+    equb &c9, &3c, &b0, &0a, &aa, &a5, 4  , &18, &69, 3  , &a8        ; 239e: c9 3c b0... .<.
+    equs "L`#"                                                        ; 23a9: 4c 60 23    L`#
+    equb &a6, 8  , &ca, &20, &dc, &12, &a9, 7  , &c5, &52, &b0, 2     ; 23ac: a6 08 ca... ...
+    equb &85, &1f                                                     ; 23b8: 85 1f       ..
+    equs "` E!"                                                       ; 23ba: 60 20 45... ` E
+    equb &a4, &12, &a5, &8a, &38, &e5, &0a, &99, &40, &5e, &a5, &8b   ; 23be: a4 12 a5... ...
+    equb &e5, &0b, &99, &90, &5e, &4c, &a5, &0c, &85, &12, &a9, 0     ; 23ca: e5 0b 99... ...
+    equb &85, &42, &20, &bb, &23, &c5, &11, &90, 8  , &d0, &1b, &a5   ; 23d6: 85 42 20... .B
+    equb &10, &c5, &7c, &90, &15, &a5, &7d, &85, &11, &a5, &7c, &85   ; 23e2: 10 c5 7c... ..|
+    equb &10, &a5, &42, &85, &13, &a4, &12, &84, &5c, &b9, &90, &5e   ; 23ee: 10 a5 42... ..B
+    equb &85, &5e, &20, &85, &22, &b0, 2  , &10, &67, &a5, &42, &d0   ; 23fa: 85 5e 20... .^
+    equb 1  , &60, &a9, 0  , &85, &75, &a4, &14, &86, &77, &bd, 0     ; 2406: 01 60 a9... .`.
+    equb 9  , &38, &f9, 0  , 9  , &85, &74, &bd, 0  , &0a, &f9, 0     ; 2412: 09 38 f9... .8.
+    equb &0a, &18, &10, 1  , &38, 8                                   ; 241e: 0a 18 10... ...
+    equs "jft(jft"                                                    ; 2424: 6a 66 74... jft
+    equb &85, &76, &a6, &75, &b9, 0  , 9  , &18, &65, &74, &9d, &fa   ; 242b: 85 76 a6... .v.
+    equb 9  , &b9, 0  , &0a, &65, &76, &9d, &fa, &0a, &e8, &e0, 3     ; 2437: 09 b9 00... ...
+    equb &f0, &0b, &86, &75, &a6, &77, &c8, &e8, &86, &77, &4c, &10   ; 2443: f0 0b 86... ...
+    equb &24, &a2, &fa, &20, &bb, &23, &20, &85, &22, &b0, &0f, &a6   ; 244f: 24 a2 fa... $..
+    equb &14, &a5, &57, &85                                           ; 245b: 14 a5 57... ..W
+    equs "V e%"                                                       ; 245f: 56 20 65... V e
+    equb &a5, &56, &85, &57, &e6, &12                                 ; 2463: a5 56 85... .V.
+    equs "` e%"                                                       ; 2469: 60 20 65... ` e
+    equb &a5, &42, &c5, &13, &f0, &1d, &90, &1b, &a4, &12, &b9, &90   ; 246d: a5 42 c5... .B.
+    equb &5e, &10, 2  , &49, &ff, &c9, &14, &90, &0e, &b9, &8f, &5e   ; 2479: 5e 10 02... ^..
+    equb &10, 2  , &49, &ff, &c9, &14, &b0, &2b, &4c, 3  , &24, &86   ; 2485: 10 02 49... ..I
+    equb &14, &e6, &12, &e6, &42, &a4, &42, &c0, &12, &b0, &1c, &b9   ; 2491: 14 e6 12... ...
+    equb &d0, &3d, &85, &74, &8a, &38, &e5, &0e, &c5, &74, &b0, 7     ; 249d: d0 3d 85... .=.
+    equb &8a, &18                                                     ; 24a9: 8a 18       ..
+    equs "ixL"                                                        ; 24ab: 69 78 4c    ixL
+    equb &b1, &24, &8a, &38, &e5, &74, &aa, &4c, &d8, &23, &60, &a5   ; 24ae: b1 24 8a... .$.
+    equb &44, &38, &ed, &e2, &62, &10, 2  , &49, &ff, &0a, &c9, &80   ; 24ba: 44 38 ed... D8.
+    equb &45, &25, &10, &0c, &90, 2  , &49, &7f, &c9, &fc, &b0, 4     ; 24c6: 45 25 10... E%.
+    equb &20, &fb, &13, &60, &a5, &13, &c9, &0c, &f0, 5  , &b0, &0b   ; 24d2: 20 fb 13...  ..
+    equb &20, &f3, &12, &24, &43, &10, &10, &20, &f3, &12, &60, &c9   ; 24de: 20 f3 12...  ..
+    equb &0e, &90, 8  , &f0, 3  , &20, &0b, &14, &20, &0b, &14, &60   ; 24ea: 0e 90 08... ...
+    equb &a9, 0  , &85, &1f, &20, &ff, &22, &a9, &ff, &85, &11, &a9   ; 24f6: a9 00 85... ...
+    equb &0d, &85, &13, &a9, 0                                        ; 2502: 0d 85 13... ...
+    equs " J%"                                                        ; 2507: 20 4a 25     J%
+    equb &a9, 6  , &20, &d2, &23, &a5, &12, &85, &15, &a9, &80        ; 250a: a9 06 20... ..
+    equs " J%"                                                        ; 2515: 20 4a 25     J%
+    equb &a9, &2e, &20, &d2, &23, &a5, &51, &c9, &28, &90, 5  , &38   ; 2518: a9 2e 20... ..
+    equb &e9, &28, &85, &51, &a8, &84, &52, &a5, &1f, &c9, &4f, &90   ; 2524: e9 28 85... .(.
+    equb 4  , &a9, &4e, &85, &1f, &99, &20, &5f, &99, &48, &5f, &b9   ; 2530: 04 a9 4e... ..N
+    equb &90, &5e, &38, &f9, &b8                                      ; 253c: 90 5e 38... .^8
+    equs "^ P4J"                                                      ; 2541: 5e 20 50... ^ P
+    equb &8d, &fc, &62, &60, &a6                                      ; 2546: 8d fc 62... ..b
+    equs "$E%"                                                        ; 254b: 24 45 25    $E%
+    equb &10, &0a, &8a, &18, &69, &78, &aa, &a9, &78, &38, &d0, 3     ; 254e: 10 0a 8a... ...
+    equb &a9, 0  , &18, &85, &0e, &a9, 0  , &2a, &85, &49, &60, &a4   ; 255a: a9 00 18... ...
+    equb &49, &e0, &78, &b0, 5  , &bd, 2  , 7  , &90, 3  , &bd, &8a   ; 2566: 49 e0 78... I.x
+    equb 6                                                            ; 2572: 06          .
+    equs "9l0"                                                        ; 2573: 39 6c 30    9l0
+    equb &85, &77, &29, 7  , &a8, &b9, &6e, &30, &85, &76, &a5, &42   ; 2576: 85 77 29... .w)
+    equb &c9, 3  , &b0, 3  , &4c, &fd, &25, &a5, &2b, &38, &f9, &76   ; 2582: c9 03 b0... ...
+    equb &30, &a8, &a9, 0  , &85, &75, &a5, &2a, &88, &f0, &10, &10   ; 258e: 30 a8 a9... 0..
+    equb 8                                                            ; 259a: 08          .
+    equs "Fuj"                                                        ; 259b: 46 75 6a    Fuj
+    equb &c8, &d0, &fa, &f0, 6  , &0a, &26, &75, &88, &d0, &fa, &85   ; 259e: c8 d0 fa... ...
+    equb &74, &a5                                                     ; 25aa: 74 a5       t.
+    equs "IJjE%"                                                      ; 25ac: 49 4a 6a... IJj
+    equb &10, &0d, &a9, 0  , &38, &e5, &74, &85, &74, &a9, 0  , &e5   ; 25b1: 10 0d a9... ...
+    equb &75, &85, &75, &a4, &12, &b9, &40, &5e, &18, &65, &74, &99   ; 25bd: 75 85 75... u.u
+    equb &50, &5e, &b9, &90                                           ; 25c9: 50 5e b9... P^.
+    equs "^eu"                                                        ; 25cd: 5e 65 75    ^eu
+    equb &99, &a0, &5e, &a5, &77, &29, &18, &f0, &24, &a4, &57, &c0   ; 25d0: 99 a0 5e... ..^
+    equb 3  , &b0, &1e, &a5, &12, &99, &b4, &62, &a5, &77, &99, &99   ; 25dc: 03 b0 1e... ...
+    equb &62, &29, 1  , &f0, 4                                        ; 25e8: 62 29 01... b).
+    equs "Fuft"                                                       ; 25ed: 46 75 66... Fuf
+    equb &a5, &74, &99, &b7, &62, &a5, &75, &99, &ba, &62, &e6, &57   ; 25f1: a5 74 99... .t.
+    equb &8a, &29, 1  , &f0, 4  , &a9, 2  , &d0, 2  , &a5, &76, &a4   ; 25fd: 8a 29 01... .).
+    equb &12, &99, &e0, &5e, &a5, &8d, &99, &20, &5f, &c9, &50, &b0   ; 2609: 12 99 e0... ...
+    equb 8  , &c5, &1f, &90, 4  , &85, &1f, &84, &51, &60, &a2, &16   ; 2615: 08 c5 1f... ...
+    equb &bd, &8c, 1  , 9  , &80, &9d, &8c, 1  , &ca, &10, &f5, &60   ; 2621: bd 8c 01... ...
+    equb &a2, 6  , &c6, &74, &d0, &fc, &ca, &d0, &f9, &60, &ad        ; 262d: a2 06 c6... ...
+    equs ";_0"                                                        ; 2638: 3b 5f 30    ;_0
+    equb &f1, &a6, &5b, &bc, &3c, 1  , &b9, &8c, 1  , &29, &7f, &99   ; 263b: f1 a6 5b... ..[
+    equb &8c, 1  , &20, &ed, &27, &20, &92, &26, &20, &1f, &26, &20   ; 2647: 8c 01 20... ..
+    equb &a2, &63, &a6, 3  , &a0, 5  , &24, &25, &10, 6  , &20, &84   ; 2653: a2 63 a6... .c.
+    equs "PLf& ~P"                                                    ; 265f: 50 4c 66... PLf
+    equb &8c, &f4, &62, &86, &1d, &20, &f2, &28, &a6, &1d, &ac, &f4   ; 2666: 8c f4 62... ..b
+    equb &62, &88, &10, &e3, &20, &df, &66, &a6, &5b, &20, &f2, &28   ; 2672: 62 88 10... b..
+    equb &60, &bd, &3c, 1  , &85, &74, &b9, &3c, 1  , &9d, &3c, 1     ; 267e: 60 bd 3c... `.<
+    equb &aa, &a5, &74, &99, &3c, 1  , &a8, &60, &a6, 3  , &86, &77   ; 268a: aa a5 74... ..t
+    equb &bd, &3c, 1  , &85                                           ; 2696: bd 3c 01... .<.
+    equs "t ~P"                                                       ; 269a: 74 20 7e... t ~
+    equb &bd, &3c, 1  , &86, &78, &a8, &a6, &74, &a9, 0  , &85, &7f   ; 269e: bd 3c 01... .<.
+    equb &9d, &14, 1  , &20, &a4, &27, &b0, &34, &10, &35, &c9, &f6   ; 26aa: 9d 14 01... ...
+    equb &90, &2e, &a6, &77, &a4, &78, &20, &7f                       ; 26b6: 90 2e a6... ...
+    equs "&8n"                                                        ; 26be: 26 38 6e    &8n
+    equb &fe, &62, &c4, &6f, &d0, 4  , &a9, &99, &d0, 6  , &e4, &6f   ; 26c1: fe 62 c4... .b.
+    equb &d0, &17, &a9, 1  , &85, &74, &b9, &b4, 4  , &26, &79, &fd   ; 26cd: d0 17 a9... ...
+    equb &b4, 4  , &d0, 9  , &f8, &18, &a5                            ; 26d9: b4 04 d0... ...
+    equs "te/"                                                        ; 26e0: 74 65 2f    te/
+    equb &85, &2f, &d8, &4c, &8c, &27, &c9, 5  , &b0, &f9, &bd, &50   ; 26e3: 85 2f d8... ./.
+    equb &38, &18, &f9, &50, &38, &bd, &50, 1  , &f9, &50, 1  , &66   ; 26ef: 38 18 f9... 8..
+    equb &76, &10, &e8, &4a, &c9, &1e, &90, 2  , &a9, &1e, &c9, 4     ; 26fb: 76 10 e8... v..
+    equb &b0, 2  , &a9, 4  , &85, &83, &a5, &74, &c9, 4  , &b9, 0     ; 2707: b0 02 a9... ...
+    equb 1  , &29, &40, &f0, &11, &b0, 2  , 9  , &80, &85, &7f, &bd   ; 2713: 01 29 40... .)@
+    equb &78, 1  , &d9, &78, 1                                        ; 271f: 78 01 d9... x..
+    equs "ftL}'"                                                      ; 2724: 66 74 4c... ftL
+    equb &b0, &17, &a9, &40, &85, &7f, &b9, &78, 1  , &dd, &78, 1     ; 2729: b0 17 a9... ...
+    equs "ft)"                                                        ; 2735: 66 74 29    ft)
+    equb &ff                                                          ; 2738: ff          .
+    equs " P4"                                                        ; 2739: 20 50 34     P4
+    equb &c9, &3c, &90, 4  , &b0, 7  , &46, &76, &b9, &78, 1  , &85   ; 273c: c9 3c 90... .<.
+    equb &74, &bd, &8c, 1  , &10, &10, &ad, &68, &fe, &29, &1f, &d0   ; 2748: 74 bd 8c... t..
+    equb &37, &a5, &76, &29, &80, 5  , &7f, &4c, &8a, &27, &b9, &78   ; 2754: 37 a5 76... 7.v
+    equb 1  , &38, &fd, &78, 1  , &b0, 2  , &49, &ff, &c9, &64, &b0   ; 2760: 01 38 fd... .8.
+    equb &1f, &c9, &50, &b0, &15, &c9, &3c, &b0, 8  , &a5, &76, &29   ; 276c: 1f c9 50... ..P
+    equb &80, 5  , &7f, &85, &7f, &a5, &74, &29, &80, 5  , &83, &9d   ; 2778: 80 05 7f... ...
+    equb &14, 1  , &a5, &7f, 9  , &10, &85, &7f, &bd, 0  , 1  , &4a   ; 2784: 14 01 a5... ...
+    equb &a5, &7f, &b0, 3  , &9d, 0  , 1  , &a6, &77, &20, &84, &50   ; 2790: a5 7f b0... ...
+    equb &e4, 3  , &f0, 3  , &4c, &94, &26, &60, &b9, &64, 1  , &38   ; 279c: e4 03 f0... ...
+    equb &fd, &64, 1  , &b9, &d0, 8  , &fd, &d0, 8  , &85, &74, &b9   ; 27a8: fd 64 01... .d.
+    equb &e8, 8  , &fd, &e8, 8  , 8  , &10, 3  , &20, &40, &0e, &85   ; 27b4: e8 08 fd... ...
+    equb &75, &38, &f0, &14, &68, &49, &80, 8  , &ad, &fc, &59, &38   ; 27c0: 75 38 f0... u8.
+    equb &e5, &74, &85, &74, &ad, &fd, &59, &e5, &75, &d0, &13, &18   ; 27cc: e5 74 85... .t.
+    equb &66, &79, &a5, &74, &c9, &80, &b0, &0a                       ; 27d8: 66 79 a5... fy.
+    equs "( P4"                                                       ; 27e0: 28 20 50... ( P
+    equb &85, &74, &a5, &74, &18                                      ; 27e4: 85 74 a5... .t.
+    equs "`(8`"                                                       ; 27e9: 60 28 38... `(8
+    equb &a5, &6d, &30, &fb, &a2, &14, &4c, &e7, &28, &bd, 0  , 1     ; 27ed: a5 6d 30... .m0
+    equb &30, &60, &bc, &e8, 6  , &b9, 0  , &59, &10, &0a, &bd, &50   ; 27f9: 30 60 bc... 0`.
+    equb 1  , &dd, &a4, 1  , &b0, &74, &90, &22, &4a, &b0, &1f, &b9   ; 2805: 01 dd a4... ...
+    equb 7  , &53, &9d, &a4, 1  , &18, &fd, &50, 1  , &b0, &13, &4a   ; 2811: 07 53 9d... .S.
+    equb &4a, 9  , &c0, &85, &74, &bd, &80, 8  , &38, &f9, 5  , &53   ; 281d: 4a 09 c0... J..
+    equb &b0, &54, &c5, &74, &b0, &2c, &bd, &50, 1  , &c9, &3c, &b0   ; 2829: b0 54 c5... .T.
+    equb 2  , &a9, &16, &85, &74, &bd, 0  , 1  , &29, &40, &f0, 2     ; 2835: 02 a9 16... ...
+    equb &a9, 5  , &18, &7d, &28, 1  , &24, &6c, &10, 3  , &ed, &1a   ; 2841: a9 05 18... ...
+    equb &5a, &a0, 0  , &38, &e5, &74, &b0, 1  , &88, &84             ; 284d: 5a a0 00... Z..
+    equs "uLa("                                                       ; 2857: 75 4c 61... uLa
+    equb &a9, &ff, &85, &75, &a9, 0  , &0a, &26, &75, &0a, &26, &75   ; 285b: a9 ff 85... ...
+    equb &18                                                          ; 2867: 18          .
+    equs "}P8"                                                        ; 2868: 7d 50 38    }P8
+    equb &9d, &50, &38, &a5                                           ; 286b: 9d 50 38... .P8
+    equs "u}P"                                                        ; 286f: 75 7d 50    u}P
+    equb 1  , &c9, &be, &90, 5  , &a9, 0  , &9d, &50, &38, &9d, &50   ; 2872: 01 c9 be... ...
+    equb 1  , &a9, 1  , &85, &76, &bd, &50, 1  , &18, &7d, &64, 1     ; 287e: 01 a9 01... ...
+    equb &9d, &64, 1  , &90, 3  , &20, &7c, &14, &c6, &76, &10, &ed   ; 288a: 9d 64 01... .d.
+    equb &bd, &8c, 1  , &0a, &b0                                      ; 2896: bd 8c 01... ...
+    equs "K00"                                                        ; 289b: 4b 30 30    K00
+    equb &bd, &14, 1  , &29, &40, &f0, &29, &bd, &78, 1  , &5d, &14   ; 289e: bd 14 01... ...
+    equb 1  , &10, &21, &bd, &78, 1  , &10, &0f, &c9, &ec, &90, 5     ; 28aa: 01 10 21... ..!
+    equb &de, &78, 1  , &b0, &2c, &c9, &e2, &90, &0f, &b0, &26, &c9   ; 28b6: de 78 01... .x.
+    equb &14, &b0, 5  , &fe, &78, 1  , &90, &1d, &c9, &1e, &90, &19   ; 28c2: 14 b0 05... ...
+    equb &bd, &14, 1  , &29, &bf, &18, &10, 9  , &49, &7f, &7d, &78   ; 28ce: bd 14 01... ...
+    equb 1  , &b0, 7  , &90, 8  , &7d, &78, 1  , &b0, 3  , &9d, &78   ; 28da: 01 b0 07... ...
+    equb 1  , &ca, &30, 7  , &e4, &6f, &f0, &f9, &4c, &f6, &27, &60   ; 28e6: 01 ca 30... ..0
+    equb &bd, &3c, 1  , &85, &45, &85, &42, &aa, &a0, &17, &38, &20   ; 28f2: bd 3c 01... .<.
+    equb &ab, &27, &b0, &0f                                           ; 28fe: ab 27 b0... .'.
+    equs "E%0"                                                        ; 2902: 45 25 30    E%0
+    equb &0b, &a5                                                     ; 2905: 0b a5       ..
+    equs "t P4"                                                       ; 2907: 74 20 50... t P
+    equb &85, &74, &c9, &28, &90, 3  , &4c, &a6, &2a, &0a, &18        ; 290b: 85 74 c9... .t.
+    equs "etI"                                                        ; 2916: 65 74 49    etI
+    equb &ff                                                          ; 2919: ff          .
+    equs "8e$"                                                        ; 291a: 38 65 24    8e$
+    equb &10, 3  , &18, &69, &78, &a8, &bd, 0  , 1  , &29, &10, &d0   ; 291d: 10 03 18... ...
+    equb &0d, &bd, &50, 1  , &c9, &32, &90, 6  , &b9, 1  , 7  , &9d   ; 2929: 0d bd 50... ..P
+    equb &14, 1  , &b9, 0  , 7  , &85, &0c, &84, &74, &a8, &bd, &64   ; 2935: 14 01 b9... ...
+    equb 1  , &85, &84, &bd, &78, 1  , &85, &85, &b9, 0  , &54, &85   ; 2941: 01 85 84... ...
+    equb &86, &b9, 0  , &55, &85, &87, &b9, 0  , &56, &85, &88, &a2   ; 294d: 86 b9 00... ...
+    equb 0  , &a5, &84, &85, &75, &a4, &74, &a9, 0  , &85, &76, &b5   ; 2959: 00 a5 84... ...
+    equb &86, &10, &13, &49, &ff, &18, &69, 1  , &20, 0  , &0c, &49   ; 2965: 86 10 13... ...
+    equb &ff, &18, &69, 1  , &b0, 7  , &c6, &76, &90, 3  , &20, 0     ; 2971: ff 18 69... ..i
+    equb &0c, &18, &79, 0  , 9  , &9d, &fd, 9  , &b9, 0  , &0a, 8     ; 297d: 0c 18 79... ..y
+    equb &e0, 1  , &d0, 2  , &29, &1f                                 ; 2989: e0 01 d0... ...
+    equs "(ev"                                                        ; 298f: 28 65 76    (ev
+    equb &9d, &fd, &0a, &c8, &e8, &e0, 3  , &d0, &c5, &a4, &0c, &b9   ; 2992: 9d fd 0a... ...
+    equb 0  , &57, &85, &86, &b9, 0  , &58, &85, &88, &a2, 0  , &a5   ; 299e: 00 57 85... .W.
+    equb &85, &85, &75, &a9, 0  , &85, &76, &b5, &86, &10, &13, &49   ; 29aa: 85 85 75... ..u
+    equb &ff, &18, &69, 1  , &20, 0  , &0c, &49, &ff, &18, &69, 1     ; 29b6: ff 18 69... ..i
+    equb &b0, 7  , &c6, &76, &90, 3  , &20, 0  , &0c, &0a, &26, &76   ; 29c2: b0 07 c6... ...
+    equb &0a, &26, &76, &18, &7d, &fd, 9  , &9d, &fd, 9  , &bd, &fd   ; 29ce: 0a 26 76... .&v
+    equb &0a, &65, &76, &9d, &fd, &0a, &e8, &e8, &e0, 4  , &d0, &c7   ; 29da: 0a 65 76... .ev
+    equb &ad, &fe, 9  , &18, &69, &90, &8d, &fe, 9  , &90, 3  , &ee   ; 29e6: ad fe 09... ...
+    equb &fe, &0a, &a9, 4                                             ; 29f2: fe 0a a9... ...
+    equs " ]*"                                                        ; 29f6: 20 5d 2a     ]*
+    equb &a6, &45, &a5, &55, &c9, 3  , &b0, &4f, &a5, &1d, &c5, &4d   ; 29f9: a6 45 a5... .E.
+    equb &d0, &46, &bd, &8c, 1  , &30, 3  , &de, &8c, 1  , &a4, &0c   ; 2a05: d0 46 bd... .F.
+    equb &20, &42, &14, &20, &0e, &2b, &a0, &fd, &a2, &fa, &20, &cc   ; 2a11: 20 42 14...  B.
+    equb &0b, &20, &0e, &2b, &a2, &f4, &20, &cc, &0b, &20, &0e, &2b   ; 2a1d: 0b 20 0e... . .
+    equb &a2, &fd, &20, &cc, &0b, &a9, &14, &85, &42, &a9, 2          ; 2a29: a2 fd 20... ..
+    equs " ]*"                                                        ; 2a34: 20 5d 2a     ]*
+    equb &a9, &15, &85, &42, &a9, 1  , &a2, &f4                       ; 2a37: a9 15 85... ...
+    equs " _*"                                                        ; 2a3f: 20 5f 2a     _*
+    equb &a9, &16, &85, &42, &a9, 0  , &a2, &fa                       ; 2a42: a9 16 85... ...
+    equs " _*"                                                        ; 2a4a: 20 5f 2a     _*
+    equb &a6, &45, &60, &c9, 5  , &90, &f9, &bd, &8c, 1  , &30, &f4   ; 2a4d: a6 45 60... .E`
+    equb &fe, &8c, 1  , &60, &a2, &fd, &85                            ; 2a59: fe 8c 01... ...
+    equs "7 E!"                                                       ; 2a60: 37 20 45... 7 E
+    equb &a4, &42, &a5, &8a, &99, &80, 3  , &a5, &8b, &99, &98, 3     ; 2a64: a4 42 a5... .B.
+    equb &20, &b1, &2a, &20, &85, &22, &a4, &42, &b0, &2c, &38, &e9   ; 2a70: 20 b1 2a...  .*
+    equb 1  , &30, &27, &99, &b0, 3  , &a5, &2b, &38, &e9, 9  , &aa   ; 2a7c: 01 30 27... .0'
+    equb &a5, &2a, &ca, &f0, &0c, &10, 6  , &4a, &e8, &d0, &fc, &f0   ; 2a88: a5 2a ca... .*.
+    equb 4  , &0a, &ca, &d0, &fc, &99, &c8, 3  , &b9, &8c, 1  , &29   ; 2a94: 04 0a ca... ...
+    equb &70, 5  , &37, &4c, &ad, &2a, &a4, &42, &b9, &8c, 1  , 9     ; 2aa0: 70 05 37... p.7
+    equb &80, &99, &8c, 1  , &60, &a0, &25, &20, &a5, &0c, &a5, &7d   ; 2aac: 80 99 8c... ...
+    equb &85, &55, &d0, &0e, &c4, &7c, &90, &0a, &c6, &68, &a5, &7c   ; 2ab8: 85 55 d0... .U.
+    equb &85, &41, &a5, &42, &85, &67, &60, &86, &45, &bd, &3c, 1     ; 2ac4: 85 41 a5... .A.
+    equb &aa, &bd, &8c, 1                                             ; 2ad0: aa bd 8c... ...
+    equs "05)"                                                        ; 2ad4: 30 35 29    05)
+    equb &0f, &85, &37, &bd, &80, 3  , &38, &e5, &0a, &85, &74, &bd   ; 2ad7: 0f 85 37... ..7
+    equb &98, 3  , &e5, &0b, &10, 6  , &c9, &e0, &90, &1e, &b0, 4     ; 2ae3: 98 03 e5... ...
+    equb &c9, &20, &b0, &18, 6  , &74, &2a, 6  , &74, &2a, &18, &69   ; 2aef: c9 20 b0... . .
+    equb &50, &85, &35, &bd, &b0, 3  , &85, &36, &bd, &c8, 3  , &85   ; 2afb: 50 85 35... P.5
+    equb &2a, &20, &b4, &1f, &a6, &45, &60, &a2, 2  , &b5, &83, &18   ; 2b07: 2a 20 b4... * .
+    equb &10, 1  , &38, &76, &83, &76, &74, &ca, &10, &f3, &60, 5     ; 2b13: 10 01 38... ..8
+    equb 6  , 6  , 5  , &a4, &50, 0  , &54, 8  , &85, &54, &a9, 0     ; 2b1f: 06 06 05... ...
+    equb &85, &1e, &b9                                                ; 2b2b: 85 1e b9    ...
+    equs " _8"                                                        ; 2b2e: 20 5f 38     _8
+    equb &e9, 1  , &c9, &4e, &b0, 9  , &bd, &90, &5e, &10, 2  , &49   ; 2b31: e9 01 c9... ...
+    equb &ff, &c9, &14, &66, &88, &bd, &90, &5e, &85, &77, &bd, &40   ; 2b3d: ff c9 14... ...
+    equb &5e, &0a, &26, &77, &0a, &26, &77, &a5, &77, &18, &69, &80   ; 2b49: 5e 0a 26... ^.&
+    equb &85, &77, &b9, &20, &5f, &85, &82, &86, &45, &84, &1b, &28   ; 2b55: 85 77 b9... .w.
+    equb &b0, &67, &24, &88, &50, &14, &30, &61, &a6, &7e, &a4, &7f   ; 2b61: b0 67 24... .g$
+    equb &a5, &77, &85, &7e, &a5, &82, &85, &7f, &86, &77, &84, &82   ; 2b6d: a5 77 85... .w.
+    equb &c6, &1e, &a5, &82, &38, &e5, &7f, &85, &87, &10, 5  , &a9   ; 2b79: c6 1e a5... ...
+    equb 0  , &38, &e5, &87, &85, &84, &a5, &88, &29, &c0, &f0, &3c   ; 2b85: 00 38 e5... .8.
+    equb &a4, &45, &a6, &4f, &b9                                      ; 2b91: a4 45 a6... .E.
+    equs "@^8"                                                        ; 2b96: 40 5e 38    @^8
+    equb &fd, &40, &5e, &85, &74, &b9, &90, &5e, &fd, &90, &5e, &85   ; 2b99: fd 40 5e... .@^
+    equb &86, &20, &40, &0e, &c9, &40, &b0, &0c, 6  , &74, &2a, &c9   ; 2ba5: 86 20 40... . @
+    equb &40, &b0, 7  , 6  , &74, &2a, &10, 4  , &46, &84, &46, &84   ; 2bb1: 40 b0 07... @..
+    equb &85, &83, &a5, &86, &45, &1e, &85, &86, &a5, &83, &4c, &db   ; 2bbd: 85 83 a5... ...
+    equb &2b, &4c, &fc, &2c, &a5, &7e, &38, &e5, &77, &66, &86, &30   ; 2bc9: 2b 4c fc... +L.
+    equb 5  , &49, &ff, &18, &69, 1  , &85, &83, &d0, 4  , 5  , &84   ; 2bd5: 05 49 ff... .I.
+    equb &f0, &e7, &a5, &88, &29, &c0, &f0, 4  , &a5, &86, &29, &80   ; 2be1: f0 e7 a5... ...
+    equb &85, &53, &a5, &87, &d0, 6  , &a5, &1e, &49, &ff, &85, &87   ; 2bed: 85 53 a5... .S.
+    equb &10, 4  , &a9, &88, &d0, 2  , &a9, &c8, &8d, &60, &2f, &8d   ; 2bf9: 10 04 a9... ...
+    equb &a2, &2f, &a9, &ea, &8d, &47, &2f, &8d, &89, &2f, &a4, &54   ; 2c05: a2 2f a9... ./.
+    equb &a2, 0  , &b9, &d0, &5f, &9d, &8f, &62, &3d, &fc, &33, &9d   ; 2c11: a2 00 b9... ...
+    equb &9c, &62, &c8, &e8, &e0, 4  , &d0, &ee, &a5, &27, &0a, &0a   ; 2c1d: 9c 62 c8... .b.
+    equb &0a, &85, &74, &ad, &8f                                      ; 2c29: 0a 85 74... ..t
+    equs "bJJJ)"                                                      ; 2c2e: 62 4a 4a... bJJ
+    equb 3  , 5  , &74, 9  , &40, &85, &34, &ad, &8f, &62, &d0, 5     ; 2c33: 03 05 74... ..t
+    equb &a9, &55, &8d, &8f, &62, &85, &8b, &ad, &92                  ; 2c3f: a9 55 8d... .U.
+    equs "bJ)"                                                        ; 2c48: 62 4a 29    bJ)
+    equb 1  , &2c, &92, &62, &10, 2  , 9  , 2  , 9  , &80, 5  , &74   ; 2c4b: 01 2c 92... .,.
+    equb &85, &33, &a5, &1b, &18, &69, 1  , &c5, &4b, &f0, 6  , &a5   ; 2c57: 85 33 a5... .3.
+    equb &82, &c9, &50, &90, 8  , &a9, 0  , &24, &87, &30, 2  , &a9   ; 2c63: 82 c9 50... ..P
+    equb &4f, &85, &82, &a5, &7e, &38, &e9, &30, &85                  ; 2c6f: 4f 85 82... O..
+    equs "uJJ"                                                        ; 2c78: 75 4a 4a    uJJ
+    equb &85, &85, &c9, &28, &b0, &65, &4a, &18, &69, &30, &85, &71   ; 2c7b: 85 85 c9... ...
+    equb &85, &73, &18, &69, 1  , &85, &8f, &a5, &75, &29, 7  , &aa   ; 2c87: 85 73 18... .s.
+    equb &a4, &7f, &a5, &83, &c5, &84, &90, &54, &ad, &8f, &62, &c9   ; 2c93: a4 7f a5... ...
+    equb &ff, &f0, &12, &a5, &33, &29, 3  , &c9, 3  , &f0, &0a, &a9   ; 2c9f: ff f0 12... ...
+    equb &60, &8d, &d7, &2f, &8d, &c0, &2f, &d0, &2b, &a9, &e0, &8d   ; 2cab: 60 8d d7... `..
+    equb &d7, &2f, &8d, &c0, &2f, &a5, &27, &c9, 2  , &6a, &45, &86   ; 2cb7: d7 2f 8d... ./.
+    equb &10, &1a, &ad, &60, &2f, &8d, &47, &2f, &8d, &89, &2f, &a9   ; 2cc3: 10 1a ad... ...
+    equb &ea, &8d, &60, &2f, &8d, &a2, &2f, &a5, &87, &10, 4  , &c8   ; 2ccf: ea 8d 60... ..`
+    equb &4c, &df, &2c, &88, &a5, &86, &10, 6  , &20, &9a, &2d, &4c   ; 2cdb: 4c df 2c... L.,
+    equb &fc, &2c, &20, &17, &2d, &4c, &fc, &2c, &a5, &86, &10, 6     ; 2ce7: fc 2c 20... .,
+    equb &20, &99, &2e, &4c, &fc                                      ; 2cf3: 20 99 2e...  ..
+    equs ",  ."                                                       ; 2cf8: 2c 20 20... ,
+    equb &a5, &1e, &30, 8  , &a5, &77, &85, &7e, &a5, &82, &85, &7f   ; 2cfc: a5 1e 30... ..0
+    equb &a6, &45, &a4, &1b, &60, &a5, &53, &f0, &eb, &20, &12, &2f   ; 2d08: a6 45 a4... .E.
+    equb &4c, &fc, &2c, &bd, &50, &3e, &8d, &28, &2d, &a2, &80, &a5   ; 2d14: 4c fc 2c... L.,
+    equb &83, &49, &ff, &18, &69, 1  , &18, &90, 0  , &a2, &80, &65   ; 2d20: 83 49 ff... .I.
+    equb &84, &90, 7  , &e5, &83, &a2, 0                              ; 2d2c: 84 90 07... ...
+    equs " E/e"                                                       ; 2d33: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 1                              ; 2d37: 84 90 07... ...
+    equs " E/e"                                                       ; 2d3e: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 2                              ; 2d42: 84 90 07... ...
+    equs " E/e"                                                       ; 2d49: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 3                              ; 2d4d: 84 90 07... ...
+    equs " E/ "                                                       ; 2d54: 20 45 2f...  E/
+    equb &d7, &2f, &e6, &85, &65, &84, &90, 7  , &e5, &83, &a2, 0     ; 2d58: d7 2f e6... ./.
+    equb &20, &87, &2f, &65, &84, &90, 7  , &e5, &83, &a2, 1  , &20   ; 2d64: 20 87 2f...  ./
+    equb &87, &2f, &65, &84, &90, 7  , &e5, &83, &a2, 2  , &20, &87   ; 2d70: 87 2f 65... ./e
+    equb &2f, &65, &84, &90, 7  , &e5, &83, &a2, 3  , &20, &87, &2f   ; 2d7c: 2f 65 84... /e.
+    equb &20, &c0, &2f, &e6, &73, &e6, &71, &e6, &8f, &e6, &85, &a6   ; 2d88: 20 c0 2f...  ./
+    equb &73, &e0, &44, &d0, &90, &60, &bd, &d0, &40, &8d, &ab, &2d   ; 2d94: 73 e0 44... s.D
+    equb &a2, &80, &a5, &83, &49, &ff, &18, &69, 1  , &18, &90, 0     ; 2da0: a2 80 a5... ...
+    equb &a2, &80, &65, &84, &90, 7  , &e5, &83, &a2, 3  , &20, &87   ; 2dac: a2 80 65... ..e
+    equb &2f, &65, &84, &90, 7  , &e5, &83, &a2, 2  , &20, &87, &2f   ; 2db8: 2f 65 84... /e.
+    equb &65, &84, &90, 7  , &e5, &83, &a2, 1  , &20, &87, &2f, &65   ; 2dc4: 65 84 90... e..
+    equb &84, &90, 7  , &e5, &83, &a2, 0  , &20, &87, &2f, &20, &c0   ; 2dd0: 84 90 07... ...
+    equb &2f, &c6, &85, &65, &84, &90, 7  , &e5, &83, &a2, 3          ; 2ddc: 2f c6 85... /..
+    equs " E/e"                                                       ; 2de7: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 2                              ; 2deb: 84 90 07... ...
+    equs " E/e"                                                       ; 2df2: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 1                              ; 2df6: 84 90 07... ...
+    equs " E/e"                                                       ; 2dfd: 20 45 2f...  E/
+    equb &84, &90, 7  , &e5, &83, &a2, 0                              ; 2e01: 84 90 07... ...
+    equs " E/ "                                                       ; 2e08: 20 45 2f...  E/
+    equb &d7, &2f, &c6, &73, &c6, &71, &c6, &8f, &c6, &85, &a6, &73   ; 2e0c: d7 2f c6... ./.
+    equb &e0, &2f, &18, &d0, &8f, &4c, &12, &2f, &bd, &d0, &3e, &8d   ; 2e18: e0 2f 18... ./.
+    equb &2f, &2e, &a5, &84, &49, &ff, &18, &69, 1  , &18, &90, 0     ; 2e24: 2f 2e a5... /..
+    equb &a2, 0                                                       ; 2e30: a2 00       ..
+    equs " E/e"                                                       ; 2e32: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 1                              ; 2e36: 83 90 f7... ...
+    equs " E/e"                                                       ; 2e3d: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 2                              ; 2e41: 83 90 f7... ...
+    equs " E/e"                                                       ; 2e48: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 3                              ; 2e4c: 83 90 f7... ...
+    equs " E/e"                                                       ; 2e53: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &e6, &85, &a2, 0  , &20, &87, &2f   ; 2e57: 83 90 f7... ...
+    equb &65, &83, &90, &f7, &e5, &84, &a2, 1  , &20, &87, &2f, &65   ; 2e63: 65 83 90... e..
+    equb &83, &90, &f7, &e5, &84, &a2, 2  , &20, &87, &2f, &65, &83   ; 2e6f: 83 90 f7... ...
+    equb &90, &f7, &e5, &84, &a2, 3  , &20, &87, &2f, &65, &83, &90   ; 2e7b: 90 f7 e5... ...
+    equb &f7, &e5, &84, &e6, &73, &e6, &71, &e6, &8f, &e6, &85, &a6   ; 2e87: f7 e5 84... ...
+    equb &73, &e0, &44, &d0, &98, &60, &bd, &d8, &3e, &8d, &a8, &2e   ; 2e93: 73 e0 44... s.D
+    equb &a5, &84, &49, &ff, &18, &69, 1  , &18, &90, 0  , &a2, 3     ; 2e9f: a5 84 49... ..I
+    equb &20, &87, &2f, &65, &83, &90, &f7, &e5, &84, &a2, 2  , &20   ; 2eab: 20 87 2f...  ./
+    equb &87, &2f, &65, &83, &90, &f7, &e5, &84, &a2, 1  , &20, &87   ; 2eb7: 87 2f 65... ./e
+    equb &2f, &65, &83, &90, &f7, &e5, &84, &a2, 0  , &20, &87, &2f   ; 2ec3: 2f 65 83... /e.
+    equb &65, &83, &90, &f7, &e5, &84, &c6, &85, &a2, 3               ; 2ecf: 65 83 90... e..
+    equs " E/e"                                                       ; 2ed9: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 2                              ; 2edd: 83 90 f7... ...
+    equs " E/e"                                                       ; 2ee4: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 1                              ; 2ee8: 83 90 f7... ...
+    equs " E/e"                                                       ; 2eef: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &a2, 0                              ; 2ef3: 83 90 f7... ...
+    equs " E/e"                                                       ; 2efa: 20 45 2f...  E/
+    equb &83, &90, &f7, &e5, &84, &c6, &73, &c6, &71, &c6, &8f, &c6   ; 2efe: 83 90 f7... ...
+    equb &85, &a6, &73, &e0, &2f, &18, &d0, &97, &ad, &47, &2f, &8d   ; 2f0a: 85 a6 73... ..s
+    equb &18, &2f, &ea, &a5, &1e, &30, 5  , &a5                       ; 2f16: 18 2f ea... ./.
+    equs "4L*/"                                                       ; 2f1e: 34 4c 2a... 4L*
+    equb &88, &b9, &60, &5f, &d0, &1c, &a5, &33, &c0, &50, &b0, &16   ; 2f22: 88 b9 60... ..`
+    equb &ae, &f2, &62, &e0, &28, &90, &0c, &85, &74, &29, 3  , &c9   ; 2f2e: ae f2 62... ..b
+    equb 3  , &a5, &74, &b0, 2  , &29, &fc, &99                       ; 2f3a: 03 a5 74... ..t
+    equs "`_`"                                                        ; 2f42: 60 5f 60    `_`
+    equb &85, &8a, &ea, &c4, &82, &f0, &32, &a5, &85, &99, 0  , &70   ; 2f45: 85 8a ea... ...
+    equb &b1, &72, &d0, &0e, &bd, &8f, &62, &91, &72, &a5, &8b, &91   ; 2f51: b1 72 d0... .r.
+    equb &70, &a5, &8a, &c8, &18, &60, &c0, &2c, &b0, 5  , &20, &ee   ; 2f5d: 70 a5 8a... p..
+    equb &2f, &90, &f2, &c9, &55, &d0, 2  , &a9, 0                    ; 2f69: 2f 90 f2... /..
+    equs "=|3"                                                        ; 2f72: 3d 7c 33    =|3
+    equb &1d, &9c, &62, &d0, &de, &a9, &55, &d0, &da, &ba, &e8, &e8   ; 2f75: 1d 9c 62... ..b
+    equb &9a, &a5, &53, &d0, &93, &60, &85, &8a, &ea, &c4, &82, &f0   ; 2f81: 9a a5 53... ..S
+    equb &f0, &a5, &85, &99, 0  , &70, &b1, &70, &d0, &0e, &bd, &8f   ; 2f8d: f0 a5 85... ...
+    equb &62, &91, &70, &a5, &8b, &91, &8e, &a5, &8a, &c8, &18, &60   ; 2f99: 62 91 70... b.p
+    equb &c0, &2c, &b0, 5  , &20, &ee, &2f, &90, &f2, &c9, &55, &d0   ; 2fa5: c0 2c b0... .,.
+    equb 2  , &a9, 0                                                  ; 2fb1: 02 a9 00    ...
+    equs "=|3"                                                        ; 2fb4: 3d 7c 33    =|3
+    equb &1d, &9c, &62, &d0, &de, &a9, &55, &d0, &da, &e0, &80, &d0   ; 2fb7: 1d 9c 62... ..b
+    equb &0f, &c0, &2c, &b0, 5  , &20, &ee, &2f, &90, 6  , &aa, &a9   ; 2fc3: 0f c0 2c... ..,
+    equb &ff, &91, &70, &8a, &a2, &80, &18, &60, &e0, &80, &d0, &0f   ; 2fcf: ff 91 70... ..p
+    equb &c0, &2c, &b0, 5  , &20, &ee, &2f, &90, 6  , &aa, &a9, &ff   ; 2fdb: c0 2c b0... .,.
+    equb &91, &72, &8a, &a2, &80, &18, &60, &85, &74, &86, &75, &a6   ; 2fe7: 91 72 8a... .r.
+    equb &85, &98, &dd, 0  , &39, &d0, 1  , &18, &a5, &74, &a6, &75   ; 2ff3: 85 98 dd... ...
+    equb &60, &fe, &1f, &0a, &0c, &83                                 ; 2fff: 60 fe 1f... `..
+    equs "STANDARD OF"                                                ; 3005: 53 54 41... STA
+    equb &d7, &1f, &0e, &0e, &ff, &fc, &a3, &fc, &a3, &fc, &a1, &ff   ; 3010: d7 1f 0e... ...
+    equb &a8, &a9, &f0, &c4, &82, &b0, &0c, &c4, &7f, &90, 8  , &ae   ; 301c: a8 a9 f0... ...
+    equb &68, &fe, &3d, 0                                             ; 3028: 68 fe 3d... h.=
+    equs " %a"                                                        ; 302c: 20 25 61     %a
+    equb &91, &70, &88, &10, &14, &98, &29, 7  , &c9, 7  , &90, &0d   ; 302f: 91 70 88... .p.
+    equb &a5, &70, &38, &e9, &38, &85, &70, &a5, &71, &e9, 1  , &85   ; 303b: a5 70 38... .p8
+    equb &71, &c4, &77, &b0, &d1, &a4, &78, &60, &ff, 0  , 0  , 0     ; 3047: 71 c4 77... q.w
+    equb 0  , 6  , 6  , 6  , 6  , 6  , 6  , 6  , 3  , 3  , 3  , 3     ; 3053: 00 06 06... ...
+    equb 3  , 1  , 1  , 1  , 0  , 0  , 0  , 5  , 4  , 3  , 2  , 1     ; 305f: 03 01 01... ...
+    equb 0  , &2d, &33, 0  , 0  , 1  , 1  , 1  , 1  , 1  , 1  , 5     ; 306b: 00 2d 33... .-3
+    equb 5  , 3  , 4  , 3  , 4  , 4  , 4  , &38, &38, &97, &97, &97   ; 3077: 05 03 04... ...
+    equb &97, &a8, &a8, &a8, &a8, &a8, &a8, &a8, &a8, &a8, &a8, &a8   ; 3083: 97 a8 a8... ...
+    equb &a8, &a8, &a8, &a8, &a8, &a8, &a8, &b9, &b9, &b9, &b9, &b9   ; 308f: a8 a8 a8... ...
+    equb &b9, &33, &a8, &20, 0  , &7e, &84, &75, &bc                  ; 309b: b9 33 a8... .3.
+    equs "P09"                                                        ; 30a4: 50 30 39    P09
+    equb &f9, &36, &19, &f9, &35, &a4, &75, &91, &72, &e0, 3  , &f0   ; 30a7: f9 36 19... .6.
+    equb 3  , &4c, &18, &7f, &4c, &bf, &7b, &85, &82, &84, &78, &b9   ; 30b3: 03 4c 18... .L.
+    equb &9e, &3b, &85, &71, &b9, &26, &3b, &85, &70, &b9, &fa, &3e   ; 30bf: 9e 3b 85... .;.
+    equb &85, &77, &b9, &fa, &40, &28, &8d                            ; 30cb: 85 77 b9... .w.
+    equs "|||||kkkkkZZZZIIII8888''''"                                 ; 30d2: 7c 7c 7c... |||
+    equb &16, &16, &16, &16, &16, &16, &16, &16, &16, &16, &16, 5     ; 30ec: 16 16 16... ...
+    equb 5  , 5  , 5  , 5  , &10, 0  , 0  , &10, &1c, &1c, &1c, &1c   ; 30f8: 05 05 05... ...
+    equb &1c, &1b, &1b, &1b, &1b, &1a, &1a, &1a, &19, &19, &18, &18   ; 3104: 1c 1b 1b... ...
+    equb &17, &16, &15, &14, &14, &14, &81, &81, &81, &81, &81, &81   ; 3110: 17 16 15... ...
+    equb &79, &35, &a8, &20, 0  , &7c, &3d, &d0, &38, &1d, &50, &33   ; 311c: 79 35 a8... y5.
+    equb &91, &70, &bc, &80, &30, &cc, &7d, &7f, &f0, &10, &a9, &91   ; 3128: 91 70 bc... .p.
+    equb &8d, &0f, &7e, &8c, &88, &7f, &8c, &7d, &7f, &a9, &60, &8d   ; 3134: 8d 0f 7e... ..~
+    equb 0  , &7e, &bc, &d0, &30, &8c, &9b, &7f, &bd, 0               ; 3140: 00 7e bc... .~.
+    equs "D=P9"                                                       ; 314a: 44 3d 50... D=P
+    equb &1d, &d0                                                     ; 314e: 1d d0       ..
+    equs "Bduuuuu"                                                    ; 3150: 42 64 75... Bdu
+    equb &86, &86, &86, &86, &86, &97, &97, &97, &97, &a8, &a8, &a8   ; 3157: 86 86 86... ...
+    equb &a8, &b9, &b9, &b9, &b9, &ca, &ca, &ca, &ca, &db, &db, &db   ; 3163: a8 b9 b9... ...
+    equb &db, &db, &db, &db, &db, &db, &db, &db, &ec, &ec, &ec, &ec   ; 316f: db db db... ...
+    equb &ec, &28, &28, 0  , 0  , &81, &81, &81, &81, &81, &81, &81   ; 317b: ec 28 28... .((
+    equb &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81   ; 3187: 81 81 81... ...
+    equb &81, &81, &81, &24, &7f, &a9, &60, &8d, 0  , &7c, &a4, &70   ; 3193: 81 81 81... ...
+    equb &c8, &98, &29, 7  , &d0, &14, &98, &18, &69, &38, &85, &70   ; 319f: c8 98 29... ..)
+    equb &85, &72, &a5, &71, &69, 1  , &85, &71, &69, 1  , &85, &73   ; 31ab: 85 72 a5... .r.
+    equb &90, 4  , &84, &70, &84, &72, &a9, &f1, &38, &fd, &80, &30   ; 31b7: 90 04 84... ...
+    equb &8d, &68, &7f, &bc, &50, &30, &bd, 4  , 5                    ; 31c3: 8d 68 7f... .h.
+    equs "9y6"                                                        ; 31cc: 39 79 36    9y6
+    equb &19, &a2, 3  , &c4, &1f, &90, 5  , &bd, &7c, &3d, &d0, 3     ; 31cf: 19 a2 03... ...
+    equb &bd, &78, &3d, &91, &70, &99, 4  , 5  , &99, 0  , &44, &ca   ; 31db: bd 78 3d... .x=
+    equb &10, 2  , &a2, 3  , &88, &c4, &75, &d0, &e2, &e6, &74, &a5   ; 31e7: 10 02 a2... ...
+    equb &70, &49, &80, &85, &70, &30, 2  , &e6                       ; 31f3: 70 49 80... pI.
+    equs "qLh="                                                       ; 31fb: 71 4c 68... qLh
+    equb 0  , &20, &35, &ff, &81, &80, &43, &f0, 8  , &a9, 0  , &9d   ; 31ff: 00 20 35... . 5
+    equb &80, &43, &b9, 0  , &60, &a0, &38, &91, &72, &e0, &2c, &f0   ; 320b: 80 43 b9... .C.
+    equb &25, &ca, &a4, &70, &c8, &98, &29, 7  , &f0, 7  , &84, &70   ; 3217: 25 ca a4... %..
+    equb &84, &72, &4c, &f7, &7b, &98, &18, &69, &38, &85, &70, &85   ; 3223: 84 72 4c... .rL
+    equb &72, &a5, &71, &69, 1  , &85, &71, &69, 1  , &85, &73, &4c   ; 322f: 72 a5 71... r.q
+    equb &f7, &7b, &60, &ca, &bc, &50, &31, &cc, &24, &7f, &f0, &10   ; 323b: f7 7b 60... .{`
+    equb &a9, &91, &8d, &0f, &7c, &8c, &2f, &7f, &8c, &84, &73, &85   ; 3247: a9 91 8d... ...
+    equb &72, &a0, 0  , &b1, &72, &20, &92, &50, &c8, &c0, &0c, &d0   ; 3253: 72 a0 00... r..
+    equb &f6, &60, &a2, &ff, &20, &50, &0e, &d0, &13, &a2, &86, &20   ; 325f: f6 60 a2... .`.
+    equb &50, &0e, &d0, &0c, &24, &1c, &30, &0a, &a6, &6b, &9a, &66   ; 326b: 50 0e d0... P..
+    equb &1c, &4c, &e0, &63, &46, &1c, &60, 0  , 0  , &31, &30, &ff   ; 3277: 1c 4c e0... .L.
+    equb &41, &b9, 0  , &60, &a0, &10, &91, &72, &bc, &80, &41, &f0   ; 3283: 41 b9 00... A..
+    equb 8  , &a9, 0  , &9d, &80, &41, &b9, 0  , &60, &a0, &18, &91   ; 328f: 08 a9 00... ...
+    equb &72, &bc, 0  , &42, &f0, 8  , &a9, 0  , &9d, 0  , &42, &b9   ; 329b: 72 bc 00... r..
+    equb 0  , &60, &a0, &20, &91, &72, &bc, &80, &42, &f0, 8  , &a9   ; 32a7: 00 60 a0... .`.
+    equb 0  , &9d, &80, &42, &b9, 0  , &60, &a0, &28, &91, &72, &bc   ; 32b3: 00 9d 80... ...
+    equb 0  , &43, &f0, 8  , &a9, 0  , &9d, 0  , &43, &b9, 0  , &60   ; 32bf: 00 43 f0... .C.
+    equb &a0, &30, &91, &72, &bc, &a5, &74, &c9, &20, &d0, 2  , &a9   ; 32cb: a0 30 91... .0.
+    equb &30, &38, &e9, &30, &c9, &0a, &b0, &1c, &85, &74, &a6, &75   ; 32d7: 30 38 e9... 08.
+    equb &e0, &20, &18, &f0, &13, &0a, &0a, &65, &74, &0a, &85, &74   ; 32e3: e0 20 18... . .
+    equb &8a, &38, &e9, &30, &c9, &0a, &b0, 4  , &65, &74, &c9        ; 32ef: 8a 38 e9... .8.
+    equs ")`fg_^20"                                                   ; 32fa: 29 60 66... )`f
+    equb &ff, &bc, 0  , &3f, &f0, 8  , &a9, 0  , &9d, 0  , &3f, &b9   ; 3302: ff bc 00... ...
+    equb 0  , &60, &a0, &f0, &91, &70, &bc, &80, &3f, &f0, 8  , &a9   ; 330e: 00 60 a0... .`.
+    equb 0  , &9d, &80, &3f, &b9, 0  , &60, &a0, &f8, &91, &70, &bc   ; 331a: 00 9d 80... ...
+    equb 0  , &40, &f0, 8  , &a9, 0  , &9d, 0  , &40, &b9, 0  , &60   ; 3326: 00 40 f0... .@.
+    equb &a0, 0  , &91, &72, &bc, &80, &40, &f0, 8  , &a9, 0  , &9d   ; 3332: a0 00 91... ...
+    equb &80, &40, &b9, 0  , &60, &a0, 8  , &91, &72, &bc, 0  , &41   ; 333e: 80 40 b9... .@.
+    equb &f0, 8  , &a9, 0  , &9d, 0  , 0  , 0  , &f0, &70, &30, &10   ; 334a: f0 08 a9... ...
+    equb 0                                                            ; 3356: 00          .
+    equs "pp0"                                                        ; 3357: 70 70 30    pp0
+    equb &10, 0  , &70, &30, &10, 0  , &70, &30, &10, 0  , &70, &30   ; 335a: 10 00 70... ..p
+    equb &10, 0  , &70, &30, &10, 0                                   ; 3366: 10 00 70... ..p
+    equs "p@0 0"                                                      ; 336c: 70 40 30... p@0
+    equb &10, &10, &10, 0  , 0  , 0                                   ; 3371: 10 10 10... ...
+    equs "@p@00"                                                      ; 3377: 40 70 40... @p@
+    equb 0  , &88, &cc, &ee, &81, &81, &81, &81, &81, &81, &81, &60   ; 337c: 00 88 cc... ...
+    equb &a0, &c8, &91, &70, &bc, 0  , &3d, &f0, 8  , &a9, 0  , &9d   ; 3388: a0 c8 91... ...
+    equb 0  , &3d, &b9, 0  , &60, &a0, &d0, &91, &70, &bc, &80, &3d   ; 3394: 00 3d b9... .=.
+    equb &f0, 8  , &a9, 0  , &9d, &80, &3d, &b9, 0  , &60, &a0, &d8   ; 33a0: f0 08 a9... ...
+    equb &91, &70, &bc, 0  , &3e, &f0, 8  , &a9, 0  , &9d, 0  , &3e   ; 33ac: 91 70 bc... .p.
+    equb &b9, 0  , &60, &a0, &e0, &91, &70, &bc, &80, &3e, &f0, 8     ; 33b8: b9 00 60... ..`
+    equb &a9, 0  , &9d, &80, &3e, &b9, 0  , &60, &a0, &e8, &91, &70   ; 33c4: a9 00 9d... ...
+    equb 0  , 0  , &f0, &e0, &c0, &80, 0  , &e0, &e0, &c0, &80, 0     ; 33d0: 00 00 f0... ...
+    equb &e0, &c0, &80, 0  , &e0, &c0, &80, 0  , &e0, &c0, &80, 0     ; 33dc: e0 c0 80... ...
+    equb &e0, &c0, &80, 0  , &e0, &20, &c0, &40, &c0, &80, &80, &80   ; 33e8: e0 c0 80... ...
+    equb 0  , 0  , 0  , &20, &e0, &20, &c0, &c0, &ff, &77, &33, &11   ; 33f4: 00 00 00... ...
+    equs "ENTER "                                                     ; 3400: 45 4e 54... ENT
+    equb &ff, &81, &81, &81, &81, &81, &60, &a0, &a8, &91, &70, &bc   ; 3406: ff 81 81... ...
+    equb 0  , &3b, &f0, 8  , &a9, 0  , &9d, 0  , &3b, &b9, 0  , &60   ; 3412: 00 3b f0... .;.
+    equb &a0, &b0, &91, &70, &bc, &80, &3b, &f0, 8  , &a9, 0  , &9d   ; 341e: a0 b0 91... ...
+    equb &80, &3b, &b9, 0  , &60, &a0, &b8, &91, &70, &bc, 0  , &3c   ; 342a: 80 3b b9... .;.
+    equb &f0, 8  , &a9, 0  , &9d, 0  , &3c, &b9, 0  , &60, &a0, &c0   ; 3436: f0 08 a9... ...
+    equb &91, &70, &bc, &80, &3c, &f0, 8  , &a9, 0  , &9d, &80, &3c   ; 3442: 91 70 bc... .p.
+    equb &b9, 0  , &10, 5  , &49, &ff, &18, &69, 1  , &60, 7  , &17   ; 344e: b9 00 10... ...
+    equs "GW#3cs"                                                     ; 345a: 47 57 23... GW#
+    equb &80, &90, &c0, &d0, &a5, &b5, &e5, &f5, 3  , &13             ; 3460: 80 90 c0... ...
+    equs "#3CScs"                                                     ; 346a: 23 33 43... #3C
+    equb &84, &94, &a4, &b4, &c4, &d4, &e4, &f4                       ; 3470: 84 94 a4... ...
+    equs "&6fv"                                                       ; 3478: 26 36 66... &6f
+    equb &a1, &b1, &e1, &f1, &1f, &0d, &12                            ; 347c: a1 b1 e1... ...
+    equs "front"                                                      ; 3483: 66 72 6f... fro
+    equb &a2, &85, &d8, &ff, &81, &81, &81, &81, &70, &bc, 0  , &39   ; 3488: a2 85 d8... ...
+    equb &f0, 8  , &a9, 0  , &9d, 0  , &39, &b9, 0  , &60, &a0, &90   ; 3494: f0 08 a9... ...
+    equb &91, &70, &bc, &80, &39, &f0, 8  , &a9, 0  , &9d, &80, &39   ; 34a0: 91 70 bc... .p.
+    equb &b9, 0  , &60, &a0, &98, &91, &70, &bc, 0  , &3a, &f0, 8     ; 34ac: b9 00 60... ..`
+    equb &a9, 0  , &9d, 0  , &3a, &b9, 0  , &60, &a0, &a0, &91, &70   ; 34b8: a9 00 9d... ...
+    equb &bc, &80, &3a, &f0, 8  , &a9, 0  , &9d, &80, &3a, &b9, 0     ; 34c4: bc 80 3a... ..:
+    equb &a9, 0  , &85, &78, &a2, &1e                                 ; 34d0: a9 00 85... ...
+    equs " ~M"                                                        ; 34d6: 20 7e 4d     ~M
+    equb &a2, &9d, &20, &50, &0e, &f0, &f9, &a2, &9d, &20, &50, &0e   ; 34d9: a2 9d 20... ..
+    equb &f0, &10                                                     ; 34e5: f0 10       ..
+    equs " a2$x"                                                      ; 34e7: 20 61 32...  a2
+    equb &10, &f2, &a2, &b6, &20, &50, &0e, &d0, &eb                  ; 34ec: 10 f2 a2... ...
+    equs "Fx`"                                                        ; 34f5: 46 78 60    Fx`
+    equb &80, &40, &20, &10, 0  , 0  , 0  , 0                         ; 34f8: 80 40 20... .@
+    equs "Amateur"                                                    ; 3500: 41 6d 61... Ama
+    equb &ff                                                          ; 3507: ff          .
+    equs " POINTS"                                                    ; 3508: 20 50 4f...  PO
+    equb &ff, &81, &81, &81, &81, &d0, &38, &1d, &50, &33, &91, &70   ; 350f: ff 81 81... ...
+    equb &bd, 0                                                       ; 351b: bd 00       ..
+    equs "D=P9"                                                       ; 351d: 44 3d 50... D=P
+    equb &1d, &d0, &33, &a8, &20, 0  , &7e, &e0, &1c, &d0, &c5, &4c   ; 3521: 1d d0 33... ..3
+    equb &18, &7f, &bc, 0  , &38, &f0, 8  , &a9, 0  , &9d, 0  , &38   ; 352d: 18 7f bc... ...
+    equb &b9, 0  , &60, &a0, &80, &91, &70, &bc, &80, &38, &f0, 8     ; 3539: b9 00 60... ..`
+    equb &a9, 0  , &9d, &80, &38, &b9, 0  , &60, &a0, &88, &91, &0f   ; 3545: a9 00 9d... ...
+    equb &0f, &0e, &0e, &0d, 5  , 6  , &0f, 4  , &0e, 0  , &0d, &0f   ; 3551: 0f 0e 0e... ...
+    equb &0f, 2  , 3  , 4  , 9  , 6  , &0f, &0e, 0  , &0d, 7  , 4     ; 355d: 0f 02 03... ...
+    equb &0a, 0  , 1  , &0c, &0c, 2  , 1  , 1  , &0a, 3  , 4  , 0     ; 3569: 0a 00 01... ...
+    equb 1  , 3  , 1  , 3  , 0  , &80, &c0, &40, &60, &e0             ; 3575: 01 03 01... ...
+    equs "   "                                                        ; 357f: 20 20 20
+    equb &9c, &86, &9d, &84, &ff                                      ; 3582: 9c 86 9d... ...
+    equs "ACCUMULATED"                                                ; 3587: 41 43 43... ACC
+    equb &fb, &ff, &81, &81, &81, &81, 8  , &a9, 0  , &9d, &80, &37   ; 3592: fb ff 81... ...
+    equb &b9, 0  , &60, &a0, &78, &91                                 ; 359e: b9 00 60... ..`
+    equs "pLV}"                                                       ; 35a4: 70 4c 56... pLV
+    equb &a9, &60, &8d, &ee, &7e, &ca, &bc, &50, &31, &cc, &24, &7d   ; 35a8: a9 60 8d... .`.
+    equb &f0, &16, &a9, &91, &8d, &0f, &7c, &8c, &2f, &7d, &8c, &24   ; 35b4: f0 16 a9... ...
+    equb &7d, &a9, &60, &8d, 0  , &7c, &bc, &d0, &30, &8c             ; 35c0: 7d a9 60... }.`
+    equs "M} "                                                        ; 35ca: 4d 7d 20    M}
+    equb &f3, &7e, &3d, &0e, &0e, &0b, &0b, &0b, 6  , &0f, &0d, 5     ; 35cd: f3 7e 3d... .~=
+    equb &0d, 7  , &0b, &0e, &0e, 3  , 4  , 9  , 8  , &0f, &0d, &0d   ; 35d9: 0d 07 0b... ...
+    equb 7  , 9  , &0d, 6  , 9  , 2  , &0c, &0a, &0a, 8  , 2  , &0a   ; 35e5: 07 09 0d... ...
+    equb 8  , 4  , &0a, 3  , 3  , &0a, 3  , &0a, 0  , &10             ; 35f1: 08 04 0a... ...
+    equs "0 `p@FORMULA 3  CHAMPIONSHIP"                               ; 35fb: 30 20 60... 0 `
+    equb &ff, &81, &81, &81, &81, &f0, 8  , &a9, 0  , &9d, 0  , &36   ; 3617: ff 81 81... ...
+    equb &b9, 0  , &60, &a0, &60, &91, &70, &bc, &80, &36, &f0, 8     ; 3623: b9 00 60... ..`
+    equb &a9, 0  , &9d, &80, &36, &b9, 0  , &60, &a0, &68, &91, &70   ; 362f: a9 00 9d... ...
+    equb &bc, 0  , &37, &f0, 8  , &a9, 0  , &9d, 0  , &37, &b9, 0     ; 363b: bc 00 37... ..7
+    equb &60, &a0, &70, &91, &70, &bc, &80, &37, &f0, 9  , 2  , 8     ; 3647: 60 a0 70... `.p
+    equb 4  , &0a, &0d, &0b, 9  , &0e, 8  , 4  , 8  , 9  , 2  , 8     ; 3653: 04 0a 0d... ...
+    equb 8  , &0d, &0d, &0c, &0b, 8  , 2  , 8  , &0f, &0a, 8  , 9     ; 365f: 08 0d 0d... ...
+    equb 8  , 9  , 3  , &0b, &0b, 8  , &0b, 8  , 8  , 1  , 8  , 8     ; 366b: 08 09 03... ...
+    equb 9  , 1  , &ff                                                ; 3677: 09 01 ff    ...
+    equs "w33"                                                        ; 367a: 77 33 33    w33
+    equb &11, &11, &11, &ab                                           ; 367d: 11 11 11... ...
+    equs "YOUR TIME IS UP!"                                           ; 3681: 59 4f 55... YOU
+    equb &ab, &ff                                                     ; 3691: ab ff       ..
+    equs "PRESS "                                                     ; 3693: 50 52 45... PRE
+    equb &ff, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81   ; 3699: ff 81 81... ...
+    equb &81, &81, &a0, &48, &91, &70, &bc, 0  , &35, &f0, 8  , &a9   ; 36a5: 81 81 a0... ...
+    equb 0  , &9d, 0  , &35, &b9, 0  , &60, &a0, &50, &91, &70, &bc   ; 36b1: 00 9d 00... ...
+    equb &80, &35, &f0, 8  , &a9, 0  , &9d, &80, &35, &b9, 0  , &60   ; 36bd: 80 35 f0... .5.
+    equb &a0, &58, &91, &70, &bc, 0  , &36, &0a, 1  , &0c, 0  , 2     ; 36c9: a0 58 91... .X.
+    equb 5  , 3  , 1  , 6  , &0c, 9  , 0  , &0a, 1  , 0  , 0  , 5     ; 36d5: 05 03 01... ...
+    equb 5  , 4  , 3  , &0a, 9  , 0  , 7  , 2  , 0  , 1  , 0  , &0b   ; 36e1: 05 04 03... ...
+    equb 1  , 3  , 1  , 0  , 3  , 0  , 9  , 0  , 1  , 9  , 0  , 0     ; 36ed: 01 03 01... ...
+    equb &ff, &ee, &cc, &cc, &88, &88, &88, &fe, &eb, &a7, &d3        ; 36f9: ff ee cc... ...
+    equs "NAME OF"                                                    ; 3704: 4e 41 4d... NAM
+    equb &d4, &1f, &0c, &11, &83                                      ; 370b: d4 1f 0c... ...
+    equs "____________"                                               ; 3710: 5f 5f 5f... ___
+    equb &1f, 9  , &10, &85, &d8, &ff, &1f, 2  , &0a, &86, &ff, &81   ; 371c: 1f 09 10... ...
+    equb &81, &81, &81, &81, 0  , &60, &a0, &38, &91, &70, &bc, 0     ; 3728: 81 81 81... ...
+    equb &34, &f0, 8  , &a9, 0  , &9d, 0  , &34, &b9, 0  , &60, &a0   ; 3734: 34 f0 08... 4..
+    equb &40, &91, &70, &bc, &80, &34, &f0, 8  , &a9, 0  , &9d, &80   ; 3740: 40 91 70... @.p
+    equb &34, &b9, 0  , &60, &0a, &0a, 8  , 8  , &45, 8  , 8  , 9     ; 374c: 34 b9 00... 4..
+    equb &4a, &88, 8  , 8  , &0a, &4a, 2  , 0  , 2  , &4a, 8  , 5     ; 3758: 4a 88 08... J..
+    equb &88, 8  , 8  , 2                                             ; 3764: 88 08 08... ...
+    equs "BHR"                                                        ; 3768: 42 48 52    BHR
+    equb 8  , &11, &51, 0  , &48, &0a, &52, 0  , 0  , &40, 0  , &40   ; 376b: 08 11 51... ..Q
+    equb 0                                                            ; 3777: 00          .
+    equs "@RN12345Position"                                           ; 3778: 40 52 4e... @RN
+    equb &a8                                                          ; 3788: a8          .
+    equs "In front:"                                                  ; 3789: 49 6e 20... In
+    equb &ad, &ff                                                     ; 3792: ad ff       ..
+    equs "Laps to go"                                                 ; 3794: 4c 61 70... Lap
+    equb &a8                                                          ; 379e: a8          .
+    equs "Behind:"                                                    ; 379f: 42 65 68... Beh
+    equb &b2, &ff, &c6, &ff, &81, &81, &32, &b9, 0  , &60, &a0, &28   ; 37a6: b2 ff c6... ...
+    equb &91, &70, &bc, 0  , &33, &f0, 8  , &a9, 0  , &9d, 0  , &33   ; 37b2: 91 70 bc... .p.
+    equb &b9, 0  , &60, &a0, &30, &91, &70, &bc, &80, &33, &f0, 8     ; 37be: b9 00 60... ..`
+    equb &a9, 0  , &9d, &80, &33, &b9, &8e, &cc, &62, &8c, &cd        ; 37ca: a9 00 9d... ...
+    equs "bHJJJJ"                                                     ; 37d5: 62 48 4a... bHJ
+    equb &d0, 8  , &a9, &1f                                           ; 37db: d0 08 a9... ...
+    equs "$x0"                                                        ; 37df: 24 78 30    $x0
+    equb 2  , &a9, &f0, &18                                           ; 37e2: 02 a9 f0... ...
+    equs "i0 "                                                        ; 37e6: 69 30 20    i0
+    equb &92, &50, 6  , &78, &68, 6  , &78, &b0, &0c, &29, &0f, &d0   ; 37e9: 92 50 06... .P.
+    equb 2  , &a9, &1f, &18                                           ; 37f5: 02 a9 1f... ...
+    equs "i0 "                                                        ; 37f9: 69 30 20    i0
+    equb &92, &50, &60, &ff, &fe, &ec, &da, &d5, &ed, &db, &d5, &ee   ; 37fc: 92 50 60... .P`
+    equb &dc, &d5, &eb, &d2                                           ; 3808: dc d5 eb... ...
+    equs "DURATION OF QUALIFYING LAPS"                                ; 380c: 44 55 52... DUR
+    equb &ff                                                          ; 3827: ff          .
+    equs " ] "                                                        ; 3828: 20 5d 20     ]
+    equb &ff, &9d, &80, &31, &b9, 0  , &60, &a0, &18, &91, &70, &bc   ; 382b: ff 9d 80... ...
+    equb 0  , &32, &f0, 8  , &a9, 0  , &9d, 0  , &32, &b9, 0  , &60   ; 3837: 00 32 f0... .2.
+    equb &a0, &20, &91, &70, &bc, &80, &32, &f0, 8  , &a9, 0  , &9d   ; 3843: a0 20 91... . .
+    equb &80, &a9, 4  , &a0, 0  , &a2, 1  , &20, &f4, &ff             ; 384f: 80 a9 04... ...
+    equs " 9O"                                                        ; 3859: 20 39 4f     9O
+    equb &a2, 9  , &a9, 0  , &85, &69, &9d, &f4, 5  , &ca, &10, &fa   ; 385c: a2 09 a9... ...
+    equb &a9, &f6, &8d, &fe, 5  , &ba, &86                            ; 3868: a9 f6 8d... ...
+    equs "k ", '"', "Z"                                               ; 386f: 6b 20 22... k "
+    equb &a9, &be, &a0, 0  , &a2, &20, &20, &f4, &ff, &4c, &e0, &63   ; 3873: a9 be a0... ...
+    equb &ff, &ec                                                     ; 387f: ff ec       ..
+    equs "PRACTICE"                                                   ; 3881: 50 52 41... PRA
+    equb &ed                                                          ; 3889: ed          .
+    equs "COMPETITION"                                                ; 388a: 43 4f 4d... COM
+    equb &ff, &ff, &ad                                                ; 3895: ff ff ad    ...
+    equs "PLEASE"                                                     ; 3898: 50 4c 45... PLE
+    equb &a2                                                          ; 389e: a2          .
+    equs "WAIT"                                                       ; 389f: 57 41 49... WAI
+    equb &ad, &ff, &1f, 9  , 2  , &ff, &81, &81, &81, &a9, 0  , &9d   ; 38a3: ad ff 1f... ...
+    equb &80, &30, &b9, 0  , &60, &a0, 8  , &91, &70, &bc, 0  , &31   ; 38af: 80 30 b9... .0.
+    equb &f0, 8  , &a9, 0  , &9d, 0  , &31, &b9, 0  , &60, &a0, &10   ; 38bb: f0 08 a9... ...
+    equb &91, &70, &bc, &80, &31, &f0, 8  , &a9, 0  , &ff, &ff, &88   ; 38c7: 91 70 bc... .p.
+    equb &88, &cc, &ee, &ff, &88, &88, &cc, &ee, &ff, &88, &cc, &ee   ; 38d3: 88 cc ee... ...
+    equb &ff, &88, &cc, &ee, &ff, &88, &cc, &ee, &ff, &88, &cc, &ee   ; 38df: ff 88 cc... ...
+    equb &ff, &88, &88, &cc, &cc, &cc, &ee, &ee, &ee, &ff, &ff, &ff   ; 38eb: ff 88 88... ...
+    equb &88, &88, &88, &cc, &cc, 0  , &0f, &f0, &ff, &1b, &1b, &1b   ; 38f7: 88 88 88... ...
+    equb &15, 3  , 2  , 2  , 6  , &0b, &0f, &13, &17, &1b             ; 3903: 15 03 02... ...
+    equs "&++++++++++++&"                                             ; 390d: 26 2b 2b... &++
+    equb &1b, &17, &13, &0f, &0b, 6  , 2  , 2  , 3  , &15, &1b, &1b   ; 391b: 1b 17 13... ...
+    equb &1b, &1b, &ff, &81, &81, &f3, &7e, &4c, &13, &7d, &bd        ; 3927: 1b 1b ff... ...
+    equs "`_)"                                                        ; 3932: 60 5f 29    `_)
+    equb 3  , &a8, &b9, &fc, &38, &bc, 0  , &30, &f0, 8  , &a9, 0     ; 3935: 03 a8 b9... ...
+    equb &9d, 0  , &30, &b9, 0  , &60, &a0, 0  , &91, &70, &bc, &80   ; 3941: 9d 00 30... ..0
+    equb &30, &f0, 8  , &ff, &ff, &11, &11, &33, &77, &ff, &11, &11   ; 394d: 30 f0 08... 0..
+    equb &33, &77, &ff, &11, &33, &77, &ff, &11, &33, &77, &ff, &11   ; 3959: 33 77 ff... 3w.
+    equb &33, &77, &ff, &11, &33, &77, &ff, &11, &11                  ; 3965: 33 77 ff... 3w.
+    equs "333www"                                                     ; 396e: 33 33 33... 333
+    equb &ff, &ff, &ff, &11, &11, &11                                 ; 3974: ff ff ff... ...
+    equs "33uuuu555555554444443332221100//..--,,+*)('&"               ; 397a: 33 33 75... 33u
+    equb &a2, &9c, 8  , 8  , &e7, &ff, &8d, &da, &7b, &a9, &91, &8d   ; 39a6: a2 9c 08... ...
+    equb &0f, &7c, &8d, &0f, &7c, &8d, &0f, &7e, &a9, &e0, &8d, &ee   ; 39b2: 0f 7c 8d... .|.
+    equb &7e, &60, &a9, 0  , &85, &70, &85, &72, &a2, &67, &86, &71   ; 39be: 7e 60 a9... ~`.
+    equb &e8, &86, &73, &a2                                           ; 39ca: e8 86 73... ..s
+    equs "O w3"                                                       ; 39ce: 4f 20 77... O w
+    equb &11, 0  , &80, 1  , &c1, &81, &c2, &42, &c0, &83, &43, &20   ; 39d2: 11 00 80... ...
+    equb 4  , &84, &9d, &cf, &ce, &ee, &dd, &ee, 0  , 0  , 0  , 0     ; 39de: 04 84 9d... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 39ea: 00 00 00... ...
+    equb 0  , 0  , &77, &bb, &dd, &ee, &77, &bb, &dd, &ee, &1f, 5     ; 39f6: 00 00 77... ..w
+    equb &18, &86, &d9                                                ; 3a02: 18 86 d9    ...
+    equs "SPACE BAR TO CONTINUE"                                      ; 3a05: 53 50 41... SPA
+    equb &ff, &45, &ff                                                ; 3a1a: ff 45 ff    .E.
+    equs "GRID POSITIONS"                                             ; 3a1d: 47 52 49... GRI
+    equb &ff, &b8, 6  , &20, &d6, &37, 6  , &78, &b0, &0b, &a9, &2e   ; 3a2b: ff b8 06... ...
+    equb &20, &92, &50, &bd, &a0, 6  , &20, &d6, &37, &60, &ad, &24   ; 3a37: 20 92 50...  .P
+    equb &7d, &8d, &d4, &7b, &ad, &24, &7f, &8d, &d7, &7b, &ad, &7d   ; 3a43: 7d 8d d4... }..
+    equb &7f, &a0, 1  , &b9, &71, &3a, &85, &74, &be, &6f, &3a, &a9   ; 3a4f: 7f a0 01... ...
+    equb &97, &9d, &79, &7c, &a9, &e2, &e8, &9d, &79, &7c, &a9, &e6   ; 3a5b: 97 9d 79... ..y
+    equb &e4, &74, &d0, &f6, &88, &10, &e4, &60, 0  , &78, &23, &9b   ; 3a67: e4 74 d0... .t.
+    equb &af                                                          ; 3a73: af          .
+    equs "FINISHED"                                                   ; 3a74: 46 49 4e... FIN
+    equb &af, &ff, 0  , 0  , &a6                                      ; 3a7c: af ff 00... ...
+    equs "Less than one minute to go"                                 ; 3a81: 4c 65 73... Les
+    equb &a6, &ff, &1f, 5  , &14, &84, &9d, &86, &33, &a2, &9c, &a5   ; 3a9b: a6 ff 1f... ...
+    equb &83, &ff, &81, &81, &81, &a9, &f0, &a2, 9  , &9d, &c0, &42   ; 3aa7: 83 ff 81... ...
+    equb &ca, &10, &fa, &68, &a2, 5  , &9d, &c2                       ; 3ab3: ca 10 fa... ...
+    equs "BEt"                                                        ; 3abb: 42 45 74    BEt
+    equb &ca, &10, &f8, &60, &85, &78, &bd, &d0, 6  , &20, &d6, &37   ; 3abe: ca 10 f8... ...
+    equb &a9, &3a, &20, &92, &50, &bd, 0  , 0  , &1d, &87, &15, &80   ; 3aca: a9 3a 20... .:
+    equb &80, &80, 0  , 7  , &80, 0  , &88, &91, &97, &9d, &28, &93   ; 3ad6: 80 80 00... ...
+    equb 0  , &80, 0  , &80, 0  , 0  , 0  , &80, 0  , 0  , 0  , 0     ; 3ae2: 00 80 00... ...
+    equb 0  , &80, &a6, &e0, &13, &22, &8a, 0  , &9d, &80, &80, &80   ; 3aee: 00 80 a6... ...
+    equb &80, &80, &94, &a8, &f3, 0  , &97, &a5, &7a, 8  , &f5        ; 3afa: 80 80 94... ...
+    equs "sXYZ[]^_`bcdeghijlmnoqrstvwxy{|}~@H"                        ; 3b05: 73 58 59... sXY
+    equb &18                                                          ; 3b28: 18          .
+    equs "0px"                                                        ; 3b29: 30 70 78    0px
+    equb &d0, &1d, &e0, &a0, &f0, &0d, &ca, &10, &12, &e0, &c0, &b0   ; 3b2c: d0 1d e0... ...
+    equb &ef, &a9, &a5, &a0, &77, &d0, &0c, &a5                       ; 3b38: ef a9 a5... ...
+    equs "j)?"                                                        ; 3b40: 6a 29 3f    j)?
+    equb &d0, &f4, &a2, &28, &a9, &f2, &a0, 5  , &86, &6d, &48, &84   ; 3b43: d0 f4 a2... ...
+    equs "t6B:50C<?5>>4><<<86223=87<40=C>:59@=7C?:8B:677"             ; 3b4f: 74 36 42... t6B
+    equs "7;"                                                         ; 3b7d: 37 3b       7;
+    equb 0                                                            ; 3b7f: 00          .
+    equs "88<5B:"                                                     ; 3b80: 38 38 3c... 88<
+    equb &e8, &88, &c8, &e8, &ca, &c8, &88, &ca, &88, &e8, &e8, &c8   ; 3b86: e8 88 c8... ...
+    equb &c8, &ca, &ca, &88, &18, &ea, &ea, &18, &18, &ea, &ea, &18   ; 3b92: c8 ca ca... ...
+    equs "uutuvv"                                                     ; 3b9e: 75 75 74... uut
+    equb &12, &11, &10, &0e, &0d, &0c, &81, &81, &a5, &84, &99, &93   ; 3ba4: 12 11 10... ...
+    equb &62, &20, &b6, &7f, &88, &10, &e5, &60, &a5, &6c, &10, &4d   ; 3bb0: 62 20 b6... b .
+    equb &a6, &6d, &f0, &49, &10, &10, &e0, &80, &d0, &0c, &24, &61   ; 3bbc: a6 6d f0... .m.
+    equb &10, 2  , &a2, &f0, &a0, 0  , &a9, &80, 4  , 7  , 9  , 7     ; 3bc8: 10 02 a2... ...
+    equb 0  , &0b, 7  , 3  , 0  , 0  , 0  , 4  , 4  , 0  , &aa, &af   ; 3bd4: 00 0b 07... ...
+    equb &b3, &af, &a2, &b8, &af, &81, &81, &85, &84, &a3, &83, &85   ; 3be0: b3 af a2... ...
+    equb &83, &83, &87, &87, &7f, &84, &87, &16, 7  , &17, 0  , &0a   ; 3bec: 83 83 87... ...
+    equb &20, 0  , 0  , 0  , 0  , 0  , 0  , &ff, &eb, &d2             ; 3bf8: 20 00 00...  ..
+    equs "WING SETTINGS"                                              ; 3c02: 57 49 4e... WIN
+    equb &d8                                                          ; 3c0f: d8          .
+    equs "range 0 to 40"                                              ; 3c10: 72 61 6e... ran
+    equb &1f, &0e, &10                                                ; 3c1d: 1f 0e 10    ...
+    equs "rear"                                                       ; 3c20: 72 65 61... rea
+    equb &a2, &85, &d8, &ff, &81, &81, &81, &81, &e5, &74, &85, &7f   ; 3c24: a2 85 d8... ...
+    equb &bd, &98, 3  , &38, &e5, &0b, &38, &e9, 4                    ; 3c30: bd 98 03... ...
+    equs "JJJ"                                                        ; 3c39: 4a 4a 4a    JJJ
+    equb &85, &76, &a0, 5  , &a5, &76, &d9, &a4, &3b, &f0, 9  , &b9   ; 3c3c: 85 76 a0... .v.
+    equb &93, &62, &f0, &0c, &a9, 0  , &f0, 2  , &a2, 5  , &20, &d0   ; 3c48: 93 62 f0... .b.
+    equb &41, &a2, &18                                                ; 3c54: 41 a2 18    A..
+    equs " ~M "                                                       ; 3c57: 20 7e 4d...  ~M
+    equb &e0, &3e, &8d, &3e, &5f, &a2, &19                            ; 3c5b: e0 3e 8d... .>.
+    equs " ~M "                                                       ; 3c62: 20 7e 4d...  ~M
+    equb &e0, &3e, &8d                                                ; 3c66: e0 3e 8d    .>.
+    equs "=_ "                                                        ; 3c69: 3d 5f 20    =_
+    equb &d0, &34, &60, &ad, &3a, &5f, &18, &69, 7  , &aa             ; 3c6c: d0 34 60... .4`
+    equs " ~M`"                                                       ; 3c76: 20 7e 4d...  ~M
+    equb &1f, &18, 2  , &da, &d6, &ff, &a2                            ; 3c7a: 1f 18 02... ...
+    equs "BEST LAP TIMES"                                             ; 3c81: 42 45 53... BES
+    equb &a2, &ff                                                     ; 3c8f: a2 ff       ..
+    equs " mins"                                                      ; 3c91: 20 6d 69...  mi
+    equb &ff                                                          ; 3c96: ff          .
+    equs " laps"                                                      ; 3c97: 20 6c 61...  la
+    equb &ff                                                          ; 3c9c: ff          .
+    equs " RACE"                                                      ; 3c9d: 20 52 41...  RA
+    equb &ff                                                          ; 3ca2: ff          .
+    equs "ins"                                                        ; 3ca3: 69 6e 73    ins
+    equb &ff, &81, &81, &81, &81, &81, &44, &88, &f0, &f0, &f0, &f0   ; 3ca6: ff 81 81... ...
+    equb &f0, &f0, &70, &30, &a4, &5b, &be, &3c, 1  , &bd, &8c, 1     ; 3cb2: f0 f0 70... ..p
+    equb &30, &20, &bd, &c8, 3                                        ; 3cbe: 30 20 bd... 0 .
+    equs "JJJ"                                                        ; 3cc3: 4a 4a 4a    JJJ
+    equb &85, &74, &18, &69, &b6, &85, &84, &a9, &b6, &38, 0  , 5     ; 3cc6: 85 74 18... .t.
+    equb 9  , &0e, &12, &19, &1a, &1b, &1e                            ; 3cd2: 09 0e 12... ...
+    equs " ", '"', "%'"                                               ; 3cd9: 20 22 25...  "%
+    equb 0  , 8  , &10, &18, &1e                                      ; 3cdd: 00 08 10... ...
+    equs "&),159>BF"                                                  ; 3ce2: 26 29 2c... &),
+    equb &8a, &4a, &4a, &18, &69, &40, &a8, &8a, &29, 3  , &0a, &0a   ; 3ceb: 8a 4a 4a... .JJ
+    equb &85, &74, &0a, &18                                           ; 3cf7: 85 74 0a... .t.
+    equs "etiP`"                                                      ; 3cfb: 65 74 69... eti
+    equb &fe, &ec, &d3                                                ; 3d00: fe ec d3    ...
+    equs "ANOTHER"                                                    ; 3d03: 41 4e 4f... ANO
+    equb &d4, &ed                                                     ; 3d0a: d4 ed       ..
+    equs "START"                                                      ; 3d0c: 53 54 41... STA
+    equb &d7, &ff, &8d, &81, &9d, &83, &c8, &a2, &9c, &ff, &81, &81   ; 3d11: d7 ff 8d... ...
+    equb &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &0e, &0e   ; 3d1d: 81 81 81... ...
+    equb &0e, 0  , &80, &e0                                           ; 3d29: 0e 00 80... ...
+    equs "twwww"                                                      ; 3d2d: 74 77 77... tww
+    equb 0  , &10, &70, &e2, &ee, &ee, &ee, &ee, &91, &aa, 0  , &11   ; 3d32: 00 10 70... ..p
+    equb 0  , &33, &22, &11, &22, &44, &99, &22, &88, &ee             ; 3d3e: 00 33 22... .3"
+    equs "3Dp0"                                                       ; 3d48: 33 44 70... 3Dp
+    equb &10, &10, &88, 0  , &85, &74, &a9, &20, &20, &92, &50, &c6   ; 3d4c: 10 10 88... ...
+    equb &74, &d0, &f7, &60, &a9, 0  , &85, 0  , &85, &74, &85, &70   ; 3d58: 74 d0 f7... t..
+    equb &a9, &30, &85, &71, &a6, &74, &e0, &28, &f0, &ed, &bd, 0     ; 3d64: a9 30 85... .0.
+    equb &39, &85, &75, &a0, &46, &4c, &d0, &31, &aa, &77, &aa, &dd   ; 3d70: 39 85 75... 9.u
+    equb &0a, 7  , &0a, &0d, &fe, &ec, &cf, &ed, &d0, &ee, &d1, &eb   ; 3d7c: 0a 07 0a... ...
+    equb &a4, &d2                                                     ; 3d88: a4 d2       ..
+    equs "THE CLASS OF"                                               ; 3d8a: 54 48 45... THE
+    equb &d7, &ff, &81, &81, &81, &81, &88, &88                       ; 3d96: d7 ff 81... ...
+    equs "DDDDD"                                                      ; 3d9e: 44 44 44... DDD
+    equb 4  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 8  , 0  , 0  , 5     ; 3da3: 04 00 00... ...
+    equb 5  , 5  , 5  , 5  , &12, &12, &12, &12, 3  , 1  , &41, 1     ; 3daf: 05 05 05... ...
+    equb 5  , 7  , 7  , 3  , &83, &83, &83, &83, &0f, &0f, &0f, &0f   ; 3dbb: 05 07 07... ...
+    equb &0f, &0f, &0f, &0f, &1c, &1d, &0c, &0e, &0e, 0  , &27, &12   ; 3dc7: 0f 0f 0f... ...
+    equb 9  , 3  , 3  , 3  , 3  , 3  , 3  , 3  , 3  , 3  , 3  , 3     ; 3dd3: 09 03 03... ...
+    equb 3  , 3  , 3  , &86, &8e, &8d, &8d, &eb, &8b, &df, &96, &a6   ; 3ddf: 03 03 03... ...
+    equb &e9, &8c, &8a, &ce, &ee, 4  , 9  , &19, 0  , 5  , &0a, &14   ; 3deb: e9 8c 8a... ...
+    equb 9  , 6  , 4  , 3  , 2  , 1  , 1  , 0  , 0  , &fe, &eb, &a5   ; 3df7: 09 06 04... ...
+    equb &82, &d4, &d8, &ff                                           ; 3e03: 82 d4 d8... ...
+    equs "Professional"                                               ; 3e07: 50 72 6f... Pro
+    equb &ff, &81, &81, &81, &81, 0  , &10, &80, 0  , 0  , 7  , &0f   ; 3e13: ff 81 81... ...
+    equb 0  , 0  , 0  , 1  , 3  , &1e, &3c, &68, &16, &16, &3c, &68   ; 3e1f: 00 00 00... ...
+    equb &f0, &80, &f0, 0  , &f0, &10, &f0, &10, &e1, &21, &e1, &21   ; 3e2b: f0 80 f0... ...
+    equb 8  , 8  , 8  , 9  , 8  , 1  , &40, 1  , 6  , 0  , 0  , 8     ; 3e37: 08 08 08... ...
+    equb 8  , 8  , 8  , 8  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 3e43: 08 08 08... ...
+    equb &88, 8  , &13, &1e                                           ; 3e4f: 88 08 13... ...
+    equs ")9DOZ"                                                      ; 3e53: 29 39 44... )9D
+    equb 2  , &0d, &18                                                ; 3e58: 02 0d 18    ...
+    equs "#3>IT"                                                      ; 3e5b: 23 33 3e... #3>
+    equb &98, &29, 1  , &18, &65, &42, &aa, &bd, &74, &3e, &8d, &85   ; 3e60: 98 29 01... .).
+    equb &35, &bd, &76, &3e, &8d, &83, &35, &60, &84, &85, &86, &87   ; 3e6c: 35 bd 76... 5.v
+    equb &81, &84, &83, &82, &83, &84, &81, &87                       ; 3e78: 81 84 83... ...
+    equs "SELECT "                                                    ; 3e80: 53 45 4c... SEL
+    equb &ff                                                          ; 3e87: ff          .
+    equs " DRIVER"                                                    ; 3e88: 20 44 52...  DR
+    equb &ff, &81, &81, &81, &81                                      ; 3e8f: ff 81 81... ...
+    equs "DD", '"'                                                    ; 3e94: 44 44 22    DD"
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 9     ; 3e97: 00 00 00... ...
+    equb &0a, &0a, &0a, 9  , 1  , 1  , 1  , 1  , 9  , 8  , &28, 0     ; 3ea3: 0a 0a 0a... ...
+    equb &f0, &80, &f0, &80                                           ; 3eaf: f0 80 f0... ...
+    equs "xHxH"                                                       ; 3eb3: 78 48 78... xHx
+    equb &86, &86, &c3, &61, &f0, &10, &f0, 0  , 0  , 0  , 0  , 8     ; 3eb7: 86 86 c3... ...
+    equb &0c, &87, &c3, &61, 0  , 0  , 0  , &10, 0  , 0  , &0e, &0f   ; 3ec3: 0c 87 c3... ...
+    equb 0  , 0  , &0b, &16                                           ; 3ecf: 00 00 0b... ...
+    equs "!.9DOOD9.!"                                                 ; 3ed3: 21 2e 39... !.9
+    equb &16, &0b, 0  , &a9, &74, &a0, 0  , &a2, 2  , &20, 0  , &63   ; 3edd: 16 0b 00... ...
+    equb &20, &d0, &32, &90, &0b, &88, &30, &ef, &a9, &7f, &20, &ee   ; 3ee9: 20 d0 32...  .2
+    equb &ff, &4c, &ee, &3e, &60, &aa, &ac, &b0, &b0, &ac, &aa, &1f   ; 3ef5: ff 4c ee... .L.
+    equb 5  , &12, &84, &9d, &86, &32, &a2, &9c, &a5, &83, &ff, &81   ; 3f01: 05 12 84... ...
+    equb &81, &81, &81, &ff, &44, &ff, &aa, &ff, &11, &ff, &11, &ff   ; 3f0d: 81 81 81... ...
+    equb &bb, &77, &cf, &47, &cf, &8f, &8f, &8f, &8f, &8f, &0f, &0f   ; 3f19: bb 77 cf... .w.
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0a, &0e, &0e, &0c, &1c, &1c   ; 3f25: 0f 0f 0f... ...
+    equb &1c, &1c, &84, &84, &84, &84, &0c, 8  , &28, 8  , 0  , 0     ; 3f31: 1c 1c 84... ...
+    equb 0  , 4  , &0a, &0a, &0a, 4  , 0  , 0  , 0  , 0  , 0  , 0     ; 3f3d: 00 04 0a... ...
+    equb 0  , 0                                                       ; 3f49: 00 00       ..
+    equs "DDDDD"                                                      ; 3f4b: 44 44 44... DDD
+    equb &1b, &1b, &1b, &15, 3  , 2  , 2  , 2  , 6  , &0b, &0f, &13   ; 3f50: 1b 1b 1b... ...
+    equb &17, &1b                                                     ; 3f5c: 17 1b       ..
+    equs "&+++++++++++&"                                              ; 3f5e: 26 2b 2b... &++
+    equb &1b, &17, &13, &0f, &0b, 6  , 2  , 2  , 2  , 3  , &15, &1b   ; 3f6b: 1b 17 13... ...
+    equb &1b, &1b                                                     ; 3f77: 1b 1b       ..
+    equs "   BehiNovice"                                              ; 3f79: 20 20 20...
+    equb &ff, &81, &81, &81, &81, &81                                 ; 3f86: ff 81 81... ...
+    equs "@@b@Qb"                                                     ; 3f8c: 40 40 62... @@b
+    equb &80                                                          ; 3f92: 80          .
+    equs "p00"                                                        ; 3f93: 70 30 30    p00
+    equb &10, &98, 0  , &44, &88, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 3f96: 10 98 00... ...
+    equb &70, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 3fa2: 70 f0 f0... p..
+    equb &f0, &f0, &f0, &e0, &c0, &e0, &c0, &80, &80, &11, 0  , &22   ; 3fae: f0 f0 f0... ...
+    equb &11, &44, &22, &99, &44, &11, &77, &cc, &22, &88, &66, &33   ; 3fba: 11 44 22... .D"
+    equb &99, &22, &cc, &77, &aa, &88, &ff, &11, &77, &aa, &88, &ea   ; 3fc6: 99 22 cc... .".
+    equb &ea, &c8, &ea, &88, &c8, &ea, &c8, &ea, &ea, &88, &ea, &c8   ; 3fd2: ea c8 ea... ...
+    equb &88, &ea, 0  , &40, &80, &c0, 0  , &40, &80, &c0, &77, &bb   ; 3fde: 88 ea 00... ...
+    equb &dd, &ee, &77, &bb, &dd, &ee, 0  , &40, &80, &c0, 0  , &40   ; 3fea: dd ee 77... ..w
+    equb &80, &c0, 0  , &40, &80, &c0, 0  , &40, &80, &c0, &81, &81   ; 3ff6: 80 c0 00... ...
+    equb &81, &81, &81, &81, &81, 7  , 1  , 1  , 0  , &88, &88, &88   ; 4002: 81 81 81... ...
+    equb &88, 0  , 0  , 0  , 0  , 4  , 5  , 5  , 5  , 1  , 1  , 0     ; 400e: 88 00 00... ...
+    equb &20, 8  , 4  , 4  , 4                                        ; 401a: 20 08 04...  ..
+    equs "IHh,$$4"                                                    ; 401f: 49 48 68... IHh
+    equb &16, &0f, &0b, 7  , &0f, &0f, 7  , 7  , 7  , &0f, &0f, &0f   ; 4026: 16 0f 0b... ...
+    equb &0f, &0f, &0f, &0f, &0f                                      ; 4032: 0f 0f 0f... ...
+    equs ":l(ll,,"                                                    ; 4037: 3a 6c 28... :l(
+    equb &1c                                                          ; 403e: 1c          .
+    equs "wffwfff"                                                    ; 403f: 77 66 66... wff
+    equb 0  , &cc, &66, &66, &cc, &cc, &66, &66, 0  , &80             ; 4046: 00 cc 66... ..f
+    equs "Max ThrottleJohnny TurboDavey RocketGloria Sla"             ; 4050: 4d 61 78... Max
+    equs "p "                                                         ; 407e: 70 20       p
+    equb &81, &81, &81, &40, 0  , 8  , &0c, &0c, 0  , 0  , 0  , 0     ; 4080: 81 81 81... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 2  , 2  , 2  , 2  , 2     ; 408c: 00 00 00... ...
+    equb 0  , 0  , 0  , &0c, 4  , &0c, 8  , &0c, 5  , 5  , 5  , 5     ; 4098: 00 00 00... ...
+    equb 5  , 0  , 0  , &10, 0  , 0  , 0  , &20, 0  , 1  , 3  , 3     ; 40a4: 05 00 00... ...
+    equb &16                                                          ; 40b0: 16          .
+    equs "4<,xH"                                                      ; 40b1: 34 3c 2c... 4<,
+    equb &f0, &90, &c3, &43, &c2, &86, &84, &84, &84, &1c, 0  , 0     ; 40b6: f0 90 c3... ...
+    equb 0  , 0  , 6  , 4  , 6  , 2  , 2  , 2  , 2  , 2  , 0  , 0     ; 40c2: 00 00 06... ...
+    equb 0  , 0                                                       ; 40ce: 00 00       ..
+    equs "ZOD9)"                                                      ; 40d0: 5a 4f 44... ZOD
+    equb &1e, &13, 8                                                  ; 40d5: 1e 13 08    ...
+    equs "TI>3#"                                                      ; 40d8: 54 49 3e... TI>
+    equb &18, &0d, 2  , &0c, &1f, 4  , 3  , &ea, &aa, &ea, &1f, &24   ; 40dd: 18 0d 02... ...
+    equb 2  , &ff, &a9, 0  , &9d, &a0, 6  , &9d, &b8, 6  , &a9, &10   ; 40e9: 02 ff a9... ...
+    equb &9d, &d0, 6  , &60, &77, &c2, &c0, &bc, &bc, &c0, &c2, &81   ; 40f5: 9d d0 06... ...
+    equb &81, &81, &0f, &0f, &0f, &0d, &0e, &0f, &0f, &0e, &0e, &0e   ; 4101: 81 81 0f... ...
+    equs ")!aCBB"                                                     ; 410d: 29 21 61... )!a
+    equb &c2, &86, 8  , 8  , 0  , &41, 0  , 1  , 1  , 1  , 1  , 0     ; 4113: c2 86 08... ...
+    equb 0  , 8  , 8  , 8  , 0  , 8  , &0c, 8  , 8  , 0  , &88, &88   ; 411f: 00 08 08... ...
+    equb &88, &88, &0e, &0a, &0e, 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 412b: 88 88 0e... ...
+    equb 0  , &14, &0a, &0e, &0a, 4                                   ; 4137: 00 14 0a... ...
+    equs "<,4"                                                        ; 413d: 3c 2c 34    <,4
+    equb &16, &12, &12, &12, 3  , &86, &c2, &c3, &43, &e1, &21, &f0   ; 4140: 16 12 12... ...
+    equb &90, 0  , 0  , 0                                             ; 414c: 90 00 00... ...
+    equs "Hugh JengineDesmond DashPercy Veer  Gary Clipp"             ; 4150: 48 75 67... Hug
+    equs "er"                                                         ; 417e: 65 72       er
+    equb &81, &81, &81, &81, &e0, &f0, &f0, &f0, &f0, &f0, 0  , 0     ; 4180: 81 81 81... ...
+    equb 0  , 0  , &80, &c0, &e0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 418c: 00 00 80... ...
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &e0, &e0, &c0   ; 4198: f0 f0 f0... ...
+    equb &c0, &80, &91, 0  , &22, &11, 0  , &22, 0  , &55, &22, &99   ; 41a4: c0 80 91... ...
+    equb &44, &22, &99, 0  , &11, &77, &cc, &11, &ee                  ; 41b0: 44 22 99... D".
+    equs "3U", '"', "w"                                               ; 41b9: 33 55 22... 3U"
+    equb &99, &22, &ee, &55, &dd, &45, &ab, &45, &67, &ab, &cf, &47   ; 41bd: 99 22 ee... .".
+    equb &8b, &0f, &0f, &0f, &0f, &0f, &0f, &bd, &d0, &3b, &8d, &e2   ; 41c9: 8b 0f 0f... ...
+    equb &40, &bd, &d7, &3b, &8d, &e3, &40, &bd, &de, &3b, &8d, &e5   ; 41d5: 40 bd d7... @..
+    equb &40, &bd, &e5, &3b, &8d, &14, &3d, &bd, &ec, &3b, &8d, &16   ; 41e1: 40 bd e5... @..
+    equb &3d, &8a, &18, &69, &c8, &8d, &17, &3d, &a2                  ; 41ed: 3d 8a 18... =..
+    equs "! ~M`y{|}~"                                                 ; 41f6: 21 20 7e... ! ~
+    equb &a5, &fb, &a6, &ff, &81, &81, &81, &81, &81, &81, &81, &81   ; 4200: a5 fb a6... ...
+    equb &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &0f, &0f   ; 420c: 81 81 81... ...
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &1f, &4a, &0e, &0f, &0f, &0f   ; 4218: 0f 0f 0f... ...
+    equb &0f, &0f, 0  , &aa, &44, &33, &cc, &aa, &66, &dc, &44, 0     ; 4224: 0f 0f 00... ...
+    equb &22, &11, &fc, &e0, &80, 0  , 0  , 0  , &44, &11, &c0, &70   ; 4230: 22 11 fc... "..
+    equb &10, 0  , &f0                                                ; 423c: 10 00 f0    ...
+    equs "p00"                                                        ; 423f: 70 30 30    p00
+    equb &10, &10, 0  , &80, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &70   ; 4242: 10 10 00... ...
+    equb &c0, &c0                                                     ; 424e: c0 c0       ..
+    equs "Willy SwerveSid Spoiler Billy BumperSlim Chanc"             ; 4250: 57 69 6c... Wil
+    equs "e Lap Time"                                                 ; 427e: 65 20 4c... e L
+    equb &a3, &3a, &a9                                                ; 4288: a3 3a a9    .:.
+    equs "Best Time"                                                  ; 428b: 42 65 73... Bes
+    equb &a8, &ff, &81, &81, &81, &81, &81, &81, &f0, &90, &e1, &21   ; 4294: a8 ff 81... ...
+    equb &f0, &61, &c3, &87, &86, &0c, &18, 0  , &0f, &0c, 8  , 0     ; 42a0: f0 61 c3... .a.
+    equb 0  , 0  , 0  , 6  , &0f, 0  , 0  , 0  , 0  , 0  , 7  , 5     ; 42ac: 00 00 00... ...
+    equb &1e, 7  , 3  , 1  , &40, 0  , 0  , 0  , &f0, &c0             ; 42b8: 1e 07 03... ...
+    equs "x,<"                                                        ; 42c2: 78 2c 3c    x,<
+    equb &16, 3  , 1  , 7  , 0  , &83, 3  , &82, 1  , &c1, &81, &a9   ; 42c5: 16 03 01... ...
+    equb &22, &8d, &cc, &62, &85, &77, &a9, &d7, &8d, &cd, &62, &a6   ; 42d1: 22 8d cc... "..
+    equb &40, &bd                                                     ; 42dd: 40 bd       @.
+    equs "y7 "                                                        ; 42df: 79 37 20    y7
+    equb &8c, &50, &a2, &ff, &86, &77, &20, &8c, &50, &60, &a2, &13   ; 42e2: 8c 50 a2... .P.
+    equb &20, &eb, &40, &ca, &10, &fa, &60, &85, &52, &83, &45, &86   ; 42ee: 20 eb 40...  .@
+    equb &56, &82, &53, &ff, &75, &75, &fe, &eb, &a6, &d2             ; 42fa: 56 82 53... V.S
+    equs "NUMBER OF LAPS"                                             ; 4304: 4e 55 4d... NUM
+    equb &ec, &da, &d6, &ed, &db, &d6, &ee, &dc, &d6, &ff, 0  , 0     ; 4312: ec da d6... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 431e: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 1  , 1     ; 432a: 00 00 00... ...
+    equb 1  , 1  , 0  , 0  , 0  , 0  , 5  , 5  , 5  , 2  , 0  , 0     ; 4336: 01 01 00... ...
+    equb 0  , 0  , 1  , 1  , 1  , 1  , 3  , &92, &12, &12, &f0, &80   ; 4342: 00 00 01... ...
+    equb &f0, &80                                                     ; 434e: f0 80       ..
+    equs "Harry Fume  Dan DipstickWilma Cargo Miles Behi"             ; 4350: 48 61 72... Har
+    equs "ndTHE  PITS"                                                ; 437e: 6e 64 54... ndT
+    equb &ff, &1f, 4  , &0e, &88, &86, &d9, &1f, 5  , &10, &84, &9d   ; 4389: ff 1f 04... ...
+    equb &86, &31, &a2, &9c, &a5, &83, &ff, &20, 0  , 1  , 1  , &0f   ; 4395: 86 31 a2... .1.
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , &0f, 3  , 1  , 0  , &20   ; 43a1: 00 00 00... ...
+    equb 0  , 8  , 8  , &f0, &68, &3c, &1e, &16, 3  , 1  , 0  , &f0   ; 43ad: 00 08 08... ...
+    equb &10, &f0, &10, &f0, &90, &78, &48, 8  , 8  , 8  , 8  , &0c   ; 43b9: 10 f0 10... ...
+    equb &94, &84, &84, 0  , 6  , 2  , 6  , 4  , 6  , 0  , 0  , &a9   ; 43c5: 94 84 84... ...
+    equb 2                                                            ; 43d1: 02          .
+    equs " P="                                                        ; 43d2: 20 50 3d     P=
+    equb &a9, &20, &85, &78, &bd, &e4, &39, &d0, 9  , &a9, 2          ; 43d5: a9 20 85... . .
+    equs " P=Fx"                                                      ; 43e0: 20 50 3d...  P=
+    equb &d0, 3  , &20, &d6, &37, &bd                                 ; 43e5: d0 03 20... ..
+    equs "d8 "                                                        ; 43eb: 64 38 20    d8
+    equb &d6, &37, &a9, 1                                             ; 43ee: d6 37 a9... .7.
+    equs " P=`"                                                       ; 43f2: 20 50 3d...  P=
+    equb &a2, 3  , &20, &5a, &0e, &ca, &10, &fa, &60, 0  , &81, &81   ; 43f6: a2 03 20... ..
+    equb &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81   ; 4402: 81 81 81... ...
+    equb &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81, &81   ; 440e: 81 81 81... ...
+    equb &81, &81, &22, 0  , &44, &88, &33, &22, &cc, &33, 0  , &55   ; 441a: 81 81 22... .."
+    equb &22, &cc                                                     ; 4426: 22 cc       ".
+    equs "3Uf3"                                                       ; 4428: 33 55 66... 3Uf
+    equb &8f, &25, 7  , &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f   ; 442c: 8f 25 07... .%.
+    equb &0f, &0f, &0f, &0f, &0e, 0  , &1c, &0c, &14, 8  , &38, &18   ; 4438: 0f 0f 0f... ...
+    equb &f0, &30, &e1, &43, &c3, &86, &0c, 8  , &87, &0e, &0c, 8     ; 4444: f0 30 e1... .0.
+    equs "Roland SlideRick Shaw   Peter Out   Dummy Driv"             ; 4450: 52 6f 6c... Rol
+    equs "er"                                                         ; 447e: 65 72       er
+    equb &9c, &ee, &9e, &9f, 3  , 4  , &af, 5  , &9d, &a5, &a7, 4     ; 4480: 9c ee 9e... ...
+    equb &ae, &af, 6  , 7  , &e6, &9c, &9e, &9f, 3  , &af, &b7, 6     ; 448c: ae af 06... ...
+    equb 3  , &a6, &ae, 5  , &b7, 7  , &e6, &9f, 3  , &a5, &ae, &af   ; 4498: 03 a6 ae... ...
+    equb &b7, 7  , &e6, &9f, &b7, 3  , &a6, 7  , &e5, &9d, &9e, 3     ; 44a4: b7 07 e6... ...
+    equb 4  , &9e, 3  , &b7, 6  , 3  , &a5, &a6, &b7, &a6, &a7, &ae   ; 44b0: 04 9e 03... ...
+    equb 5  , 7  , &a6, 4  , &ae, &af, &a6, 4  , &ae, &af, &bd, &14   ; 44bc: 05 07 a6... ...
+    equb &5a, &8d, &40, &5f, &85, &75, &ad, &fa                       ; 44c8: 5a 8d 40... Z.@
+    equs "YJJJ"                                                       ; 44d0: 59 4a 4a... YJJ
+    equb &a8, &b9, &d0, &59, &4a, 8  , &4a, &b0, 3  , &20, 0  , &0c   ; 44d4: a8 b9 d0... ...
+    equb &0a, &28, &6a, &99, &b0, &5f, &88, &10, &ec, &60, &a5, &2d   ; 44e0: 0a 28 6a... .(j
+    equb &f0, 7  , &c6, &28, &c6                                      ; 44ec: f0 07 c6... ...
+    equs "(L-E"                                                       ; 44f1: 28 4c 2d... (L-
+    equb &85, &28, &85, &26, &ac, &f0, &62, &a5, &40, &f0, &10, &a5   ; 44f5: 85 28 85... .(.
+    equb &3e, &30, &0c, &f0, 6  , &a5, &3d, &d0, &0c, &f0, 4  , &a5   ; 4501: 3e 30 0c... >0.
+    equb &63, &d0, &11, &98, &f0, &1a, &10, &0c, &c8, &c8, &30, &11   ; 450d: 63 d0 11... c..
+    equb &c0, 4  , &90, &0d, &a0, 3  , &b0, 9  , &88, &10, 6  , &c0   ; 4519: c0 04 90... ...
+    equb &fb, &b0, 2  , &a0, &fb, &8c, &f0, &62, &a6, &22, &bc, 0     ; 4525: fb b0 02... ...
+    equb 7  , &a5, &0d, &85, &76, &b9, 0  , &54, &59, 0  , &56, 8     ; 4531: 07 a5 0d... ...
+    equb &b9, 0  , &56, 8                                             ; 453d: b9 00 56... ..V
+    equs " P4"                                                        ; 4541: 20 50 34     P4
+    equb &c9, &3c, 8  , &90, 6  , &b9, 0                              ; 4544: c9 3c 08... .<.
+    equs "T P4"                                                       ; 454b: 54 20 50... T P
+    equb &85, &74, &4a, &18                                           ; 454f: 85 74 4a... .tJ
+    equs "etJJ("                                                      ; 4553: 65 74 4a... etJ
+    equb &b0, 2                                                       ; 4558: b0 02       ..
+    equs "I?("                                                        ; 455a: 49 3f 28    I?(
+    equb &10, 2  , &49, &80                                           ; 455d: 10 02 49... ..I
+    equs "( P48"                                                      ; 4561: 28 20 50... ( P
+    equb &e5, &0b, &85, &44, &10, 2  , &49, &ff, &c9, &40, &90, 2     ; 4566: e5 0b 85... ...
+    equb &49, &7f, &8d, &f2                                           ; 4572: 49 7f 8d... I..
+    equs "bI?"                                                        ; 4576: 62 49 3f    bI?
+    equb &85, &74, &4a, &18                                           ; 4579: 85 74 4a... .tJ
+    equs "et "                                                        ; 457d: 65 74 20    et
+    equb &10, &46, &18, &65, &5d, &18, &6d, &f0, &62, &18, &65, &28   ; 4580: 10 46 18... .F.
+    equb &18, &65, &0d, &18, &10, 1  , &38, &6a, &85, &0d, &38, &e5   ; 458c: 18 65 0d... .e.
+    equb &76, &85, &4e, &a9, 0  , &85, &77, &a5, &26, &38, &e9, 4     ; 4598: 76 85 4e... v.N
+    equb &50, 2  , &a9, &c8, &85, &26, &18, &65, &2d, &f0, 4  , &70   ; 45a4: 50 02 a9... P..
+    equb &16, &10, &16, &a5                                           ; 45b0: 16 10 16... ...
+    equs "& P4"                                                       ; 45b4: 26 20 50... & P
+    equb &c9, 5  , &90, 7  , &20, &cb, &4d, &a9, 1  , &d0, 6  , &a9   ; 45b8: c9 05 90... ...
+    equb 0  , &f0, 2  , &a9, &7f, &85, &2d, &0a, &26, &77, &0a, &26   ; 45c4: 00 f0 02... ...
+    equb &77, &85, &76, &a6, &6f, &bd, &64, 1  , &20, &10, &46, &10   ; 45d0: 77 85 76... w.v
+    equb 2  , &c6, &77, &a4, &22, &18, &79, 1  , 9  , 8  , &18, &69   ; 45dc: 02 c6 77... ..w
+    equb &ac, 8  , &18, &65, &76, &8d, &81, &62, &b9, 1  , &0a        ; 45e8: ac 08 18... ...
+    equs "ew(i"                                                       ; 45f3: 65 77 28... ew(
+    equb 0  , &28, &69, 0  , &8d, &84, &62, &a5, &63, &85, &75, &a9   ; 45f7: 00 28 69... .(i
+    equb &21, &20, 0  , &0c, 6  , &75, &18, &65, &75, &9d, &50, 1     ; 4603: 21 20 00... ! .
+    equb &60, &85, &75, &b9, 0                                        ; 460f: 60 85 75... `.u
+    equs "UE%"                                                        ; 4614: 55 45 25    UE%
+    equb 8  , &b9, 0                                                  ; 4617: 08 b9 00    ...
+    equs "U P4 "                                                      ; 461a: 55 20 50... U P
+    equb 0  , &0c                                                     ; 461f: 00 0c       ..
+    equs "( P4`"                                                      ; 4621: 28 20 50... ( P
+    equb &a5, &5e, &38, &e5                                           ; 4626: a5 5e 38... .^8
+    equs "D P4"                                                       ; 462a: 44 20 50... D P
+    equb &c9                                                          ; 462e: c9          .
+    equs "@fC"                                                        ; 462f: 40 66 43    @fC
+    equb &10, 5  , &49, &7f, &18, &69, 1  , &48, &a0, &ba             ; 4632: 10 05 49... ..I
+    equs " vF"                                                        ; 463c: 20 76 46     vF
+    equb &a6, &5c, &e0, &28, &90, 2  , &49, &ff, &a6                  ; 463f: a6 5c e0... .\.
+    equs "o$% P4H"                                                    ; 4648: 6f 24 25... o$%
+    equb &fd, &78, 1  , &b0, 2  , &49, &ff, &c9, &16, &20, &a8, &1f   ; 464f: fd 78 01... .x.
+    equb &68, &9d, &78, 1  , &68, &49, &ff, &18, &69, &41, &a0, &88   ; 465b: 68 9d 78... h.x
+    equs " vF"                                                        ; 4667: 20 76 46     vF
+    equb &0a, &0a                                                     ; 466a: 0a 0a       ..
+    equs "$C0"                                                        ; 466c: 24 43 30    $C0
+    equb 2  , &49, &ff, &9d, &64, 1  , &60, &20, &87, &46, &85, &75   ; 466f: 02 49 ff... .I.
+    equb &98, &20, 0  , &0c, &85, &75, &a5, &10, &20, 0  , &0c, &60   ; 467b: 98 20 00... . .
+    equb &c9, &1a, &90, &0e, &c9, &2e, &90, 4  , &18, &69, &be, &60   ; 4687: c9 1a 90... ...
+    equb &0a, &0a, &18                                                ; 4693: 0a 0a 18    ...
+    equs "i4`"                                                        ; 4696: 69 34 60    i4`
+    equb &85, &74, &0a, &18, &65, &74, &0a, &60, &a5, &0b, &a6, &0a   ; 4699: 85 74 0a... .t.
+    equb &20, 1  , &0d, &20, &b9, &48, &ad, &d8, &62, &85, &38, &ad   ; 46a5: 20 01 0d...  ..
+    equb &e8, &62, &85, &39, &ad, &d9, &62, &85, &74, &ad, &e9        ; 46b1: e8 62 85... .b.
+    equs "b @"                                                        ; 46bc: 62 20 40    b @
+    equb &0e, &85, &63, &a5, &74, &85, &2e, &a4, &63, &d0, 3  , &29   ; 46bf: 0e 85 63... ..c
+    equb &f0, &a8, &84, 0                                             ; 46cb: f0 a8 84... ...
+    equs " )G "                                                       ; 46cf: 20 29 47...  )G
+    equb &cf, &4b, &20, &ce, &49, &a2, 1                              ; 46d3: cf 4b 20... .K
+    equs " yG"                                                        ; 46da: 20 79 47     yG
+    equb &a5, &38, &8d, &d8, &62, &a5, &39, &8d, &e8, &62, &ad, &d8   ; 46dd: a5 38 8d... .8.
+    equb &62, &18, &65, &3a, &8d, &d8, &62, &ad, &e8                  ; 46e9: 62 18 65... b.e
+    equs "be;"                                                        ; 46f2: 62 65 3b    be;
+    equb &8d, &e8, &62, &20, &a5, &47, &a2, 0                         ; 46f5: 8d e8 62... ..b
+    equs " yG "                                                       ; 46fd: 20 79 47...  yG
+    equb &c5, &47, &20, &f9, &47, &a5, &2d, &c9, 2  , &90, &0d, &a2   ; 4701: c5 47 20... .G
+    equb 2  , &a9, 0  , &9d, &d5, &62, &9d, &e5, &62, &ca, &10, &f7   ; 470d: 02 a9 00... ...
+    equs " eL "                                                       ; 4719: 20 65 4c...  eL
+    equb &c1                                                          ; 471d: c1          .
+    equs "H 7I "                                                      ; 471e: 48 20 37... H 7
+    equb &ef, &48, &20, &ea, &44, &60, &ad, &d2, &62, &85, &74, &a0   ; 4723: ef 48 20... .H
+    equb &58, &ad, &e2                                                ; 472f: 58 ad e2    X..
+    equs "b SG"                                                       ; 4732: 62 20 53... b S
+    equb &85, &75, &ad, &d8, &62, &38, &e5, &74, &8d, &d8, &62, &ad   ; 4736: 85 75 ad... .u.
+    equb &e8, &62, &e5, &75, &8d, &e8                                 ; 4742: e8 62 e5... .b.
+    equs "b eG"                                                       ; 4748: 62 20 65... b e
+    equb &85, &3b, &a5, &74, &85, &3a, &60, 8  , &20, &40, &0e, &85   ; 474c: 85 3b a5... .;.
+    equb &76, &84, &75, &20, &bf, &0d, &a5                            ; 4758: 76 84 75... v.u
+    equs "u( @"                                                       ; 475f: 75 28 20... u(
+    equb &0e, &60, &a5, &75, &18, &10, 1                              ; 4763: 0e 60 a5... .`.
+    equs "8jH"                                                        ; 476a: 38 6a 48    8jH
+    equb &a5, &74, &6a, &18, &65, &74, &85                            ; 476d: a5 74 6a... .tj
+    equs "theu`"                                                      ; 4774: 74 68 65... the
+    equb &a5, &2d, &c9, 2  , &b0, &10, &20, &91, &4a, &bd, &a6, &62   ; 4779: a5 2d c9... .-.
+    equb &29, &c0, &d0, &0c, &a5, &6a, &29, 2  , &d0, 5  , &a2, 3     ; 4785: 29 c0 d0... )..
+    equb &20, &5a, &0e, &60, &20, &f7, &4a, &ad, &c0, &62, &d0, 7     ; 4791: 20 5a 0e...  Z.
+    equb &a0, 1  , &a9, 3  , &20, &4a, &0b, &60, &a2, 2  , &a0, 9     ; 479d: a0 01 a9... ...
+    equb &a9, &80, &85, &79, &a9, &0e                                 ; 47a9: a9 80 85... ...
+    equs " tH"                                                        ; 47af: 20 74 48     tH
+    equb &a2, 2  , &a0, 8  , &a9, &40, &85, &79, &a9, 9               ; 47b2: a2 02 a0... ...
+    equs " tH"                                                        ; 47bc: 20 74 48     tH
+    equb &a2, 8  , &20, &e5, &47, &60, &a2, 2  , &a0, &0c, &a9, 0     ; 47bf: a2 08 20... ..
+    equb &85, &79, &a9, &0e                                           ; 47cb: 85 79 a9... .y.
+    equs " tH"                                                        ; 47cf: 20 74 48     tH
+    equb &a2, 2  , &a0, &0a, &a9, &c0, &85, &79, &a9, &0c             ; 47d2: a2 02 a0... ...
+    equs " tH"                                                        ; 47dc: 20 74 48     tH
+    equb &a2, &0a, &20, &e5, &47, &60, &bd, &d0, &62, &18, &6d, &de   ; 47df: a2 0a 20... ..
+    equb &62, &9d, &d0, &62, &bd, &e0, &62, &6d, &ee, &62, &9d, &e0   ; 47eb: 62 9d d0... b..
+    equb &62, &60, &a0, &4e, &ad, &da, &62, &38, &ed, &db, &62, &85   ; 47f7: 62 60 a0... b`.
+    equb &74, &ad, &ea, &62, &ed, &eb                                 ; 4803: 74 ad ea... t..
+    equs "b SG"                                                       ; 4809: 62 20 53... b S
+    equb &8d, &e5, &62, &a5, &74, &8d, &d5, &62, &a0, 1  , &a2, 3     ; 480d: 8d e5 62... ..b
+    equb &bd, &ea, &62, &18, &10, 1  , &38, &7e, &ea, &62, &7e, &da   ; 4819: bd ea 62... ..b
+    equb &62, &ca, &10, &f0, &88, &10, &eb, &a2, 2  , &a9, 1  , &85   ; 4825: 62 ca 10... b..
+    equb &78, &bd, &db, &62, &85, &74, &bd, &eb, &62, &85             ; 4831: 78 bd db... x..
+    equs "u eG"                                                       ; 483b: 75 20 65... u e
+    equb &85, &75, &a5, &74, &18, &7d, &da, &62, &85, &74, &a0, &cd   ; 483f: 85 75 a5... .u.
+    equb &a5, &75, &7d, &ea                                           ; 484b: a5 75 7d... .u}
+    equs "b SG"                                                       ; 484f: 62 20 53... b S
+    equb 6  , &74, &2a, &a4, &78, &99, &e6, &62, &a5, &74, &99, &d6   ; 4853: 06 74 2a... .t*
+    equb &62, &c6, &78, &ca, &ca, &10, &cc, &ad, &e7, &62, &8d, &ff   ; 485f: 62 c6 78... b.x
+    equb &62, &60, &a4, &7f, &85                                      ; 486b: 62 60 a4... b`.
+    equs "yLvH"                                                       ; 4870: 79 4c 76... yLv
+    equb &85, &7c, &b9, &d0, &62, &85, &80, &b9, &e0, &62, &85, &81   ; 4874: 85 7c b9... .|.
+    equb &bd, &a0, &62, &85, &82, &bd, &a3, &62, &85, &83, &20, &d7   ; 4880: bd a0 62... ..b
+    equb &0d, &85, &75, &a4                                           ; 488c: 0d 85 75... ..u
+    equs "|$yp"                                                       ; 4890: 7c 24 79... |$y
+    equb &12, &a5, &74, &99, &d0, &62, &a5, &75, &99, &e0             ; 4894: 12 a5 74... ..t
+    equs "b`0"                                                        ; 489e: 62 60 30    b`0
+    equb 5  , &20, &44, &0e, &85, &75, &b9, &d0, &62, &18, &65, &74   ; 48a1: 05 20 44... . D
+    equb &99, &d0, &62, &b9, &e0                                      ; 48ad: 99 d0 62... ..b
+    equs "beu"                                                        ; 48b2: 62 65 75    beu
+    equb &99, &e0, &62, &60, &a0, 0  , &a9, 8  , &a2, &c0, &d0, 6     ; 48b5: 99 e0 62... ..b
+    equb &a0, 6  , &a9, 3  , &a2, &40, &84, &7f, &85, &7c, &86, &88   ; 48c1: a0 06 a9... ...
+    equb &a2, 1  , &a9, 0                                             ; 48cd: a2 01 a9... ...
+    equs " mH"                                                        ; 48d1: 20 6d 48     mH
+    equb &ca, &e6, &7f, &a5, &88                                      ; 48d4: ca e6 7f... ...
+    equs " mH"                                                        ; 48d9: 20 6d 48     mH
+    equb &e8, &e6, &7c, &a9, 0                                        ; 48dc: e8 e6 7c... ..|
+    equs " mH"                                                        ; 48e1: 20 6d 48     mH
+    equb &ca, &c6, &7f, &a5, &88, &49, &80                            ; 48e4: ca c6 7f... ...
+    equs " mH`"                                                       ; 48eb: 20 6d 48...  mH
+    equb &a2, 1  , &a0, 2  , &a9, 0  , &85, &76, &bd, &d0, &62, &85   ; 48ef: a2 01 a0... ...
+    equb &74, &bd, &e0, &62, &10, 2  , &c6, &76, 6                    ; 48fb: 74 bd e0... t..
+    equs "t*&v"                                                       ; 4904: 74 2a 26... t*&
+    equb &85, &75, &b9, &b1                                           ; 4908: 85 75 b9... .u.
+    equs "bet"                                                        ; 490c: 62 65 74    bet
+    equb &99, &b1, &62, &b9, &80                                      ; 490f: 99 b1 62... ..b
+    equs "beu"                                                        ; 4914: 62 65 75    beu
+    equb &99, &80, &62, &b9, &83                                      ; 4917: 99 80 62... ..b
+    equs "bev"                                                        ; 491c: 62 65 76    bev
+    equb &99, &83, &62, &88, &88, &ca, &10, &cc, &a5, &0a, &18, &6d   ; 491f: 99 83 62... ..b
+    equb &d2, &62, &85, &0a, &a5, &0b, &6d, &e2, &62, &85, &0b, &60   ; 492b: d2 62 85... .b.
+    equb &a2, 2  , &a9, 0  , &85, &76, &bd, &d3, &62, &85, &74, &bd   ; 4937: a2 02 a9... ...
+    equb &e3, &62, &10, 2  , &c6, &76, &a0, 3  , &e0, 2  , &d0, 2     ; 4943: e3 62 10... .b.
+    equb &a0, 5  , 6                                                  ; 494f: a0 05 06    ...
+    equs "t*&v"                                                       ; 4952: 74 2a 26... t*&
+    equb &88, &d0, &f8, &85, &75, &bd, &ae, &62, &18, &65, &74, &9d   ; 4956: 88 d0 f8... ...
+    equb &ae, &62, &bd, &d0                                           ; 4962: ae 62 bd... .b.
+    equs "beu"                                                        ; 4966: 62 65 75    beu
+    equb &9d, &d0, &62, &bd, &e0                                      ; 4969: 9d d0 62... ..b
+    equs "bev"                                                        ; 496e: 62 65 76    bev
+    equb &9d, &e0, &62, &ca, &10, &c2, &60, &a2, &dc, &20, &50, &0e   ; 4971: 9d e0 62... ..b
+    equb &f0, &0d, &a4, &40, &88, &f0, 4  , &a5, &63, &d0, &0b, &a9   ; 497d: f0 0d a4... ...
+    equb 0  , &f0, &39, &ad, &68, &fe, &25, 9  , &d0, &28, &a2, 7     ; 4989: 00 f0 39... ..9
+    equb &86, 9  , &a2, &ff, &86, &61, &30, &1e, &85, &59, &a5, &3c   ; 4995: 86 09 a2... ...
+    equb &a6, &3e, &ca, &d0, &0a, &69, 7  , &c5, &3f, &b0, 4  , &c9   ; 49a1: a6 3e ca... .>.
+    equb &8c, &90, &15, &c9, &2a, &90, 5  , &38, &e9, &0c, &b0, 2     ; 49ad: 8c 90 15... ...
+    equb &a9, &28, &85, &74, &ad, &68, &fe, &29, 7  , &18, &65, &74   ; 49b9: a9 28 85... .(.
+    equb &85, &3c, &85, &5a, &a9, 0  , &4c, &87, &4a, &a5, &61, &f0   ; 49c5: 85 3c 85... .<.
+    equb &a6, &a5, &2d, &d0, &c9, &a5, &58, &30, &c3, &a4, &40, &88   ; 49d1: a6 a5 2d... ..-
+    equb &f0, &c0, &a5, &2e, &85, &74, &a5, &63, 6  , &74, &2a, 8     ; 49dd: f0 c0 a5... ...
+    equb &30, 3  , 6  , &74, &2a, &85, &75, &a6, &40, &bd, 6  , &5a   ; 49e9: 30 03 06... 0..
+    equb &20, 0  , &0c, 6                                             ; 49f5: 20 00 0c...  ..
+    equs "t*("                                                        ; 49f9: 74 2a 28    t*(
+    equb &10, 3  , 6                                                  ; 49fc: 10 03 06    ...
+    equs "t*$Y"                                                       ; 49ff: 74 2a 24... t*$
+    equb &10, &32, &a4, &3e, &88, &d0, &1c, &a4, &63, &c0, &16, &b0   ; 4a03: 10 32 a4... .2.
+    equb &16, &a4, &6d, &10, &0e, &c0, &a0, &d0, &0e, &48, &a5        ; 4a0f: 16 a4 6d... ..m
+    equs "j)?"                                                        ; 4a1a: 6a 29 3f    j)?
+    equb &c9, &35, &68, &90, 4  , &c5, &5a, &90, 6  , &a0, 0  , &84   ; 4a1d: c9 35 68... .5h
+    equb &59, &f0, &0b, &a5, &5a, &c9, &6c, &90, 5  , &38, &e9, 2     ; 4a29: 59 f0 0b... Y..
+    equb &85, &5a, &85, &3c, &c9, &aa, &90, 2  , &a9, &aa, &c9, 3     ; 4a35: 85 5a 85... .Z.
+    equb &b0, 5  , &e6, &61, &4c, &c9, &49, &38, &e9, &42, &30, 4     ; 4a41: b0 05 e6... ...
+    equb &c9, &11, &b0, 7  , &0a, &18, &69, &98, &4c, &7f, &4a, &38   ; 4a4d: c9 11 b0... ...
+    equb &e9, &11, &c9, 4  , &b0, 7  , &49, &ff, &18, &69, &bb, &b0   ; 4a59: e9 11 c9... ...
+    equb &19, &38, &e9, 4  , &c9, 5  , &b0, 9  , &0a, &0a, &49, &ff   ; 4a65: 19 38 e9... .8.
+    equb &18, &69, &b7, &b0, 9  , &38, &e9, 5  , &0a, &49, &ff, &18   ; 4a71: 18 69 b7... .i.
+    equb &69, &a3, &85, &75, &bd, &0d, &5a, &20, 0  , &0c, &85, &3d   ; 4a7d: 69 a3 85... i..
+    equb &a5, &3c, &18, &69, &19, &85, &5f, &60, &ad, &d8, &62, &85   ; 4a89: a5 3c 18... .<.
+    equb &74, &0d, &e8, &62, 8  , &ad, &e8                            ; 4a95: 74 0d e8... t..
+    equs "b B"                                                        ; 4a9c: 62 20 42    b B
+    equb &0e, &a0, 5  , 6  , &74, &2a, &88, &d0, &fa, &9d, &ea, &62   ; 4a9f: 0e a0 05... ...
+    equb &28, &f0, 6  , &4d, &e8, &62, &38, &10, &3f, &a5, &74, &9d   ; 4aab: 28 f0 06... (..
+    equb &da, &62, &20, &88, &4b, &90, &11, &a9, 0  , &8d, &dc, &62   ; 4ab7: da 62 20... .b
+    equb &8d, &ec, &62, &ad, &ea                                      ; 4ac3: 8d ec 62... ..b
+    equs "b P4L"                                                      ; 4ac8: 62 20 50... b P
+    equb &ed                                                          ; 4acd: ed          .
+    equs "J BK"                                                       ; 4ace: 4a 20 42... J B
+    equb &bd, &ec                                                     ; 4ad2: bd ec       ..
+    equs "b P4"                                                       ; 4ad4: 62 20 50... b P
+    equb &85, &74, &bd, &ea                                           ; 4ad8: 85 74 bd... .t.
+    equs "b P4"                                                       ; 4adc: 62 20 50... b P
+    equb &c5, &74, &90, 5                                             ; 4ae0: c5 74 90... .t.
+    equs "FtL"                                                        ; 4ae4: 46 74 4c    FtL
+    equb &ea, &4a, &4a, &18, &65, &74, &dd, &aa, &62, &d0, 1  , &18   ; 4ae7: ea 4a 4a... .JJ
+    equb &7e, &a6, &62, &60, &a9, 0  , &9d, &ec, &62, &9d, &dc, &62   ; 4af3: 7e a6 62... ~.b
+    equb &a0, 8                                                       ; 4aff: a0 08       ..
+    equs " aK"                                                        ; 4b01: 20 61 4b     aK
+    equb &ad, &e8, &62, &49, &80, &85, &79, &a9, 0  , &85, &74, &bd   ; 4b04: ad e8 62... ..b
+    equb &ac, &62, &86                                                ; 4b10: ac 62 86    .b.
+    equs "x GK "                                                      ; 4b13: 78 20 47... x G
+    equb &88, &4b, &b0, &25, &dd, &ac, &62, &90, &1d, &a9, 0  , &85   ; 4b18: 88 4b b0... .K.
+    equb &74, &bd, &ac                                                ; 4b24: 74 bd ac    t..
+    equs "b BK"                                                       ; 4b27: 62 20 42... b B
+    equb &a4, &3e, &88, &d0, &11, &e0, 0  , &f0, &0d, &a9, 0  , &9d   ; 4b2b: a4 3e 88... .>.
+    equb &ea, &62, &9d, &da, &62, &f0, 3                              ; 4b37: ea 62 9d... .b.
+    equs " BK`"                                                       ; 4b3e: 20 42 4b...  BK
+    equb &a4, &3e, &88, &f0, &0a, &c5, &8f, &90, 6  , &a5, &8e, &85   ; 4b42: a4 3e 88... .>.
+    equb &74, &a5, &8f                                                ; 4b4e: 74 a5 8f    t..
+    equs "$y @"                                                       ; 4b51: 24 79 20... $y
+    equb &0e, &a4, &78, &99, &ea, &62, &a5, &74, &99, &da, &62, &60   ; 4b55: 0e a4 78... ..x
+    equb &b9, &d0, &62, &85, &8e, &b9, &e0, &62, &10, &0c, &a9, 0     ; 4b61: b9 d0 62... ..b
+    equb &38, &e5, &8e, &85, &8e, &a9, 0  , &f9, &e0, &62, &a0, 5     ; 4b6d: 38 e5 8e... 8..
+    equb 6  , &8e, &2a, &30, 6  , &88, &d0, &f8, &85, &8f, &60, &a9   ; 4b79: 06 8e 2a... ..*
+    equb &7f, &d0, &f9, &8a, &18, &69, 2  , &85, &78, &a4, &3e, &88   ; 4b85: 7f d0 f9... ...
+    equb &f0, &1c, &a0, 9                                             ; 4b91: f0 1c a0... ...
+    equs " aK"                                                        ; 4b95: 20 61 4b     aK
+    equb &ad, &e9, &62, &49, &80, &85, &79, &bd, &aa, &62, &e0, 1     ; 4b98: ad e9 62... ..b
+    equb &f0, &16, &4a, &18, &7d, &aa                                 ; 4ba4: f0 16 4a... ..J
+    equs "bJL"                                                        ; 4baa: 62 4a 4c    bJL
+    equb &bc, &4b, &e0, 1  , &d0, &1a, &a5, &40, &38, &e9, 1  , &85   ; 4bad: bc 4b e0... .K.
+    equb &79, &a5, &3d, &85, &75, &a5, &3f, &20, 0  , &0c, &a4, &3e   ; 4bb9: 79 a5 3d... y.=
+    equb &88, &d0, 3                                                  ; 4bc5: 88 d0 03    ...
+    equs "Jft"                                                        ; 4bc8: 4a 66 74    Jft
+    equb &18                                                          ; 4bcb: 18          .
+    equs "`8`"                                                        ; 4bcc: 60 38 60    `8`
+    equb &a9, 0  , &a4, &3e, &d0, &0c, &ad, &ff, &62, 8               ; 4bcf: a9 00 a4... ...
+    equs "JJJ("                                                       ; 4bd9: 4a 4a 4a... JJJ
+    equb &10, 2  , 9  , &e0, &85, &79, &49, &ff, &18, &69, 1  , &85   ; 4bdd: 10 02 09... ...
+    equb &78, &a5, &63, &85, &75, &a2, 0  , &ad                       ; 4be9: 78 a5 63... x.c
+    equs "=q-"                                                        ; 4bf1: 3d 71 2d    =q-
+    equb 5  , &72, &85, &77, &ad, &3d, &71, &c9, &ff, &f0, 7  , &ad   ; 4bf4: 05 72 85... .r.
+    equb 5  , &72, &c9, &ff, &d0, &1e, &ad, &68, &fe, &20, 0  , &0c   ; 4c00: 05 72 c9... .r.
+    equb &29, 7  , &aa, &d0, 1  , &e8, &a5, &5d, &d0, &0e, &a5, &5d   ; 4c0c: 29 07 aa... )..
+    equb 5  , &2d, &d0, 8  , &2c, &fb, &62, &10, 3  , &20, &c9, &4d   ; 4c18: 05 2d d0... .-.
+    equb &86, &5d, &a2, 1  , &a5, &63, &c9, &35, &90, 2  , &a9, &35   ; 4c24: 86 5d a2... .].
+    equb &85, &75, &bd, &a8, &62, &20, 0  , &0c, &2c, &e9             ; 4c30: 85 75 bd... .u.
+    equs "b P4"                                                       ; 4c3a: 62 20 50... b P
+    equb &18                                                          ; 4c3e: 18          .
+    equs "}aL"                                                        ; 4c3f: 7d 61 4c    }aL
+    equb &a0, &f3, &84, &75, &a4, &77, &c0, &ff, &d0, 5  , &bd, &63   ; 4c42: a0 f3 84... ...
+    equb &4c, &a0, &ff, &18, &75, &78, &9d, &aa, &62, &20, 0  , &0c   ; 4c4e: 4c a0 ff... L..
+    equb &9d, &ac, &62, &ca, &10, &c8                                 ; 4c5a: 9d ac 62... ..b
+    equs "`55"                                                        ; 4c60: 60 35 35    `55
+    equb &19, &1a, &a5                                                ; 4c63: 19 1a a5    ...
+    equs "9 P4"                                                       ; 4c66: 39 20 50... 9 P
+    equb &85, &75, &c5, &63, &b0, 2  , &a5, &63, &a4, &5d, &f0, 1     ; 4c6a: 85 75 c5... .u.
+    equb &0a, &85, &77, &20, 0  , &0c, &85, &75, &a0, 6  , &a5, &39   ; 4c76: 0a 85 77... ..w
+    equb &20, &a0, &48, &a5, &63, &85, &75, &ad, &f1, &62, &20, 0     ; 4c82: 20 a0 48...  .H
+    equb &0c, &18, &69, 8  , &85, &76, &a5, &77, &85, &75, &20, &bf   ; 4c8e: 0c 18 69... ..i
+    equb &0d, &a0, 7  , &ad, &e9, &62, &20, &a0, &48, &60, &a6, &6f   ; 4c9a: 0d a0 07... ...
+    equb &bc, &e8, 6  , &b9, 0                                        ; 4ca6: bc e8 06... ...
+    equs "SJJJJ"                                                      ; 4cab: 53 4a 4a... SJJ
+    equb &85, &45, &cd, &f9, &62, &d0, 4  , &69, 0  , &29, &0f, &aa   ; 4cb0: 85 45 cd... .E.
+    equb &a0, 2  , &84, &77, &bd, &e0                                 ; 4cbc: a0 02 84... ...
+    equs "S !M"                                                       ; 4cc2: 53 20 21... S !
+    equb &a0, 4  , &bd, &f0                                           ; 4cc6: a0 04 bd... ...
+    equs "S !M"                                                       ; 4cca: 53 20 21... S !
+    equb &a0, 2  , &bd, &d0                                           ; 4cce: a0 02 bd... ...
+    equs "S !M"                                                       ; 4cd2: 53 20 21... S !
+    equb &bd, &ea, &59, &29, 7  , &18, &69, 7  , &85, &37, &bd, &ea   ; 4cd6: bd ea 59... ..Y
+    equb &59, &29, &f8, &a8, &a2, &fd, &20, 8  , &12, &a0, 6          ; 4ce2: 59 29 f8... Y).
+    equs " G!"                                                        ; 4ced: 20 47 21     G!
+    equb &a5, &8a, &8d, &97, 3  , &a5, &8b, &8d, &af, 3  , &38, &e5   ; 4cf0: a5 8a 8d... ...
+    equb &0b                                                          ; 4cfc: 0b          .
+    equs " P4"                                                        ; 4cfd: 20 50 34     P4
+    equb &c9, &40, &90, 5  , &a4, &45, &8c, &f9, &62, &a0, &25, &c9   ; 4d00: c9 40 90... .@.
+    equb &6e, &90, 2  , &a0, &50, &a9, &17, &85, &42, &20, &b3, &2a   ; 4d0c: 6e 90 02... n..
+    equb &a0, 6  , &20, &87                                           ; 4d18: a0 06 20... ..
+    equs '"', " v*`H"                                                 ; 4d1c: 22 20 76... " v
+    equb &a9, 0  , &85, &74, &85, &76, &68, &10, 2  , &c6             ; 4d22: a9 00 85... ...
+    equs "vFvjft"                                                     ; 4d2c: 76 46 76... vFv
+    equb &88, &d0, &f8, &85, &75, &a4, &77, &c6, &77, &b9, &80, &62   ; 4d32: 88 d0 f8... ...
+    equb &38, &e5, &74, &99, &86, &62, &b9, &83, &62, &e5, &75, &99   ; 4d3e: 38 e5 74... 8.t
+    equb &89, &62, &60, &86, &4a, &8e                                 ; 4d4a: 89 62 60... .b`
+    equs ":_ "                                                        ; 4d50: 3a 5f 20    :_
+    equb &c6, &44, &8a, &9d, &3c, 1  , &4a, &ea, &9d, &a0, 4          ; 4d53: c6 44 8a... .D.
+    equs " ]c"                                                        ; 4d5e: 20 5d 63     ]c
+    equb &a9, 0  , &9d, &64, &38, &9d, &e4, &39, &9d, &f0, 4  , &8a   ; 4d61: a9 00 9d... ...
+    equb &d0, &e6, &60, &a9, &21, &d0, 2  , &a9, &18, &8d, &cd, &62   ; 4d6d: d0 e6 60... ..`
+    equb &a9, 1  , &8d, &cc, &62, &a0, 0  , &bd, &50, &3b, &85, &73   ; 4d79: a9 01 8d... ...
+    equb &bd, &d0, &3a, &85, &72, &b1, &72, &c9, &ff, &f0, &38, &c9   ; 4d85: bd d0 3a... ..:
+    equb &c8, &90, &22, &38, &e9, &c8, &85, &74, &8a, &48, &98, &48   ; 4d91: c8 90 22... .."
+    equb &a6, &74, &e0, &36, &d0, 8  , &a2, 0  , &20, &d0, &41, &4c   ; 4d9d: a6 74 e0... .t.
+    equb &ae                                                          ; 4da9: ae          .
+    equs "M ~Mh"                                                      ; 4daa: 4d 20 7e... M ~
+    equb &a8, &68, &aa, &c8, &4c, &80, &4d, &c9, &a0, &90, 7  , &e9   ; 4daf: a8 68 aa... .h.
+    equb &a0                                                          ; 4dbb: a0          .
+    equs " P="                                                        ; 4dbc: 20 50 3d     P=
+    equb &f0, 3  , &20, &92, &50, &c8, &4c, &8a, &4d, &60, &a5, &63   ; 4dbf: f0 03 20... ..
+    equb &4a, &85, &26, &4a, &85, &28, &e6                            ; 4dcb: 4a 85 26... J.&
+    equs "-8n"                                                        ; 4dd2: 2d 38 6e    -8n
+    equb &d2, &62, &a9, 4  , &20, &47, &0b, &60, &78, &a2, &0d, &8e   ; 4dd5: d2 62 a9... .b.
+    equb 0  , &fe, &bd, &0f, &4f, &8d, 1  , &fe, &ca, &10, &f4, &ca   ; 4de1: 00 fe bd... ...
+    equb &8e                                                          ; 4ded: 8e          .
+    equs "COX"                                                        ; 4dee: 43 4f 58    COX
+    equb &a9, &9a, &a2, &c4, &20, &f4, &ff, &18, &a9, 7  , &8d, &21   ; 4df1: a9 9a a2... ...
+    equb &fe, &69, &10, &90, &f9, &78, &ad, 4  , 2  , &8d, &1d, &4f   ; 4dfd: fe 69 10... .i.
+    equb &ad, 5  , 2  , &8d, &1e, &4f, &a9, 2  , &2c, &4d, &fe, &f0   ; 4e09: ad 05 02... ...
+    equb &fb, &a9, &40, &8d, &6b, &fe, &0d, &4b, &fe, &8d, &4b, &fe   ; 4e15: fb a9 40... ..@
+    equb &a9, &c0, &8d, &6e, &fe, &8d, &4e, &fe, &a9, &d4, &8d, &64   ; 4e21: a9 c0 8d... ...
+    equb &fe, &a9, &11, &8d, &65, &fe, &a9, 1  , &8d, &46, &fe, &a9   ; 4e2d: fe a9 11... ...
+    equb &3d, &8d, &45, &fe, &a9, &1e, &8d, &46, &fe, &8d, &66, &fe   ; 4e39: 3d 8d 45... =.E
+    equb &a9, &4e, &8d, &47, &fe, &8d, &67, &fe, &a9, &4e, &8d, 5     ; 4e45: a9 4e 8d... .N.
+    equb 2  , &a9, &5c, &8d, 4  , 2                                   ; 4e51: 02 a9 5c... ..\
+    equs "X`l"                                                        ; 4e57: 58 60 6c    X`l
+    equb &1d, &4f, &ad, &6d, &fe, &29, &40, &f0, &f6, &8d, &6d, &fe   ; 4e5a: 1d 4f ad... .O.
+    equb &8a, &48, &d8, &ad, &43, &4f, &f0, &0e, &30, &22, &c9, 2     ; 4e66: 8a 48 d8... .H.
+    equb &90, &27, &f0, &4d, &c9, 3  , &f0, &5c, &b0, &6b, &a9, &88   ; 4e72: 90 27 f0... .'.
+    equb &8d, &20, &fe, &a2, &0f, &bd, &68, &34, &8d, &21, &fe, &ca   ; 4e7e: 8d 20 fe... . .
+    equb &10, &f7, &a9, &c4, &a2, &0f, &d0, &6f, &c9, &ff, &d0, &74   ; 4e8a: 10 f7 a9... ...
+    equb &ee, &43, &4f, &f0, &f1, &a9, &c4, &8d, &20, &fe, &18, &a9   ; 4e96: ee 43 4f... .CO
+    equb 3  , &8d, &21, &fe, &69, &10, &90, &f9, &a9, &3c, &38, &ed   ; 4ea2: 03 8d 21... ..!
+    equb &1f, &4f, &8d, &21, &4f, &a9, &15, &ed, &20, &4f, &8d, &22   ; 4eae: 1f 4f 8d... .O.
+    equb &4f, &ad, &1f, &4f, &ae, &20, &4f, &b0, &3e, &a2, &0f, &bd   ; 4eba: 4f ad 1f... O..
+    equb &58, &34, &8d, &21, &fe, &ca, &10, &f7, &ad, &21, &4f, &ae   ; 4ec6: 58 34 8d... X4.
+    equb &22, &4f, &d0, &2b, &a2, 3  , &bd, &78, &34, &8d, &21, &fe   ; 4ed2: 22 4f d0... "O.
+    equb &ca, &10, &f7, &a9, 0  , &a2, &1e, &d0, &1a, &a2, 3  , &bd   ; 4ede: ca 10 f7... ...
+    equb &7c, &34, &8d, &21, &fe, &ca, &10, &f7, &8e                  ; 4eea: 7c 34 8d... |4.
+    equs "CO "                                                        ; 4ef3: 43 4f 20    CO
+    equb &a4, &52, &a9, &ff, &8d, &69, &fe, &a9, &16, &a2, &0b, &8e   ; 4ef6: a4 52 a9... .R.
+    equb &67, &fe, &8d, &66, &fe, &ee                                 ; 4f02: 67 fe 8d... g..
+    equs "COh"                                                        ; 4f08: 43 4f 68    COh
+    equb &aa, &a5, &fc                                                ; 4f0b: aa a5 fc    ...
+    equs "@?(1$&"                                                     ; 4f0e: 40 3f 28... @?(
+    equb 0  , &1a, &20, 1  , 7  , &67, 8  , &0b, &50, 0  , 0  , &d8   ; 4f14: 00 1a 20... ..
+    equb 4  , &64, &10, &78, &ad, &1d, &4f, &8d, 4  , 2  , &ad, &1e   ; 4f20: 04 64 10... .d.
+    equb &4f, &8d, 5  , 2  , &a9, &40, &8d, &6e, &fe, &58, &20, &f6   ; 4f2c: 4f 8d 05... O..
+    equb &43, &a9, &80, &85, &64, &a2                                 ; 4f38: 43 a9 80... C..
+    equs ". ~M`"                                                      ; 4f3e: 2e 20 7e... . ~
+    equb 0  , &a9, &3c, &38, &e5, &1f, &10, 9  , &c9, &f5, &b0, &0c   ; 4f43: 00 a9 3c... ..<
+    equb &a9, &f5, &38, &b0, 7  , &c9, &12, &90, 3  , &a9, &12, &18   ; 4f4f: a9 f5 38... ..8
+    equb 8  , &85, &75, &a9, 0                                        ; 4f5b: 08 85 75... ..u
+    equs "fuj(fujx"                                                   ; 4f60: 66 75 6a... fuj
+    equb &18, &69, &d8, &8d, &1f, &4f, &a9, 4  , &65, &75, &8d        ; 4f68: 18 69 d8... .i.
+    equs " OX`,"                                                      ; 4f73: 20 4f 58...  OX
+    equb &f8, &62, &30, &14, &e0, &14, &b0, &10, &bd, &8c, 1  , &0a   ; 4f78: f8 62 30... .b0
+    equb &30, &0a, &e4, &6f, &d0, &0b, &c6, &30, &f0, 3  , &e6, &30   ; 4f84: 30 0a e4... 0..
+    equb &60, &a9, &80, &85, &66, &bd, &b4, 4  , &30, 3  , &fe, &b4   ; 4f90: 60 a9 80... `..
+    equb 4  , &24, &6c, &10, 7  , &c5, &6e, &90, &12, &f0, 8  , &60   ; 4f9c: 04 24 6c... .$l
+    equb &e4, &6f, &f0, &0b, &90, 9  , &60, &e4, &6f, &d0, 4  , &a9   ; 4fa8: e4 6f f0... .o.
+    equb &50, &85, &0f, &f8, &38, &ad, &b4, 6  , &fd, &98, 8  , &85   ; 4fb4: 50 85 0f... P..
+    equb &74, &ad, &cc, 6  , &fd, &ac, 8  , &b0, 3  , &69, &60, &18   ; 4fc0: 74 ad cc... t..
+    equb &85, &75, &ad, &e4, 6  , &fd, &dc, 4  , &85, &79, &90, &23   ; 4fcc: 85 75 ad... .u.
+    equb &38, &a5, &74, &fd, &a0, 6  , &a5, &75, &fd, &b8, 6  , &a5   ; 4fd8: 38 a5 74... 8.t
+    equb &79, &fd, &d0, 6  , &b0, &11, &a5, &74, &29, &f0, &9d, &a0   ; 4fe4: 79 fd d0... y..
+    equb 6  , &a5, &75, &9d, &b8, 6  , &a5, &79, &9d, &d0, 6  , &ad   ; 4ff0: 06 a5 75... ..u
+    equb &b4, 6  , &9d, &98, 8  , &ad, &cc, 6  , &9d, &ac, 8  , &ad   ; 4ffc: b4 06 9d... ...
+    equb &e4, 6  , &9d, &dc, 4  , &d8, &60, &ea, &ea, &a9, 0  , &9d   ; 5008: e4 06 9d... ...
+    equb &b4, 6  , &9d, &cc, 6  , &9d, &e4, 6  , &60, &a2, &20, &8e   ; 5014: b4 06 9d... ...
+    equb &cc, &62, &e8, &8e, &cd, &62, &a6, &6f, &a9, &26, &20, &9c   ; 5020: cc 62 e8... .b.
+    equb &7b, &a9, &28, &a2, &0a, &8e, &cc, &62, &a2, &21, &8e, &cd   ; 502c: 7b a9 28... {.(
+    equb &62, &a2, &15, &20, &9c, &7b, &60, &a9, &80, &20, &f4, &ff   ; 5038: 62 a2 15... b..
+    equb &98, &a2, 1  , &18, &69, &80, &10, 3  , &49, &ff, &ca, &c9   ; 5044: 98 a2 01... ...
+    equb &0a, &60, &a6, &46, &d0, 6  , &ae, &19, &5a, &e8, &f0, 3     ; 5050: 0a 60 a6... .`.
+    equb &ca, &86, &46, &a5, &6d, &30, 5  , &a2, 0  , &20, &c3, &17   ; 505c: ca 86 46... ..F
+    equb &e6, &6a, &d0, 3  , &ee, &df, &62, &ad, &cc, 6  , &f0, 6     ; 5068: e6 6a d0... .j.
+    equb &a5, &6a, &29, &1f, &d0, 3                                   ; 5074: a5 6a 29... .j)
+    equs " ]c`"                                                       ; 507a: 20 5d 63...  ]c
+    equb &ca, &10, 2  , &a2, &13, &60, &e8, &e0, &14, &90, 2  , &a2   ; 507e: ca 10 02... ...
+    equb 0  , &60, &8d, &c3, &62, &4c, &9d                            ; 508a: 00 60 8d... .`.
+    equs "P$d0`"                                                      ; 5091: 50 24 64... P$d
+    equb &8d, &c3, &62, &a9, 0  , &85, &77, &8a, &48, &98, &48, &a0   ; 5096: 8d c3 62... ..b
+    equb &62, &a2, &c3, &a9, &0a, &20, &f1, &ff, &a5, &77, &f0, &18   ; 50a2: 62 a2 c3... b..
+    equb &a2, 8  , &bd, &c3                                           ; 50ae: a2 08 bd... ...
+    equs "b$w0"                                                       ; 50b2: 62 24 77... b$w
+    equb 5  , &29, &f0, &4c, &c0, &50, &0a, &0a, &0a, &0a, &9d, &c3   ; 50b6: 05 29 f0... .).
+    equb &62, &ca, &d0, &ea, &ac, &cd, &62, &ad, &cc, &62, &20, &fa   ; 50c2: 62 ca d0... b..
+    equb &50, &a2, 8  , &bd, &c3, &62, &91, &70, &88, &10, &0f, &a5   ; 50ce: 50 a2 08... P..
+    equb &70, &38, &e9, &40, &85, &70, &a5, &71, &e9, 1  , &85, &71   ; 50da: 70 38 e9... p8.
+    equb &a0, 7  , &ca, &d0, &e6, &ee, &cc, &62, &68, &a8, &68, &aa   ; 50e6: a0 07 ca... ...
+    equb &ad, &c3                                                     ; 50f2: ad c3       ..
+    equs "b` "                                                        ; 50f4: 62 60 20    b`
+    equb &ee, &ff, &60, &0a, &0a, &85, &70, &a9, 0  , 6  , &70, &2a   ; 50f7: ee ff 60... ..`
+    equb &85, &71, &98                                                ; 5103: 85 71 98    .q.
+    equs "JJJ"                                                        ; 5106: 4a 4a 4a    JJJ
+    equb &aa, &bd, &e0, &3f, &18, &65, &70, &85, &70, &bd, 6          ; 5109: aa bd e0... ...
+    equs ";eq"                                                        ; 5114: 3b 65 71    ;eq
+    equb &85, &71, &98, &29, 7  , &a8, &60, &a6, &69, &f0, &17, &ca   ; 5117: 85 71 98... .q.
+    equb &bd, &a8, 7  , &85, &70, &bd, &d0, 7  , &85, &71, &bd, &80   ; 5123: bd a8 07... ...
+    equb 7  , &a0, 0  , &91, &70, &ca, &10, &ec, &84                  ; 512f: 07 a0 00... ...
+    equs "i` "                                                        ; 5138: 69 60 20    i`
+    equb &1e, &51, &20, &a8, &51, &ad, &a2, &62, &85, &74, &4a, 8     ; 513b: 1e 51 20... .Q
+    equb &a9, 2  , &b0, 2  , &a9, 5  , &85, &76, &ad, &a5, &62, 6     ; 5147: a9 02 b0... ...
+    equb &74, &2a, &b0, 8  , &c9, &26, &90, &15, &c9, &3d, &90, 2     ; 5153: 74 2a b0... t*.
+    equb &a9, &3c, &49, &ff, &69, &4c, &a8, &84, &74, &be, &80, &39   ; 515f: a9 3c 49... .<I
+    equb &86, &83                                                     ; 516b: 86 83       ..
+    equs "L~Q"                                                        ; 516d: 4c 7e 51    L~Q
+    equb &aa, &86, &74, &a5, &76, &49, 1  , &85, &76, &bd, &80, &39   ; 5170: aa 86 74... ..t
+    equb &85, &83, &0a, &18, &69, 4  , &49, &ff, &a8, &8a, &28, &90   ; 517c: 85 83 0a... ...
+    equb 2  , &49, &ff, &18, &69, &50, &85, &77, &29, &fc, &20, &fc   ; 5188: 02 49 ff... .I.
+    equb &50, &a5, &77, &0a, &29, 7  , &85, &77, &a9, 4  , &85, &79   ; 5194: 50 a5 77... P.w
+    equb &a9, 6  , &85, &75, &20, 4  , &52, &60, &a9, 0  , &85, &79   ; 51a0: a9 06 85... ...
+    equb &a5, &3c, &c9, &1e, &b0, 2  , &a9, &1e, &85, &74, &4a, &18   ; 51ac: a5 3c c9... .<.
+    equs "etj8"                                                       ; 51b8: 65 74 6a... etj
+    equb &e9, &4c, &b0, 2  , &69, &98, &a2, &ff, &38, &e8, &e9, &26   ; 51bc: e9 4c b0... .L.
+    equb &b0, &fb, &69, &26, &c9, &13, &90, 8  , &e9, &13, &49, &ff   ; 51c8: b0 fb 69... ..i
+    equb &18, &69, &14, &38, &a8, &84, &74, &8a, &29, 3  , &aa, &8a   ; 51d4: 18 69 14... .i.
+    equb &2a, &85, &76, &29, &fc, &f0, 2  , &a9, 7  , &85, &77, &b9   ; 51e0: 2a 85 76... *.v
+    equb 0  , &31, &85, &83, &85, &75, &bd, &fc, &32, &29, &f8, &85   ; 51ec: 00 31 85... .1.
+    equb &70, &bd, &fc, &32, &29, 7  , &a8, &bd, &7c, &39, &85, &71   ; 51f8: 70 bd fc... p..
+    equb &a6, &76, &bd, &86, &3b, &8d, &20, &52, &bd, &8e, &3b, &8d   ; 5204: a6 76 bd... .v.
+    equb &9b, &52, &a6, &77, &a9, 0  , &38, &e5, &83, &18, &65, &74   ; 5210: 9b 52 a6... .R.
+    equb &90, 3  , &e5, &83, &c8, &85, &8a, &8a, &4a, &29, 3  , 5     ; 521c: 90 03 e5... ...
+    equb &79, &85, &76, &8a, &10, &0f, &a2, 7  , &a5, &70, &38, &e9   ; 5228: 79 85 76... y.v
+    equb 8  , &85, &70, &b0, &15, &c6, &71, &b0, &11, &c9, 8  , &90   ; 5234: 08 85 70... ..p
+    equb &0d, &a2, 0  , &a5, &70, &18, &69, 8  , &85, &70, &90, 2     ; 5240: 0d a2 00... ...
+    equb &e6, &71, &86, &77, &a6, &69, &98, &10, &12, &a5, &70, &38   ; 524c: e6 71 86... .q.
+    equb &e9, &40, &85, &70, &a5, &71, &e9, 1  , &85, &71, &a0, 7     ; 5258: e9 40 85... .@.
+    equb &98, &d0, &14, &c9, 8  , &90, &10, &a5, &70, &18, &69, &40   ; 5264: 98 d0 14... ...
+    equb &85, &70, &a5, &71, &69, 1  , &85, &71, &a0, 0  , &98, 5     ; 5270: 85 70 a5... .p.
+    equb &70, &9d, &a8, 7  , &a5, &71, &9d, &d0, 7  , &b1, &70, &9d   ; 527c: 70 9d a8... p..
+    equb &80, 7  , &e6, &69, &a6, &76, &3d, &e8, &3f, &1d, &f8, &34   ; 5288: 80 07 e6... ...
+    equb &91, &70, &a6, &77, &a5, &8a, &18, &e8, &c6, &75, &30, 3     ; 5294: 91 70 a6... .p.
+    equb &4c, &1a, &52, &60, &ee, &f7, &62, &a5, &63, &18             ; 52a0: 4c 1a 52... L.R
+    equs "i0m"                                                        ; 52aa: 69 30 6d    i0m
+    equb &fa, &62, &8d, &fa, &62, &90, &41, &a5, 0  , &f0, &3d, &a2   ; 52ad: fa 62 8d... .b.
+    equb 4  , &bd, &c0, &6f, &5d, &f6, &52, &9d, &c0, &6f, &bd, &f8   ; 52b9: 04 bd c0... ...
+    equb &70, &5d, &fb, &52, &9d, &f8, &70, &e0, 3  , &b0, &12, &bd   ; 52c5: 70 5d fb... p].
+    equb &85, &6e, &49, &f0, &9d, &85, &6e, &bd, &bd, &6f, &49, &f0   ; 52d1: 85 6e 49... .nI
+    equb &9d, &bd, &6f, &d0, &10, &bd, &8a, &6e, &49, &c0, &9d, &8a   ; 52dd: 9d bd 6f... ..o
+    equb &6e, &bd, &b2                                                ; 52e9: 6e bd b2    n..
+    equs "oI0"                                                        ; 52ec: 6f 49 30    oI0
+    equb &9d, &b2, &6f, &ca, &10, &c5, &60, &f0, &f0, &c0, &c0, &80   ; 52ef: 9d b2 6f... ..o
+    equb &f0, &f0, &30, &30, &10                                      ; 52fb: f0 f0 30... ..0
+
+    org &70db
+.movedFrom5300To709db
+    equb 0  , 0  , 0  , &10, &10                                      ; 5300: 00 00 00... ... :70db[4]
+    equs " `p"                                                        ; 5305: 20 60 70     `p :70e0[4]
+    equb &c0, &80, &80, 0  , 0  , 0  , 0  , &c0, &60, &10, &10, 0     ; 5308: c0 80 80... ... :70e3[4]
+    equb 0  , &30, &10, 0  , 0  , 0  , &80, &80                       ; 5314: 00 30 10... .0. :70ef[4]
+    equs "@@ "                                                        ; 531c: 40 40 20    @@  :70f7[4]
+    equb &90, &90                                                     ; 531f: 90 90       ..  :70fa[4]
+    equs "@@  "                                                       ; 5321: 40 40 20... @@  :70fc[4]
+    equb 0  , &80, &80, &80, 0  , 8  , &0f, &0f                       ; 5325: 00 80 80... ... :7100[4]
+    equs " `@@"                                                       ; 532d: 20 60 40...  `@ :7108[4]
+    equb &80, &80, &80, &0c, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5331: 80 80 80... ... :710c[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &80                  ; 533d: 00 00 00... ... :7118[4]
+    equs "@@@@@  "                                                    ; 5346: 40 40 40... @@@ :7121[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 534d: 00 00 00... ... :7128[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &30   ; 5359: 00 00 00... ... :7134[4]
+    equb 0  , 0  , &10, &30, &70, &f0, &f0, &f0, &70, &f0, &f0, &f0   ; 5365: 00 00 10... ... :7140[4]
+    equb &f0, &e0, &c0, &c0, &f0, &e0, &c0, &80, 1  , 3  , 3  , &16   ; 5371: f0 e0 c0... ... :714c[4]
+    equb &52, 7  , &2d, &0f, &87, &4b, &0f, &0f, &0f, &0f, &87, &0f   ; 537d: 52 07 2d... R.- :7158[4]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0b, &0a   ; 5389: 0f 0f 0f... ... :7164[4]
+    equb &0f, &0e, 7  , 4  , 8  , 0  , &30, 0  , &0a, 0  , &30, 0     ; 5395: 0f 0e 07... ... :7170[4]
+    equb &f0, 0  , &f0, 0  , &70, 0  , &f0, 0  , &f0, &10, &f0, &30   ; 53a1: f0 00 f0... ... :717c[4]
+    equb &f0, &30, &e1, &43, &86, &86, &0c, &0c, &87, &0c, 8  , 0     ; 53ad: f0 30 e1... .0. :7188[4]
+    equb 0  , 0  , &80, 0  , 0  , 0  , &10, &80, 0  , 1  , 1  , 1     ; 53b9: 00 00 80... ... :7194[4]
+    equb 0  , 0  , &80, &10, 0  , 0  , 0  , &0c, &1e, 3  , 1  , 0     ; 53c5: 00 00 80... ... :71a0[4]
+    equb 0  , 0  , &10, 0  , &f0, &c0, &78, &2c, &16, &16, 3  , 3     ; 53d1: 00 00 10... ... :71ac[4]
+    equb &e0, 0  , &f0, 0  , &f0, &80, &f0, &c0, 5  , 0  , &c0, 0     ; 53dd: e0 00 f0... ... :71b8[4]
+    equb &f0, 0  , &f0, 0  , &0f, 7  , &0e, 2  , 1  , 0  , &c0, 0     ; 53e9: f0 00 f0... ... :71c4[4]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0d, 5  , &0f, &0f, &1e, &0f   ; 53f5: 0f 0f 0f... ... :71d0[4]
+    equb &0f, &0f, &0f, &0f, &a4, &0e, &4b, &0f, &1e, &2d, &0f, &0f   ; 5401: 0f 0f 0f... ... :71dc[4]
+    equb &f0, &70, &30, &10, 8  , &0c, &0c, &86, &e0, &f0, &f0, &f0   ; 540d: f0 70 30... .p0 :71e8[4]
+    equb &f0                                                          ; 5419: f0          .   :71f4[4]
+    equs "p00"                                                        ; 541a: 70 30 30    p00 :71f5[4]
+    equb 0  , 0  , &80, &c0, &e0, &f0, &f0, &f0, 0  , 0  , 0  , 0     ; 541d: 00 00 80... ... :71f8[4]
+    equb 0  , 0  , &80, &c0, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5429: 00 00 80... ... :7204[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10                  ; 5435: 00 00 00... ... :7210[4]
+    equs "     @@"                                                    ; 543e: 20 20 20...     :7219[4]
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0               ; 5445: 00 00 00... ... :7220[4]
+    equs "@`  "                                                       ; 5455: 40 60 20... @`  :7230[4]
+    equb &10, &10, &10, 3  , 0  , &10, &10, &10, 0  , 1  , &0f, &0f   ; 5459: 10 10 10... ... :7234[4]
+    equb 1  , &e0, &f0, &f0, &f0, &f0, &f0, &f0, &0f, 3  , &c1, &e0   ; 5465: 01 e0 f0... ... :7240[4]
+    equb &f0, &f0, &f0, &f0, 0  , &0c, &0e, 7  , &83, &c1, &e1, &e0   ; 5471: f0 f0 f0... ... :724c[4]
+    equb 0  , 0  , 0  , 0  , &0f, &0f, &0f, &0f                       ; 547d: 00 00 00... ... :7258[4]
+    equs "     "                                                      ; 5485: 20 20 20...     :7260[4]
+    equb &0f, &0f, &0f, 0  , 0  , 0  , 0  , 0  , 0  , &0f, &0f, 0     ; 548a: 0f 0f 0f... ... :7265[4]
+    equb 0  , 0  , &10                                                ; 5496: 00 00 10    ... :7271[4]
+    equs "0px"                                                        ; 5499: 30 70 78    0px :7274[4]
+    equb &f0, &70, &70, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &e0   ; 549c: f0 70 70... .pp :7277[4]
+    equb &e0, &c0, &80, 0  , 0  , &80, 0  , 0  , 1  , 1  , 3  , 3     ; 54a8: e0 c0 80... ... :7283[4]
+    equb 7  , 7  , &3c, &0f, &4b, &0f, &4b, &87, &0f, &0f, &0f, &0f   ; 54b4: 07 07 3c... ..< :728f[4]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0c, &0b, &0e, &0c, 4     ; 54c0: 0f 0f 0f... ... :729b[4]
+    equb &0c, &0e, 8  , &10, 0  , &70, 0  , &f0, 0  , &f0, 0  , &f0   ; 54cc: 0c 0e 08... ... :72a7[4]
+    equb 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0   ; 54d8: 00 f0 00... ... :72b3[4]
+    equb 0  , &e1, &21, &c3, &43, &c2, &86, &84, &84, 8  , 0  , &40   ; 54e4: 00 e1 21... ..! :72bf[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 6  , 4  , 6  , 2  , 6  , 0     ; 54f0: 00 00 00... ... :72cb[4]
+    equb 0  , 1  , 1  , 0  , 0  , 0  , 0  , 0  , 0  , 4  , &0c, 0     ; 54fc: 00 01 01... ... :72d7[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 3  , 1  , 1  , 1  , 1  , 0     ; 5508: 00 00 00... ... :72e3[4]
+    equb 0  , 1  , 0  , &20, 0  , 0  , 0  , 0  , 0                    ; 5514: 00 01 00... ... :72ef[4]
+    equs "xH<,4"                                                      ; 551d: 78 48 3c... xH< :72f8[4]
+    equb &16, &12, &12, &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0   ; 5522: 16 12 12... ... :72fd[4]
+    equb 0  , &f0, 0  , &f0, 0  , &f0, 0  , 7  , 1  , &80, 0  , &e0   ; 552e: 00 f0 00... ... :7309[4]
+    equb 0  , &f0, 0  , &0f, &0f, 3  , &0d, 7  , 3  , 2  , 3  , &0f   ; 553a: 00 f0 00... ... :7315[4]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0e, &c3, &0f, &2d, &0f   ; 5546: 0f 0f 0f... ... :7321[4]
+    equb &2d, &1e, &0f, &10, 0  , 0  , 8  , 8  , &0c, &0c, &0e, &f0   ; 5552: 2d 1e 0f... -.. :732d[4]
+    equb &f0                                                          ; 555e: f0          .   :7339[4]
+    equs "pp0"                                                        ; 555f: 70 70 30    pp0 :733a[4]
+    equb &10, 0  , 0  , &e0, &e0, &f0, &f0, &f0, &f0, &f0, &f0, 0     ; 5562: 10 00 00... ... :733d[4]
+    equb 0  , 0  , &80, &c0, &e0, &e1, &f0, 0  , 0  , 0  , 0  , 0     ; 556e: 00 00 80... ... :7349[4]
+    equb 0  , &0f, &0f                                                ; 557a: 00 0f 0f    ... :7355[4]
+    equs "@@@@@"                                                      ; 557d: 40 40 40... @@@ :7358[4]
+    equb &0f, &0f, &0f, 0  , 0  , 0  , 0  , &0f, &0f, &0f, &0f, 0     ; 5582: 0f 0f 0f... ... :735d[4]
+    equb 3  , 7  , &0e, &1c                                           ; 558e: 03 07 0e... ... :7369[4]
+    equs "8xp"                                                        ; 5592: 38 78 70    8xp :736d[4]
+    equb &0f, &0c, &38, &70, &f0, &f0, &f0, &f0, 8  , &70, &f0, &f0   ; 5595: 0f 0c 38... ..8 :7370[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 55a1: f0 f0 f0... ... :737c[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 55ad: f0 f0 f0... ... :7388[4]
+    equb &f0, &f0, &f0, &f0, &0f, 7  , &87, &87, &83, &c3, &c3, &c3   ; 55b9: f0 f0 f0... ... :7394[4]
+    equb &0f, &0f, &0f, &0f, &0f, &1e, &1e, &3c, &1e                  ; 55c5: 0f 0f 0f... ... :73a0[4]
+    equs "<<x"                                                        ; 55ce: 3c 3c 78    <<x :73a9[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &e0, &e0, &c0   ; 55d1: f0 f0 f0... ... :73ac[4]
+    equb &e0, &c0, &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 55dd: e0 c0 80... ... :73b8[4]
+    equb 1  , 1  , 1  , 3  , &25, &16, &0f, &4b, &0f, &c3, &0f, &0f   ; 55e9: 01 01 01... ... :73c4[4]
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0e, &0e, &0d, &0e, &0f, &0c   ; 55f5: 0f 0f 0f... ... :73d0[4]
+    equb &0e, 8  , &14, 8  , &10, 8  , &70, 0  , &f0, 0  , &f0, 0     ; 5601: 0e 08 14... ... :73dc[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 560d: f0 00 f0... ... :73e8[4]
+    equb &f0, 0  , &f0, 0  , &f0, &10, &f0, &10, &f0, &30, &e1, &21   ; 5619: f0 00 f0... ... :73f4[4]
+    equb &94, &0c, 8  , 8  , 8  , 8  , 8  , 0  , 0  , 4  , 4  , 7     ; 5625: 94 0c 08... ... :7400[4]
+    equb 2  , 2  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5631: 02 02 00... ... :740c[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 563d: 00 00 00... ... :7418[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5649: 00 00 00... ... :7424[4]
+    equb 0  , 0  , 2  , 5  , 7  , 5  , 2  , 0  , &92, 3  , 1  , 1     ; 5655: 00 00 02... ... :7430[4]
+    equb 1  , 1  , 1  , 0  , &f0, &80, &f0, &80, &f0, &c0, &78, &48   ; 5661: 01 01 01... ... :743c[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 566d: f0 00 f0... ... :7448[4]
+    equb &f0, 0  , &f0, 0  , &80, 1  , &e0, 0  , &f0, 0  , &f0, 0     ; 5679: f0 00 f0... ... :7454[4]
+    equb &0b, 7  , &0f, 3  , 7  , 1  , &82, 1  , &0f, &0f, &0f, &0f   ; 5685: 0b 07 0f... ... :7460[4]
+    equb &0f, &0f, 7  , 7  , &4a, &86, &0f, &2d, &0f, &3c, &0f, &0f   ; 5691: 0f 0f 07... ... :746c[4]
+    equb 0  , 0  , 0  , 0  , 8  , 8  , 8  , &0c, &70, &30, &10, &10   ; 569d: 00 00 00... ... :7478[4]
+    equb 0  , 0  , 0  , 0  , &f0, &f0, &f0, &f0, &f0                  ; 56a9: 00 00 00... ... :7484[4]
+    equs "pp0"                                                        ; 56b2: 70 70 30    pp0 :748d[4]
+    equb &87, &c3, &c3, &e1, &f0, &f0, &f0, &f0, &0f, &0f, &0f, &0f   ; 56b5: 87 c3 c3... ... :7490[4]
+    equb &0f, &87, &87, &c3, &0f, &0e, &1e, &1e, &1c                  ; 56c1: 0f 87 87... ... :749c[4]
+    equs "<<<"                                                        ; 56ca: 3c 3c 3c    <<< :74a5[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 56cd: f0 f0 f0... ... :74a8[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 56d9: f0 f0 f0... ... :74b4[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 56e5: f0 f0 f0... ... :74c0[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &e1, &e0, &c0   ; 56f1: f0 f0 f0... ... :74cc[4]
+    equb &87, &87, &84, &1c                                           ; 56fd: 87 87 84... ... :74d8[4]
+    equs "80p"                                                        ; 5701: 38 30 70    80p :74dc[4]
+    equb &f0, &78, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 5704: f0 78 f0... .x. :74df[4]
+    equb &e0, &e0, &c0, &c0, &80, &80, &80, 0  , 0  , 0  , 0  , 0     ; 5710: e0 e0 c0... ... :74eb[4]
+    equb 0  , 0  , 0  , &22, 0  , 0  , 0  , &22, 0  , &12, &8b, 7     ; 571c: 00 00 00... ... :74f7[4]
+    equb &ad, &0f, &4b, &0f, &2d, &0f, &0f, &87, &0f, &0f, &0f, &0f   ; 5728: ad 0f 4b... ..K :7503[4]
+    equb &0f, &0f, &0f, &0e, &0f, 8  , &0e, 8  , &0c, &30, 0  , &70   ; 5734: 0f 0f 0f... ... :750f[4]
+    equb 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0   ; 5740: 00 f0 00... ... :751b[4]
+    equb 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0   ; 574c: 00 f0 00... ... :7527[4]
+    equb 0  , &f0, 0  , &f0, 0  , &e1, &21, &e1, &21, &e1, &21, &e1   ; 5758: 00 f0 00... ... :7533[4]
+    equb &21, &40, 0  , 0  , 0  , 0  , 1  , &40, &41, 0  , 0  , 0     ; 5764: 21 40 00... !@. :753f[4]
+    equb 0  , 0  , 8  , 8  , 8  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5770: 00 00 08... ... :754b[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &10, 0  , 0  , 0     ; 577c: 00 00 00... ... :7557[4]
+    equb 0  , 0  , 0  , &80, &80, 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5788: 00 00 00... ... :7563[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 3  , 2  , 3  , &20, 0  , 0     ; 5794: 00 00 00... ... :756f[4]
+    equb 0  , 0  , 8                                                  ; 57a0: 00 00 08    ... :757b[4]
+    equs "((xHxHxHxH"                                                 ; 57a3: 28 28 78... ((x :757e[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 57ad: f0 00 f0... ... :7588[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 57b9: f0 00 f0... ... :7594[4]
+    equb &c0, 0  , &e0, 0  , &f0, 0  , &f0, 0  , &0f, &0f, 7  , &0f   ; 57c5: c0 00 e0... ... :75a0[4]
+    equb 1  , 7  , 1  , 3  , &0f, &0f, &1e, &0f, &0f, &0f, &0f, &0f   ; 57d1: 01 07 01... ... :75ac[4]
+    equb &84, &1d, &0e, &5b, &0f, &2d, &0f, &4b, 0  , 0  , &44, 0     ; 57dd: 84 1d 0e... ... :75b8[4]
+    equb 0  , 0  , &44, 0  , &10, &10, 0  , 0  , 0  , 0  , 0  , 0     ; 57e9: 00 00 44... ..D :75c4[4]
+    equb &f0, &f0, &f0                                                ; 57f5: f0 f0 f0    ... :75d0[4]
+    equs "pp00"                                                       ; 57f8: 70 70 30... pp0 :75d3[4]
+    equb &10, &e1, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &1e, &1e, &12   ; 57fc: 10 e1 f0... ... :75d7[4]
+    equb &83, &c1, &c0, &e0, &f0, &f0, &f0, &f0, &f0, &f0             ; 5808: 83 c1 c0... ... :75e3[4]
+    equs "xp0"                                                        ; 5812: 78 70 30    xp0 :75ed[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 5815: f0 f0 f0... ... :75f0[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &e0, 0  , 0  , 0  , 0     ; 5821: f0 f0 f0... ... :75fc[4]
+    equb &f0, &e0, &c0, 0  , 0  , 0  , 0  , &10, &80, &10             ; 582d: f0 e0 c0... ... :7608[4]
+    equs "00p"                                                        ; 5837: 30 30 70    00p :7612[4]
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 583a: f0 f0 f0... ... :7615[4]
+    equb &f0, &e0, &e0, &c0, &80, &80, 0  , 0  , 0  , 0  , &22, &88   ; 5846: f0 e0 e0... ... :7621[4]
+    equb 0  , &11, 0  , 0  , &11, &88, &44, &88, &22, &11, &44, &89   ; 5852: 00 11 00... ... :762d[4]
+    equb 1  , &89, 3  , 3  , &47, &9a, 7  , &87, &0f, &0f, &c3, &0f   ; 585e: 01 89 03... ... :7639[4]
+    equb &0f, &0f, &0f, &0f, &0e, &0d, &0f, &0f, &0d, &0e, &0c, &18   ; 586a: 0f 0f 0f... ... :7645[4]
+    equb 0  , &38, 0  , &70, 0  , &70, 0  , &f0, 0  , &f0, 0  , &f0   ; 5876: 00 38 00... .8. :7651[4]
+    equb 0  , &f0, &61, &f0, 0  , &f0, 0  , &f0, 0  , &f0, &0f, &f0   ; 5882: 00 f0 61... ..a :765d[4]
+    equb 0  , &f0, 0  , &f0, 0  , &f0, &3c, &f0, 0  , &f0, 0  , &f0   ; 588e: 00 f0 00... ... :7669[4]
+    equb 0  , &f0, 0  , &e1, &21, &e1, &21, &e1, &21, &e1, &21, 0     ; 589a: 00 f0 00... ... :7675[4]
+    equb 1  , 0  , 0  , 0  , &40, 0  , 8  , 8  , 8  , 0  , 0  , 0     ; 58a6: 01 00 00... ... :7681[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 58b2: 00 00 00... ... :768d[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 58be: 00 00 00... ... :7699[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 1  , 0     ; 58ca: 00 00 00... ... :76a5[4]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 2  , 8  , 8  , 0  , 0  , 0     ; 58d6: 00 00 00... ... :76b1[4]
+    equb &20, 0  , 1                                                  ; 58e2: 20 00 01     .. :76bd[4]
+    equs "xHxHxHxH"                                                   ; 58e5: 78 48 78... xHx :76c0[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 58ed: f0 00 f0... ... :76c8[4]
+    equb &f0, 0  , &f0, &c3, &f0, 0  , &f0, 0  , &f0, 0  , &f0, &0f   ; 58f9: f0 00 f0... ... :76d4[4]
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, &68, &81, 0  , &c1, 0     ; 5905: f0 00 f0... ... :76e0[4]
+    equb &e0, 0  , &e0, 0  , &0f, 7  , &0b, &0f, &0f, &0b, 7  , 3     ; 5911: e0 00 e0... ... :76ec[4]
+    equb &1e, &0f, &0f, &3c, &0f, &0f, &0f, &0f, &19, 8  , &19, &0c   ; 591d: 1e 0f 0f... ... :76f8[4]
+    equb &0c, &2e, &95, &0e, 0  , &88, &11, &22, &11, &44, &88, &22   ; 5929: 0c 2e 95... ... :7704[4]
+    equb 0  , 0  , 0  , &44, &11, 0  , &88, 0  , &f0, &f0             ; 5935: 00 00 00... ... :7710[4]
+    equs "pp0"                                                        ; 593f: 70 70 30    pp0 :771a[4]
+    equb &10, &10, 0  , &f0, &f0, &f0, &f0, &f0                       ; 5942: 10 10 00... ... :771d[4]
+    org l5300 + (l7725 - movedFrom5300To709db)
+    copyblock movedFrom5300To709db, l7725, l5300
+    clear movedFrom5300To709db, l7725
+
+    equb &f0, &f0, &f0, &10, &80, &c0, &c0, &e0, &f0, &f0, &f0, &f0   ; 594a: f0 f0 f0... ...
+    equb &70, &30, 0  , 0  , 0  , 0  , &80, &f0, &f0, &f0, &70, 0     ; 5956: 70 30 00... p0.
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &30, &70, &f0        ; 5962: 00 00 00... ...
+    equs "00p"                                                        ; 596d: 30 30 70    00p
+    equb &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0, &f0   ; 5970: f0 f0 f0... ...
+    equb &e0, &f0, &e0, &c0, &c0, &80, &80, 0  , 0  , 0  , 0  , &22   ; 597c: e0 f0 e0... ...
+    equb &88, &22, &22, 0  , &44, 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5988: 88 22 22... .""
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5994: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59a0: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59ac: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59b8: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59c4: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59d0: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59dc: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59e8: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 59f4: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5a00: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5a0c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 5a18: 00 00 00... ...
+    equb 0  , &a9, 0  , &9d, &78, &38, &9d, &f8, &39, &85, &75, &bc   ; 5a24: 00 a9 00... ...
+    equb &3c, 1  , &e0, 6  , &d0, 3  , &ac, &3c, 1  , &ad             ; 5a30: 3c 01 e0... <..
+    equs "8_8"                                                        ; 5a3a: 38 5f 38    8_8
+    equb &e9, 1  , &f0, &19, &c4, &6f, &f0, 8  , &cc, &39, &5f, &b0   ; 5a3d: e9 01 f0... ...
+    equb &10, &0a, &d0, &12, &85, &75, &ad                            ; 5a49: 10 0a d0... ...
+    equs "8_ "                                                        ; 5a50: 38 5f 20    8_
+    equb 0  , &0c, &85                                                ; 5a53: 00 0c 85    ...
+    equs "uLaZ"                                                       ; 5a56: 75 4c 61... uLa
+    equb &ad, &38, &5f, &d0, 0  , &85, &74, &f8, &bd, &f7, &3d, &18   ; 5a5a: ad 38 5f... .8_
+    equs "}x8"                                                        ; 5a66: 7d 78 38    }x8
+    equb &9d, &78, &38, &bd, &f8, &39, &69, 0  , &9d, &f8, &39, &c6   ; 5a69: 9d 78 38... .x8
+    equb &74, &d0, &ea, &c6, &75, &10, &e6, &20, &98, &66, &60        ; 5a75: 74 d0 ea... t..
+
+    org &0d00
+.movedFrom5a80To0d00
+    equb &40, &85, &7b, &86, &74, &20, &b3, &0d, &85, &78, &a5, &75   ; 5a80: 40 85 7b... @.{ :0d00[5]
+    equb &85, &79, &a2, 1  , &86, &42, &a2, 0                         ; 5a8c: 85 79 a2... .y. :0d0c[5]
+    equs "${P"                                                        ; 5a94: 24 7b 50    ${P :0d14[5]
+    equb 3  , &e8, &c6, &42, &c9, &7a, &90, 8  , &b0, &2e, &a5, &78   ; 5a97: 03 e8 c6... ... :0d17[5]
+    equb &c9, &f0, &b0, &28, &a9, &ab, &20, 0  , &0c, &20, 0  , &0c   ; 5aa3: c9 f0 b0... ... :0d23[5]
+    equb &85, &76, &20, &bf, &0d, &a5, &78, &38, &e5, &74, &85, &74   ; 5aaf: 85 76 20... .v  :0d2f[5]
+    equb &a5, &79, &e5, &75, 6  , &74, &2a, &9d, &a3, &62, &a5, &74   ; 5abb: a5 79 e5... .y. :0d3b[5]
+    equb &29, &fe, &9d, &a0, &62, &4c, &7f, &0d, &a9, 0  , &38, &e5   ; 5ac7: 29 fe 9d... ).. :0d47[5]
+    equb &78, &85, &74, &a9, &c9, &e5, &79, &85, &75, &85, &76, &20   ; 5ad3: 78 85 74... x.t :0d53[5]
+    equb &bf, &0d, 6                                                  ; 5adf: bf 0d 06    ... :0d5f[5]
+    equs "t&u"                                                        ; 5ae2: 74 26 75    t&u :0d62[5]
+    equb &a9, 0  , &38, &e5, &74, &29, &fe, &9d, &a0, &62, &a9, 0     ; 5ae5: a9 00 38... ..8 :0d65[5]
+    equb &e5, &75, &90, 7  , &a9, &fe, &9d, &a0, &62, &a9, &ff, &9d   ; 5af1: e5 75 90... .u. :0d71[5]
+    equb &a3, &62, &e4, &42, &f0, &14, &a6, &42, &a9, 0  , &38, &e5   ; 5afd: a3 62 e4... .b. :0d7d[5]
+    equb &78, &85, &78, &a9, &c9, &e5, &79, &85, &79, &85, &75, &4c   ; 5b09: 78 85 78... x.x :0d89[5]
+    equb &1b, &0d, &a5, &7b, &10, 8  , &a9, 1  , &0d, &a0, &62, &8d   ; 5b15: 1b 0d a5... ... :0d95[5]
+    equb &a0, &62, &a5, &7b, &0a, &45, &7b, &10, 8  , &a9, 1  , &0d   ; 5b21: a0 62 a5... .b. :0da1[5]
+    equb &a1, &62, &8d, &a1, &62, &60, 6  , &74, &2a, 6  , &74, &2a   ; 5b2d: a1 62 8d... .b. :0dad[5]
+    equb &85, &76, &a9, &c9, &85, &75, &20, 2  , &0c, &85, &77, &a5   ; 5b39: 85 76 a9... .v. :0db9[5]
+    equb &76, &20, 0  , &0c, &85, &75, &a5, &77, &18, &65, &74, &85   ; 5b45: 76 20 00... v . :0dc5[5]
+    equb &74, &90, 2  , &e6, &75, &60, &a5, &81, &10, &13, &a9, 0     ; 5b51: 74 90 02... t.. :0dd1[5]
+    equb &38, &e5, &80, &85, &80, &a9, 0  , &e5, &81, &85, &81, &a5   ; 5b5d: 38 e5 80... 8.. :0ddd[5]
+    equb &79, &49, &80, &85, &79, &a5, &82, &29, 1  , &f0, 6  , &a5   ; 5b69: 79 49 80... yI. :0de9[5]
+    equb &79, &49, &80, &85, &79, &a5, &81, &85, &75, &a5, &82, &20   ; 5b75: 79 49 80... yI. :0df5[5]
+    equb 0  , &0c, &85, &77, &a5, &74, &18, &69, &80, &85, &76, &90   ; 5b81: 00 0c 85... ... :0e01[5]
+    equb 2  , &e6, &77, &a5, &83, &20, 0  , &0c, &85, &78, &a5, &74   ; 5b8d: 02 e6 77... ..w :0e0d[5]
+    equb &18, &65, &77, &85, &77, &90, 2  , &e6, &78, &a5, &80, &85   ; 5b99: 18 65 77... .ew :0e19[5]
+    equb &75, &a5, &83, &20, 0  , &0c, &85, &75, &a5, &74, &18, &65   ; 5ba5: 75 a5 83... u.. :0e25[5]
+    equb &76, &a5                                                     ; 5bb1: 76 a5       v.  :0e31[5]
+    equs "uew"                                                        ; 5bb3: 75 65 77    uew :0e33[5]
+    equb &85, &74, &90, 2  , &e6, &78, &a5                            ; 5bb6: 85 74 90... .t. :0e36[5]
+    equs "x$y"                                                        ; 5bbd: 78 24 79    x$y :0e3d[5]
+    equb &10, &0d, &85, &75, &a9, 0  , &38, &e5, &74, &85, &74, &a9   ; 5bc0: 10 0d 85... ... :0e40[5]
+    equb 0  , &e5, &75, &60, &a9, &81, &a0, &ff, &20, &f4, &ff, &e0   ; 5bcc: 00 e5 75... ..u :0e4c[5]
+    equb &ff, &60, &48, &bd, &bd, &62, &f0, &12, &a9, 0  , &9d, &bd   ; 5bd8: ff 60 48... .`H :0e58[5]
+    equb &62, &8a, 9  , 4  , &aa, &a9, &15, &20, &f4, &ff, &8a, &29   ; 5be4: 62 8a 09... b.. :0e64[5]
+    equb &fb, &aa, &68, &60, &ad, &a6, &62, &0d, &a7, &62, &10, &16   ; 5bf0: fb aa 68... ..h :0e70[5]
+    equb &ad, &68, &fe, &c9, &3f, &b0, &0f, &29, 3  , &18, &69, &82   ; 5bfc: ad 68 fe... .h. :0e7c[5]
+    equb &8d, &2c, &0b, &a9, 3  , &a0, 1  , &20, &4a, &0b, &a6, &60   ; 5c08: 8d 2c 0b... .,. :0e88[5]
+    equb &e4, &5f, &f0, &48, &90, 3  , &ca, &b0, 1  , &e8, &86, &60   ; 5c14: e4 5f f0... ._. :0e94[5]
+    equb &e0, &1c, &90, &3d, &8a, &38, &e9, &5c, &b0, &0e, &48, &a9   ; 5c20: e0 1c 90... ... :0ea0[5]
+    equb 0  , &20, &47, &0b, &68, &18, &69, &bb, &a0, 0  , &f0, 8     ; 5c2c: 00 20 47... . G :0eac[5]
+    equb &a2, 0  , &20, &5a, &0e, &ac, &fe, 5  , &8d, &1c, &0b, &a9   ; 5c38: a2 00 20... ..  :0eb8[5]
+    equb 1  , &20, &4a, &0b, &ac, &fe, 5  , &f0, &0e, &a5, &60, &38   ; 5c44: 01 20 4a... . J :0ec4[5]
+    equb &e9, &40, &b0, 4  , &a0, 0  , &f0, 3  , &8d, &24, &0b, &a9   ; 5c50: e9 40 b0... .@. :0ed0[5]
+    equb 2  , &20, &4a, &0b, &60, &20, &f6, &43, &60, &84, &74, &a2   ; 5c5c: 02 20 4a... . J :0edc[5]
+    equb &ff, &20, &50, &0e, &d0, &75, &a4, &74, &84, &74, &be, &e2   ; 5c68: ff 20 50... . P :0ee8[5]
+    equs "= P"                                                        ; 5c74: 3d 20 50    = P :0ef4[5]
+    equb &0e, &f0, 7  , &a4, &74, &88, &10, &f1, &30, &10, &a4, &74   ; 5c77: 0e f0 07... ... :0ef7[5]
+    equb &b9, &d4, &39, &29, &0f, &aa, &b9, &d4, &39, &29, &f0, &9d   ; 5c83: b9 d4 39... ..9 :0f03[5]
+    equb &f4, 5  , &ad, &f7, 5  , &f0, &16, &10, &0d, &20, &f6, &43   ; 5c8f: f4 05 ad... ... :0f0f[5]
+    equb &20, &b6, &66, &a2, &a6, &20, &50, &0e, &d0, &f6, &e6, &60   ; 5c9b: 20 b6 66...  .f :0f1b[5]
+    equb &a9, 0  , &8d, &f7, 5  , &ac, &fe, 5  , &a5, &6a, &29, 1     ; 5ca7: a9 00 8d... ... :0f27[5]
+    equb &d0, &29, &ad, &f6, 5  , &f0, &29, &10, 7  , &c8, &f0, 9     ; 5cb3: d0 29 ad... .). :0f33[5]
+    equb &30, 7  , &10, &1b, &88, &c0, &f1, &90, &16, &8c, &fe, 5     ; 5cbf: 30 07 10... 0.. :0f3f[5]
+    equb &98, &49, &ff, &18, &69, 1  , &0a, &0a, &0a, &8d, &44, &0b   ; 5ccb: 98 49 ff... .I. :0f4b[5]
+    equb &a9, 0  , &20, &65, &0b, &e6, &60, &a9, 0  , &8d, &f6, 5     ; 5cd7: a9 00 20... ..  :0f57[5]
+    equb &60, &85, &78, &f8, &a2, 0  , &86, &76, &8e, 0  , 1  , &e8   ; 5ce3: 60 85 78... `.x :0f63[5]
+    equb &86, &77, &bc, &3c, 1  , &8a, &9d, 0  , 1  , &bd, &3b, 1     ; 5cef: 86 77 bc... .w. :0f6f[5]
+    equb &aa                                                          ; 5cfb: aa          .   :0f7b[5]
+    equs "8$xp90Q"                                                    ; 5cfc: 38 24 78... 8$x :0f7c[5]
+    equb &b9, &a0, 6  , &fd, &a0, 6  , &85, &75, &b9, &b8, 6  , &fd   ; 5d03: b9 a0 06... ... :0f83[5]
+    equb &b8, 6  , &85, &79, &b9, &d0, 6  , &fd, &d0, 6  , &90, &51   ; 5d0f: b8 06 85... ... :0f8f[5]
+    equb 5  , &75, 5  , &79, &d0, 9  , &a6, &77, &ca, &bd, 0  , 1     ; 5d1b: 05 75 05... .u. :0f9b[5]
+    equb &9d, 1  , 1  , &a6, &77, &e8, &e0, &14, &90, &be, &a5, &76   ; 5d27: 9d 01 01... ... :0fa7[5]
+    equb &d0, &b2, &d8, &20, &a2, &63, &60, &bd, &64, &38, &f9, &64   ; 5d33: d0 b2 d8... ... :0fb3[5]
+    equb &38, &85, &75, &bd, &e4, &39, &f9, &e4, &39, &85, &79, &bd   ; 5d3f: 38 85 75... 8.u :0fbf[5]
+    equb &f0, 4  , &f9, &f0, 4  , &90, &1a, &b0, &c7, &b9, &98, 8     ; 5d4b: f0 04 f9... ... :0fcb[5]
+    equb &fd, &98, 8  , &85, &75, &b9, &ac, 8  , &fd, &ac, 8  , &85   ; 5d57: fd 98 08... ... :0fd7[5]
+    equb &79, &b9, &dc, 4  , &fd, &dc, 4  , &b0, &be, &86, &74, &a6   ; 5d63: 79 b9 dc... y.. :0fe3[5]
+    equb &77, &98, &9d, &3b, 1  , &a5, &74, &9d, &3c, 1  , &c6, &76   ; 5d6f: 77 98 9d... w.. :0fef[5]
+    equb &4c, &aa, &0f, &a5, &6c, &10                                 ; 5d7b: 4c aa 0f... L.. :0ffb[5]
+    equs "0$f"                                                        ; 5d81: 30 24 66    0$f :1001[5]
+    equb &10, &24, &a9, 0  , &85, &66, &85, &78, &a6, &6f, &bd, &b4   ; 5d84: 10 24 a9... .$. :1004[5]
+    equb 4  , &c9, 1  , &49, &ff, &65, &6e, 8  , &20, &c8, &65, &a2   ; 5d90: 04 c9 01... ... :1010[5]
+    equb &0c, &a0, &21, &20, &d0, &37, &28, &10, 5  , &a2, &35, &20   ; 5d9c: 0c a0 21... ..! :101c[5]
+    equb &fc, &17, &a5, &0f, &d0, &6c, &20, &84, &1b, &60, &a2, 1     ; 5da8: fc 17 a5... ... :1028[5]
+    equb &20, &c3, &17                                                ; 5db4: 20 c3 17     .. :1034[5]
+    equs "$fp"                                                        ; 5db7: 24 66 70    $fp :1037[5]
+    equb &1b, &10                                                     ; 5dba: 1b 10       ..  :103a[5]
+    equs "2Ff"                                                        ; 5dbc: 32 46 66    2Ff :103c[5]
+    equb &a9, &21, &18, &6d, &ef, &62, &8d, &ef, &62, &f0, 5  , &a9   ; 5dbf: a9 21 18... .!. :103f[5]
+    equs "& /P"                                                       ; 5dcb: 26 20 2f... & / :104b[5]
+    equb &a2, 1  , &20, &11, &50, &f0, &19, &ad, &ef, &62, &f0, &0f   ; 5dcf: a2 01 20... ..  :104f[5]
+    equb &ce, &ef, &62, &d0, &0f, &20, &1d, &50, &a9, 2               ; 5ddb: ce ef 62... ..b :105b[5]
+    equs " P="                                                        ; 5de5: 20 50 3d     P= :1065[5]
+    equb &f0, 5  , &90, 3                                             ; 5de8: f0 05 90... ... :1068[5]
+    equs " -P"                                                        ; 5dec: 20 2d 50     -P :106c[5]
+    equb &ad                                                          ; 5def: ad          .   :106f[5]
+    equs ";_0&"                                                       ; 5df0: 3b 5f 30... ;_0 :1070[5]
+    equb &cd, &e4, 6  , &90, &10, &d0, &1f                            ; 5df4: cd e4 06... ... :1074[5]
+    equs "$ep"                                                        ; 5dfb: 24 65 70    $ep :107b[5]
+    equb &1b, &a9, &40, &85, &65, &a2                                 ; 5dfe: 1b a9 40... ..@ :107e[5]
+    equs ") tM`"                                                      ; 5e04: 29 20 74... ) t :1084[5]
+    equb &a5, &65, &30, &0d, &a9, &c0, &85, &65, &a9, &3c, &85, &0f   ; 5e09: a5 65 30... .e0 :1089[5]
+    equb &a2                                                          ; 5e15: a2          .   :1095[5]
+    equs "* tM`"                                                      ; 5e16: 2a 20 74... * t :1096[5]
+    equb &85                                                          ; 5e1b: 85          .   :109b[5]
+    equs "v8n"                                                        ; 5e1c: 76 38 6e    v8n :109c[5]
+    equb &f8, &62, &a2, &13, &20, &7c, &14, &ca, &10, &fa, &ad, &d0   ; 5e1f: f8 62 a2... .b. :109f[5]
+    equb 8  , &0d, &e8, 8  , &d0, &f0, &a9, &ff, &85, &78, &d0, &18   ; 5e2b: 08 0d e8... ... :10ab[5]
+    equb &a5, &76, &85, &77, &8a, &48, &bd, &3c, 1  , &aa, &20, &c3   ; 5e37: a5 76 85... .v. :10b7[5]
+    equb &14, &68, &aa, &c6, &77, &10, &f1, &e8, &e0, &14, &90, &e8   ; 5e43: 14 68 aa... .h. :10c3[5]
+    equb &e6, &78, &a6, &78, &e0, &14, &90, &e0, &a2, &17, &20, &7c   ; 5e4f: e6 78 a6... .x. :10cf[5]
+    equb &14, &a0, &17, &a6                                           ; 5e5b: 14 a0 17... ... :10db[5]
+    equs "o8 "                                                        ; 5e5f: 6f 38 20    o8  :10df[5]
+    equb &ab, &27, &b0, &f1, &c9, &20, &d0, &ed, &a2, &17, &a9, &31   ; 5e62: ab 27 b0... .'. :10e2[5]
+    equb &85, &76, &85, &42, &20, &c3, &14, &c6, &76, &d0, &f9, &e6   ; 5e6e: 85 76 85... .v. :10ee[5]
+    equb &42, &20, &c3, &14, &90, &f9, &a9, &50, &a0, &13, &be, &3c   ; 5e7a: 42 20 c3... B . :10fa[5]
+    equb 1  , &49, &ff, &9d, &78, 1  , &88, &10, &f5, &a9, 0  , &85   ; 5e86: 01 49 ff... .I. :1106[5]
+    equb &24, &20, &f7, &12, &c6, &42, &d0, &f9, &4e, &f8, &62, &60   ; 5e92: 24 20 f7... $ . :1112[5]
+    equb &a5, &11, &c9, 2  , &90, &3e, &a5                            ; 5e9e: a5 11 c9... ... :111e[5]
+    equs "^ P4"                                                       ; 5ea5: 5e 20 50... ^ P :1125[5]
+    equb &c9, &60, &b0, &0b, &a9, &14, &2c, &e2                       ; 5ea9: c9 60 b0... .`. :1129[5]
+    equs "b P4L"                                                      ; 5eb1: 62 20 50... b P :1131[5]
+    equb &0b, &1c, &ce, &f6, &62, &e6, &1f                            ; 5eb6: 0b 1c ce... ... :1136[5]
+    equs " \= "                                                       ; 5ebd: 20 5c 3d...  \= :113d[5]
+    equb &f6, &43, &a9, 4  , &20, &47, &0b, &a9, 0  , &a2, &1e, &9d   ; 5ec1: f6 43 a9... .C. :1141[5]
+    equb &d0, &62, &ca, &10, &fa, &85, &61, &85, &26, &85, &60, &85   ; 5ecd: d0 62 ca... .b. :114d[5]
+    equb &5f, &a9, &7f, &85, &2d, &a9, &1f, &85, 9  , &60, &a9, 0     ; 5ed9: 5f a9 7f... _.. :1159[5]
+    equb &85, 0  , &85, &6d, &20, &1f, &26, &a6, &6f, &20, &be, &11   ; 5ee5: 85 00 85... ... :1165[5]
+    equs " RP"                                                        ; 5ef1: 20 52 50     RP :1171[5]
+    equb &a0, 0  , &20, &e5, &0e, &ad, &f4, 5                         ; 5ef4: a0 00 20... ..  :1174[5]
+    equs "0, "                                                        ; 5efc: 30 2c 20    0,  :117c[5]
+    equb &ed, &27, &20, &92, &26, &20, &a2, &63, &a2, &13, &a5, &6c   ; 5eff: ed 27 20... .'  :117f[5]
+    equb &30, &0c, &e4, &6f, &d0, &19, &ad, &df, &62, &c9, &0e, &90   ; 5f0b: 30 0c e4... 0.. :118b[5]
+    equb &d9, &60, &bd, &8c, 1  , &29, &40, &d0, 7  , &a5, &6e, &dd   ; 5f17: d9 60 bd... .`. :1197[5]
+    equb &b4, 4  , &b0, &ca, &ca, &10, &ef, &60, &e0, &14, &b0, &1e   ; 5f23: b4 04 b0... ... :11a3[5]
+    equb &bd, &78, 1  , &29, &7f, 9  , &45, &9d, &14, 1  , &a9, &91   ; 5f2f: bd 78 01... .x. :11af[5]
+    equb &9d, 0  , 1  , &a5, &6e, &dd, &b4, 4  , &a9, &c0, &9d, &8c   ; 5f3b: 9d 00 01... ... :11bb[5]
+    equb 1  , &90, 3  , &9d, &dc, 4  , &60, &a6, &6f, &86, &45, &86   ; 5f47: 01 90 03... ... :11c7[5]
+    equb &42, &a4                                                     ; 5f53: 42 a4       B.  :11d3[5]
+    equs '"', " 7)"                                                   ; 5f55: 22 20 37... " 7 :11d5[5]
+    equb &a2, 2  , &bd, &fd, 9  , &9d, &80, &62, &bd, &fd, &0a, &9d   ; 5f59: a2 02 bd... ... :11d9[5]
+    equb &83, &62, &ca, &10, &f1, &a5, &22, &18, &69, 3  , &c9, &78   ; 5f65: 83 62 ca... .b. :11e5[5]
+    equb &90, 2  , &a9, 0  , &a8, &a6                                 ; 5f71: 90 02 a9... ... :11f1[5]
+    equs "E 7)"                                                       ; 5f77: 45 20 37... E 7 :11f7[5]
+    equb &bd, &80, 3  , &85, &0a                                      ; 5f7b: bd 80 03... ... :11fb[5]
+    equb &bd, &98, 3  , &45, &25, &85, &0b, &60, &b9, 1  , &59, &9d   ; 5f80: bd 98 03... ... :1200[5]
+    equb 0  , 9  , &b9, 2  , &59, &9d, 1  , 9  , &b9, 3  , &59, &9d   ; 5f8c: 00 09 b9... ... :120c[5]
+    equb 2  , 9  , &b9, 1  , &53, &9d, 0  , &0a, &b9, 2  , &53, &9d   ; 5f98: 02 09 b9... ... :1218[5]
+    equb 1  , &0a, &b9, 3  , &53, &9d, 2  , &0a, &60, &20, 8  , &12   ; 5fa4: 01 0a b9... ... :1224[5]
+    equb &b9, 4  , &59, &9d, &78, 9  , &b9, 6  , &59, &9d, &7a, 9     ; 5fb0: b9 04 59... ..Y :1230[5]
+    equb &b9, 4  , &53, &9d, &78, &0a, &b9, 6  , &53, &9d, &7a, &0a   ; 5fbc: b9 04 53... ..S :123c[5]
+    equb &b9, 5  , &59, &85, 2  , &bd, 1  , 9  , &9d, &79, 9  , &bd   ; 5fc8: b9 05 59... ..Y :1248[5]
+    equb 1  , &0a, &9d, &79, &0a, &60, &a5, &24, &38, &e9, &60, &10   ; 5fd4: 01 0a 9d... ... :1254[5]
+    equb 3  , &18, &69, &78, &85, &22, &60, &a6, &24, &a0, 6  , &8c   ; 5fe0: 03 18 69... ..i :1260[5]
+    equb &f5, &62, &a5, &62, &f0, 2  , &84, 6  , &a5, &25, &30, &0c   ; 5fec: f5 62 a5... .b. :126c[5]
+    equb &ac, &ff, 6  , &20, &2d, &12, &b9, 0  , &53, &4c, &8e, &12   ; 5ff8: ac ff 06... ... :1278[5]
+    equb &a4                                                          ; 6004: a4          .   :1284[5]
+    equs "! -"                                                        ; 6005: 21 20 2d    ! - :1285[5]
+    equb &12, &20, &e0, &13, &a9, 2  , &29, 7  , &85, 7  , &ac, &ff   ; 6008: 12 20 e0... . . :1288[5]
+    equb 6  , &b9, 0  , &59, &85, 1  , &a9, 0  , &9d, 2  , 7  , &60   ; 6014: 06 b9 00... ... :1294[5]
+    equb &a2, &2c, &bd, &40, &5e, &9d, &41, &5e, &bd, &90, &5e, &9d   ; 6020: a2 2c bd... .,. :12a0[5]
+    equb &91, &5e, &bd, &20, &5f, &9d, &21, &5f, &e0, &28, &d0, 2     ; 602c: 91 5e bd... .^. :12ac[5]
+    equb &a2, 5  , &ca, &10, &e5, &a9, 6  , &38, &e5, 7  , &85, 5     ; 6038: a2 05 ca... ... :12b8[5]
+    equb &20, &c8, &12, &60, &a6, 6  , &e8, &e0, 6  , &90, 2  , &a2   ; 6044: 20 c8 12...  .. :12c4[5]
+    equb 6  , &e4, 5  , &b0, 2  , &a6, 5  , &86, 6  , &a6, 8  , &e8   ; 6050: 06 e4 05... ... :12d0[5]
+    equb &e8, &e4, 6  , &b0, 2  , &86, 6  , &ca, &e4, 5  , &b0, 2     ; 605c: e8 e4 06... ... :12dc[5]
+    equb &a2, 5  , &e0, 6  , &90, 2  , &a2, 5  , &86, 8  , &60, &18   ; 6068: a2 05 e0... ... :12e8[5]
+    equb &20, &33, &14, &a5, &24, &85, &23, &18, &69, 3  , &c9, &78   ; 6074: 20 33 14...  3. :12f4[5]
+    equb &90, 2  , &a9, 0  , &85, &24, &a2, &17, &a5, &25, &30, &1a   ; 6080: 90 02 a9... ... :1300[5]
+    equb &ad, &fa                                                     ; 608c: ad fa       ..  :130c[5]
+    equs "YJ)"                                                        ; 608e: 59 4a 29    YJ) :130e[5]
+    equb &f8, &dd, &e8, 6  , &d0, 4  , &a9, 1  , &85                  ; 6091: f8 dd e8... ... :1311[5]
+    equs "0 |"                                                        ; 609a: 30 20 7c    0 | :131a[5]
+    equb &14, &90, &13, &20, &67, &12, &4c, &cc, &13, &ad, &ff, 6     ; 609d: 14 90 13... ... :131d[5]
+    equb &85, &21, &20, &c3, &14, &90, 3  , &20, &67, &12, &a4, 2     ; 60a9: 85 21 20... .!  :1329[5]
+    equb &20, &42, &14, &a6, &24, &a5, 1  , &4a, 8  , &a5, 1  , &b0   ; 60b5: 20 42 14...  B. :1335[5]
+    equb &0d, &ac, &97, 8  , &c0, 1  , &90, 4  , &c0, &0a, &90, 2     ; 60c1: 0d ac 97... ... :1341[5]
+    equb &29, &f9, &85, &77, &ac, &ff, 6  , &b9, 7  , &59, &28, &90   ; 60cd: 29 f9 85... ).. :134d[5]
+    equb &0b, &4a, &a8, &a5, &77, &cc, &97, 8  , &f0, &19, &d0, &13   ; 60d9: 0b 4a a8... .J. :1359[5]
+    equb &38, &ed, &97, 8  , &a8, &a5, &77, &c0, 7  , &f0, &0c, &c0   ; 60e5: 38 ed 97... 8.. :1365[5]
+    equb &0e, &f0, 6  , &c0, &15, &f0, 2  , &29, &e7, &29, &df, &25   ; 60f1: 0e f0 06... ... :1371[5]
+    equb 1  , &9d, 2  , 7  , &a4, &23, &20, &cc, &0b, &20, &4d, &12   ; 60fd: 01 9d 02... ... :137d[5]
+    equb &a4, 2  , &a9, 0  , &85, &83, &85, &85, &b9, 0  , &57, &10   ; 6109: a4 02 a9... ... :1389[5]
+    equb 2  , &c6, &83, &0a, &26, &83, &0a, &26, &83, &18, &7d, 0     ; 6115: 02 c6 83... ... :1395[5]
+    equb 9  , &9d, &78, 9  , &a5, &83, &7d, 0  , &0a, &9d, &78, &0a   ; 6121: 09 9d 78... ..x :13a1[5]
+    equb &b9, 0  , &58, &10, 2  , &c6, &85, &0a, &26, &85, &0a, &26   ; 612d: b9 00 58... ..X :13ad[5]
+    equb &85, &18, &7d, 2  , 9  , &9d, &7a, 9  , &a5, &85, &7d, 2     ; 6139: 85 18 7d... ..} :13b9[5]
+    equb &0a, &9d, &7a, &0a, &20, &da, &13, &a6, &24, &a5, 2  , &9d   ; 6145: 0a 9d 7a... ..z :13c5[5]
+    equb 0  , 7  , &20, &5a, &12, &20, &0e, &15, &60, &a5, 1  , &29   ; 6151: 00 07 20... ..  :13d1[5]
+    equb 1  , &f0, &1a, &a5, &25, &30, &0c, &a4, 2  , &c8, &cc, &fb   ; 615d: 01 f0 1a... ... :13dd[5]
+    equb &59, &d0, &0c, &a0, 0  , &f0, 8  , &a4, 2  , &d0, 3  , &ac   ; 6169: 59 d0 0c... Y.. :13e9[5]
+    equb &fb, &59, &88, &84, 2  , &60, &a9, 6  , &85, 6  , &a2, &40   ; 6175: fb 59 88... .Y. :13f5[5]
+    equb &86, &1a, &20, &20, &14, &a9, 0  , &85, &1a                  ; 6181: 86 1a 20... ..  :1401[5]
+    equs "`8 3"                                                       ; 618a: 60 38 20... `8  :140a[5]
+    equb &14, &a2, &28, &86                                           ; 618e: 14 a2 28... ..( :140e[5]
+    equs "b  "                                                        ; 6192: 62 20 20    b   :1412[5]
+    equb &14, &a2                                                     ; 6195: 14 a2       ..  :1415[5]
+    equs "'  "                                                        ; 6197: 27 20 20    '   :1417[5]
+    equb &14, &a9, 0  , &85, &62, &60, &a5, &25, &49, &80, &85, &25   ; 619a: 14 a9 00... ... :141a[5]
+    equb &20, &da, &13, &86, &42, &20, &f7, &12, &c6, &42, &d0, &f9   ; 61a6: 20 da 13...  .. :1426[5]
+    equb &60, &a6                                                     ; 61b2: 60 a6       `.  :1432[5]
+    equs "ojE%0"                                                      ; 61b4: 6f 6a 45... ojE :1434[5]
+    equb 4  , &20, &7c, &14, &60, &20, &c3, &14, &60, &a9, 0  , &85   ; 61b9: 04 20 7c... . | :1439[5]
+    equb &83, &85, &84, &85, &85, &b9, 0  , &54, &85, &74, &10, 2     ; 61c5: 83 85 84... ... :1445[5]
+    equb &c6, &83, &b9, 0  , &55, &85, &75, &10, 2  , &c6, &84, &b9   ; 61d1: c6 83 b9... ... :1451[5]
+    equb 0  , &56, &85, &76, &10, 2  , &c6, &85, &a5, &25, &f0, &12   ; 61dd: 00 56 85... .V. :145d[5]
+    equb &a2, 2  , &a9, 0  , &38, &f5, &74, &95, &74, &a9, 0  , &f5   ; 61e9: a2 02 a9... ... :1469[5]
+    equb &83, &95, &83, &ca, &10, &f0, &60, &bc, &e8, 6  , &bd, &80   ; 61f5: 83 95 83... ... :1475[5]
+    equb 8  , &18, &69, 1  , &d9, 7  , &59, 8  , &90, &10, &98, &18   ; 6201: 08 18 69... ..i :1481[5]
+    equb &69, 8  , &cd, &fa, &59, &90, 2  , &a9, 0  , &9d, &e8, 6     ; 620d: 69 08 cd... i.. :148d[5]
+    equb &a9, 0  , &9d, &80, 8  , &fe, &d0, 8  , &d0, 3  , &fe, &e8   ; 6219: a9 00 9d... ... :1499[5]
+    equb 8  , &bd, &d0, 8  , &cd, &fc, &59, &d0, &13, &bd, &e8, 8     ; 6225: 08 bd d0... ... :14a5[5]
+    equb &cd, &fd, &59, &d0, &0b, &a9, 0  , &9d, &d0, 8  , &9d, &e8   ; 6231: cd fd 59... ..Y :14b1[5]
+    equb 8                                                            ; 623d: 08          .   :14bd[5]
+    equs " wO(`"                                                      ; 623e: 20 77 4f...  wO :14be[5]
+    equb &bc, &e8, 6  , &bd, &80, 8  , &18, &d0, &11, &98, &d0, 3     ; 6243: bc e8 06... ... :14c3[5]
+    equb &ad, &fa, &59, &38, &e9, 8  , &9d, &e8, 6  , &a8, &b9, 7     ; 624f: ad fa 59... ..Y :14cf[5]
+    equb &59, &38, 8  , &38, &e9, 1  , &9d, &80, 8  , &bd, &d0, 8     ; 625b: 59 38 08... Y8. :14db[5]
+    equb &d0, &20, &de, &e8, 8  , &10, &1b, &ad, &fc, &59, &9d, &d0   ; 6267: d0 20 de... . . :14e7[5]
+    equb 8  , &ad, &fd, &59, &9d, &e8, 8  , &e4, &6f, &d0, &e6, &bd   ; 6273: 08 ad fd... ... :14f3[5]
+    equb &b4, 4  , &f0, &e1, &de, &b4, 4  , &4c, &e4, &14, &de, &d0   ; 627f: b4 04 f0... ... :14ff[5]
+    equb 8  , &28, &60, &ac, &ff, 6  , &98                            ; 628b: 08 28 60... .(` :150b[5]
+    equs "JJJ"                                                        ; 6292: 4a 4a 4a    JJJ :1512[5]
+    equb &aa, &a5, &17, &d0, &3d, &a5, 1  , &4a, &b0, &0f, &ad, &97   ; 6295: aa a5 17... ... :1515[5]
+    equb 8  , &d9, 5  , &53, &b0, &0b, &bd, &b0, &5f, 9  , &40, &d0   ; 62a1: 08 d9 05... ... :1521[5]
+    equb &45, &a5, &20, &30, 6  , &98, &18, &69, 8  , &a8, &e8, &b9   ; 62ad: 45 a5 20... E.  :152d[5]
+    equb 0  , &59, &29, 1  , &f0, &e8, &b9, 5  , &53, &85, &17, &f0   ; 62b9: 00 59 29... .Y) :1539[5]
+    equb &e1, &b9, 7  , &53, &85, &20, &29, &7f, &85, &18, &bd, &b0   ; 62c5: e1 b9 07... ... :1545[5]
+    equb &5f, &85, &16, &4c, &73, &15, &c6, &17, &a5, &17             ; 62d1: 5f 85 16... _.. :1551[5]
+    equs "JJJ"                                                        ; 62db: 4a 4a 4a    JJJ :155b[5]
+    equb &85, &74, &a5, &17, &38, &e5, &18, &b0, 6  , &65, &74, &a9   ; 62de: 85 74 a5... .t. :155e[5]
+    equb 0  , &b0, 6  , &a5, &16, &b0, 2  , &49, &80, &a4, &24, &99   ; 62ea: 00 b0 06... ... :156a[5]
+    equb 1  , 7  , &60, &a9, 0  , &85, &76, &85, &74, &85, &58, &a2   ; 62f6: 01 07 60... ..` :1576[5]
+    equb &9d, &20, &50, &0e, 8  , &2c, &f5, 5  , &10, &27, &a2, 1     ; 6302: 9d 20 50... . P :1582[5]
+    equs " ?P"                                                        ; 630e: 20 3f 50     ?P :158e[5]
+    equb &85, &75, &20, 0  , &0c, &28, &f0, 6                         ; 6311: 85 75 20... .u  :1591[5]
+    equs "JftJft"                                                     ; 6319: 4a 66 74... Jft :1599[5]
+    equb &85, &75, &a5, &74, &29, &fe, &85, &74, &8a, 5  , &74, &85   ; 631f: 85 75 a5... .u. :159f[5]
+    equb &74, &a5, &75, &4c, &e9, &1e, &ea, &ea, &a2, &a9, &20, &50   ; 632b: 74 a5 75... t.u :15ab[5]
+    equb &0e, &d0, 4  , &a9, 2  , &85, &76, &a2, &a8, &20, &50, &0e   ; 6337: 0e d0 04... ... :15b7[5]
+    equb &d0, 2  , &e6, &76, &a9, 3  , &85, &75, &28, &f0, &11, &a9   ; 6343: d0 02 e6... ... :15c3[5]
+    equb 0  , &a2, 2  , &ec, &a5, &62, &90, 2  , &a9, 1  , &85, &75   ; 634f: 00 a2 02... ... :15cf[5]
+    equb &a9, &80, &85, &74, &a5, &76, &f0, &11, &c9, 3  , &f0, &54   ; 635b: a9 80 85... ... :15db[5]
+    equb &4d, &a2, &62, &29, 1  , &f0                                 ; 6367: 4d a2 62... M.b :15e7[5]
+    equs "! D"                                                        ; 636d: 21 20 44    ! D :15ed[5]
+    equb &0e, &4c, &0d, &16, &ad, &da, &62, &29, &f0, &85, &74, &ad   ; 6370: 0e 4c 0d... .L. :15f0[5]
+    equb &ea                                                          ; 637c: ea          .   :15fc[5]
+    equs "b @"                                                        ; 637d: 62 20 40    b @ :15fd[5]
+    equb &0e                                                          ; 6380: 0e          .   :1600[5]
+    equs "JftJft"                                                     ; 6381: 4a 66 74... Jft :1601[5]
+    equb &cd, &a5, &62, &20, &9b, &1f, &85, &75, &4c, &fa, &1e, &38   ; 6387: cd a5 62... ..b :1607[5]
+    equb &e5, &74                                                     ; 6393: e5 74       .t  :1613[5]
+    equs &85, "t", &ad                                                ; 6395: 85 74 ad    .t. :1615[5]
+    equb &a5, &62, &e5, &75, &c9, &c8, &90, &0d                       ; 6398: a5 62 e5... .b. :1618[5]
+    equs " B", &0e                                                    ; 63a0: 20 42 0e     B. :1620[5]
+    equb &85, &75, &a5, &74, &49, 1  , &85, &74                       ; 63a3: 85 75 a5... .u. :1623[5]
+    equs &a5, "u", &c9                                                ; 63ab: a5 75 c9    .u. :162b[5]
+    equb &91, &90, 2  , &a9, &91, &8d, &a5, &62, &a5, &74, &8d, &a2   ; 63ae: 91 90 02... ... :162e[5]
+    equb &62, &a5, &0f, &d0, &39, &2c, &f5                            ; 63ba: 62 a5 0f... b.. :163a[5]
+    equs 5, &10, &1a, &a2                                             ; 63c1: 05 10 1a... ... :1641[5]
+    equb 2                                                            ; 63c5: 02          .   :1645[5]
+    equs " ?P"                                                        ; 63c6: 20 3f 50     ?P :1646[5]
+    equb &90, &2d, &85                                                ; 63c9: 90 2d 85    .-. :1649[5]
+    equs "tFt"                                                        ; 63cc: 74 46 74    tFt :164c[5]
+    equb &0a, &65, &74, &b0, 4  , &c9, &fa, &90, &29, &e0, 0  , &f0   ; 63cf: 0a 65 74... .et :164f[5]
+    equb &18, &d0, 9  , &a2, &ae, &20, &50, &0e, &d0, 6  , &a2, 1     ; 63db: 18 d0 09... ... :165b[5]
+    equb &a9, &ff, &d0, &16, &a2, &be, &20, &50, &0e, &d0, 6  , &a2   ; 63e7: a9 ff d0... ... :1667[5]
+    equb 0  , &a9, &fa, &d0, 9  , &a2, &80, &a5                       ; 63f3: 00 a9 fa... ... :1673[5]
+    equs "<JJ"                                                        ; 63fb: 3c 4a 4a    <JJ :167b[5]
+    equb &18, &69, 5  , &86, &3e, &85, &3f, &2c, &f5, 5  , &10, &19   ; 63fe: 18 69 05... .i. :167e[5]
+    equb &a2, 0  , &a9, &80, &20, &f4, &ff, &8a, &29, 1  , &f0, &1b   ; 640a: a2 00 a9... ... :168a[5]
+    equb &a4, &3e, &88, &d0, &1c, &a5, &3f, &c9, &c8, &b0, &1a, &90   ; 6416: a4 3e 88... .>. :1696[5]
+    equb &14, &a2, &9f, &20, &50, &0e, &f0, &0d, &a2, &ef, &20, &50   ; 6422: 14 a2 9f... ... :16a2[5]
+    equb &0e, &f0, &0a, &a9, 0  , &85, &19                            ; 642e: 0e f0 0a... ... :16ae[5]
+    equs &f0, "$", &a9                                                ; 6435: f0 24 a9    .$. :16b5[5]
+    equb &ff, &d0, 2  , &a9, 1  , &c6, &58, &a6, &19, &d0, &18, &85   ; 6438: ff d0 02... ... :16b8[5]
+    equb &19, &18, &65, &40, &c9, &ff, &f0, 8  , &c9, 7  , &d0, 6     ; 6444: 19 18 65... ..e :16c4[5]
+    equb &a9, 6  , &d0, 2  , &a9, 0  , &85, &40, &20, &d0, &42, &60   ; 6450: a9 06 d0... ... :16d0[5]
+    org l5a80 + (l16dc - movedFrom5a80To0d00)
+    copyblock movedFrom5a80To0d00, l16dc, l5a80
+    clear movedFrom5a80To0d00, l16dc
+
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 645c: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6470: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6484: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6498: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 64ac: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0               ; 64c0: 00 00 00... ...
+
+    org &5fd0
+.movedFrom64d0
+    equb 0  , &88, &cc, &ee, &0f, &8f, &cf, &ef, &f0, &f8, &fc, &fe   ; 64d0: 00 88 cc... ... :5fd0[6]
+    equb 0  , 8  , &0c, &0e, 0  , &80, &c0, &e0, &0f, 7  , 3  , 1     ; 64dc: 00 08 0c... ... :5fdc[6]
+    equb &f0, &70, &30, &10, &ff, &77, &33, &11, &ff, &7f, &3f, &1f   ; 64e8: f0 70 30... .p0 :5fe8[6]
+    equb &ff, &f7, &f3, &f1, 3  , &60, &30, &18, &0c, 6  , 3  , 1     ; 64f4: ff f7 f3... ... :5ff4[6]
+    equb 0  , 1  , 2  , 3  , 4  , 5  , 6  , 7  , 8  , 9  , &0a, &0b   ; 6500: 00 01 02... ... :6000[6]
+    equb &0c, &0d, &0e, &0f, &10, &11, &12, &13, &14, &15, &16, &17   ; 650c: 0c 0d 0e... ... :600c[6]
+    equb &18, &19, &1a, &1b, &1c, &1d, &1e, &1f                       ; 6518: 18 19 1a... ... :6018[6]
+    equs " !", '"', "#$%&'()*+,-./0123456789:;<=>?@ABCDE"             ; 6520: 20 21 22...  !" :6020[6]
+    equs "FGHIJKLMNOPQRST"                                            ; 6546: 46 47 48... FGH :6046[6]
+    equb 0                                                            ; 6555: 00          .   :6055[6]
+    equs "VWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"                  ; 6556: 56 57 58... VWX :6056[6]
+    equb &7f, &80, &81, &82, &83, &84, &85, &86, &87, &88, &89, &8a   ; 657f: 7f 80 81... ... :607f[6]
+    equb &8b, &8c, &8d, &8e, &8f, &90, &91, &92, &93, &94, &95, &96   ; 658b: 8b 8c 8d... ... :608b[6]
+    equb &97, &98, &99, &9a, &9b, &9c, &9d, &9e, &9f, &a0, &a1, &a2   ; 6597: 97 98 99... ... :6097[6]
+    equb &a3, &a4, &a5, &a6, &a7, &a8, &a9, &aa, &ab, &ac, &ad, &ae   ; 65a3: a3 a4 a5... ... :60a3[6]
+    equb &af, &b0, &b1, &b2, &b3, &b4, &b5, &b6, &b7, &b8, &b9, &ba   ; 65af: af b0 b1... ... :60af[6]
+    equb &bb, &bc, &bd, &be, &bf, &c0, &c1, &c2, &c3, &c4, &c5, &c6   ; 65bb: bb bc bd... ... :60bb[6]
+    equb &c7, &c8, &c9, &ca, &cb, &cc, &cd, &ce, &cf, &d0, &d1, &d2   ; 65c7: c7 c8 c9... ... :60c7[6]
+    equb &d3, &d4, &d5, &d6, &d7, &d8, &d9, &da, &db, &dc, &dd, &de   ; 65d3: d3 d4 d5... ... :60d3[6]
+    equb &df, &e0, &e1, &e2, &e3, &e4, &e5, &e6, &e7, &e8, &e9, &ea   ; 65df: df e0 e1... ... :60df[6]
+    equb &eb, &ec, &ed, &ee, &ef, &f0, &f1, &f2, &f3, &f4, &f5, &f6   ; 65eb: eb ec ed... ... :60eb[6]
+    equb &f7, &f8, &f9, &fa, &fb, &fc, &fd, &fe, &ff, 0  , 1  , 3     ; 65f7: f7 f8 f9... ... :60f7[6]
+    equb 4  , 5  , 6  , 8  , 9  , &0a, &0b, &0d, &0e, &0f, &11, &12   ; 6603: 04 05 06... ... :6103[6]
+    equb &13, &14, &16, &17, &18, &19, &1b, &1c, &1d, &1e             ; 660f: 13 14 16... ... :610f[6]
+    equs " !", '"', "$%&')*+,./01345679:;<>?@ACDEFGIJKLM"             ; 6619: 20 21 22...  !" :6119[6]
+    equs "OPQRSUVWXY[\]^_`bcdefghjklmnoprstuvwxyz|}~"                 ; 663f: 4f 50 51... OPQ :613f[6]
+    equb &7f, &80, &81, &82, &83, &84, &85, &86, &87, &89, &8a, &8b   ; 6669: 7f 80 81... ... :6169[6]
+    equb &8c, &8d, &8e, &8f, &90, &91, &92, &93, &94, &95, &96, &97   ; 6675: 8c 8d 8e... ... :6175[6]
+    equb &98, &99, &9a, &9b, &9c, &9d, &9e, &9f, &a0, &a1, &a2, &a3   ; 6681: 98 99 9a... ... :6181[6]
+    equb &a4, &a5, &a6, &a7, &a8, &a9, &aa, &ab, &ac, &ad, &ae, &af   ; 668d: a4 a5 a6... ... :618d[6]
+    equb &b0, &b1, &b1, &b2, &b3, &b4, &b5, &b6, &b7, &b8, &b9, &ba   ; 6699: b0 b1 b1... ... :6199[6]
+    equb &bb, &bc, &bc, &bd, &be, &bf, &c0, &c1, &c2, &c3, &c3, &c4   ; 66a5: bb bc bc... ... :61a5[6]
+    equb &c5, &c6, &c7, &c8, &c9, &c9, &ca, &cb, &cc, &cd, &ce, &ce   ; 66b1: c5 c6 c7... ... :61b1[6]
+    equb &cf, &d0, &d1, &d2, &d3, &d3, &d4, &d5, &d6, &d7, &d7, &d8   ; 66bd: cf d0 d1... ... :61bd[6]
+    equb &d9, &da, &db, &db, &dc, &dd, &de, &de, &df, &e0, &e1, &e1   ; 66c9: d9 da db... ... :61c9[6]
+    equb &e2, &e3, &e4, &e4, &e5, &e6, &e7, &e7, &e8, &e9, &ea, &ea   ; 66d5: e2 e3 e4... ... :61d5[6]
+    equb &eb, &ec, &ec, &ed, &ee, &ef, &ef, &f0, &f1, &f1, &f2, &f3   ; 66e1: eb ec ec... ... :61e1[6]
+    equb &f3, &f4, &f5, &f5, &f6, &f7, &f8, &f8, &f9, &fa, &fa, &fb   ; 66ed: f3 f4 f5... ... :61ed[6]
+    equb &fb, &fc, &fd, &fd, &fe, &ff, &ff, &ff, &fe, &fc, &fa, &f8   ; 66f9: fb fc fd... ... :61f9[6]
+    equb &f6, &f5, &f3, &f1, &ef, &ed, &ec, &ea, &e8, &e7, &e5, &e4   ; 6705: f6 f5 f3... ... :6205[6]
+    equb &e2, &e0, &df, &dd, &dc, &da, &d9, &d8, &d6, &d5, &d3, &d2   ; 6711: e2 e0 df... ... :6211[6]
+    equb &d1, &cf, &ce, &cd, &cc, &ca, &c9, &c8, &c7, &c5, &c4, &c3   ; 671d: d1 cf ce... ... :621d[6]
+    equb &c2, &c1, &c0, &bf, &bd, &bc, &bb, &ba, &b9, &b8, &b7, &b6   ; 6729: c2 c1 c0... ... :6229[6]
+    equb &b5, &b4, &b3, &b2, &b1, &b0, &af, &ae, &ad, &ac, &ac, &ab   ; 6735: b5 b4 b3... ... :6235[6]
+    equb &aa, &a9, &a8, &a7, &a6, &a5, &a5, &a4, &a3, &a2, &a1, &a1   ; 6741: aa a9 a8... ... :6241[6]
+    equb &a0, &9f, &9e, &9e, &9d, &9c, &9b, &9b, &9a, &99, &98, &98   ; 674d: a0 9f 9e... ... :624d[6]
+    equb &97, &96, &96, &95, &94, &94, &93, &92, &92, &91, &90, &90   ; 6759: 97 96 96... ... :6259[6]
+    equb &8f, &8e, &8e, &8d, &8d, &8c, &8b, &8b, &8a, &8a, &89, &89   ; 6765: 8f 8e 8e... ... :6265[6]
+    equb &88, &87, &87, &86, &86, &85, &85, &84, &84, &83, &83, &82   ; 6771: 88 87 87... ... :6271[6]
+    equb &82, &81, &81, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 677d: 82 81 81... ... :627d[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6789: 00 00 00... ... :6289[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6795: 00 00 00... ... :6295[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67a1: 00 00 00... ... :62a1[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67ad: 00 00 00... ... :62ad[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67b9: 00 00 00... ... :62b9[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67c5: 00 00 00... ... :62c5[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67d1: 00 00 00... ... :62d1[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67dd: 00 00 00... ... :62dd[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 67e9: 00 00 00... ... :62e9[6]
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &85   ; 67f5: 00 00 00... ... :62f5[6]
+    equb &70, &84, &71, &86, &77, &a9, 2  , &a2, 0  , &20, &f4, &ff   ; 6801: 70 84 71... p.q :6301[6]
+    equb &a9, &15, &a2, 0  , &20, &f4, &ff, &a0, 0  , &20, &e0, &ff   ; 680d: a9 15 a2... ... :630d[6]
+    equb &b0, &2a, &c9, &0d, &f0, &33, &c9, &20, &90, &f3, &d0, 4     ; 6819: b0 2a c9... .*. :6319[6]
+    equb &c0, 0  , &f0, &ed, &c9, &7f, &90, 7  , &d0, &e7, &88, &10   ; 6825: c0 00 f0... ... :6325[6]
+    equb &0d, &30, &e0, &c4, &77, &d0, 4  , &a9, 7  , &d0, 3  , &91   ; 6831: 0d 30 e0... .0. :6331[6]
+    equb &70, &c8, &20, &ee, &ff, &4c, &16, &63, &98, &48, &a9, &7e   ; 683d: 70 c8 20... p.  :633d[6]
+    equb &20, &f4, &ff, &68, &a8, &4c, &16, &63, &c8, &c4, &77, &d0   ; 6849: 20 f4 ff...  .. :6349[6]
+    equb 1  , &60, &a9, &20, &91, &70, &d0, &f4, &a6, &4a, &ad, &68   ; 6855: 01 60 a9... .`. :6355[6]
+    equb &fe, 8  , &29, &7f, &a0, &10, &c9, 4  , &90, &10, &e9, 4     ; 6861: fe 08 29... ..) :6361[6]
+    equb &88, &d0, &f7, &a0, 9  , &c9, 7  , &90, 5  , &e9, 7  , &88   ; 686d: 88 d0 f7... ... :636d[6]
+    equb &d0, &f7                                                     ; 6879: d0 f7       ..  :6379[6]
+    equs "( P4"                                                       ; 687b: 28 20 50... ( P :637b[6]
+    equb &0a, &38, &fd, &a0, 4  , &85, &74, &ac, &3a, &5f, &88, &f0   ; 687f: 0a 38 fd... .8. :637f[6]
+    equb 9  , &10, 4  , &0a, &4c, &95                                 ; 688b: 09 10 04... ... :638b[6]
+    equs "c&tj"                                                       ; 6891: 63 26 74... c&t :6391[6]
+    equb &18                                                          ; 6895: 18          .   :6395[6]
+    equs "m@_"                                                        ; 6896: 6d 40 5f    m@_ :6396[6]
+    equb &9d, &28, 1                                                  ; 6899: 9d 28 01    .(. :6399[6]
+    equs " ~P"                                                        ; 689c: 20 7e 50     ~P :639c[6]
+    equb &86, &4a, &60, &a5, &6f, &a2, &13, &dd, &3c, 1  , &f0, 3     ; 689f: 86 4a 60... .J` :639f[6]
+    equb &ca, &10, &f8, &86, 3  , &20, &84, &50, &86, &5b, &a6, 3     ; 68ab: ca 10 f8... ... :63ab[6]
+    equs " ~P"                                                        ; 68b7: 20 7e 50     ~P :63b7[6]
+    equb &86                                                          ; 68ba: 86          .   :63ba[6]
+    equs "M`LP8"                                                      ; 68bb: 4d 60 4c... M`L :63bb[6]
+    equb &ea, &ea, &ea, &ea, &ea, &48, &ad, &f8, 5  , &8d, &e3, &77   ; 68c0: ea ea ea... ... :63c0[6]
+    equb &4a, &8d, &e4, &77, &4a, &8d, &dc, &77, &4a, &8d, &db, &77   ; 68cc: 4a 8d e4... J.. :63cc[6]
+    equb &a5                                                          ; 68d8: a5          .   :63d8[6]
+    equs "%*h"                                                        ; 68d9: 25 2a 68    %*h :63d9[6]
+    equb &ae, &f8, 5  , &60, &a2, 0  , &8e, &f4, 5                    ; 68dc: ae f8 05... ... :63dc[6]
+    equs " MM"                                                        ; 68e5: 20 4d 4d     MM :63e5[6]
+    equb &a2, 4  , &20, &d0                                           ; 68e8: a2 04 20... ..  :63e8[6]
+    equs "A P:"                                                       ; 68ec: 41 20 50... A P :63ec[6]
+    equb &a2                                                          ; 68f0: a2          .   :63f0[6]
+    equs "' ~M"                                                       ; 68f1: 27 20 7e... ' ~ :63f1[6]
+    equb &a2, 2                                                       ; 68f5: a2 02       ..  :63f5[6]
+    equs " qe"                                                        ; 68f7: 20 71 65     qe :63f7[6]
+    equb &e0, 1  , &b0, &0c, &86, &6f, &ca, &8e                       ; 68fa: e0 01 b0... ... :63fa[6]
+    equs ";_ "                                                        ; 6902: 3b 5f 20    ;_  :6402[6]
+    equb &ec                                                          ; 6905: ec          .   :6405[6]
+    equs "B Ze"                                                       ; 6906: 42 20 5a... B Z :6406[6]
+    equb &a9, 0  , &8d, &3c, &5f, &a2, &15                            ; 690a: a9 00 8d... ... :640a[6]
+    equs " ~M"                                                        ; 6911: 20 7e 4d     ~M :6411[6]
+    equb &a2, 3                                                       ; 6914: a2 03       ..  :6414[6]
+    equs " qe"                                                        ; 6916: 20 71 65     qe :6416[6]
+    equb &8e                                                          ; 6919: 8e          .   :6419[6]
+    equs ":_ "                                                        ; 691a: 3a 5f 20    :_  :641a[6]
+    equb &c6, &44, &a2, &16                                           ; 691d: c6 44 a2... .D. :641d[6]
+    equs " ~M"                                                        ; 6921: 20 7e 4d     ~M :6421[6]
+    equb &a2, 3                                                       ; 6924: a2 03       ..  :6424[6]
+    equs " qe"                                                        ; 6926: 20 71 65     qe :6426[6]
+    equb &bd, &f0, &3d, &8d                                           ; 6929: bd f0 3d... ..= :6429[6]
+    equs ";_ "                                                        ; 692d: 3b 5f 20    ;_  :642d[6]
+    equb &ec, &42, &a9, &14, &85, &6f, &c6, &6f, &a6, &6f, &20, &eb   ; 6930: ec 42 a9... .B. :6430[6]
+    equb &40, &ad, &3c, &5f, &f0, &15, &20, &87                       ; 693c: 40 ad 3c... @.< :643c[6]
+    equs "f Ze"                                                       ; 6944: 66 20 5a... f Z :6444[6]
+    equb &a5, &6f, &cd, &39, &5f, &d0, &e7, &a9, 0  , &20, &64, &0f   ; 6948: a5 6f cd... .o. :6448[6]
+    equb &4c, &b3, &64, &a2, &17                                      ; 6954: 4c b3 64... L.d :6454[6]
+    equs " ~M "                                                       ; 6959: 20 7e 4d...  ~M :6459[6]
+    equb &d4                                                          ; 695d: d4          .   :645d[6]
+    equs "f Ze"                                                       ; 695e: 66 20 5a... f Z :645e[6]
+    equb &a6, &6f, &f0, &0e, &a2, &1b                                 ; 6962: a6 6f f0... .o. :6462[6]
+    equs " ~M"                                                        ; 6968: 20 7e 4d     ~M :6468[6]
+    equb &a2, 2                                                       ; 696b: a2 02       ..  :646b[6]
+    equs " qe"                                                        ; 696d: 20 71 65     qe :646d[6]
+    equb &e0, 0  , &f0, &c2, &a5, &6f, &8d, &39, &5f, &a9, 0  , &20   ; 6970: e0 00 f0... ... :6470[6]
+    equb &64, &0f, &a2, 0  , &ac, &4f, 1  , &cc, &39, &5f, &90, &1a   ; 697c: 64 0f a2... d.. :647c[6]
+    equb &b9, &b8, 6  , &38, &fd, 0  , &5a, &b9, &d0, 6  , &fd, 3     ; 6988: b9 b8 06... ... :6488[6]
+    equb &5a, &b0, 3  , &e8, &d0, &e6, &ec, &3a, &5f, &b0, 3  , &8e   ; 6994: 5a b0 03... Z.. :6494[6]
+    equb &3a, &5f, &ae                                                ; 69a0: 3a 5f ae    :_. :64a0[6]
+    equs ":_ "                                                        ; 69a3: 3a 5f 20    :_  :64a3[6]
+    equb &c6, &44, &a2, &1a                                           ; 69a6: c6 44 a2... .D. :64a6[6]
+    equs " ~M o< "                                                    ; 69aa: 20 7e 4d...  ~M :64aa[6]
+    equb &d0, &34, &a2, 2  , &a9, 0  , &20, &d3, &65, &a0, &13, &b9   ; 69b1: d0 34 a2... .4. :64b1[6]
+    equb &3c, 1  , &99, &c8, 4  , &cd, &39, &5f, &90, 8  , &aa, &b9   ; 69bd: 3c 01 99... <.. :64bd[6]
+    equb 0  , 1  , &4a, &9d, &a0, 4  , &88, &10, &ea, &ad, &3c, &5f   ; 69c9: 00 01 4a... ..J :64c9[6]
+    equb &d0, &1b, &a2, &1c                                           ; 69d5: d0 1b a2... ... :64d5[6]
+    equs " ~M"                                                        ; 69d9: 20 7e 4d     ~M :64d9[6]
+    equb &a9, &14, &38, &ed, &39, &5f, &8d, &38, &5f, &a2, 3          ; 69dc: a9 14 38... ..8 :64dc[6]
+    equs " qe"                                                        ; 69e7: 20 71 65     qe :64e7[6]
+    equb &bd, &f4, &3d, &85, &6e, &8e, &3f, &5f, &a9, &14, &85, &6f   ; 69ea: bd f4 3d... ..= :64ea[6]
+    equb &c6, &6f, &20, &87, &66, &a2, &13, &bd, &c8, 4  , &9d, &3c   ; 69f6: c6 6f 20... .o  :64f6[6]
+    equb 1  , &ca, &10, &f7, &20, &ec, &42, &a9, &80                  ; 6a02: 01 ca 10... ... :6502[6]
+    equs " \e"                                                        ; 6a0b: 20 5c 65     \e :650b[6]
+    equb &a9, &80, &20, &64, &0f, &a2, 5                              ; 6a0e: a9 80 20... ..  :650e[6]
+    equs " %Z"                                                        ; 6a15: 20 25 5a     %Z :6515[6]
+    equb &ca, &10, &fa, &a9, 0  , &20, &64, &0f, &a2, 6               ; 6a18: ca 10 fa... ... :6518[6]
+    equs " %Z"                                                        ; 6a22: 20 25 5a     %Z :6522[6]
+    equb &a9, &80, &20, &64, &0f, &a2, 1  , &a9, 4  , &20, &d3, &65   ; 6a25: a9 80 20... ..  :6525[6]
+    equb &a9, 0  , &20, &64, &0f, &a2, 6  , &a9, 0  , &20, &d3, &65   ; 6a31: a9 00 20... ..  :6531[6]
+    equb &a9                                                          ; 6a3d: a9          .   :653d[6]
+    equs "@ d"                                                        ; 6a3e: 40 20 64    @ d :653e[6]
+    equb &0f, &a2, 3  , &8e, &3c, &5f, &a9, &88, &20, &d3             ; 6a41: 0f a2 03... ... :6541[6]
+    equs "e$x"                                                        ; 6a4b: 65 24 78    e$x :654b[6]
+    equb &10, &d5, &a5, &6f, &cd, &39, &5f, &d0, &9f, &4c, &1f, &64   ; 6a4e: 10 d5 a5... ... :654e[6]
+    equb &a9, &28, &85, &6c, &85                                      ; 6a5a: a9 28 85... .(. :655a[6]
+    equs "m P< "                                                      ; 6a5f: 6d 20 50... m P :655f[6]
+    equb &dc, &16, &2c, &f4, 5  , &70, &f5, &10, 3                    ; 6a64: dc 16 2c... .., :6564[6]
+    equs " s2`"                                                       ; 6a6d: 20 73 32...  s2 :656d[6]
+    equb &a0, 0  , &84, &77, &86                                      ; 6a71: a0 00 84... ... :6571[6]
+    equs "u a2"                                                       ; 6a76: 75 20 61... u a :6576[6]
+    equb &a4, &75, &84, &76, &be, &e0                                 ; 6a7a: a4 75 84... .u. :657a[6]
+    equs "9 P"                                                        ; 6a80: 39 20 50    9 P :6580[6]
+    equb &0e, &f0, 7  , &a4, &76, &88, &10, &f1, &30, &ea, &a4, &76   ; 6a83: 0e f0 07... ... :6583[6]
+    equb &d0, &0d, &a5, &77, &f0, &e2, &a9, &98, &8d, &c5, &7f, &a6   ; 6a8f: d0 0d a5... ... :658f[6]
+    equb &78, &ca, &60, &84, &78, &a5, &77, &d0, 7  , &a2, &1e, &86   ; 6a9b: 78 ca 60... x.` :659b[6]
+    equs "w ~M"                                                       ; 6aa7: 77 20 7e... w ~ :65a7[6]
+    equb &a2, 0  , &a0, 1  , &a9, &84, &c4, &78, &d0, 2  , &a9, &81   ; 6aab: a2 00 a0... ... :65ab[6]
+    equb &9d, &85, &7e, &8a, &18, &69, &50, &aa, &c8, &c4, &75, &90   ; 6ab7: 9d 85 7e... ..~ :65b7[6]
+    equb &eb, &f0, &e9, &d0, &af, &c9, &0a, &90, 2  , &69, 5  , &f8   ; 6ac3: eb f0 e9... ... :65c3[6]
+    equb &69, 1  , &d8                                                ; 6acf: 69 01 d8    i.. :65cf[6]
+    equs "`H)"                                                        ; 6ad2: 60 48 29    `H) :65d2[6]
+    equb &0f, &85, &42, &20, &d0, &41, &a0, 0  , &84, &1b, &a9, 0     ; 6ad5: 0f 85 42... ..B :65d5[6]
+    equb &85                                                          ; 6ae1: 85          .   :65e1[6]
+    equs "x `>"                                                       ; 6ae2: 78 20 60... x ` :65e2[6]
+    equb &a2                                                          ; 6ae6: a2          .   :65e6[6]
+    equs "  ~M"                                                       ; 6ae7: 20 20 7e...   ~ :65e7[6]
+    equb &a4, &1b, &b9, 0  , 1                                        ; 6aeb: a4 1b b9... ... :65eb[6]
+    equs "$l0"                                                        ; 6af0: 24 6c 30    $l0 :65f0[6]
+    equb 1  , &98, &20, &c8, &65, &20, &d6, &37, &a2, &1f             ; 6af3: 01 98 20... ..  :65f3[6]
+    equs " ~M"                                                        ; 6afd: 20 7e 4d     ~M :65fd[6]
+    equb &a4, &1b                                                     ; 6b00: a4 1b       ..  :6600[6]
+    equs " {f"                                                        ; 6b02: 20 7b 66     {f :6602[6]
+    equb &a2, &1f                                                     ; 6b05: a2 1f       ..  :6605[6]
+    equs " ~M"                                                        ; 6b07: 20 7e 4d     ~M :6607[6]
+    equb &a6                                                          ; 6b0a: a6          .   :660a[6]
+    equs "EhH"                                                        ; 6b0b: 45 68 48    EhH :660b[6]
+    equb &d0, 8  , &a9, &26, &20, &9c                                 ; 6b0e: d0 08 a9... ... :660e[6]
+    equs "{LCf0"                                                      ; 6b14: 7b 4c 43... {LC :6614[6]
+    equb &11, &a5, &1b, &18, &69, &14, &c9, &1a, &aa, &90, &1c, &a9   ; 6b19: 11 a5 1b... ... :6619[6]
+    equb 7                                                            ; 6b25: 07          .   :6625[6]
+    equs " P="                                                        ; 6b26: 20 50 3d     P= :6626[6]
+    equb &f0, &18, &a9, &28, &85, &78, &bd, &f0, 4  , &f0, &0c, &20   ; 6b29: f0 18 a9... ... :6629[6]
+    equb &d6, &37, &bd, &e4, &39, &20, &e7                            ; 6b35: d6 37 bd... .7. :6635[6]
+    equs "CLCf "                                                      ; 6b3c: 43 4c 43... CLC :663c[6]
+    equb &d0, &43, &a4, &1b, &c8, &c0, &14, &d0, &93, &a9, 3          ; 6b41: d0 43 a4... .C. :6641[6]
+    equs " P="                                                        ; 6b4c: 20 50 3d     P= :664c[6]
+    equb &a9, &9c, &20, &ee, &ff, &a5, &6c, &10, &16, &a2             ; 6b4f: a9 9c 20... ..  :664f[6]
+    equs "1 ~M o<"                                                    ; 6b59: 31 20 7e... 1 ~ :6659[6]
+    equb &ad, &3f, &5f, &18, &69, &da, &8d, &7d, &3c, &a2             ; 6b60: ad 3f 5f... .?_ :6660[6]
+    equs "2 ~Mh "                                                     ; 6b6a: 32 20 7e... 2 ~ :666a[6]
+    equb &d2, &34, &60, &8d, &cd, &62, &a9, &1b, &8d, &cc, &62, &be   ; 6b70: d2 34 60... .4` :6670[6]
+    equb &3c, 1  , &86, &45, &20, &eb                                 ; 6b7c: 3c 01 86... <.. :667c[6]
+    equs "< P2`"                                                      ; 6b82: 3c 20 50... < P :6682[6]
+    equb &a2, &1d                                                     ; 6b87: a2 1d       ..  :6687[6]
+    equs " ~M"                                                        ; 6b89: 20 7e 4d     ~M :6689[6]
+    equb &a6, &6f, &20, &eb                                           ; 6b8c: a6 6f 20... .o  :668c[6]
+    equs "< P2 "                                                      ; 6b90: 3c 20 50... < P :6690[6]
+    equb &d0, &34, &60, &f8, &b9, &64, &38, &18                       ; 6b95: d0 34 60... .4` :6695[6]
+    equs "}x8"                                                        ; 6b9d: 7d 78 38    }x8 :669d[6]
+    equb &99, &64, &38, &b9, &e4, &39, &7d, &f8, &39, &99, &e4, &39   ; 6ba0: 99 64 38... .d8 :66a0[6]
+    equb &b9, &f0, 4  , &69, 0  , &99, &f0, 4  , &d8, &60, &a6, &1f   ; 6bac: b9 f0 04... ... :66ac[6]
+    equb &a9, &80, &9d, &a4, 5  , &9d, &50, 6  , &9d, 0  , 6  , &9d   ; 6bb8: a9 80 9d... ... :66b8[6]
+    equb &54, 5  , &ca, &10, &f1, &a2, &4f, &a9, 0  , &9d, &60, &5f   ; 6bc4: 54 05 ca... T.. :66c4[6]
+    equb &ca, &10, &fa, &60, &a6, &6f, &20, &eb, &3c, &a2, &0c, &20   ; 6bd0: ca 10 fa... ... :66d0[6]
+    equb 0  , &63, &60, &a6, 3  , &10, 3  , &20, &cb, &2a, &20, &84   ; 6bdc: 00 63 60... .c` :66dc[6]
+    equb &50, &e4, &4d, &d0, &f6, &a2, &16, &86, &45, &20, &d1, &2a   ; 6be8: 50 e4 4d... P.M :66e8[6]
+    equb &ca, &e0, &14, &b0, &f6, &a6, &4d, &20, &cb, &2a, &60, 0     ; 6bf4: ca e0 14... ... :66f4[6]
+    org l64d0 + (l6700 - movedFrom64d0)
+    copyblock movedFrom64d0, l6700, l64d0
+    clear movedFrom64d0, l6700
+
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6c00: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6c14: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6c28: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6c3c: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0   ; 6c50: 00 00 00... ...
+    equb 0, 0, 0, 0, 0, 0, 0, 0, 0                                    ; 6c64: 00 00 00... ...
+    equs "00@"                                                        ; 6c6d: 30 30 40    00@
+    equb 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0     ; 6c70: 00 00 00... ...
+    equb 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0     ; 6c7c: 00 f0 f0... ...
+    equb 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0     ; 6c88: 00 00 00... ...
+    equb 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0     ; 6c94: 00 f0 f0... ...
+    equb 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0     ; 6ca0: 00 00 00... ...
+    equb 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0     ; 6cac: 00 f0 f0... ...
+    equb 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0     ; 6cb8: 00 00 00... ...
+    equb 0  , &f0, &f0, 0  , 0  , 0  , 0  , 0  , 0  , &f0, &f0, 0     ; 6cc4: 00 f0 f0... ...
+    equb 0  , 0  , 0  , 0  , 0  , &c0, &c0, &20, 0  , 0  , 0  , 0     ; 6cd0: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6cdc: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6ce8: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6cf4: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d00: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d0c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d18: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d24: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d30: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d3c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d48: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d54: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d60: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d6c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d78: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d84: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6d90: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10, &10, &10   ; 6d9c: 00 00 00... ...
+    equb &70, &40, &f0, &80, &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0     ; 6da8: 70 40 f0... p@.
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &e1, &16   ; 6db4: f0 00 f0... ...
+    equb &f0, 0  , &f0, 0  , &c3, &2d, &5a, &c3, &f0, 0  , &f0, 7     ; 6dc0: f0 00 f0... ...
+    equb &78, &a5, &87, &1e, &f0, 0  , &0f, &b4, &d2, &0f, &2d, &0f   ; 6dcc: 78 a5 87... x..
+    equb &f0, 7  , &78, &f0, &4b, &1e, &4b, &0f, &f0, &0e, &e1, &f0   ; 6dd8: f0 07 78... ..x
+    equb &2d, &87, &2d, &0f, &f0, 0  , &0f, &d2, &b4, &0f, &4b, &0f   ; 6de4: 2d 87 2d... -.-
+    equb &f0, 0  , &f0, &0e, &e1, &5a, &1e, &87, &f0, 0  , &f0, 0     ; 6df0: f0 00 f0... ...
+    equb &3c, &4b, &a5, &3c, &f0, 0  , &f0, 0  , &f0, 0  , &78, &86   ; 6dfc: 3c 4b a5... <K.
+    equb &f0, 0  , &f0, 0  , &f0, 0  , &f0, 0  , &e0, &20, &f0, &10   ; 6e08: f0 00 f0... ...
+    equb &f0, 0  , &f0, 0  , 0  , 0  , 0  , 0  , 0  , &80, &80, &80   ; 6e14: f0 00 f0... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e20: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e2c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e38: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e44: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e50: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e5c: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e68: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6e74: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , &a0, &50, &b0, 0  , 0  , 0  , 0     ; 6e80: 00 00 00... ...
+    equb 0  , &d0, &a0, &40, 0  , 0  , 0  , 0  , 0  , &f0, &10, 0     ; 6e8c: 00 d0 a0... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , &80, &c0, 0  , 0  , 0  , 0     ; 6e98: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6ea4: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6eb0: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6ebc: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6ec8: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , &10        ; 6ed4: 00 00 00... ...
+    equs "00 0@p"                                                     ; 6edf: 30 30 20... 00
+    equb &c0, &f0, &80, &f0, 0  , &f0, 0  , &e1, 3  , &96, &0f, &f0   ; 6ee5: c0 f0 80... ...
+    equb 1  , &87, &3c, &4b, &c3, &87                                 ; 6ef1: 01 87 3c... ..<
+    equs "K-i"                                                        ; 6ef7: 4b 2d 69    K-i
+    equb &87, &1e, &0f, &87, &0f, &0f, &87, &4b, &0f, &0f, &0f, &0f   ; 6efa: 87 1e 0f... ...
+    equb &0f, &0f, &87, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f   ; 6f06: 0f 0f 87... ...
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f, &0f   ; 6f12: 0f 0f 0f... ...
+    equb &0e, 1  , &0f, &0f, &0f, &0f, &0f, &0f, 7  , 8  , &0f, &0f   ; 6f1e: 0e 01 0f... ...
+    equb &0f, &0f, &0f, &0f, &0f, &0f, &1e, &0f, &0f, &0f, &0f, &0f   ; 6f2a: 0f 0f 0f... ...
+    equb &0f, &0f, &1e, &2d, &0f, &0f, &0f, &0f, &0f, &0f, &4b, &69   ; 6f36: 0f 0f 1e... ...
+    equb &1e, &87, &0f, &1e, &0f, &0f, &f0, 8  , &1e, &c3, &2d, &3c   ; 6f42: 1e 87 0f... ...
+    equb &1e, &2d, &f0, 0  , &f0, 0  , &78, &0c, &96, &0f, &c0, &40   ; 6f4e: 1e 2d f0... .-.
+    equb &c0, &20, &e0, &30, &f0, &10, 0  , 0  , 0  , 0  , 0  , 0     ; 6f5a: c0 20 e0... . .
+    equb &80, &c0, 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6f66: 80 c0 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6f72: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6f7e: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6f8a: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6f96: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , &10, &30, 0  , 0  , 0  , 0  , 0  , &f0   ; 6fa2: 00 00 00... ...
+    equb &80, 0  , 0  , 0  , 0  , 0  , 0  , &b0, &50, &20, 0  , 0     ; 6fae: 80 00 00... ...
+    equb 0  , 0  , 0  , &50, &a0, &d0, &20, &40, &90, &90             ; 6fba: 00 00 00... ...
+    equs "  @@"                                                       ; 6fc4: 20 20 40...   @
+    equb &c0, &80, 0  , 0  , 0  , &10, &10, &20, 0  , 0  , &30, &60   ; 6fc8: c0 80 00... ...
+    equb &80, &80, 0  , 0  , &40, &60, &e0, &30, &10, &10, 0  , 0     ; 6fd4: 80 80 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , &80, &80, 0  , 0  , 0  , 0     ; 6fe0: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0     ; 6fec: 00 00 00... ...
+    equb 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0                         ; 6ff8: 00 00 00... ...
+.pydis_end
+
+; Automatically generated labels:
+;     l0d00
+;     l120e
+;     l1300
+;     l1500
+;     l16dc
+;     l5300
+;     l5a80
+;     l64d0
+;     l6700
+;     l70db
+;     l7725
+;     l7a00
+
+save "3-assembled-output/Revs.bin", pydis_start, pydis_end
 
 \ ******************************************************************************
 \

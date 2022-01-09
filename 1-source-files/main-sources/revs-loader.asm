@@ -43,6 +43,9 @@ CODE% = &2000           \ The address of the main game code
 \
 \ ******************************************************************************
 
+ORG CODE%
+    CPU 1
+
 osbyte_flush_buffer_class = &0F
 
 L0000 = &0000
@@ -59,9 +62,10 @@ crtc_horz_displayed = &FE01
 osbyte = &FFF4
 oscli = &FFF7
 
-ORG CODE%
+    ORG &2000
 
 .Start
+.pydis_start
     LDA #&C9
     STA L0D00
     LDX #6
@@ -239,6 +243,12 @@ ORG CODE%
     EQUB 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  , 0  
     EQUB 0  , 0  , &3D, &15, &14, &15, 7  , &15, &FC, &14, &6E, &14
     EQUB &13, 9  , 0  , 0  
+.pydis_end
+    ASSERT <(runRevs) == &07
+    ASSERT >(runRevs) == &25
+    ASSERT osbyte_flush_buffer_class == &0F
+
+SAVE "3-assembled-output/Revs1.bin", pydis_start, pydis_end
 
 \ ******************************************************************************
 \

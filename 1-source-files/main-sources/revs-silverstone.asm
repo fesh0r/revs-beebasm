@@ -45,7 +45,10 @@ CODE% = &70DB           \ The address of the main game code
 
 ORG CODE%
 
+    ORG &70DB
+
 .trackData
+.pydis_start
     EQUB 3  , &D1, &0C, &0F, &CF, &60, &0F, &88, &13, &CF, &0C, &3E
     EQUB &CE, &12, &3D, 0  , &12, &D3, &0C, &46, &D2, &14, &47, &8A
     EQUB &22, &D6, &0C, &4A, &D5, &1E, &4A, &21, &22, &DE, &0C, &4F
@@ -199,17 +202,18 @@ ORG CODE%
     EQUB &67, &42, &35, &2E, &2A, &A1, 0  , &A1, &68, &52, &48, &41
     EQUB &86, &92, &98, 4  , &28, &18, 0  , &73, &6F, &31, 0  , &8C
     EQUB 0  , 0  , &60, &EA, &EA
-
 ; Checksum bytes:
 ; &7800 counts the number of data bytes ending in %00
 ; &7801 counts the number of data bytes ending in %01
 ; &7802 counts the number of data bytes ending in %10
 ; &7803 counts the number of data bytes ending in %11
     EQUB &49, &8B, &8A, &C7
-
 ; Track name
     EQUS "REVSSilverstone"
     EQUB &0D
+.pydis_end
+
+SAVE "3-assembled-output/Silvers.bin", pydis_start, pydis_end
 
 \ ******************************************************************************
 \
